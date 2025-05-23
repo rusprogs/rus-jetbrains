@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает о любых вызовах методов класса <code>junit.framework.Assert</code>. Этот класс устарел, и такие вызовы можно заменить вызовами методов класса <code>org.junit.Assert</code>.
+<p>Например:</p>
+<pre><code lang="java">
+  <b>import</b> org.junit.*;
+  <b>public class</b> NecessaryTest {
+    @Test
+    <b>public void</b> testIt() {
+      junit.framework.Assert.assertEquals("expected", "actual");
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления результат будет выглядеть так:</p>
+<pre><code lang="java">
+  <b>import</b> org.junit;
+  <b>public class</b> NecessaryTest {
+    <b>public void</b> testIt() {
+      Assert.assertEquals("expected", "actual");
+    }
+  }
+</code></pre>
+<p>
+</body>
+</html>

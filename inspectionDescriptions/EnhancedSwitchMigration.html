@@ -1,0 +1,42 @@
+<html>
+<body>
+Инспекция может автоматически заменить оператор <code>switch</code> на расширенный оператор или выражение <code>switch</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  double getPrice(String fruit) {
+    // Оператор Switch можно заменить на расширенный 'switch'
+    switch (fruit) {
+      case "Apple":
+        return 1.0;
+      case "Orange":
+        return 1.5;
+      case "Mango":
+        return 2.0;
+      default:
+        throw new IllegalArgumentException();
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  double getPrice(String fruit) {
+    return switch (fruit) {
+      case "Apple" -> 1.0;
+      case "Orange" -> 1.5;
+      case "Mango" -> 2.0;
+      default -> throw new IllegalArgumentException();
+    };
+  }
+  </code></pre>
+<p>
+<ul>
+  <li>
+    Используйте опцию <b>показывать предупреждение только при возможности преобразования в выражение</b>, чтобы не получать предупреждения о преобразовании в оператор <code>switch</code>.
+  </li>
+  <li>
+    Используйте опцию <b>максимальное количество операторов в ветке для преобразования в switch-выражение</b>, чтобы получать предупреждения о преобразовании в выражение только когда количество операторов в каждой ветке меньше указанного значения.
+  </li>
+</ul>
+<p><small>Новое в версии 2019.1</small></p>
+</body>
+</html>

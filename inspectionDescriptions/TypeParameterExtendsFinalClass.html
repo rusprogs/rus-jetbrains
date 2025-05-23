@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о параметрах типа, объявленных для расширения класса с модификатором <code>final</code>.
+<p>Поскольку невозможно расширить класс с модификатором <code>final</code>, рекомендуется заменить параметр типа на тип указанного класса <code>final</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  <b>void</b> foo() {
+    List&lt;? <b>extends</b> Integer&gt; list; // предупреждение: класс Integer является final
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  <b>void</b> foo() {
+    List&lt;Integer&gt; list;
+  }
+</code></pre>
+</body>
+</html>

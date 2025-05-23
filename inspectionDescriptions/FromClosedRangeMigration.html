@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщение о вызовах <code>IntProgression.fromClosedRange()</code> и <code>LongProgression.fromClosedRange()</code> с шагом <code>MIN_VALUE</code>.
+<p>
+Запрещено использование <code>IntProgression.fromClosedRange()</code> и <code>LongProgression.fromClosedRange()</code> с шагом <code>MIN_VALUE</code>. Все подобные вызовы должны быть проверены при переходе на Kotlin 1.3+.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  IntProgression.fromClosedRange(12, 143, Int.MIN_VALUE)
+</code></pre>
+<p>Для исправления этой проблемы измените шаг прогрессии.</p>
+</body>
+</html>

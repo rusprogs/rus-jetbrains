@@ -1,0 +1,12 @@
+<html>
+<body>
+Обнаружена ссылка на локальную переменную в функции возврата
+<p><b>Пример:</b></p>
+<pre><code>
+  int *escapeLocalScope() {
+    int lv = 100;
+    return &#38lv;
+  }
+</code></pre>
+</body>
+</html>

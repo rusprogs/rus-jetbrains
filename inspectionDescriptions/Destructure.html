@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает о объявлениях, которые могут быть деструктурированы.
+<p><b>Пример:</b></p>
+<pre><code>
+  data class My(val first: String, val second: Int, val third: Boolean)
+  fun foo(list: List&lt;My>) {
+      list.forEach { my ->
+          println(my.second)
+          println(my.third)
+      }
+  }
+</code></pre>
+<p>Быстрое исправление деструктурирует объявление и вводит новые переменные с именами из соответствующего класса:</p>
+<pre><code>
+  data class My(val first: String, val second: Int, val third: Boolean)
+  fun foo(list: List&lt;My>) {
+      list.forEach { (_, second, third) ->
+          println(second)
+          println(third)
+      }
+  }
+</code></pre>
+</body>
+</html>

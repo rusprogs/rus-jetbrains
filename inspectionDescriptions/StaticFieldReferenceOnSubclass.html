@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщает о доступе к статическим полям, который определяется подклассом объявляющего класса, а не самим объявляющим классом.
+<p>
+  Java допускает такое определение, но подобный доступ может указывать на неочевидную путаницу между наследованием и переопределением.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Parent {
+    static int foo = 0;
+  }
+  class Child extends Parent { }
+  void bar() {
+    System.out.println(Child.foo);
+  }
+</code></pre>
+<p>После применения быстрого исправления результат будет выглядеть так:</p>
+<pre><code>
+  class Parent {
+    static int foo = 0;
+  }
+  class Child extends Parent { }
+  void bar() {
+    System.out.println(Parent.foo);
+  }
+</code></pre>
+</body>
+</html>

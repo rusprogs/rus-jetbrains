@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает об операторах <code>if</code>, <code>when</code> и <code>try</code>, которые могут быть преобразованы в выражения путем извлечения операторов <code>return</code> или присваивания.
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(arg: Int): String {
+      when (arg) {
+          0 -> return "Zero"
+          1 -> return "One"
+          else -> return "Multiple"
+      }
+  }
+</code></pre>
+После применения быстрого исправления:
+<pre><code>
+  fun foo(arg: Int): String {
+      return when (arg) {
+          0 -> "Zero"
+          1 -> "One"
+          else -> "Multiple"
+      }
+  }
+</code></pre>
+<p>Если вы хотите, чтобы эта проверка подсвечивала более сложный код с несколькими операторами в ветвях, снимите флажок "Сообщать только когда каждая ветвь содержит единственный оператор".</p>
+</body>
+</html>

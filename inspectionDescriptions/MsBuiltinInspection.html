@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщать об усечении строковых аргументов в функции ISNULL.
+<p>Синтаксис ISNULL: <code>ISNULL(check_expression, replacement_value)</code>.
+</p>
+<p>Согласно <a href="https://docs.microsoft.com/en-us/sql/t-sql/functions/isnull-transact-sql" target="_blank">документации ISNULL на docs.microsoft.com</a>, если <code>replacement_value</code> длиннее, чем <code>check_expression</code>, значение <code>replacement_value</code> будет усечено.
+</p>
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>DECLARE @name1 VARCHAR(2) = NULL;
+DECLARE @name2 VARCHAR(10) = 'Example';
+DECLARE @name3 VARCHAR(2) = 'Hi';
+  -- `@name2` имеет тип VARCHAR(10) и будет усечен
+SELECT ISNULL(@name1, @name2);
+  -- `@name3` имеет тип VARCHAR(2) (как и `@name1`) и не будет усечен
+SELECT ISNULL(@name1, @name3);</code></pre>
+</body>
+</html>

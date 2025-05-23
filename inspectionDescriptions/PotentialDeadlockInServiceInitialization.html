@@ -1,0 +1,96 @@
+<html>
+<body>
+Отчёт об операциях чтения/записи и вызовах <code>invokeAndWait</code> во время инициализации сервиса:
+<ul>
+  <li>Конструкторы сервиса и блоки инициализации (включая static)</li>
+  <li>Блоки инициализации в companion object сервиса (Kotlin)</li>
+  <li>Методы сервиса, используемые в блоках инициализации и инициализации полей</li>
+  <li>Методы жизненного цикла инициализации <code>PersistentStateComponent</code>:
+    <ul>
+      <li><code>loadState</code></li>
+      <li><code>noStateLoaded</code></li>
+      <li><code>initializeComponent</code></li>
+    </ul>
+</ul>
+<p>Выполнение операций чтения/записи или вызов <code>invokeAndWait</code> во время инициализации сервиса может привести к взаимной блокировке.</p>
+<p><b>Примеры:</b></p>
+<p>Kotlin:</p>
+<pre><code lang="kotlin">
+@Service
+internal class MyService {
+  private val myData = initMyData();
+  constructor() {
+    val data = runReadAction { // Ошибка: выполнение операции чтения в конструкторе
+      // чтение данных
+    }
+  }
+  private fun initMyData(): Data {
+    return runWriteAction { // Ошибка: вызов при инициализации свойства myData
+      // запись данных
+    }
+  }
+  companion object {
+    lateinit var companionData: String
+    init {
+      companionData = runReadAction { // Ошибка: выполнение операции чтения в блоке init
+        // чтение данных
+      }
+    }
+  }
+}
+</code></pre>
+<p>Java:</p>
+<pre><code lang="java">
+@Service
+class MyService {
+  private static final Data ourData1 = ReadAction.compute(() -> {
+    // чтение данных
+  });
+  private static final Data ourData2;
+  static {
+    ourData2 = ReadAction.compute(() -> { // Ошибка: выполнение операции чтения в статическом блоке инициализации
+      // чтение данных
+    });
+  }
+  private final Data myData2 = initMyData();
+  MyService() {
+    Data data = WriteAction.compute(() -> { // Ошибка: выполнение операции чтения в конструкторе
+      // запись данных
+    });
+  }
+  private Data initMyData() {
+    return ReadAction.compute(() -> { // Ошибка: вызов при инициализации свойства myData
+      // чтение данных
+    });
+  }
+}
+</code></pre>
+<p><code>PersistentStateComponent</code>:</p>
+<pre><code lang="kotlin">
+@Service
+@State(...)
+internal class MySettings : PersistentStateComponent&lt;MyService> {
+  var stateValue: String? = null
+  override fun loadState(state: MySettings) {
+    val data = runReadAction { // Ошибка: выполнение операции чтения в loadState
+      // чтение данных
+    }
+    // ...
+  }
+  override fun noStateLoaded() {
+    val data = runWriteAction { // Ошибка: выполнение операции чтения в noStateLoaded
+      // запись данных
+    }
+    // ...
+  }
+  override fun initializeComponent() {
+    val data = runReadAction { // Ошибка: выполнение операции чтения в initializeComponent
+      // чтение данных
+    }
+    // ...
+  }
+}
+</code></pre>
+<p><small>Изменения в версии 2024.2</small>
+</body>
+</html>

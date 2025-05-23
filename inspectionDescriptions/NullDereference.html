@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о возможном разыменовании указателя, который может содержать <code>nullptr</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  using namespace std;
+  void process(string *a, string b) {
+    if (a != nullptr || a->length()) {
+      a = &#38b;
+    }
+  }
+</code></pre>
+</body>
+</html>

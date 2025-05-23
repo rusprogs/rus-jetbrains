@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает о методах тестования JUnit с множественными исключениями в блоке <code>throws</code>.
+Такие объявления создают ненужное многословие.
+Тестовые методы не будут вызываться из другого проектного кода, поэтому нет необходимости обрабатывать эти исключения по отдельности.
+<p>Пример:</p>
+<pre><code lang="java">
+  @Test
+  public void testReflection() throws NoSuchMethodException,
+      InvocationTargetException, IllegalAccessException {
+    String result = (String) String.class.getMethod("trim")
+        .invoke(" hello ");
+    assertEquals("hello", result);
+  }
+</code></pre>
+<p>С помощью быстрого исправления замените объявления исключений на единое исключение:</p>
+<pre><code lang="java">
+  @Test
+  public void testReflection() throws Exception {
+    String result = (String) String.class.getMethod("trim")
+        .invoke(" hello ");
+    assertEquals("hello", result);
+  }
+</code></pre>
+</body>
+</html>

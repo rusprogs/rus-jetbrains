@@ -1,0 +1,24 @@
+<html>
+<body>
+Обнаружение пустых блоков <code>finally</code>.
+<p>Пустые блоки <code>finally</code> обычно указывают на ошибки в коде. Они могут остаться после рефакторинга кода и могут быть безопасно удалены.</p>
+<p>Эта проверка не распространяется на пустые блоки <code>finally</code>, обнаруженные в JSP файлах.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  try {
+    Files.readString(Paths.get("in.txt"));
+  } catch (IOException e) {
+    throw new RuntimeException(e);
+  } finally {
+  }
+</code></pre>
+<p>После применения быстрого исправления:
+<pre><code>
+  try {
+    Files.readString(Paths.get("in.txt"));
+  } catch (IOException e) {
+    throw new RuntimeException(e);
+  }
+</code></pre>
+</body>
+</html>

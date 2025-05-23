@@ -1,0 +1,21 @@
+<html>
+<body>
+Проверка размера <code>Collections/Array/String</code> должна быть заменена на <code>isNotEmpty()</code>.
+<p>Использование <code>isNotEmpty()</code> делает код более лаконичным.</p>
+<p>Это быстрое исправление заменит проверку размера на <code>isNotEmpty()</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo() {
+      val arrayOf = arrayOf(1, 2, 3)
+      arrayOf.size &gt; 0
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo() {
+      val arrayOf = arrayOf(1, 2, 3)
+      arrayOf.isNotEmpty()
+  }
+</code></pre>
+</body>
+</html>

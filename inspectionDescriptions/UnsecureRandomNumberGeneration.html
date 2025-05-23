@@ -1,0 +1,12 @@
+<html>
+<body>
+Сообщает о любом использовании <code>java.lang.Random</code> или <code>java.lang.Math.random()</code>.
+<p>
+  В защищенной среде лучше использовать <code>java.secure.SecureRandom</code>, так как он обеспечивает криптографически безопасную генерацию случайных чисел.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  long token = new Random().nextLong();
+</code></pre>
+</body>
+</html>

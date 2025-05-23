@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает об объявлениях классов и объектов с пустым телом.
+<p>Используйте быстрое исправление "Удалить избыточное пустое тело класса" для очистки кода.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class EmptyA() {} // &lt;== пустое тело
+  class EmptyB {
+      companion object {} // &lt;== пустое тело
+  }
+  fun emptyC() {
+     object {} // &lt;== анонимный объект, допустимо (не отмечается)
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class EmptyA()
+  class EmptyB {
+      companion object
+  }
+  fun emptyC() {
+     object {}
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщать о любых ненужных операторах <code>break</code>.
+<p>Оператор <code>break</code> считается ненужным, если после его удаления не выполняются никакие другие операторы.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  switch (e) {
+    case A -&gt; {
+        System.out.println("A");
+        break; // Сообщение о ненужном операторе 'break'
+    }
+    default -&gt; {
+        System.out.println("Default");
+        break; // Сообщение о ненужном операторе 'break'
+    }
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает об использовании аннотаций <code>@Ignore</code> в JUnit 4 или <code>@Disabled</code> в JUnit 5.
+Длительное использование этих аннотаций для тестов считается признаком проблемного кода, особенно когда не указана причина.
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @Ignore
+  <b>public class</b> UrgentTest {
+    @Test
+    <b>public void</b> testIt() {
+      Assert.assertEquals("expected", "actual");
+    }
+  }
+</code></pre>
+<p>
+  Настройка проверки:
+</p>
+<ul>
+  <li>
+    Опция <b>Сообщать только об аннотациях без причины</b> позволяет обнаруживать только случаи, когда не указано значение атрибута <code>value</code> аннотации.
+  </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<body>
+Делегирование интерфейса свойству <code>var</code>
+<p>Делегирование использует только начальное значение свойства, последующие присваивания не влияют на него.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Example(var text: CharSequence): CharSequence by text
+</code></pre>
+<p>Это быстрое исправление заменит свойство на неизменяемое:</p>
+<pre><code>
+  class Example(val text: CharSequence): CharSequence by text
+</code></pre>
+<p>Если вам по какой-то причине необходима изменяемость, можно использовать альтернативный подход:</p>
+<pre><code>
+  class Example(text: CharSequence): CharSequence by text {
+      var text = text
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<body>
+Сообщает об операторах <code>if</code> с веткой <code>else</code>, где условие отрицательное.
+<p>Перестановка веток <code>if</code> и <code>else</code> обычно делает такие операторы более понятными.</p>
+<p>Это можно исправить, инвертировав текущий оператор <code>if</code>.</p>
+<p>Пример:</p>
+<pre><code>
+    void m(Object o1, Object o2) {
+        if (o1 != o2) {
+            System.out.println(1);
+        }
+        else {
+            System.out.println(2);
+        }
+    }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+    void m(Object o1, Object o2) {
+        if (o1 == o2) {
+            System.out.println(2);
+        } else {
+            System.out.println(1);
+        }
+    }
+</code></pre>
+<p>Используйте опцию <b>Игнорировать сравнения '!= null'</b>, чтобы игнорировать сравнения вида <code>!= null</code>.</p>
+<p>Используйте опцию <b>Игнорировать сравнения '!= 0'</b>, чтобы игнорировать сравнения вида <code>!= 0</code>.</p>
+</body>
+</html>

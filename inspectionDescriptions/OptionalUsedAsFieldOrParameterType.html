@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о любом использовании <code>java.util.Optional&lt;T&gt;</code>, <code>java.util.OptionalDouble</code>, <code>java.util.OptionalInt</code>, <code>java.util.OptionalLong</code> или <code>com.google.common.base.Optional</code> в качестве типа для полей или параметров метода.
+<p><code>Optional</code> разработан как ограниченный механизм для возвращаемых значений методов библиотеки в случаях, когда требуется явный способ указать "отсутствие результата".</p>
+<p>Использование полей типа <code>java.util.Optional</code> также проблематично, если класс должен быть <code>Serializable</code>, поскольку <code>java.util.Optional</code> не сериализуем.</p>
+<p>Пример:</p>
+<pre><code>
+  class MyClass {
+    Optional&lt;String&gt; name; // Поле Optional
+    // Параметр Optional
+    void setName(Optional&lt;String&gt; name) {
+      this.name = name;
+    }
+  }
+</code></pre>
+</body>
+</html>

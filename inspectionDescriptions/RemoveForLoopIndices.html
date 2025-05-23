@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает об использовании функции <code>withIndex()</code> вместо переменной индекса в цикле <code>for</code> при итерации по коллекции.
+<p>Быстрое исправление "Удалить индекс из цикла 'for'" поможет очистить код.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(bar: List&lt;String&gt;) {
+     for ((index : Int, value: String) in bar.withIndex()) { // &lt;== 'index' не используется
+         println(value)
+     }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(bar: List&lt;String&gt;) {
+      for (value: String in bar) { // &lt;== '.withIndex()' и 'index' удалены
+          println(value)
+      }
+  }
+</code></pre>
+</body>
+</html>

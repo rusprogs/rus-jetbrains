@@ -1,0 +1,15 @@
+<html>
+<body>
+Класс объявлен одновременно как EJB и класс-перехватчик.
+<p><b>Пример:</b></p>
+<pre><code>
+@Stateless
+public class ExampleBean {
+  @Interceptors(ExampleBean.class) // Ошибка: класс объявлен одновременно как EJB и перехватчик
+  public void getAnotherBean() {
+    ...
+  }
+}
+</code></pre>
+</body>
+</html>

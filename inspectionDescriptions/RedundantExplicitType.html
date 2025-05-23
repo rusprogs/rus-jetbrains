@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Сообщает о явно указанных типах локальных переменных, которые очевидны и избыточны, например <code>val f: Foo = Foo()</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Point(val x: Int, val y: Int)
+  fun foo() {
+      val t: <b>Boolean</b> = true
+      val p: <b>Point</b> = Point(1, 2)
+      val i: <b>Int</b> = 42
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Point(val x: Int, val y: Int)
+  fun foo() {
+      val t = true
+      val p = Point(1, 2)
+      val i = 42
+  }
+</code></pre>
+</body>
+</html>

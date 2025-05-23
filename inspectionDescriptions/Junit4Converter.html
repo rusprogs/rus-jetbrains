@@ -1,0 +1,23 @@
+<html>
+<body>
+Тесты JUnit 3, которые могут быть преобразованы в тестовые классы JUnit 4.
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  public class MainTestCase extends junit.framework.TestCase {
+    public void test() {
+      Assert.assertTrue(true);
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  public class MainTestCase {
+    @org.junit.Test
+    public void test() {
+      Assert.assertTrue(true);
+    }
+  }
+</code></pre>
+<p>Эта проверка срабатывает только когда уровень языка проекта или модуля установлен на 5 или выше, и JUnit 4 доступен в classpath.</p>
+</body>
+</html>

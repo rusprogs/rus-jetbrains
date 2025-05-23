@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>java.lang.String.concat()</code>.
+<p>
+  Если метод вызывается для константы с константным аргументом, такой вызов можно заменить оператором <code>+</code> для улучшения читаемости и производительности.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  String foo(String name) {
+    return name.concat("foo");
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  String foo(String name) {
+    return name + "foo";
+  }
+</code></pre>
+</body>
+</html>

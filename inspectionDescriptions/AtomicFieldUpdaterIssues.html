@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о проблемах с полями <code>AtomicLongFieldUpdater</code>, <code>AtomicIntegerFieldUpdater</code> или <code>AtomicReferenceFieldUpdater</code> (пакет <code>java.util.concurrent.atomic</code>).
+<p>Сообщаются те же проблемы, которые могут возникнуть во время выполнения с атомарными обновлениями полей: не найдено указанное поле, указанное поле недоступно, неверный тип указанного поля и т.д.</p>
+<p><b>Примеры:</b></p>
+<ul>
+  <li><pre><code>
+  class A {
+    private static volatile int value = 0;
+    private static final AtomicIntegerFieldUpdater updater =
+    AtomicIntegerFieldUpdater.newUpdater((A.class), "value"); // Предупреждение: поле 'value' имеет модификатор 'static'
+  }
+  </code></pre></li>
+  <li><pre><code>
+  class B {
+    private static final AtomicIntegerFieldUpdater updater =
+      AtomicIntegerFieldUpdater.newUpdater(B.class, "value"); // Предупреждение: поле 'value' не найдено в классе 'B'
+  }
+  </code></pre></li>
+</ul>
+<p>
+</body>
+</html>

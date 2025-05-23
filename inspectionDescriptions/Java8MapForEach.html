@@ -1,0 +1,26 @@
+<html>
+<body>
+Рекомендуется заменить <code>for(Entry&lt;?,?&gt; entry : map.entrySet()) {...}</code> или 
+<code>map.entrySet().forEach(entry -&gt; ...)</code> на <code>map.forEach((key, value) -> ...)</code>.
+<p>Пример</p>
+<pre><code>
+  void print(Map&lt;String, Integer&gt; map) {
+    map.entrySet().forEach(entry -> {
+      String str = entry.getKey();
+      System.out.println(str + ":" + entry.getValue());
+    });
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void print(Map&lt;String, Integer&gt; map) {
+    map.forEach((str, value) -> System.out.println(str + ":" + value));
+  }
+</code></pre>
+<p>
+  При включенной опции <b>Не сообщать о циклах</b> будут отображаться только случаи с <code>entrySet().forEach()</code>.
+  Однако быстрое исправление также доступно для циклов <code>for</code>.
+</p>
+<p><small>Новое в версии 2017.1</small></p>
+</body>
+</html>

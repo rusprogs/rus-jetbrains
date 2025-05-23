@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о декларации непроверяемых исключений (<code>java.lang.RuntimeException</code> или одного из его подклассов) в секции <code>throws</code> метода.
+<p>Объявление непроверяемых исключений не является обязательным и может быть удалено или перемещено в тег Javadoc <code>@throws</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public class InvalidDataException extends RuntimeException {}
+  class TextEditor {
+    void readSettings() throws InvalidDataException {} // Предупреждение: непроверяемое исключение 'InvalidDataException' объявлено в секции 'throws'
+  }
+</code></pre>
+</body>
+</html>

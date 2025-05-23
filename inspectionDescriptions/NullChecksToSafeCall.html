@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщается, что цепочку проверок на null можно заменить безопасным вызовом.
+<p><b>Пример:</b></p>
+<pre><code>
+  fun test(my: My?) {
+      if (my != null && my.foo() != null) {}
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun test(my: My?) {
+      if (my?.foo() != null) {}
+  }
+</code></pre>
+</body>
+</html>

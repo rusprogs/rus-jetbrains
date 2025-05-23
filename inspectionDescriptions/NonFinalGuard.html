@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает об аннотации <code>@GuardedBy</code>, в которой защищаемое поле не является <code>final</code>.
+<p>Защита нефинального поля может привести к непредвиденным условиям гонки, поскольку блокируется значение поля (которое может измениться), а не само поле.</p>
+<p>Пример:</p>
+<pre><code>
+    private ReadWriteLock lock = new ReentrantReadWriteLock(); //нефинальное защищаемое поле
+    private Object state;
+    @GuardedBy("lock")
+    public void bar() {
+        state = new Object();
+    }
+</code></pre>
+<p>Поддерживаемые аннотации <code>@GuardedBy</code>:</p>
+<ul>
+  <li><code>net.jcip.annotations.GuardedBy</code></li>
+  <li><code>javax.annotation.concurrent.GuardedBy</code></li>
+  <li><code>org.apache.http.annotation.GuardedBy</code></li>
+  <li><code>com.android.annotations.concurrency.GuardedBy</code></li>
+  <li><code>androidx.annotation.GuardedBy</code></li>
+  <li><code>com.google.errorprone.annotations.concurrent.GuardedBy</code></li>
+</ul>
+</body>
+</html>

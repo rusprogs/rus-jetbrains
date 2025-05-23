@@ -1,0 +1,7 @@
+<html>
+<body>
+Обнаружен запрос, содержащий слишком много операций JOIN.
+<p>Использование большого количества операций JOIN обычно не рекомендуется по соображениям производительности.</p>
+<pre><code>SELECT * FROM a inner join b using(id) inner join c using (id) inner join d using (id) inner join e using (id)</code></pre>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о параметрах аннотации, которым присвоено их значение <code>default</code>.
+<p>Пример:</p>
+<pre><code>
+  @interface Test {
+      Class&lt;?> expected() default Throwable.class;
+  }
+  @Test(expected = Throwable.class)
+  void testSmth() {}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  @Test()
+  void testSmth() {}
+</code></pre>
+</body>
+</html>

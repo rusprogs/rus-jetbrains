@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>Проверку можно упростить до единой комбинированной проверки на <code>null</code> и пустоту.</p>
+<p>Это быстрое исправление заменит выделенные проверки на комбинированный вызов проверки, например <code>isNullOrEmpty()</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun test(list: List&lt;Int>?) {
+      if (list == null || list.isEmpty()) {
+          println("List is empty!")
+      } else {
+          println(list.joinToString())
+      }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun test(list: List&lt;Int>?) {
+      if (list.isNullOrEmpty()) {
+          println("List is empty!")
+      } else {
+          println(list.joinToString())
+      }
+  }
+</code></pre>
+</body>
+</html>

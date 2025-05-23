@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>
+  Обнаружение некорректных объявлений команд Spring Shell:
+</p>
+<ul>
+  <li>Отсутствует описание команды</li>
+  <li>Команда находится вне <code>org.springframework.shell.standard.@ShellComponent</code></li>
+</ul>
+<p>Пример:</p>
+<pre><code lang="java">
+// Все методы будут отмечены из-за отсутствия @ShellComponent
+class MathCommands {
+  @ShellMethod("")
+  public int sum(int a, int b) { // Метод будет отмечен из-за пустого описания
+    return a + b;
+  }
+  @ShellMethod
+  public int mul(int a, int b) { // Метод будет отмечен из-за отсутствия описания
+    return a * b;
+  }
+}
+</code></pre>
+</body>
+</html>

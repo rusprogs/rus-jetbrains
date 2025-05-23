@@ -1,0 +1,32 @@
+<html>
+<body>
+Сообщает о хвостовой рекурсии, где метод вызывает сам себя в качестве последней операции перед возвратом.
+<p>
+  Хвостовая рекурсия всегда может быть заменена циклом, который работает значительно быстрее.
+  Некоторые JVM выполняют оптимизацию хвостовых вызовов, а другие - нет. Следовательно, решения с хвостовой рекурсией могут иметь кардинально разные характеристики производительности на разных виртуальных машинах.
+</p>
+<p>Пример:</p>
+<pre><code>
+  int factorial(int val, int runningVal) {
+    if (val == 1) {
+      return runningVal;
+    } else {
+      return factorial(val - 1, runningVal * val);
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  int factorial(int val, int runningVal) {
+    while (true) {
+      if (val == 1) {
+        return runningVal;
+      } else {
+        runningVal = runningVal * val;
+        val = val - 1;
+      }
+    }
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает об утилитных классах, которые можно преобразовать в перечисления.
+<p>Некоторые правила оформления кода требуют реализации утилитных классов в виде перечислений, чтобы избежать проблем с покрытием кода в <code>private</code> конструкторах.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class StringUtils {
+    public static final String EMPTY = "";
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  enum StringUtils {
+    ;
+    public static final String EMPTY = "";
+  }
+</code></pre>
+</body>
+</html>

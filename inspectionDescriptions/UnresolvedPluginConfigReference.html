@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщает о неразрешённых ссылках на элементы конфигурации плагина.
+<h4>Расширения</h4>
+<p>
+  Ссылки на расширения с неизвестным <code>id</code> могут привести к ошибкам во время выполнения.
+</p>
+<p>
+  Поддерживаются следующие точки расширения:
+<ul>
+  <li><code>com.intellij.advancedSetting</code> в ключах ресурсного пакета <code>advanced.setting.*</code></li>
+  <li><code>com.intellij.experimentalFeature</code> в <code>Experiments.isFeatureEnabled()/setFeatureEnabled()</code></li>
+  <li><code>com.intellij.notificationGroup</code> в конструкторе <code>Notification</code> и <code>NotificationGroupManager.getNotificationGroup()</code>
+  </li>
+  <li><code>com.intellij.registryKey</code> в параметре <code>key</code> методов <code>Registry</code></li>
+  <li><code>com.intellij.toolWindow</code> в ключах ресурсного пакета <code>toolwindow.stripe.*</code></li>
+</ul>
+<h4>Точки расширения</h4>
+<p>
+  Ссылки на имена точек расширения, объявленных в соответствующих декларациях <code>&lt;extensionPoint></code> в <code>plugin.xml</code>.
+<ul>
+  <li>Конструктор и <code>create()</code> в <code>com.intellij.openapi.extensions.ExtensionPointName</code></li>
+  <li>Конструктор <code>com.intellij.openapi.extensions.ProjectExtensionPointName</code></li>
+  <li>Конструктор <code>com.intellij.openapi.util.KeyedExtensionCollector</code> и его наследников</li>
+</ul>
+</p>
+</body>
+</html>

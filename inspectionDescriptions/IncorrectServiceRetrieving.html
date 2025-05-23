@@ -1,0 +1,27 @@
+<html>
+<body>
+Сообщение о следующих проблемах при получении сервиса:
+<ul>
+  <li>Попытка получить незарегистрированный сервис.</li>
+  <li>Несоответствие при получении сервиса: попытка получить сервис уровня проекта как сервис уровня приложения или наоборот.</li>
+</ul>
+<p>Пример (Kotlin):</p>
+<pre><code lang="kotlin">
+@Service
+class MyAppService
+@Service(Service.Level.PROJECT)
+class MyProjectService(private val project: Project)
+</code></pre>
+<pre><code lang="kotlin">
+// Неправильно:
+val projectService = service&lt;MyProjectService&gt;()         // Получение сервиса уровня проекта как сервиса уровня приложения
+val applicationService = project.service&lt;MyAppService&gt;() // Получение сервиса уровня приложения как сервиса уровня проекта
+</code></pre>
+<pre><code lang="kotlin">
+// Правильно:
+val projectService = project.service&lt;MyProjectService&gt;()
+val applicationService = service&lt;MyAppService&gt;();
+</code></pre>
+<p><small>Изменения в версии 2023.2</small>
+</body>
+</html>

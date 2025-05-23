@@ -1,0 +1,11 @@
+<html>
+<body>
+Столбцы с одинаковыми именами, принадлежащие разным таблицам.
+<p>Пример (MySQL):</p>
+<pre><code>CREATE TABLE foo(id INT PRIMARY KEY);
+CREATE TABLE bar(id INT PRIMARY KEY);
+SELECT foo.id, bar.id FROM foo, bar WHERE id > 0;</code></pre>
+<p>Столбец <code>id</code> присутствует в таблицах <code>foo</code> и <code>bar</code>. Необходимо уточнить имя столбца, чтобы запрос работал корректно.</p>
+<pre><code>SELECT foo.id, bar.id FROM foo, bar WHERE foo.id > 0;</code></pre>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает об упрощаемых конструкциях связывания <code>Comparator</code>.
+<p>Пример:</p>
+<pre><code>
+  c.thenComparing(Comparator.comparing(function));
+  Comparator.comparing(Map.Entry::getKey);
+  Collections.max(list, Comparator.reverseOrder());
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  c.thenComparing(function)
+  Map.Entry.comparingByKey()
+  Collections.min(list, Comparator.naturalOrder());
+</code></pre>
+<p><small>Новое в версии 2018.1</small></p>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<html>
+<body>
+Сообщает о некорректном использовании companion object в <a href="https://plugins.jetbrains.com/docs/intellij/plugin-extensions.html">расширениях</a>.
+<p>
+  Companion object в Kotlin всегда создаётся при попытке загрузить содержащий его класс, а создание реализации точки расширения должно быть легковесным.
+  Чрезмерная загрузка классов в плагинах является серьезной проблемой при запуске ИСР.
+</p>
+<p>Ошибочный паттерн:</p>
+<pre><code lang="kotlin">
+  class KotlinDocumentationProvider : AbstractDocumentationProvider(), ExternalDocumentationProvider {
+      companion object {
+          private val LOG = Logger.getInstance(KotlinDocumentationProvider::class.java)
+          private val javaDocumentProvider = JavaDocumentationProvider()
+      }
+  }
+</code></pre>
+<p>
+  Здесь <code>KotlinDocumentationProvider</code> зарегистрирован как расширение в <code>plugin.xml</code>:
+</p>
+<pre><code lang="xml">
+  &lt;lang.documentationProvider language="JAVA"
+                              implementationClass="org.jetbrains.kotlin.idea.KotlinDocumentationProvider"
+                              order="first"/&gt;
+</code></pre>
+<p>
+  В этом примере <code>JavaDocumentationProvider</code> загружается с диска каждый раз, когда кто-то вызывает <code>new KotlinDocumentationProvider()</code>.
+</p>
+<p>
+  Companion object в реализациях точек расширения должен содержать только логгеры и простые константы.
+  Другие объявления могут привести к чрезмерной загрузке классов или преждевременной инициализации ресурсоемких объектов (TokenSet, Regex и т.д.)
+  при загрузке класса расширения.
+  Обратите внимание, что даже объявления с аннотацией <code>@JvmStatic</code> генерируют дополнительный класс для companion object, что может привести к затратным вычислениям.
+</p>
+<p>
+  Эти объявления должны храниться в object или на верхнем уровне, а не в companion object.
+</p>
+<h3>Часто задаваемые вопросы</h3>
+<h4>Как переписать ConfigurationType?</h4>
+<p>Переместите объявление на верхний уровень:</p>
+<pre><code lang="kotlin">
+  // Правильно, использование функции верхнего уровня
+  internal fun mnRunConfigurationType(): MnRunConfigurationType = runConfigurationType&lt;MnRunConfigurationType&gt;()
+  internal class MnRunConfigurationType : ConfigurationType {
+    companion object { // Неправильно
+      fun getInstance(): MnRunConfigurationType = runConfigurationType&lt;MnRunConfigurationType&gt;()
+    }
+    ...
+</code></pre>
+<h4>Как переписать FileType?</h4>
+<p>До:</p>
+<pre><code lang="kotlin">
+  internal class SpringBootImportsFileType : LanguageFileType(SPILanguage.INSTANCE, true) {
+    companion object {
+      val FILE_TYPE = SpringBootImportsFileType()
+      ...
+</code></pre>
+<p>После:</p>
+<pre><code lang="kotlin">
+  internal object SpringBootImportsFileType : LanguageFileType(SPILanguage.INSTANCE, true) {
+  ...
+</code></pre>
+<p>Используйте fieldName <code>INSTANCE</code> в <code>plugin.xml</code>:</p>
+<pre><code lang="xml">
+  &lt;fileType name="Spring Boot Imports"
+              fieldName="INSTANCE"
+              implementationClass="com.intellij.spring.boot.spi.SpringBootImportsFileType"/&gt;
+</code></pre>
+<h4>Как переписать CounterUsagesCollector?</h4>
+<h5>Внутренний API</h5>
+<p>До:</p>
+<pre><code lang="kotlin">
+  class AntActionsUsagesCollector : CounterUsagesCollector() {
+    override fun getGroup(): EventLogGroup = GROUP
+    companion object {
+      private val GROUP = EventLogGroup("build.ant.actions", 1)
+      @JvmField
+      val runSelectedBuildAction = GROUP.registerEvent("RunSelectedBuild")
+   }
+}
+</code></pre>
+<p>После:</p>
+<pre><code lang="kotlin">
+ object AntActionsUsagesCollector : CounterUsagesCollector() {
+  override fun getGroup(): EventLogGroup = GROUP
+  private val GROUP = EventLogGroup("build.ant.actions", 1)
+  @JvmField
+  val runSelectedBuildAction = GROUP.registerEvent("RunSelectedBuild")
+}
+</code></pre>
+<p><small>Изменения в версии 2023.3</small>
+</body>
+</html>

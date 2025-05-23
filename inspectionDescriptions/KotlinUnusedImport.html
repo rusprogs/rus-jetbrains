@@ -1,0 +1,26 @@
+<html>
+<body>
+Обнаружение избыточных операторов <code>import</code>.
+<p>Неиспользуемые и стандартные импорты можно безопасно удалить.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  import kotlin.*
+  import kotlin.collections.*
+  import kotlin.comparisons.*
+  import kotlin.io.*
+  import kotlin.ranges.*
+  import kotlin.sequences.*
+  import kotlin.text.*
+  // Специфично для jvm
+  import java.lang.*
+  import kotlin.jvm.*
+  // Специфично для js
+  import kotlin.js.*
+  import java.io.* // Этот импорт не используется и может быть удален
+  import java.util.*
+  fun foo(list: ArrayList&lt;String&gt;) {
+      list.add("")
+  }
+</code></pre>
+</body>
+</html>

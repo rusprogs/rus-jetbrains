@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает о коде, который использует цикл для копирования содержимого массива в коллекцию.
+<p>
+  Более короткий и потенциально более быстрый способ (в зависимости от реализации коллекции) — использовать <code>Collection.addAll(Arrays.asList())</code> или <code>Collections.addAll()</code>.
+</p>
+<p>
+<p>Сообщается только о циклах, которые не содержат дополнительных операторов внутри.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void addAll(List&lt;String&gt; list, String[] arr) {
+    for (int i = 0; i &lt; arr.length; i++) {
+      String s = arr[i];
+      list.add(s);
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void addAll(List&lt;String&gt; list, String[] arr) {
+    Collections.addAll(list, arr);
+  }
+</code></pre>
+<p>
+</body>
+</html>

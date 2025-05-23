@@ -1,0 +1,11 @@
+<html>
+<body>
+Сообщает об арифметических и побитовых выражениях с неподдерживаемыми операндами.
+<p>
+  Начиная с PHP 8.0, использование арифметических и побитовых операторов <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>**</code>, <code>%</code>, <code>&lt; &lt;</code>, <code>></code>, <code>&</code>, <code>|</code>, <code>^</code>, <code>~</code>, <code>++</code>, <code>-</code> приведет к <code>TypeError</code>, если один из операндов является массивом, ресурсом или объектом без перегрузки операторов. Единственным исключением является операция слияния массивов <code>array + array</code>, которая по-прежнему поддерживается.
+</p>
+<p>
+  Полный список операций можно найти в <a href="https://github.com/php/php-src/blob/master/Zend/tests/operator_unsupported_types.phpt">исходном коде внутренних тестов PHP</a>.
+</p>
+</body>
+</html>

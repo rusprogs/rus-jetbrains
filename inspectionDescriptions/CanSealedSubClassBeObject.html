@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о прямых наследниках <code>sealed</code> класса, у которых отсутствует состояние и не переопределен метод <code>equals()</code>.
+<p>Настоятельно рекомендуется переопределить метод <code>equals()</code> для обеспечения стабильности сравнения или преобразовать <code>class</code> в <code>object</code> для достижения того же эффекта.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  sealed class Receiver {
+      class Everyone : Receiver()
+      class User(val id: Int) : Receiver()
+  }
+</code></pre>
+<p>Быстрое исправление преобразует <code>class</code> в <code>object</code>:</p>
+<pre><code>
+  sealed class Receiver {
+      object Everyone : Receiver()
+      class User(val id: Int) : Receiver()
+  }
+</code></pre>
+</body>
+</html>

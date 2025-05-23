@@ -1,0 +1,21 @@
+<html>
+<body>
+Обнаружены избыточные круглые скобки в элементах аннотаций.
+<p>Используйте быстрое исправление "Удалить ненужные скобки" для очистки кода.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  annotation class MyAnnotationA
+  annotation class MyAnnotationB(val x: Int)
+  annotation class MyAnnotationC(val x: Int = 10) // имеет значение по умолчанию
+  @MyAnnotationA() // &lt;== избыточные скобки
+  fun testA() {
+  }
+  @MyAnnotationB() // &lt;== отсутствуют аргументы, скобки обязательны
+  fun testB() {
+  }
+  @MyAnnotationC() // &lt;== избыточные скобки
+  fun testC() {
+  }
+</code></pre>
+</body>
+</html>

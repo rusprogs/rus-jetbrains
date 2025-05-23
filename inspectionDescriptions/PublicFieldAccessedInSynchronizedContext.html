@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о доступе к нефинальным (<code>final</code>) и неприватным (<code>private</code>) полям в синхронизованном контексте.
+<p>
+  Невозможно гарантировать, что доступ к неприватным (<code>private</code>) полям всегда осуществляется синхронизованно. Такой "частично синхронизованный" доступ может случайно привести к несогласованности структуры данных.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Bar {
+    public String field1;
+  }
+  public Bar myBar;
+  synchronized public void sample() {
+   myBar.field1 = "bar";
+  }
+</code></pre>
+</body>
+</html>

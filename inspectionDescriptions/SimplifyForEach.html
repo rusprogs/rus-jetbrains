@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщается о возможности замены на более лаконичный метод или извлечения промежуточных шагов из вызова <code>forEach()</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  List&lt;String&gt; findNStrings(List&lt;String&gt; list, int n) {
+    List&lt;String&gt; other = new ArrayList&lt;>();
+    list.forEach(s -> {
+      if(s.length() > n) other.add(s);
+    });
+    return other;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  List&lt;String&gt; findNStrings(List&lt;String&gt; list, int n) {
+    List&lt;String&gt; other = list.stream()
+      .filter(s -> s.length() > n)
+      .collect(Collectors.toList());
+    return other;
+  }
+</code></pre>
+<p><small>Новое в версии 2017.3</small></p>
+</body>
+</html>

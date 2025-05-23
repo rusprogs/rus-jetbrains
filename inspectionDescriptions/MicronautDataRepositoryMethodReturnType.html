@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Сообщает о некорректном типе возвращаемого значения метода репозитория Micronaut Data <a href="https://micronaut-projects.github.io/micronaut-data/latest/guide/#querying">repository method return type</a>.</p>
+<p>Поддерживаются следующие типы возвращаемых значений:</p>
+<list>
+  <li>void</li>
+  <li>примитивные типы</li>
+  <li>простые типы</li>
+  <li><code>java.util.List</code> или любой распространенный тип <code>Iterable</code></li>
+  <li><code>java.util.stream.Stream</code></li>
+  <li><code>java.util.Optional</code></li>
+  <li><code>io.micronaut.data.model.Page</code></li>
+  <li><code>io.micronaut.data.model.Slice</code></li>
+  <li><code>java.util.concurrent.Future</code> или <code>java.util.concurrent.CompletableFuture</code></li>
+  <li>типы, совместимые с Reactive Streams, такие как <code>Publisher</code>, <code>Single</code>, <code>Maybe</code>, <code>Flux</code>, <code>Mono</code> и другие
+  </li>
+</list>
+</body>
+</html>

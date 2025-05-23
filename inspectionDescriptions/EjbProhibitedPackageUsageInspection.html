@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о запрещенных пакетах и классах в EJB.
+<p><b>Пример:</b></p>
+<pre><code>
+@Stateless
+public class ExampleBean {
+  public void getAnotherBean() {
+    ...
+    java.lang.Thread.sleep(100); // Ошибка: использование запрещенного пакета в классе Bean
+  }
+}
+</code></pre>
+</body>
+</html>

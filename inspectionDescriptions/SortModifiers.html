@@ -1,0 +1,11 @@
+<html>
+<body>
+Обнаружены модификаторы, не соответствующие порядку, рекомендованному в <a href="https://kotlinlang.org/docs/coding-conventions.html#modifiers-order">руководстве по стилю</a>.
+<p><b>Быстрое исправление порядка модификаторов</b> доступно для автоматического исправления кода.</p>
+<p>Пример:</p>
+<pre><code>
+  private inline fun correctOrder(f: () -> Unit) {} // &lt;== Ok
+  infix private fun Int.wrongOrder(expr: Int) {} // &lt;== Неверный порядок, быстрое исправление изменит на "private infix"
+</code></pre>
+</body>
+</html>

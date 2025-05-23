@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Сообщает о неразрешённых Spring Bean, на которые ссылаются аннотации <a href="https://spring.io/projects/spring-security">Spring Security</a>.</p>
+<p><b>Пример:</b></p>
+<ul>
+  <li>
+    <pre><code>@WithUserDetails(value = "admin", userDetailsServiceBeanName = "unknownUserDetailsService")
+      // Если 'unknownUserDetailsService' не определен в модели Spring, будет выведено "Невозможно разрешить Bean 'unknownUserDetailsService'"
+    </code></pre>
+  </li>
+  <li>
+    <pre><code>@WithUserDetails(value = "admin", userDetailsServiceBeanName = "jpaUserDetailsService")
+      // "Bean должен быть типа 'org.springframework.security.core.userdetails.UserDetailsService'"
+      // Будет выведено, если Bean "jpaUserDetailsService" не является типом 'UserDetailsService'
+    </code></pre>
+  </li>
+</ul>
+</body>
+</html>

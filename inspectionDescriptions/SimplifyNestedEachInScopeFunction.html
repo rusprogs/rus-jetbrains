@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о функции <code>forEach</code>, которая может быть упрощена в функциях области видимости, таких как <code>also</code> или <code>apply</code>.
+<p><b>Быстрое исправление "Преобразовать forEach в onEach"</b> доступно для автоматического исправления кода.</p>
+<p>Пример:</p>
+<pre><code>
+  fun test(list: List&lt;Int&gt;) {
+      val x = list.also { it.forEach { it + 4 } }.toString()
+      val y = list.apply { forEach { println(it) } }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun test(list: List&lt;Int&gt;) {
+      val x = list.onEach { it + 4 }.toString()
+      val y = list.onEach { println(it) }
+  }
+</code></pre>
+</body>
+</html>

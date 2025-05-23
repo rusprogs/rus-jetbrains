@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о любых сравнениях с <code>Double.NaN</code> или <code>Float.NaN</code>.
+Такие сравнения бессмысленны, поскольку NaN не равен ничему, включая самого себя.
+Вместо этого используйте методы <code>Double.isNaN()</code> или <code>Float.isNaN()</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  if (x == Double.NaN) {...}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  if (Double.isNaN(x)) {...}
+</code></pre>
+</body>
+</html>

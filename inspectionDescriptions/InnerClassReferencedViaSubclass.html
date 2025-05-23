@@ -1,0 +1,30 @@
+<html>
+<body>
+Сообщает о доступе к внутренним и вложенным классам, где обращение происходит через подкласс объявляющего класса, а не через сам объявляющий класс.
+<p>
+  Java допускает такую квалификацию, но подобный доступ может указывать на неочевидную путаницу между наследованием и переопределением.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Super {
+    static class Inner {}
+  }
+  class Sub extends Super {
+    void test() {
+      Sub.Inner s = new Sub.Inner(); // Класс 'Inner' объявлен в классе 'Super', но ссылка идет через класс 'Sub'
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Super {
+    static class Inner {}
+  }
+  class Sub extends Super {
+    void test() {
+      Super.Inner s = new Super.Inner();
+    }
+  }
+</code></pre>
+</body>
+</html>

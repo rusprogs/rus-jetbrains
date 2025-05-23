@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о случаях, когда вызовы CASE и COALESCE являются взаимозаменяемыми. Эта проверка предлагает следующие действия: <b>заменить на вызов 'COALESCE'</b> и обратное действие <b>заменить на выражение CASE</b>.
+<p>Пример (MySQL):</p>
+<pre><code>SELECT
+  -- this CASE may be replaced by COALESCE
+	CASE
+		WHEN C1 IS NOT NULL THEN C1
+		ELSE 0
+		END
+FROM dual;</code></pre>
+<p>В этом примере выражение CASE может быть заменено на <code>SELECT COALESCE(C1, 0)</code>, что даст тот же результат.</p>
+<p>Если вы предпочитаете использовать выражения CASE, выберите опцию <b>Предпочитать выражения CASE вместо функций COALESCE</b> на странице проверки.</p>
+</body>
+</html>

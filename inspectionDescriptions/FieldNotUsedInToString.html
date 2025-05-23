@@ -1,0 +1,36 @@
+<html>
+<body>
+Сообщает о полях, которые не используются в методе <code>toString()</code> класса.
+<p>Помогает обнаружить поля, добавленные после последнего обновления метода <code>toString()</code>.
+  Быстрое исправление позволяет заново сгенерировать метод <code>toString()</code>.</p>
+<p>
+В диалоговом окне <b>Сгенерировать | toString()</b> можно исключить поля из этой проверки.
+Если включена опция <em>использовать геттеры при генерации кода</em>, проверка также будет искать проблемы в методах-геттерах.
+<p>Пример:</p>
+<pre><code>
+  <b>public class</b> Relevant {
+    <b>private</b> String name; // Не используется в toString()
+    <b>private int</b> index;
+    <b>private int</b> length;
+    @Override
+    <b>public</b> String toString() {
+        <b>return</b> "Relevant{" + "index=" + index +
+          ", length=" + length + '}';
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  <b>public class</b> Relevant {
+    <b>private</b> String name;
+    <b>private int</b> index;
+    <b>private int</b> length;
+    @Override
+    <b>public</b> String toString() {
+        <b>return</b> "Relevant{" + "name='" + name + '\'' +
+          ", index=" + index + ", length=" + length + '}';
+    }
+  }
+</code></pre>
+</body>
+</html>

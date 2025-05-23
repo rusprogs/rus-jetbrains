@@ -1,0 +1,27 @@
+<html>
+<body>
+Сообщает о незакрытых сокетных ресурсах. Эта проверка отслеживает сокетные ресурсы, включая <code>java.net.Socket</code>, <code>java.net.DatagramSocket</code> и <code>java.net.ServerSocket</code>.
+<p>
+  По умолчанию проверка предполагает, что ресурс может быть закрыт любым методом, содержащим в своем названии 'close' или 'cleanup'.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  byte[] getMessage(ServerSocket socket) throws IOException {
+    Socket client = socket.accept(); //сокет не закрыт
+    return client.getInputStream().readAllBytes();
+  }
+</code></pre>
+<p>
+  Проверка настраивается следующими параметрами:
+</p>
+<ul>
+  <li>
+    Разрешено ли открывать сокеты внутри блока <code>try</code>.
+    Такой стиль менее предпочтителен, так как он более многословен, чем открытие ресурса перед блоком <code>try</code>.
+  </li>
+  <li>
+    Может ли ресурс быть закрыт любым вызовом метода, которому этот ресурс передается в качестве аргумента.
+  </li>
+</ul>
+</body>
+</html>

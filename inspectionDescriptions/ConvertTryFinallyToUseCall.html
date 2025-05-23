@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает о блоках <code>try-finally</code>, содержащих <code>resource.close()</code> в секции <code>finally</code>, которые могут быть преобразованы в вызов <code>resource.use()</code>.
+<p>Использование <code>use()</code> делает код более читаемым и менее подверженным ошибкам, так как не требует явного вызова <code>close()</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun example() {
+      val reader = File("file.txt").bufferedReader()
+      try {
+          reader.lineSequence().forEach(::print)
+      } finally {
+          reader.close()
+      }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun example() {
+      File("file.txt").bufferedReader().use { reader ->
+          reader.lineSequence().forEach(::print)
+      }
+  }
+</code></pre>
+</body>
+</html>

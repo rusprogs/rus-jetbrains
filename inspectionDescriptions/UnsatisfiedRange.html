@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о числовых значениях, возвращаемых методами, которые не соответствуют заявленному диапазону возвращаемых значений.
+Вы можете использовать несколько аннотаций для объявления диапазона возвращаемых значений метода:
+<ul>
+  <li><code>org.jetbrains.annotations.Range</code> из пакета аннотаций JetBrains (указывает 'from' и 'to')</li>
+  <li><code>org.checkerframework.common.value.qual.IntRange</code> из пакета аннотаций Checker Framework (указывает 'from' и 'to')</li>
+  <li><code>org.checkerframework.checker.index.qual.GTENegativeOne</code> из пакета аннотаций Checker Framework (диапазон '>= -1')</li>
+  <li><code>org.checkerframework.checker.index.qual.NonNegative</code> из пакета аннотаций Checker Framework (диапазон '>= 0')</li>
+  <li><code>org.checkerframework.checker.index.qual.Positive</code> из пакета аннотаций Checker Framework (диапазон '> 0')</li>
+  <li><code>javax.annotation.Nonnegative</code> из пакета аннотаций JSR 305 (диапазон '>= 0')</li>
+  <li><code>javax.validation.constraints.Min</code> (указывает минимальное значение)</li>
+  <li><code>javax.validation.constraints.Max</code> (указывает максимальное значение)</li>
+</ul>
+<p>Пример:</p>
+<pre><code>
+  @Range(from = 0, to = Integer.MAX_VALUE) int getValue() {
+    // Предупреждение: -1 выходит за пределы заявленного диапазона
+    return -1;
+  }
+</code></pre>
+<p><small>Изменения в версии 2021.2</small></p>
+</body>
+</html>

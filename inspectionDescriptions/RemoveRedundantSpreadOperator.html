@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о случаях использования избыточного оператора расширения с вызовами функции <code>arrayOf</code>.
+<p>Используйте быстрое исправление "Удалить избыточный оператор расширения" для очистки кода.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(vararg s: String) { }
+  fun bar(ss: Array&lt;String&gt;) {
+      foo(*arrayOf("abc"))       // Для обоих вызовов 'foo' создание массива
+      foo(*arrayOf(*ss, "zzz"))  // и последующее выделение избыточны
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(vararg s: String) { }
+  fun bar(ss: Array&lt;String&gt;) {
+      foo("abc")
+      foo(*ss, "zzz")
+  }
+</code></pre>
+</body>
+</html>

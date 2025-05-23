@@ -1,0 +1,34 @@
+<html>
+<body>
+Сообщение об использовании рекурсивного метода <code>VirtualFile.getChildren()</code>.
+<p>
+  Это может привести к бесконечному циклу при итерации по циклическим символическим ссылкам.
+  Используйте вместо этого <code>VfsUtilCore.visitChildrenRecursively()</code>.
+</p>
+<pre><code lang="java">
+void processDirectory(VirtualFile dir) {
+  for (VirtualFile file : dir.getChildren()) { // Неверно
+    if (!file.isDirectory()) {
+      processFile(file);
+    } else {
+      processDirectory(file); // Рекурсивный вызов
+    }
+  }
+}
+</code>
+</pre>
+<pre><code lang="java">
+void processDirectory(VirtualFile dir) {
+  VfsUtilCore.visitChildrenRecursively(dir, new VirtualFileVisitor&lt;Void>() { // Верно
+    @Override
+    public boolean visitFile(@NotNull VirtualFile file) {
+      if (!file.isDirectory()) {
+        processFile(file);
+      }
+      return true;
+    }
+  });
+}
+</code></pre>
+</body>
+</html>

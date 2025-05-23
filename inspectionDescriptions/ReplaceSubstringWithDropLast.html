@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщается, что вызов <code>s.substring(0, s.length - x)</code> может быть заменен на <code>s.dropLast(x)</code>.
+<p>Использование соответствующей функции делает код более лаконичным.</p>
+<p>Это быстрое исправление заменит вызов <code>substring</code> на <code>dropLast</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(s: String) {
+      s.substring(0, s.length - 5)
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(s: String) {
+      s.dropLast(5)
+  }
+</code></pre>
+</body>
+</html>

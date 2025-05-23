@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Обнаружен конфликт в конфигурации атрибутов <code>&lt;bean&gt;</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="xml">
+  &lt;beans&gt;
+    &lt;bean class="java.lang.String" factory-bean="factoryBean"/&gt;
+    &lt;!-- Требуется только один из атрибутов: 'class' или 'factory-bean' --&gt;
+    &lt;bean factory-bean="factoryBean" id="missingFactoryMethod"/&gt; &lt;!-- При наличии factory-bean требуется factory-method --&gt;
+    &lt;!-- Атрибут abstract со значением по умолчанию 'false' является избыточным --&gt;
+    &lt;bean abstract="false" id="superfluousDefaultAttributeAbstract"/&gt;
+    &lt;!-- Атрибут scope со значением по умолчанию 'singleton' является избыточным --&gt;
+    &lt;bean id="superfluousDefaultAttributeScope" scope="singleton"/&gt;
+    &lt;bean class="java.lang.StringBuilder"&gt;
+      &lt;property name="length"&gt;
+        &lt;!-- Атрибуты ID, name и scope являются избыточными --&gt;
+        &lt;bean id="beanId" name="beanName" scope="prototype"/&gt;
+      &lt;/property&gt;
+    &lt;/bean&gt;
+  &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

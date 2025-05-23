@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о несоответствии содержимого тела JSP-тега спецификации TLD.
+<p>Если указано пустое содержимое тела, тело тега должно быть пустым.</p>
+<p>Если указано содержимое тела без скриптов, тело тега не должно содержать JSP scriptlet.</p>
+<p>Для типа пустого содержимого быстрое исправление удалит тело тега, а если указан тип содержимого без скриптов, то будет удален scriptlet.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+&lt;s:empty&gt;body not allowed here&lt;/s:empty&gt;
+&lt;s:scriptless&gt;say: &lt;% System.out.println(&quot;hey&quot;); %&gt;&lt;/s:scriptless&gt;
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+&lt;s:empty/&gt;
+&lt;s:scriptless&gt;say: &lt;/s:scriptless&gt;
+</code></pre>
+</body>
+</html>

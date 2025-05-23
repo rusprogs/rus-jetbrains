@@ -1,0 +1,71 @@
+<html>
+<body>
+Объявления членов JUnit тестов с неправильным форматом, которые могут быть не распознаны фреймворком JUnit.
+Эта проверка сообщает о следующих проблемах:
+<ul>
+  <li>Тестовые классы, которые невозможно создать</li>
+  <li>Поля с аннотацией <code>@RegisterExtension</code>, имеющие неверный тип или не объявленные как static, когда это необходимо</li>
+  <li>Статические или приватные внутренние классы с аннотацией <code>@Nested</code></li>
+  <li>Параметризованные тесты, определённые без источника</li>
+  <li>Параметризованные тесты, содержащие <code>@MethodSource</code> с неизвестной, нестатической целью или целью без аргументов</li>
+  <li>Несоответствие типов между параметрами метода параметризованного теста и значениями, указанными в <code>@ValueSource</code> или <code>@EnumSource</code></li>
+  <li>Тесты с несколькими аннотациями из <code>@Test</code>, <code>@ParameterizedTest</code> или <code>@RepeatedTest</code></li>
+  <li>Методы <code>setup()</code> или <code>tearDown()</code>, которые не являются public, имеют тип возвращаемого значения не void или принимают аргументы</li>
+  <li>Методы <code>suite()</code>, которые являются private, принимают аргументы или не являются static</li>
+  <li>
+    Методы с аннотациями <code>@BeforeClass</code>, <code>@AfterClass</code>, <code>@BeforeAll</code> или <code>@AfterAll</code>, которые не являются public, не static, имеют тип возвращаемого значения не void или не имеют действительного списка параметров
+  </li>
+  <li>
+    Методы с аннотациями <code>@Before</code>, <code>@After</code>, <code>@BeforeEach</code> или <code>@AfterEach</code>, которые не являются public, имеют тип возвращаемого значения не void или принимают аргументы
+  </li>
+  <li>Внедрение <code>RepetitionInfo</code> в методы <code>@BeforeAll</code> или <code>@AfterAll</code></li>
+  <li>
+    Внедрение <code>RepetitionInfo</code> в методы <code>@BeforeEach</code> или <code>@AfterEach</code> при использовании теста с аннотацией <code>@Test</code>
+  </li>
+  <li>Поля и методы с аннотациями <code>@DataPoint</code> или <code>@DataPoints</code>, которые не являются public или static</li>
+  <li>
+    Поля и методы с аннотацией <code>@Rule</code>, которые не являются public или не являются подтипами <code>TestRule</code> или <code>MethodRule</code>
+  </li>
+  <li>Поля и методы с аннотацией <code>@ClassRule</code>, которые не являются public, static или подтипами <code>TestRule</code></li>
+  <li>
+    Методы в подклассах <code>TestCase</code> с префиксом <code>test</code>, которые не являются public, имеют тип возвращаемого значения не void, принимают аргументы или являются static
+  </li>
+  <li>
+    Методы с аннотацией <code>@Test</code>, которые не являются public, имеют тип возвращаемого значения не void, принимают аргументы или являются static
+  </li>
+</ul>
+Обратите внимание, что в Kotlin функции с модификатором suspend действительно имеют аргументы и тип возвращаемого значения не void. Поэтому они также не будут выполняться тестовым раннером JUnit. Эта проверка также сообщит об этой проблеме.
+<p><b>Пример метода <code>@Before</code> с неправильным форматом:</b></p>
+<pre><code lang="java">
+  @Before private int foo(int arg) { }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  @Before public void foo() { }
+</code></pre>
+<p><b>Пример отсутствующего исходного кода метода (Kotlin):</b></p>
+<pre><code lang="kotlin">
+  class Example {
+    @MethodSource("parameters")
+    @ParameterizedTest
+    fun foo(param: String) { ... }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="kotlin">
+  class Example {
+    @MethodSource("parameters")
+    @ParameterizedTest
+    fun foo(param: String) { ... }
+    companion object {
+      @JvmStatic
+      fun parameters(): Stream&lt;Arguments&gt; {
+        TODO("Not yet implemented")
+      }
+    }
+  }
+</code></pre>
+<p>С помощью опций проверки можно указать аннотации. Параметры, аннотированные одной из этих аннотаций, не будут отмечаться как проблемные.
+</p>
+</body>
+</html>

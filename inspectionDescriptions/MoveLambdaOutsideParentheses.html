@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о лямбда-выражениях в круглых скобках, которые можно вынести за их пределы.
+<p><b>Пример:</b></p>
+<pre><code>
+fun square(a: Int, b: (Int) -&gt; Int) {
+  b(a * a)
+}
+fun foo() {
+  square(2, { it })
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+fun foo() {
+  square(2){ it }
+}
+</code></pre>
+</body>
+</html>

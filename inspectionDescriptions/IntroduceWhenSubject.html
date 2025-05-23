@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщение о возможности упрощения выражения <code>when</code> путем добавления аргумента.
+<p><b>Пример:</b></p>
+<pre><code>
+  fun test(obj: Any): String {
+      return when {
+          obj is String -> "string"
+          obj is Int -> "int"
+          else -> "unknown"
+      }
+  }
+</code></pre>
+<p>Быстрое исправление добавит аргумент:</p>
+<pre><code>
+  fun test(obj: Any): String {
+      return when (obj) {
+          is String -> "string"
+          is Int -> "int"
+          else -> "unknown"
+      }
+  }
+</code></pre>
+</body>
+</html>

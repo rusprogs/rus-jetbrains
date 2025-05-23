@@ -1,0 +1,20 @@
+<html>
+<body>
+Инспекция предлагает заменить строковые литералы кодировок <code>String</code> (например, <code>"UTF-8"</code>) на предопределённую константу <code>StandardCharsets.UTF_8</code> в методах и конструкторах.
+<p>Исправление ускоряет выполнение кода, поскольку устраняет необходимость поиска кодования.
+  Кроме того, может отпасть необходимость в обработке исключения <code>UnsupportedEncodingException</code>. В этом случае блок catch будет автоматически удален.</p>
+<p>Пример:</p>
+<pre><code>
+  try {
+    byte[] bytes = "str".getBytes("UTF-8");
+  } catch (UnsupportedEncodingException e) {
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  byte[] bytes = "str".getBytes(StandardCharsets.UTF_8);
+</code></pre>
+<p>Эта проверка доступна в Java 7 и более поздних версиях.</p>
+<p><small>Новое в версии 2018.2</small></p>
+</body>
+</html>

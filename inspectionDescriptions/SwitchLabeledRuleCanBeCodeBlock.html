@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о правилах выражения <code>switch</code> или расширенного оператора <code>switch</code> с телом выражения.
+Они могут быть преобразованы в блоки кода.
+<p>Пример:</p>
+<pre><code>
+  String message = switch (errorCode) {
+    case 404 -> "Not found!";
+    ...
+  };
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  String message = switch (errorCode) {
+    case 404 -> {
+                yield "Not found!";
+            }
+    ...
+  };
+</code></pre>
+<p><small>Новое в версии 2019.1</small></p>
+</body>
+</html>

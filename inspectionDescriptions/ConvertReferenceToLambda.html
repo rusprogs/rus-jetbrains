@@ -1,0 +1,25 @@
+<html>
+<body>
+Ссылка на функцию может быть заменена функциональным литералом (лямбда-выражением).
+<p>
+    В некоторых случаях использование лямбда-выражения может быть более прямолинейным и согласованным с остальной частью кода.
+    Кроме того, это исправление может быть полезным, если простой вызов нужно заменить более сложным.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun Int.isEven() = this % 2 == 0
+  fun example() {
+      val numbers = listOf(1, 2, 4, 7, 9, 10)
+      val evenNumbers = numbers.filter(Int::isEven)
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun Int.isEven() = this % 2 == 0
+  fun example() {
+      val numbers = listOf(1, 2, 4, 7, 9, 10)
+      val evenNumbers = numbers.filter { it.isEven() }
+  }
+</code></pre>
+</body>
+</html>

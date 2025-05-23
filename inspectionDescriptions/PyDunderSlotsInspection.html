@@ -1,0 +1,12 @@
+<html>
+<body>
+<p>Сообщает о некорректном использовании классов с определённым атрибутом <code>__slots__</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+class Foo:
+    __slots__ = ['foo', 'bar']
+foo = Foo()
+foo.baz = 'spam'
+</code></pre>
+</body>
+</html>

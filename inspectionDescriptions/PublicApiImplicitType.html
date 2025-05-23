@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>
+    Сообщать о функциях и свойствах с модификаторами <code>public</code> и <code>protected</code>, имеющих неявный тип возвращаемого значения.
+    В целях обеспечения стабильности API рекомендуется явно указывать такие типы.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun publicFunctionWhichAbusesTypeInference() =
+      otherFunctionWithNotObviousReturnType() ?: yetAnotherFunctionWithNotObviousReturnType()
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun publicFunctionWhichAbusesTypeInference(): <b>Api</b> =
+      otherFunctionWithNotObviousReturnType() ?: yetAnotherFunctionWithNotObviousReturnType()
+</code></pre>
+</body>
+</html>

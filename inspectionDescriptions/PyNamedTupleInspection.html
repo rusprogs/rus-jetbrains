@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Обнаружено некорректное определение <a href="https://docs.python.org/3/library/typing.html#typing.NamedTuple">typing.NamedTuple</a>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+import typing
+class FullName(typing.NamedTuple):
+    first: str
+    last: str = ""
+    middle: str
+</code></pre>
+<p>Для исправления переместите поля со значениями по умолчанию после полей без значений по умолчанию:</p>
+<pre><code>
+import typing
+class FullName(typing.NamedTuple):
+    first: str
+    middle: str
+    last: str = ""
+</code></pre>
+</body>
+</html>

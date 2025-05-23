@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает о вызовах логования SLF4J, Log4j2 и akka.event.LoggingAdapter, например <code>logger.info("{}: {}", key)</code>, где количество заполнителей <code>{}</code> в сообщении логгера не соответствует количеству дополнительных аргументов в вызове логования.
+<p>
+  Эта опция проверки позволяет указать, какая реализация используется для SLF4J.
+  Если выбрана опция <strong>Автоопределение</strong>, выполняется поиск <code>org.apache.logging.slf4j.Log4jLogger</code> в classpath.
+  Если файл найден или выбрана опция <strong>Да</strong>, случаи с заполнителем для последнего параметра типа исключения не будут отмечаться для SLFJ4 API.<br/>
+Например:
+<pre><code lang="java">
+//этот случай не будет отмечен, если выбрана опция "Да"
+log.error("For id {}: {}", "1", new RuntimeException());
+</code></pre>
+В этом случае 'new RuntimeException()' будет выведен с помощью 'toString()' (без вывода стека вызовов):
+<pre><code lang="text">
+For id 1: java.lang.RuntimeException
+</code></pre>
+В противном случае это будет подсвечено, так как последний заполнитель не используется:
+<pre><code lang="text">
+For id 1: {}
+java.lang.RuntimeException: null
+</code></pre>
+Опция <strong>Нет</strong> может использоваться для подсветки таких случаев всегда, когда заполнитель используется для исключения, даже если <code>org.apache.logging.slf4j.Log4jLogger</code> используется в качестве бэкенда.<br/>
+Эта опция применяется только к SLF4J.
+<p>
+</body>
+</html>

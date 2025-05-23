@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о вызове функции, которая возвращает массив по значению (что делает операцию присваивания неэффективной). Следует изменить на возврат по ссылке.
+<p><b>Пример:</b></p>
+<pre><code>
+&lt?php
+class A {
+    private $values = [];
+    public function getValues() {
+        return $this->values;
+    }
+}
+$config = new A();
+$config->getValues()['a'] = 'a';
+</code></pre>
+</body>
+</html>

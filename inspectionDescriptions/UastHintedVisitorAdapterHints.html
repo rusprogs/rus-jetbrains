@@ -1,0 +1,49 @@
+<html>
+<body>
+Сообщает об отсутствующих или избыточных подсказках при создании <code>UastHintedVisitorAdapter</code>.
+<p>
+  <code>UastHintedVisitorAdapter</code> может принимать подсказки, которые оптимизуют выполнение UAST-визитора, посещая только элементы классов, указанных в списке подсказок.
+</p>
+<p>
+  Например, если визитор реализует метод <code>visitCallExpression</code>, но не включает <code>UCallExpression</code> в подсказках, этот метод не будет выполнен.
+</p>
+<p>
+  И наоборот, если визитор не реализует метод <code>visitCallExpression</code>, но включает <code>UCallExpression</code> в подсказках, унаследованный метод будет выполняться без необходимости.
+</p>
+<h3>Примеры</h3>
+<pre><code lang="kotlin">
+return UastHintedVisitorAdapter.create(
+  language,
+  object : AbstractUastNonRecursiveVisitor() {
+    override fun visitForExpression(node: UForExpression): Boolean {
+      inspectLoopExpression()
+      return true
+    }
+    override fun visitDoWhileExpression(node: UDoWhileExpression): Boolean { // не используется во время выполнения
+      inspectLoopExpression()
+      return true
+    }
+    //...
+  },
+  arrayOf(UForExpression::class.java) // Ошибка: отсутствует UDoWhileExpression::class.java
+)
+</code></pre>
+<pre><code lang="kotlin">
+UastHintedVisitorAdapter.create(
+  language,
+  object : AbstractUastNonRecursiveVisitor() {
+    override fun visitForExpression(node: UForExpression): Boolean {
+      inspectLoopExpression()
+      return true
+    }
+    //...
+  },
+  arrayOf(
+    UForExpression::class.java,
+    UDoWhileExpression::class.java // Ошибка: посещение UDoWhileExpression не реализовано
+  )
+)
+</code></pre>
+<p><small>Изменения в версии 2024.2</small>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Сообщает о нарушениях соглашений об именовании <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+class mammalia(object):
+    extremities = 4
+    def feeds(self):
+        print("milk")
+</code></pre>
+<p>В этом коде ИСР предлагает переименовать <code>mammalia</code> в <code>Mammalia</code>.
+  После применения быстрого исправления код становится:</p>
+<pre><code>
+class Mammalia(object):
+    extremities = 4
+    def feeds(self):
+        print("milk")
+</code></pre>
+</body>
+</html>

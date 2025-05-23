@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает об определениях методов с неправильным использованием круглых скобок. В отличие от определений методов без параметров, 
+определения методов с параметрами должны использовать круглые скобки.
+<p>Пример:</p>
+<pre>
+<code># 不良做法
+def example_method(); end
+def example_method_with_parameters param1, param2; end</code>
+</pre>
+Круглые скобки можно удалить или добавить с помощью быстрого исправления. После применения быстрого исправления код будет выглядеть так:
+<pre>
+<code># 优良做法
+def example_method; end
+def example_method_with_parameters(param1, param2); end</code>
+</pre>
+<p><span style="font-size: smaller;">На основе <a href="https://github.com/rubocop-hq/ruby-style-guide#method-parens">'RuboCop'</a></span>
+</p>
+</body>
+</html>

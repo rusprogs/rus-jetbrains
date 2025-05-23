@@ -1,0 +1,25 @@
+<html>
+<body>
+Обнаружена недопустимая ссылка с <code>Entity</code> на <code>SharedEntity</code>.
+<p>
+  Невозможно ссылаться на <code>Entity</code> из <code>SharedEntity</code>.
+  Ссылка с <code>Entity</code> на <code>SharedEntity</code> допустима только если свойство является nullable или имеет аннотацию <code>@CascadeDeleteBy</code>.
+  В противном случае это может привести к исключению во время выполнения.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  interface A : LegacyEntity {
+    var x: SharedEntity
+    var y: SharedEntity
+  }
+</code></pre>
+<p>Можно использовать быстрое исправление для добавления аннотации или преобразования типа в nullable</p>
+<pre><code>
+  interface A : LegacyEntity {
+    var x: SharedEntity?
+    @CascadeDeleteBy
+    var y: SharedEntity
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<body>
+Сообщает о неназначенных свойствах <code>Entity</code> при его создании с помощью функций <code>new</code> или <code>getOrCreate</code> в <code>ChangeScope</code>.
+<p>
+  Все non-null свойства <code>Entity</code> должны быть назначены или помечены аннотацией <code>@Many</code>.
+  В противном случае это может привести к исключению во время выполнения.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  interface A : LegacyEntity {
+    var x: Int
+    var y: Int?
+    @Many var z: Int
+    var p: Int
+  }
+  fun ChangeScope.foo() {
+    new(A::class) {
+      this.p = 0
+    }
+  }
+</code></pre>
+<p>Отсутствующие обязательные свойства можно назначить с помощью быстрого исправления</p>
+<pre><code>
+  fun ChangeScope.foo() {
+    new(A::class) {
+      this.x = x
+      this.p = 0
+    }
+  }
+</code></pre>
+</body>
+</html>

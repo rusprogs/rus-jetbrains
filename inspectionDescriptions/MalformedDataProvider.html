@@ -1,0 +1,23 @@
+<html><body>
+Сообщает о ссылках на несуществующие или недоступные методы поставщика данных.
+<p>Пример:</p>
+<pre><code>
+public class InstanceDataProviderFromForeignClass {
+  // Метод data() не существует в классе A
+  @Test(dataProvider = "data", dataProviderClass = A.class)
+  public void test() {
+  }
+}
+class A { }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+//Требуемый метод data() создан в классе A
+class A {
+  @DataProvider
+  public Object[][] data() {
+    return new Object[][]{};
+  }
+}
+</code></pre>
+</body></html>

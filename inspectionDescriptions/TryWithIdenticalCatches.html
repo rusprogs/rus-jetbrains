@@ -1,0 +1,27 @@
+<html>
+<body>
+Обнаружение одинаковых блоков <code>catch</code> в одном операторе <code>try</code>.
+<p>Объединение таких блоков в один блок <i>multi-catch</i> позволяет уменьшить дублирование кода и предотвратить ситуации, когда один блок <code>catch</code> обновляется, а другой остается без изменений.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+    try {
+        doSmth();
+    }
+    catch (IOException e) {
+        LOG.error(e);
+    }
+    catch (URISyntaxException e) {
+        LOG.error(e);
+    }
+</code></pre>
+<p>С помощью быстрого исправления код можно сделать более компактным:</p>
+<pre><code>
+    try {
+        doSmth();
+    }
+    catch (IOException | URISyntaxException e) {
+        LOG.error(e);
+    }
+</code></pre>
+</body>
+</html>

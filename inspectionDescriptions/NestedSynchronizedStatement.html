@@ -1,0 +1,20 @@
+<html>
+<body>
+Обнаружены вложенные операторы <code>synchronized</code>.
+Рекомендуется избегать вложенной синхронизации, так как в некоторых случаях это может привести к взаимоблокировке.
+<p><b>Пример:</b></p>
+<pre><code>
+  synchronized (lockA){
+    //поток 1 ожидает lockB
+    synchronized (lockB){ //предупреждение
+    }
+  }
+  ...
+  synchronized (lockB) {
+    //поток 2 ожидает lockA
+    synchronized (lockA) { //предупреждение
+    }
+  }
+</code></pre>
+</body>
+</html>

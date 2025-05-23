@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>Сообщает о некорректных элементах в файле Java Server Faces <code>faces-config.xml</code>:</p>
+<ul>
+  <li>Ссылки на неинстанцируемые классы</li>
+  <li>Ссылки на классы, не расширяющие требуемые классы</li>
+  <li>Ссылки на классы с неправильной областью видимости</li>
+  <li>Пустые теги и значения атрибутов</li>
+  <li>Теги и значения атрибутов, не соответствующие требуемой схеме (например, Java-идентификаторы)</li>
+  <li>Теги без обязательных дочерних тегов или атрибутов</li>
+  <li>Теги, определяющие объекты с повторяющимися именами</li>
+</ul>
+<p><strong>Пример:</strong></p>
+<pre><code>
+  &lt;faces-config &gt;
+     &lt;application&gt;
+        &lt;action-listener&gt;<strong>java.lang.String</strong>&lt;/action-listener&gt;  &lt;!-- 'java.lang.String' не может быть присвоен 'javax.faces.event.ActionListener'  --&gt;
+    &lt;/application&gt;
+    &lt;navigation-rule&gt;
+        &lt;from-view-id&gt;myView.xhtml&lt;/from-view-id&gt;
+        &lt;navigation-case&gt;
+            &lt;to-view-id&gt;<strong>unknown.xhtml</strong>&lt;/to-view-id&gt;  &lt;!-- Невозможно разрешить 'unknown.xhtml'  --&gt;
+        &lt;/navigation-case&gt;
+    &lt;/navigation-rule&gt;
+  &lt;/faces-config&gt;
+</code></pre>
+</body>
+</html>

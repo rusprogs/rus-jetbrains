@@ -1,0 +1,27 @@
+<html>
+<body>
+Объявление переменной может быть перемещено в выражение <code>when</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+fun someCalc(x: Int) = x * 42
+fun foo(x: Int): Int {
+  val a = someCalc(x)
+  return when (a) {
+    1 -&gt; a
+    2 -&gt; 2 * a
+    else -&gt; 24
+  }
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+fun foo(x: Int): Int {
+  return when (val a = someCalc(x)) {
+    1 -&gt; a
+    2 -&gt; 2 * a
+    else -&gt; 24
+  }
+}
+</code></pre>
+</body>
+</html>

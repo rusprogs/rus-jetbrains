@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает об использовании предложения <code>ORDER BY</code> в представлениях, встроенных функциях, производных таблицах, подзапросах и общих табличных выражениях без использования <code>TOP</code>, <code>OFFSET</code> или <code>FOR XML</code>.
+<p>Подробную информацию об использовании <code>ORDER BY</code> см. в разделе <a
+    href="https://docs.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql">SELECT - предложение ORDER BY (Transact-SQL) на docs.microsoft.com</a>.</p>
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE foo (a INT NOT NULL, b  INT NOT NULL);
+SELECT *
+FROM (SELECT a, b
+FROM foo A
+WHERE a &lt; 89
+ORDER BY b) ALIAS;
+</code></pre>
+<p>ORDER BY в подзапросе будет подсвечен как ошибка. Вы можете добавить TOP, OFFSET или FOR XML в подзапрос.
+  Или используйте быстрое исправление <b>Удалить элемент</b>, чтобы удалить часть ORDER BY.</p>
+<p>После применения быстрого исправления:</p>
+<pre><code>SELECT *
+FROM (SELECT a, b
+FROM foo A
+WHERE a &lt; 89) ALIAS;
+</code></pre>
+</body>
+</html>

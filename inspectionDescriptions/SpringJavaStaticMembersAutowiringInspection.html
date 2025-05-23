@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Сообщает об автоматической настройке и внедрении статических методов/полей компонентов Spring.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+@Component
+public class MyComponent {
+	@Autowired
+	static FooInterface foo;  // Сообщение "Статические члены не подлежат автоматической настройке"
+}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>Сообщает об использовании внедрения зависимостей на основе конструктора в Spring <code>&lt;bean&gt;</code>.</p>
+<p>Проверка срабатывает, когда не удаётся найти подходящий конструктор или фабричный метод для <code>&lt;bean&gt;</code> с использованием настроенных тегов <code>&lt;constructor-arg&gt;</code> и определённой стратегии <code>autowire</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+    public class MyComponent {
+    // 构造函数
+    public MyComponent(MyBean bean) {}
+    // 工厂方法
+    public static MyComponent getInstance(String name, int port) {
+    }
+</code></pre>
+<pre><code lang="xml">
+    &lt;beans&gt;
+      &lt;bean class="beans.MyComponent" id="foo"&gt; &lt;!-- Сообщение "Не найден подходящий конструктор в классе 'MyComponent'" --&gt;
+          &lt;constructor-arg ref="myBean"/&gt;
+         &lt;constructor-arg value="123"/&gt;
+      &lt;/bean&gt;
+      &lt;bean class="beans.MyComponent" factory-method="getInstance"&gt; &lt;!-- Сообщение "Не найден подходящий фабричный метод в классе" --&gt;
+         &lt;constructor-arg value="123"/&gt;
+      &lt;/bean&gt;
+    &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

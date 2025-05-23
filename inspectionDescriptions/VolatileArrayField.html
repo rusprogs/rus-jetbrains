@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о полях массива, объявленных как <code>volatile</code>. Такое объявление может вводить в заблуждение, поскольку доступ к самому массиву следует правилам для <code>volatile</code> полей, но это не относится к доступу к содержимому массива.
+<p><b>Пример:</b></p>
+<pre><code>
+  class Data {
+    private volatile int[] idx = new int[0];
+  }
+</code></pre>
+<p>
+  Если требуется такой волатильный доступ к содержимому массива, лучше использовать классы из пакета <code>java.util.concurrent.atomic</code>:
+</p>
+<pre><code>
+  class Data {
+    private final AtomicIntegerArray idx = new AtomicIntegerArray(new int[0]);
+  }
+</code></pre>
+</body>
+</html>

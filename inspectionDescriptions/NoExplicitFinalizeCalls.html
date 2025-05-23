@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о вызовах <code>Object.finalize()</code>.
+<p>Явный вызов <code>Object.finalize()</code> может привести к несогласованному состоянию объекта.
+  Сборщик мусора автоматически вызывает этот метод, когда определяет, что на объект больше нет ссылок.</p>
+<p>Эта проверка не сообщает о вызовах <code>super.finalize()</code> внутри реализации <code>finalize()</code>, поскольку они считаются безопасными.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  MyObject m = new MyObject();
+  m.finalize();
+  System.gc()
+</code></pre>
+</body>
+</html>

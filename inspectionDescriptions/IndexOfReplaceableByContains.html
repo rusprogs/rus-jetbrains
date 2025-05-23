@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о сравнениях с вызовом <code>String.indexOf()</code>, которые могут быть заменены вызовом метода <code>String.contains()</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  <b>boolean</b> b = "abcd".indexOf('e') >= 0;
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  <b>boolean</b> b = "abcd".contains('e');
+</code></pre>
+<p>Эта проверка срабатывает только если уровень языка проекта или модуля установлен на 5 или выше.</p>
+</body>
+</html>

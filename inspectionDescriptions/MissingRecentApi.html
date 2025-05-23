@@ -1,0 +1,16 @@
+<html>
+<body>
+Обнаружено использование API платформы IntelliJ, который был введен в версии <em>ниже</em> той, что указана в атрибуте <code>@since-build</code> тега <code><idea-version></code> файла <code>plugin.xml</code>.
+<p>
+  Использование такого API может привести к несовместимости плагина со старыми версиями ИСР.
+</p>
+<p>
+  Чтобы избежать возможных проблем при запуске плагина в старых версиях ИСР, повысьте значение <code>since-build</code> или удалите использование этого API.
+</p>
+<p>
+  Дополнительную информацию смотрите в разделе <a href="https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html">Диапазоны номеров сборок</a> документации SDK платформы IntelliJ.
+</p>
+<p>Настройка проверки:</p>
+Если атрибуты <code>@since/until-build</code> тега <code>&lt;idea-version></code> не указаны в <code>plugin.xml</code>, явно установите значения <b>Since</b>/<b>Until</b>.
+</body>
+</html>

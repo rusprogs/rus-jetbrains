@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о параметрах типа, которые имеют то же имя, что и видимые типы в текущей области видимости. Такие имена параметров типа могут вызывать путаницу.
+<p>Пример:</p>
+<pre><code>
+  abstract class MyList&lt;T&gt; extends AbstractList&lt;T&gt; {
+    private List&lt;T&gt; elements;
+    // Параметр типа 'T' скрывает параметр типа 'T'
+    public &lt;T&gt; T[] toArray(T[] array) {
+        return elements.toArray(array);
+    }
+}
+</code></pre>
+</body>
+</html>

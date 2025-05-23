@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>toString()</code>, использующих реализацию по умолчанию из <code>java.lang.Object</code>.
+<p>Использование реализации по умолчанию редко является преднамеренным и может указывать на ошибку.</p>
+<p>
+  Эта проверка игнорирует вызовы <code>toString()</code> для объектов, имеющих тип <code>java.lang.Object</code>, интерфейс или абстрактный класс.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Bar {
+      void foo1(Bar bar) {
+          String s = bar.toString(); // предупреждение
+          /* ... */
+      }
+      void foo2(Object obj) {
+          String s = obj.toString(); // здесь предупреждения нет
+          /* ... */
+      }
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+Обнаружен служебный класс, не помеченный как <code>final</code> или <code>abstract</code>.
+<p>Служебный класс объявляет все поля и методы как <code>static</code>.
+Объявление его как <code>final</code> предотвращает случайное наследование.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public class UtilityClass {
+    public static void foo() {}
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  public final class UtilityClass {
+    public static void foo() {}
+  }
+</code></pre>
+</body>
+</html>

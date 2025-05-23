@@ -1,0 +1,21 @@
+<html>
+<body>
+Отчёт для записи любых файлов <code>package.html</code> в пакете программного обеспечения.
+<p>Начиная с JDK 1.5, рекомендуется использовать файл <code>package-info.java</code>, так как он также может содержать аннотации пакета. Таким образом, package-info.java становится единым хранилищем для аннотаций и документации на уровне пакета.</p>
+<p>Пример: <code>package.html</code></p>
+<pre><code>
+&lt;html&gt;
+  &lt;body&gt;
+    Documentation example.
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>После применения быстрого исправления: <code>package-info.java</code></p>
+<pre><code>
+/**
+ * Documentation example.
+ */
+package com.sample;
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<body>
+Сообщает о избыточных конструкторах, объявленных в Java-записях.
+<p><b>Пример 1:</b></p>
+<pre><code>
+  record Point(int x, int y) {
+    public Point {} // можно удалить
+  }
+  record Point(int x, int y) {
+    public Point(int x, int y) { // можно удалить
+      this.x = x;
+      this.y = y;
+    }
+  }
+</code></pre>
+<p>Быстрое исправление удалит избыточный конструктор.</p>
+<p><b>Пример 2:</b></p>
+<pre><code>
+   // можно преобразовать в компактный конструктор
+  record Range(int from, int to) {
+    public Range(int from, int to) {
+      if (from > to) throw new IllegalArgumentException();
+      this.from = from;
+      this.to = to;
+    }
+  }
+</code></pre>
+<p>Быстрое исправление преобразует этот код в компактный конструктор.</p>
+<p><small>Новое в версии 2020.1</small></p>
+</body>
+</html>

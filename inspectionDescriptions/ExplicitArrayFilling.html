@@ -1,0 +1,18 @@
+<html>
+<body>
+Цикл может быть заменен вызовом <code>Arrays.setAll()</code> или <code>Arrays.fill()</code>.
+<p>Если уровень языка проекта или модуля 8 или выше, эта проверка предлагает заменить цикл на <code>Arrays.setAll()</code>.
+  Вы можете заменить цикл на <code>Arrays.fill()</code> при любом уровне языка.</p>
+<p>Пример:</p>
+<pre><code>
+  for (int i=0; i&lt;array.length; i++) {
+     array[i] = calc(i);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  Arrays.setAll(array, this::calc);
+</code></pre>
+<p><small>Изменения в версии 2017.1</small></p>
+</body>
+</html>

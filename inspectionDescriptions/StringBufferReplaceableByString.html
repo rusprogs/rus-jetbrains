@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о случаях использования <code>StringBuffer</code>, <code>StringBuilder</code> или <code>StringJoiner</code>, которые могут быть заменены конкатенацией <code>String</code>.
+<p>Использование конкатенации <code>String</code> делает код короче и проще.</p>
+<p>
+Эта проверка срабатывает только в тех случаях, когда предлагаемая замена не приведет к значительному снижению производительности на современных JVM. Во многих случаях конкатенация <code>String</code> может работать даже эффективнее.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  StringBuilder result = new StringBuilder();
+  result.append("i = ");
+  result.append(i);
+  result.append(";");
+  return result.toString();
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  String result = "i = " + i + ";";
+  return result;
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>Сообщает об использовании декораторов <code>@classmethod</code> или <code>@staticmethod</code> в методах вне класса.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+class State(object):
+    @classmethod
+    def my_state(cls, name):
+        cls.name = name
+@classmethod
+def change_state(self):
+    pass
+</code></pre>
+<p>Метод <code>change_state</code> не должен использовать декоратор <code>@classmethod</code>, или его следует переместить в объявление класса <code>state</code>.</p>
+<p>При применении операции <code>удаления декоратора</code> код станет:</p>
+<pre><code>
+class State(object):
+    @classmethod
+    def my_state(cls, name):
+        cls.name = name
+def change_state(self):
+    pass
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<html>
+<body>
+Сообщает о повторяющихся именах псевдонимов столбцов в списке SELECT.
+<p>Пример (Sybase ASE):</p>
+<pre><code>CREATE TABLE t1 (a TEXT, b INT, c INT);
+SELECT a AS x, b AS x FROM t1;</code></pre>
+<p>Псевдоним <code>x</code> используется для столбцов <code>a</code> и <code>b</code>. Эти назначения подсвечиваются как ошибки, поскольку в Sybase ASE нельзя использовать одинаковые псевдонимы для столбцов.</p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<body>
+<p>
+    Аргументы требуют явного преобразования для правильного разрешения перегруженного вызова функции.
+    Текущее предупреждение компилятора (доступное с Kotlin 1.6.20) станет ошибкой в Kotlin 1.8.
+</p>
+<p>
+    Прогрессии и типы диапазонов (<code>kotlin.ranges</code>) будут реализовывать интерфейс <code>Collection</code> начиная с версии 1.9 и выше. Это изменение повлияет на разрешение перегруженных функций. Например, в приведенном ниже примере вызов <code>test(1..5)</code> будет разрешен как <code>test(t: Any)</code> в Kotlin 1.8 и более ранних версиях, но как <code>test(t: Collection&lt;*&gt;)</code> в Kotlin 1.9 и более поздних версиях.
+</p>
+<pre><code>
+  fun test(t: Any) { }
+  fun test(t: Collection&lt;*&gt;) { }
+  fun invoke() {
+    test(1..5) // IntRange станет Collection в версии 1.9
+  }
+</code></pre>
+<p>Предлагаемое быстрое исправление фиксирует поведение, специфичное для компилятора версии 1.8 и ранее:</p>
+<pre><code>
+  fun test(t: Any) { }
+  fun test(t: Collection&lt;*&gt;) { }
+  fun invoke() {
+    test(1..5) // Разрешается как 'test(t: T)' до Kotlin 1.9
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun test(t: Any) { }
+  fun test(t: Collection&lt;*&gt;) { }
+  fun invoke() {
+    test((1..5) as Iterable&lt;Int&gt;) // Разрешается как 'test(t: T)' в Kotlin 1.9
+  }
+</code></pre>
+<p>Проверка уровня языка Kotlin доступна начиная с версии 1.6.</p>
+</body>
+</html>

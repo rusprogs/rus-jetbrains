@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о побитовых масочных выражениях, которые всегда вычисляются как <code>true</code> или <code>false</code>.
+Выражения имеют форму <code>(var & constant1) == constant2</code> или
+<code>(var | constant1) == constant2</code>, где <code>constant1</code> 
+и <code>constant2</code> являются несовместимыми битовыми масками.
+<p>Пример:</p>
+<pre><code>
+// Несовместимые маски: поскольку последний байт в маске равен нулю,
+// возможно значение 0x1200, но 0x1234 невозможно
+if ((mask & 0xFF00) == 0x1234) {...}
+</code></pre>
+</body>
+</html>

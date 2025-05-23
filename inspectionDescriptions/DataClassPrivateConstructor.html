@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщение о <code>private</code> основном конструкторе в классе данных.
+<p>
+    Класс <code>data</code> имеет фабричный метод <code>copy()</code>, который можно использовать как конструктор.
+    Для обеспечения должной функциональности конструктор не должен быть помечен как <code>private</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  data class User private constructor(val name: String)
+</code></pre>
+<p>Быстрое исправление изменит модификатор видимости конструктора на <code>public</code>:</p>
+<pre><code>
+  data class User(val name: String)
+</code></pre>
+</body>
+</html>

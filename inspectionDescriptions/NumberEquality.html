@@ -1,0 +1,19 @@
+<html>
+<body>
+Обнаружен код, использующий <b>==</b> или <b>!=</b> вместо <code>equals()</code> для сравнения объектов типа <code>Number</code>.
+<p>
+  Такая ошибка часто возникает при автоупаковке, когда сравниваются не примитивные типы, а экземпляры классов-оберток, например <code>Integer</code> вместо <code>int</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>  void foo(Integer a, Integer b) {
+    final boolean bool = a == b;
+  }
+</code></pre>
+<p>Если известно, что <code>a</code> не является null, можно безопасно применить "небезопасное" быстрое исправление, что приведет к следующему результату:</p>
+<pre><code>  void foo(Integer a, Integer b) {
+    final boolean bool = a.equals(b);
+  }
+</code></pre>
+<p>
+</body>
+</html>

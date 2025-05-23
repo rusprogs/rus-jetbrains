@@ -1,0 +1,44 @@
+<html>
+<body>
+<p>
+  Обнаружен ресурс/источник данных, который не может быть проанализован на основе известных провайдеров.
+  Провайдер должен быть указан в разделе <code>required_providers</code> или должен происходить из пространства имён <code>hashicorp</code>.
+</p>
+<p>
+  Например, следующий код вызовет ошибку:
+</p>
+<pre><code>
+terraform {
+  required_version = "1.1.3"
+}
+resource "abbey_demo" "demo" {
+  email      = "user@mail.company"
+  permission = "user"
+}
+</code></pre>
+<p>
+  Terraform попытается импортовать провайдер <code>hashicorp/abbey</code> для ресурса <code>abbey_demo</code>.
+</p>
+<p>
+  Чтобы исправить эту проблему, необходимо указать точные координаты провайдера:
+</p>
+<pre><code>
+terraform {
+  required_version = "1.1.3"
+  required_providers {
+    abbey = {
+      source  = "abbeylabs/abbey"
+      version = "0.2.9"
+    }
+  }
+}
+resource "abbey_demo" "demo" {
+  email      = "user@mail.company"
+  permission = "user"
+}
+</code></pre>
+<p>
+  Для получения дополнительной информации см. <a href ="https://developer.hashicorp.com/terraform/language/providers/requirements#requiring-providers">документацию Terraform</a>.
+</p>
+</body>
+</html>

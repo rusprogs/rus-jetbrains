@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Обнаружение неиспользуемых ключей в TOML-дескрипторе каталога версий.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="groovy">
+// build.gradle
+dependencies {
+  implementation libs.foo.bar
+}
+</code></pre>
+<pre><code lang="toml">
+# libs.versions.toml
+[libraries]
+foo-bar = "com.gradle:example:1.0.0"
+bar-baz = "com.gradle:example:2.0.0" # подсветка bar-baz
+</code></pre>
+</body>
+</html>

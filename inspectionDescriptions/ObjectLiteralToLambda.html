@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает об анонимных объектных литералах, реализующих Java-интерфейс с единственным abstract методом, который может быть преобразован в лямбда-выражение.
+<p><b>Пример:</b></p>
+<pre><code>
+class SomeService {
+  val threadPool = Executors.newCachedThreadPool()
+  fun foo() {
+    threadPool.submit(object : Runnable {
+      override fun run() {
+        println("hello")
+      }
+    })
+  }
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo() {
+    threadPool.submit { println("hello") }
+  }
+</code></pre>
+</body>
+</html>

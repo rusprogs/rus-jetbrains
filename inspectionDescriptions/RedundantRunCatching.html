@@ -1,0 +1,14 @@
+<html>
+<body>
+Вызов <code>runCatching</code> с последующим <code>getOrThrow</code>.
+Такой вызов можно заменить простым <code>run</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo() = runCatching { doSomething() }.getOrThrow()
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo() = run { doSomething() }
+</code></pre>
+</body>
+</html>

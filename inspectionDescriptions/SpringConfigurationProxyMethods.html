@@ -1,0 +1,52 @@
+<html>
+<body>
+Предупреждение о некорректном использовании методов-прокси.
+Spring Framework 5.2 представил оптимизацию обработки классов @Configuration, которую можно включить с помощью аннотации @Configuration(proxyBeanMethods = false).
+<p>
+Если отключить <code>proxyBeanMethods</code>, прокси-экземпляры больше не будут создаваться, и вызов метода будет создавать новый экземпляр при каждом вызове.
+Следовательно, вы не можете гарантировать, что в контекст внедряется соответствующий Bean.
+</p>
+<p>Пример некорректного вызова Bean-метода:</p>
+<pre><code lang="java">
+@Configuration(proxyBeanMethods = false)
+class TestConfiguration {
+  @Bean
+  public FirstBean firstBean() {
+    return new FirstBean();
+  }
+  @Bean
+  public SecondBean secondBean() {
+    return new SecondBean(firstBean()); // -> некорректный вызов
+  }
+}
+</code></pre>
+<p>Вы можете установить <code>proxyBeanMethods</code> в true или переписать код следующим образом:</p>
+<pre><code lang="java">
+@Configuration(proxyBeanMethods = false)
+class TestConfiguration {
+  @Bean
+  public FirstBean firstBean() {
+    return new FirstBean();
+  }
+  @Bean
+  public SecondBean secondBean(FirstBean someBean) { // -> корректное внедрение экземпляра
+    return new SecondBean(someBean);
+  }
+}
+</code></pre>
+<p>Кроме того, эта проверка также отслеживает вызовы методов <code>@Bean</code> в классах без стереотипа <code>@Configuration</code> (в режиме "Bean lite mode"):</p>
+<pre><code lang="java">
+@Component
+class TestComponent {
+  @Bean
+  public FirstBean firstBean() {
+    return new FirstBean();
+  }
+  @Bean
+  public SecondBean secondBean() {
+    return new SecondBean(firstBean()); // -> некорректный вызов
+  }
+}
+</code></pre>
+</body>
+</html>

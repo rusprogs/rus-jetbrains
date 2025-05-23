@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>Сообщать о неиспользуемых экземплярах <code>Publisher</code>.</p>
+<p>
+  Чтобы использовать операторы, создающие новые экземпляры <code>Publisher</code> (методы объектов Mono/Flux/Flowable, возвращающие Mono/Flux/Flowable), необходимо подписаться на созданный <code>Publisher</code> с помощью <code>subscribe()</code>.
+</p>
+<p>
+  Использование фабричных методов (например, <code>Mono.just()</code>) без подписки на возвращаемый <code>Publisher</code> создает объект, который никогда не используется, что считается ненужным выделением памяти.
+</p>
+<p>
+  Например, <code>Mono.just(1, 2, 3).map(i -> i + 3)</code> не будет выполнен, пока вы не подпишетесь на этот <code>Publisher</code> или не создадите новый <code>Publisher</code> путем применения операторов и не подпишетесь на него.
+</p>
+<p><b>Пример:</b></p>
+<p>Неиспользуемый экземпляр <code>Flux</code>:</p>
+<pre><code lang="java">
+Flux.just(1, 2, 3);
+</code></pre>
+<p>Используемый экземпляр <code>Flux</code>:</p>
+<pre><code lang="java">
+Flux.just(1, 2, 3).subscribe(System.out::println);
+</code></pre>
+<p>Не будут отмечаться вызовы методов, аннотированных с помощью <code>@CanIgnoreReturnValue</code> при использовании Error Prone или AssertJ.</p>
+<p><small>Изменения в версии 2019.3</small></p>
+</body>
+</html>

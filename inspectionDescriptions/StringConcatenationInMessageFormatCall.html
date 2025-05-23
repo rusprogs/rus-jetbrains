@@ -1,0 +1,21 @@
+<html>
+<body>
+Обнаружена конкатенация нестатических строк, используемых в качестве аргумента для вызова <code>MessageFormat.format()</code>.
+<p>
+  Хотя иногда это может быть преднамеренным, обычно это является неправильным использованием метода форматования и может даже вызвать исключение, если конкатенированные строки содержат специальные символы, такие как <code>{</code>.
+</p>
+<p>
+  Кроме того, иногда это может быть результатом ошибочного использования <code>+</code> вместо <code>,</code> при передаче аргументов форматования.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  String formatGreeting(String userName, int balance) {
+    return MessageFormat.format("Hello, " + userName + "! Your balance is {0}.", balance);
+  }
+</code></pre>
+<p>
+  В данном случае <code>userName</code> интерпретируется как часть строки форматования, что может привести к <code>IllegalArgumentException</code> (например, если <code>userName</code> содержит <code>"{"</code>).
+  Этот вызов следует заменить на <code>MessageFormat.format("Hello, {0}! Your balance is {1}.", userName, balance)</code>.
+</p>
+</body>
+</html>

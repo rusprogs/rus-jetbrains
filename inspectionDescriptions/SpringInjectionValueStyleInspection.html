@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>Сообщает о свойствах, настроенных через дочерние элементы <code>&lt;value&gt;</code> или <code>&lt;ref&gt;</code>, и предлагает заменить их соответствующими атрибутами.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  &lt;beans&gt;
+    &lt;bean class="MyBean" id="myBean"/&gt;
+    &lt;bean class="MyFactory"&gt;
+      &lt;property name="bean"&gt;
+        &lt;ref bean="myBean"/&gt; &lt;!-- сообщение "используется явный элемент &lt;ref&gt;" --&gt;
+      &lt;/property&gt;
+    &lt;/bean&gt;
+  &lt;/beans&gt;
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  &lt;beans&gt;
+    &lt;bean class="MyBean" id="myBean"/&gt;
+    &lt;bean class="MyFactory"&gt;
+      &lt;property name="bean" ref="myBean"/&gt;
+    &lt;/bean&gt;
+  &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

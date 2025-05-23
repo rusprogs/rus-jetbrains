@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о несоответствии имен параметров, указанных в блоках комментариев при вызове методов <b>Java</b>.
+<p><b>Пример:</b></p>
+<pre><code>
+  // Java
+  public class JavaService {
+      public void invoke(String command) {}
+  }
+</code></pre>
+<pre><code>
+  // Kotlin
+  fun main() {
+      JavaService().invoke(/* name = */ "fix")
+  }
+</code></pre>
+<p>Быстрое исправление корректирует имя параметра в блоке комментария:</p>
+<pre><code>
+  fun main() {
+      JavaService().invoke(/* command = */ "fix")
+  }
+</code></pre>
+</body>
+</html>

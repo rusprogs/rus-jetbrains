@@ -1,0 +1,20 @@
+<html>
+<body>
+Обнаружены следующие нарушения спецификации EJB:
+<ul>
+  <li>Класс не реализует ожидаемый интерфейс (EJBLocalObject, EJBObject и т.д.)</li>
+  <li>В классе не определен публичный конструктор без параметров</li>
+  <li>Использование класса вместо интерфейса или интерфейса вместо класса</li>
+  <li>Метод EJB объявлен как static</li>
+  <li>Stateless Session Bean определяет несколько методов `ejbCreate`</li>
+  <li>Неправильный тип возвращаемого значения в методах Session Bean класса</li>
+  <li>В EJB определен метод `finalize`</li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code>
+public class SessionEJB implements java.io.Serializable { // Ошибка: класс должен расширять `SessionBean`
+  private SessionEJB() {} // Ошибка: класс должен определять публичный конструктор без параметров
+}
+</code></pre>
+</body>
+</html>

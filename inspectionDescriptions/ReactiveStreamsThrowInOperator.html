@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Сообщение о выражениях <code>throw</code> в коде операторов Reactor/RxJava.</p>
+<p>Выброс исключений из операторов Reactor/RxJava может указывать на проблему, поскольку вы можете вернуть "реактивноподобную" ошибку: <code>Mono.error()</code> или <code>Flowable.error()</code> из <code>flatMap()</code>, или вызвать <code>sink.error()</code> из оператора <code>handle()</code> в Reactor.
+</p>
+<p>
+Кроме того, фабричные методы Reactor позволяют возвращать проверяемые исключения без ошибок, в то время как выброс таких исключений без класса <code>Exceptions</code> приведет к ошибке компиляции.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+Flux.just(1, 2, 3).flatMap(i -> {
+            throw new RuntimeException();
+        })
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+Flux.just(1, 2, 3).flatMap(i -> {
+            return Flux.error(new RuntimeException());
+        })
+</code></pre>
+<p><small>Изменения в версии 2019.3</small></p>
+</body>
+</html>

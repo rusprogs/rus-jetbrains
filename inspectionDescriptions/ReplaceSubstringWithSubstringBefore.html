@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщается, что вызов <code>s.substring(0, s.indexOf(x))</code> может быть заменен на <code>s.substringBefore(x)</code>.
+<p>Использование <code>substringBefore()</code> делает код более лаконичным.</p>
+<p>Это быстрое исправление заменит вызов <code>substring</code> на <code>substringBefore</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(s: String) {
+      s.substring(0, s.indexOf('x'))
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(s: String) {
+      s.substringBefore('x')
+  }
+</code></pre>
+</body>
+</html>

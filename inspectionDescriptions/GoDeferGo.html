@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о прямых вызовах <code>panic()</code> или <code>recover()</code> в операторах <code>defer</code> и <code>go</code>.
+<p>Такие операторы редко бывают полезны и могут указывать на неправильное использование механизмов <code>panic()</code> и <code>recover()</code>.
+  Особое внимание следует обратить на следующие случаи:</p>
+<ul>
+  <li><code>go panic()</code>: новая горутина немедленно вызовет панику.</li>
+  <li><code>defer panic()</code>: функция с таким оператором всегда вызывает панику при завершении.</li>
+  <li><code>go recovery()</code>: не имеет эффекта, так как новая горутина не может обработать панику.</li>
+  <li><code>defer recovery()</code>: функция с таким оператором будет молча подавлять панику. Хотя это может работать, идиоматический способ предполагает проверку значения, возвращаемого <code>recover()</code>:
+    <pre><code>defer func() {
+  if r := recover(); r != nil {
+    fmt.Println("Recovered from: ", r)
+  }
+}()</code></pre>
+  </li>
+</ul>
+<p>Для получения подробной информации об операторах go и обработке паники см. разделы <a href="https://go.dev/ref/spec#Handling_panics">Handling panics</a> и <a href="https://go.dev/ref/spec#Go_statements">Go statements</a> в спецификации языка Go.</p>
+</body>
+</html>

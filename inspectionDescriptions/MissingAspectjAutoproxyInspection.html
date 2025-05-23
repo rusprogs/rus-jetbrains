@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Если в XML-конфигурации отсутствует элемент <strong>&lt;aop:aspectj-autoproxy/&gt;</strong>, сообщается об аннотации <code>@Aspect</code> в версиях Spring ранее 2.5.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+@Aspect // Поддержка @AspectJ не включена
+class MyAspect {
+   ...
+}
+</code></pre>
+<pre><code lang="xml">
+&lt;beans&gt;
+   &lt;!-- &lt;aop:aspectj-autoproxy/&gt; --&gt;
+&lt;/beans&gt;
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Сообщает о проблемах с переменными, объявленными через оператор <code>global</code>, но не определёнными в области видимости модуля.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+def foo():
+    global bar
+    print(bar)
+foo()
+</code></pre>
+<p>Это можно исправить, переместив объявление глобальной переменной:</p>
+<pre><code>
+global bar
+def foo():
+    print(bar)
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает о ненадежных проверках типов с использованием <code>typeof</code> или <code>instanceof</code>.
+В следующих двух случаях проверка типов <code>typeof x</code> может быть ненадежной:
+<ul>
+<li><code>typeof x</code> не соответствует указанному значению (например, когда <code>x</code> имеет тип 'string | boolean', а <code>typeof x === 'number'</code>)</li>
+<li><code>typeof x</code> всегда соответствует указанному значению (например, когда <code>x</code> имеет тип 'string', а <code>typeof x === 'string'</code>)</li>
+</ul>
+<br>
+В следующих двух случаях проверка типов <code>x instanceof A</code> может быть ненадежной:
+<ul>
+  <li>тип <code>x</code> не связан с <code>A</code></li>
+  <li>тип <code>x</code> является <code>A</code> или подтипом <code>A</code></li>
+</ul>
+</body>
+</html>

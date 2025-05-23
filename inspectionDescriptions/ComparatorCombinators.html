@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает об экземплярах <code>Comparator</code>, которые могут быть выражены лямбда-выражениями с использованием метода <code>Comparator.comparing()</code>.
+Также сообщает о цепочках сравнений, которые могут быть заменены выражением <code>Comparator.thenComparing()</code>.
+<p>Пример:</p>
+<pre><code>
+  myList.sort((person1, person2) -> person1.getName().compareTo(person2.getName()));
+  myList2.sort((person1, person2) -> {
+      int res = person1.first().compareTo(person2.first());
+      if(res == 0) res = person1.second().compareTo(person2.second());
+      if(res == 0) res = person1.third() - person2.third();
+      return res;
+  });
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  myList.sort(Comparator.comparing(Person::getName));
+  myList2.sort(Comparator.comparing(Person::first)
+                         .thenComparing(Person::second)
+                         .thenComparingInt(Person::third));
+</code></pre>
+</body>
+</html>

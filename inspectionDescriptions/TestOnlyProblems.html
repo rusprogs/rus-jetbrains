@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о методах и классах в производственном коде, использующих аннотации <code>@TestOnly</code> и <code>@VisibleForTesting</code>. Также сообщает о случаях применения <code>@TestOnly</code> и <code>@VisibleForTesting</code> к одному и тому же элементу.
+<p>Проблемы не отображаются, если метод или класс вызывается из следующих мест:</p>
+<ul>
+  <li>Код в папке <b>Test Sources</b>
+  <li>Тестовые классы (JUnit/TestNG)
+  <li>Другой метод с аннотацией <code>@TestOnly</code>
+</ul>
+<p><b>Пример (в производственном коде):</b></p>
+<pre><code lang="kotlin">
+  @TestOnly
+  fun foo() { ... }
+  fun main () {
+    foo()
+  }
+</code></pre>
+</body>
+</html>

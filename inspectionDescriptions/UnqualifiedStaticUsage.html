@@ -1,0 +1,52 @@
+<html>
+<body>
+Сообщает об использовании статических членов без указания имени класса.
+<p>
+Использование статических членов в том же классе является допустимым, но может вызывать путаницу.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo {
+    static void foo() {}
+    static int x;
+    void bar() {
+      foo();
+      System.out.println(x);
+    }
+    static void baz() { foo(); }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Foo {
+    static void foo() {}
+    static int x;
+    void bar() {
+      Foo.foo();
+      System.out.println(Foo.x);
+    }
+    static void baz() { Foo.foo(); }
+  }
+</code></pre>
+<p>В настройках проверки можно включить или отключить отчёты для:</p>
+<ul>
+  <li>
+    <p>
+      Доступа к статическим полям<br>
+      <code>void bar() { System.out.println(x); }</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      Вызовов статических методов<br>
+      <code>void bar() { foo(); }</code><br>
+      <code>static void baz() { foo(); }</code>
+    </p>
+  </li>
+</ul>
+<p>
+  Также можно настроить проверку так, чтобы она сообщала только об использовании статических членов из нестатического контекста.
+  В приведенном выше примере <code>static void baz() { foo(); }</code> не будет отмечено.
+</p>
+</body>
+</html>

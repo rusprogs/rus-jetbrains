@@ -1,0 +1,30 @@
+<html>
+<body>
+Сообщает о шаблонном <code>instanceof</code> и предлагает преобразовать его в обычный <code>instanceof</code> с приведением типа.
+<p>С помощью быстрого исправления эта проверка может перенести шаблонный <code>instanceof</code> в кодовую базу, использующую более ранние версии Java.</p>
+<p>
+  Обратите внимание, что при использовании сложных выражений перед <code>instanceof</code> результат может не быть полностью эквивалентным исходному шаблонному <code>instanceof</code>. В этом случае выражение будет вычислено повторно.
+</p>
+<p>Пример:</p>
+<pre><code>
+  if (object instanceof String txt && txt.length() == 1) {
+      System.out.println(txt);
+  } else {
+      return;
+  }
+  System.out.println(txt);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  if (object instanceof String && ((String) object).length() ==1) {
+      String txt = (String) object;
+      System.out.println(txt);
+  } else {
+      return;
+  }
+  String txt = (String) object;
+  System.out.println(txt);
+</code></pre>
+<p><small>Новое в версии 2023.1</small></p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает о вызовах <code>java.lang.System.loadLibrary()</code>, <code>java.lang.System.load()</code>, <code>java.lang.Runtime.loadLibrary()</code> и <code>java.lang.Runtime.load()</code>, которые используют динамически сконструированные строки в качестве имен библиотек.
+<p>
+  Динамически сконструированные имена библиотек часто являются источником уязвимостей безопасности.
+  По умолчанию эта проверка игнорирует константы времени компиляции.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void test(int i) {
+    System.loadLibrary("foo" + i);
+  }
+</code></pre>
+<p>
+В настройках проверки можно указать, чтобы любые поля <code>static final</code> рассматривались как константы.
+Будьте осторожны, так как при включении этой опции такие строки будут игнорироваться:
+</p>
+<pre><code>
+  private static final String LIBRARY = getUserInput();
+</code></pre>
+</body>
+</html>

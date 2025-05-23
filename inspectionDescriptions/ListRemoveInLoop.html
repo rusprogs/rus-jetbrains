@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает о вызовах <code>List.remove(index)</code> в цикле, которые могут быть заменены на <code>List.subList().clear()</code>.
+<p>Такая замена более эффективна для большинства реализаций <code>List</code> при удалении нескольких элементов.</p>
+<p>Пример:</p>
+<pre><code>
+  void removeRange(List&lt;String&gt; list, int from, int to) {
+    for (int i = from; i &lt; to; i++) {
+        list.remove(from);
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void removeRange(List&lt;String&gt; list, int from, int to) {
+    if (to &gt; from) {
+      list.subList(from, to).clear();
+    }
+  }
+</code></pre>
+<p>
+  Быстрое исправление автоматически добавляет проверку диапазона для предотвращения возможного <code>IndexOutOfBoundsException</code>, когда минимальное значение больше максимального. Если такая ситуация невозможна в вашем коде, эту проверку можно удалить.
+</p>
+<p><small>Новое в версии 2018.2</small></p>
+</body>
+</html>

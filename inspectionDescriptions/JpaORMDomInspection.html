@@ -1,0 +1,36 @@
+<html>
+<body>
+Сообщать о неразрешённых ссылках на объекты базы данных в конфигурационном файле `orm.xml`:
+<ul>
+  <li>таблицы</li>
+  <li>столбцы</li>
+  <li>схемы</li>
+  <li>каталоги</li>
+  <li>последовательности</li>
+</ul>
+<p><b>Пример таблицы базы данных:</b></p><br/>
+<pre><code lang="sql">
+CREATE TABLE DATA_TABLE (
+  ID INTEGER,
+  DATA VARCHAR(100)
+);
+</code></pre><br/>
+<p><b>Пример файла orm.xml:</b></p><br/>
+<pre><code lang="xml">
+&lt;entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" version="1.0"&gt;
+    &lt;package&gt;example&lt;/package&gt;
+    &lt;entity name="JavaEntity" class="JavaEntity"&gt;
+        &lt;table name="DATA_TABLE"/&gt;
+        &lt;attributes&gt;
+          &lt;id name="id"&gt;
+            &lt;column name="UNKNOWN_ID" nullable="false" length="20"/&gt; // Ошибка: неразрешённое имя столбца
+          &lt;/id&gt;
+          &lt;basic name="data"&gt;
+            &lt;column name="DATA" length="12"/&gt; // OK
+          &lt;/basic&gt;
+        &lt;/attributes&gt;
+    &lt;/entity&gt;
+&lt;/entity-mappings&gt;
+</code></pre>
+</body>
+</html>

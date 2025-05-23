@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщение об использовании <code>Process.waitFor()</code> и <code>Process.onExit()</code> в контексте корутин.
+Использование этих методов в контексте корутин запрещено.
+<p>Вместо этого используйте <code>com.intellij.util.io.awaitExit()</code>.</p>
+<p>Пример:</p>
+<pre><code lang="kotlin">
+suspend fun doSomething(process: Process) {
+  val exitCode = process.waitFor() // Неверно
+  // ...
+}
+suspend fun doSomething(process: Process) {
+  val exitCode = process.awaitExit() // Верно
+  // ...
+}
+</code></pre>
+<p><small>Изменения в версии 2023.3</small>
+</body>
+</html>

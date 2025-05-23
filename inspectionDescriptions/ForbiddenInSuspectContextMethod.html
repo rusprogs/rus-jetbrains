@@ -1,0 +1,12 @@
+<html>
+<body>
+Сообщает о неправильном использовании методов в корутинах Kotlin, использующих контекст потока (с аннотацией <code>@RequiresBlockingContext</code>).
+Для многих из этих методов существуют корутин-совместимые альтернативы, которые можно использовать в контексте <code>suspend</code>.
+Примеры:
+<ul>
+  <li><code>com.intellij.openapi.progress.ProgressManager.checkCanceled()</code> следует заменить на <code>com.intellij.openapi.progress.checkCancelled()</code></li>
+  <li><code>com.intellij.openapi.application.Application.invokeAndWait()</code> следует заменить на <code>withContext(Dispatchers.EDT)</code></li>
+  <li>и т.д.</li>
+</ul>
+</body>
+</html>

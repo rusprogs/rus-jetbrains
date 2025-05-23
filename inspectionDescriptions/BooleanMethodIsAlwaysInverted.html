@@ -1,0 +1,35 @@
+<html>
+<body>
+Сообщает о методах, возвращающих тип <code>boolean</code>, результат которых всегда инвертируется при вызове.
+<p>Доступно быстрое исправление для инвертирования и опционального переименования такого метода.
+  По соображениям производительности не все проблемные методы подсвечиваются в редакторе.</p>
+<p>Пример:</p>
+<pre><code>
+  class C {
+    boolean alwaysTrue() {
+      return true;
+    }
+    void f() {
+      if (!alwaysTrue()) {
+        return;
+      }
+    }
+    boolean member = !alwaysTrue();
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class C {
+    boolean alwaysFalse() {
+      return false;
+    }
+    void f() {
+      if (alwaysFalse()) {
+        return;
+      }
+    }
+    boolean member = alwaysFalse();
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+Обнаружены операторы <code>break</code> или <code>continue</code> в блоке <code>finally</code>.
+<p>Хотя иногда это может быть преднамеренным, такие операторы могут вводить в заблуждение, маскировать выброшенные исключения и усложнять отладку.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+    while (true) {
+        try {
+          throwingMethod();
+        } finally {
+            continue;
+        }
+    }
+</code></pre>
+</body>
+</html>

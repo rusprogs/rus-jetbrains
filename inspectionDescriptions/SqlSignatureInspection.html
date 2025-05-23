@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщать о проблемах с сигнатурами встроенных функций.
+<p>Проверка будет выявлять ошибки в количестве аргументов, недопустимые ключевые слова, неверные типы данных и другие проблемы.</p>
+<p>Пример (MySQL):</p>
+<pre><code>CREATE TABLE foo (a INT, b INT, c INT)
+SELECT IFNULL() FROM foo; -- ошибка
+SELECT IFNULL(a) FROM foo; -- ошибка
+SELECT IFNULL(a, b) FROM foo; -- верно
+SELECT IFNULL(a, b, c) FROM foo; -- ошибка</code></pre>
+<p>В MySQL функция <code>IFNULL()</code> принимает строго два аргумента. Поэтому только запрос <code>SELECT IFNULL(a, b) FROM foo;</code> является правильным.</p>
+</body>
+</html>

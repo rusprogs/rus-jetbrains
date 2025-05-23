@@ -1,0 +1,19 @@
+<html>
+<body>
+Вызов функции <code>map.put</code> может быть заменен оператором индексации (<code>[]</code>).
+<p>Использование синтаксического сахара делает код более лаконичным.</p>
+<p>Это быстрое исправление заменит вызов <code>put</code> на присваивание.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(map: MutableMap&lt;Int, String&gt;) {
+      map.put(42, &quot;foo&quot;)
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(map: MutableMap&lt;Int, String&gt;) {
+      map[42] = &quot;foo&quot;
+  }
+</code></pre>
+</body>
+</html>

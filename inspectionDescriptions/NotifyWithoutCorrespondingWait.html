@@ -1,0 +1,12 @@
+<html>
+<body>
+Сообщает о вызовах <code>Object.notify()</code> или <code>Object.notifyAll()</code>, для которых не найдены соответствующие вызовы <code>Object.wait()</code>.
+<p>Эта проверка отслеживает только вызовы для полей текущего класса.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  synchronized (synList) {
+    synList.notify(); //synList.wait() никогда не вызывается
+  }
+</code></pre>
+</body>
+</html>

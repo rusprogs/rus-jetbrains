@@ -1,0 +1,23 @@
+<html>
+<body>
+Защитный монитор представляет собой аннотацию <code>@GuardedBy</code> на методе или поле экземпляра, которая ссылается на <code>static</code> поле. Использование static для защиты нестатических элементов может привести к чрезмерной конкуренции за блокировку, поскольку доступ к любому заблокированному полю в любом экземпляре объекта будет препятствовать одновременному доступу к полям во всех экземплярах объекта.
+<p>Пример:</p>
+<pre><code>
+    private static ReadWriteLock lock = new ReentrantReadWriteLock(); //статическая защита поля
+    private Object state;
+    @GuardedBy("lock")
+    public void bar() {
+        state = new Object();
+    }
+</code></pre>
+<p>Поддерживаемые аннотации <code>@GuardedBy</code>:</p>
+<ul>
+  <li><code>net.jcip.annotations.GuardedBy</code></li>
+  <li><code>javax.annotation.concurrent.GuardedBy</code></li>
+  <li><code>org.apache.http.annotation.GuardedBy</code></li>
+  <li><code>com.android.annotations.concurrency.GuardedBy</code></li>
+  <li><code>androidx.annotation.GuardedBy</code></li>
+  <li><code>com.google.errorprone.annotations.concurrent.GuardedBy</code></li>
+</ul>
+</body>
+</html>

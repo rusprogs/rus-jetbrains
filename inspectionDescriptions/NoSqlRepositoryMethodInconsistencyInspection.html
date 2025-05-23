@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>
+  Конструктор запросов не может сгенерировать соответствующие запросы для методов репозитория Jakarta No SQL.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+interface PersonRepository extends Repository&lt;Person, Long&gt; {
+  List&lt;Person&gt; findByEmailAndLastname(String email, String lastname);
+  List&lt;Person&gt; findByUnknownAndLastname(EmailAddress emailAddress, String lastname); // Не удаётся разрешить свойство 'Unknown'
+  List&lt;Person&gt; findByAndLastname(String email, String lastname); // Отсутствует имя свойства
+  List&lt;Person&gt; findByLastnameOrderByFirstnameAsc(String lastname);
+  List&lt;Person&gt; findByLastnameOrderByUnknownDesc(String lastname);  // Не удаётся разрешить свойство 'Unknown'
+}
+</code></pre>
+</body>
+</html>
+</body>
+</html>

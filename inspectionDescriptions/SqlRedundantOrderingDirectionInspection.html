@@ -1,0 +1,9 @@
+<html>
+<body>
+Сообщает об избыточных указаниях направления сортировки (ASC и DESC) в предложении ORDER BY.
+<p>Пример (MySQL):</p>
+<pre><code>CREATE TABLE foo(a INT, b INT, c INT);
+SELECT * FROM foo ORDER BY a ASC, b DESC, c ASC;</code></pre>
+<p>Ключевое слово ORDER BY по умолчанию сортирует записи по возрастанию. Следовательно, ключевое слово <code>ASC</code> для столбцов <code>a</code> и <code>c</code> является избыточным.</p>
+</body>
+</html>

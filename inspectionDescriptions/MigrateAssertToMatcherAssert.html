@@ -1,0 +1,33 @@
+<html>
+<body>
+Сообщает о вызовах методов <code>Assert.assertEquals()</code>, <code>Assert.assertTrue()</code> и подобных, которые можно преобразовать в декларативный стиль Hamcrest с использованием <code>Assert.assertThat()</code>.
+<p>Например:</p>
+<pre><code lang="java">
+  public class SubstantialTest {
+    @Test
+    public void testContents(Collection&lt;String&gt; c, String s) {
+      Assert.assertTrue(c.contains(s));
+      Assert.assertEquals(c, s);
+      Assert.assertNotNull(c);
+      Assert.assertNull(c);
+      Assert.assertFalse(c.contains(s));
+    }
+  }
+</code></pre>
+<p>Для выполнения преобразования доступно быстрое исправление:</p>
+<pre><code lang="java">
+  public class SubstantialTest {
+    @Test
+    public void testContents(Collection&lt;String&gt; c, String s) {
+      assertThat(c, hasItem(o));
+      assertThat(o, is(c));
+      assertThat(c, notNullValue());
+      assertThat(c, nullValue());
+      assertThat(c, not(hasItem(o)));
+    }
+  }
+</code></pre>
+<p>Для работы этой проверки требуется наличие библиотеки Hamcrest в classpath.
+<p>Опция <b>статического импорта методов сопоставления</b> позволяет указать, нужно ли использовать статический импорт для методов сопоставления Hamcrest.
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает об операторах <code>return</code> в конце конструкторов и методов, возвращающих <code>void</code>. Такие операторы избыточны и могут быть безопасно удалены.
+<p>Эта проверка не выполняется в JSP файлах.
+<p>Пример:</p>
+<pre><code>
+  <b>void</b> message() {
+    System.out.println("Hello World");
+    <b>return</b>;
+  }
+</code></pre>
+<p>После применения быстрого исправления:
+<pre><code>
+  <b>void</b> message() {
+    System.out.println("Hello World");
+  }
+</code></pre>
+<p>
+Используйте опцию <b>Игнорировать в ветке then оператора if, имеющего ветку else</b>, чтобы игнорировать операторы <code>return</code> в ветке then оператора <code>if</code>, который имеет ветку <code>else</code>.
+</body>
+</html>

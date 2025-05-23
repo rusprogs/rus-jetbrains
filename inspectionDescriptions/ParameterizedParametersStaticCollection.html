@@ -1,0 +1,37 @@
+<html>
+<body>
+Класс JUnit 4 <a href="https://github.com/junit-team/junit4/wiki/parameterized-tests">параметризованного теста</a> с аннотацией <code>@RunWith(Parameterized.class)</code>, который либо не содержит метод-поставщик данных с аннотацией <code>@Parameterized.Parameters</code>, либо имеет неправильную сигнатуру этого метода. Такой тестовый класс не может быть выполнен.
+Метод-поставщик данных должен быть <code>public</code> и <code>static</code> и иметь возвращаемый тип <code>Iterable</code> или <code>Object[]</code>.
+<p>Рекомендуется создать пустой метод-поставщик параметров или исправить сигнатуру существующего метода-поставщика данных.</p>
+<p><b>Пример:</b><p>
+<pre><code lang="java">
+  @RunWith(Parameterized.class)
+  public class ImportantTest {
+    private int input;
+    private int expected;
+    ImportantTest(int input, int expected) {
+      this.input = input;
+      this.expected = expected;
+    }
+    // ...тестовые случаи
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  @RunWith(Parameterized.class)
+  public class ImportantTest {
+    private int input;
+    private int expected;
+    ImportantTest(int input, int expected) {
+      this.input = input;
+      this.expected = expected;
+    }
+    @Parameters
+    public static Iterable&lt;Object[]> parameters() {
+      return null;
+    }
+    // ... test cases
+  }
+</code></pre>
+</body>
+</html>

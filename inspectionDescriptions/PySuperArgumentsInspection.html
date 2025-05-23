@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Сообщает о любых вызовах <code>super(A, B)</code>, которые не соответствуют следующим требованиям:</p>
+<ul>
+  <li><code>B</code> является экземпляром <code>A</code></li>
+  <li><code>B</code> является подклассом <code>A</code></li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code>
+class Figure:
+    def color(self):
+        pass
+class Rectangle(Figure):
+    def color(self):
+        pass
+class Square(Figure):
+    def color(self):
+        return super(Rectangle, self).color() # Square не является подклассом Rectangle
+</code></pre>
+<p>Для исправления вы можете сделать <code>Square</code> экземпляром класса <code>Rectangle</code>.</p>
+</body>
+</html>

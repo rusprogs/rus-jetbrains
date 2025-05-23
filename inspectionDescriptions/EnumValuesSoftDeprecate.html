@@ -1,0 +1,36 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>values()</code> в перечислениях Kotlin, которые могут быть заменены на свойство <code>entries</code>.
+<p>
+    Использование <code>Enum.entries</code> может улучшить производительность кода.
+</p>
+<p>
+    Быстрое исправление заменит <code>values()</code> на <code>entries</code>.
+</p>
+<p>
+    <b>Подробнее</b>: <a href="https://youtrack.jetbrains.com/issue/KT-48872">KT-48872 Современная и эффективная альтернатива для Enum.values()</a>
+</p>
+<p>
+    <b>Примечание</b>: тип свойства <code>entries</code> отличается от возвращаемого типа метода <code>values()</code> (<code>EnumEntries&lt;T&gt;</code> наследуется от <code>List&lt;T&gt;</code>, а не от <code>Array&lt;T&gt;</code>).
+    Поэтому в некоторых случаях быстрое исправление добавит дополнительное преобразование <code>.toTypedArray()</code>, чтобы не нарушить работу кода, но в большинстве случаев замена будет выполнена без этого преобразования (например, в циклах <code>for</code>).
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+    enum class Version {
+        V1, V2
+    }
+    Version.<b>values()</b>.forEach { /* .. */ }
+    val firstVersion = Version.<b>values()</b>[0]
+    functionExpectingArray(Version.<b>values()</b>)
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+    enum class Version {
+        V1, V2
+    }
+    Version.<b>entries</b>.forEach { /* .. */ }
+    val firstVersion = Version.<b>entries</b>[0]
+    functionExpectingArray(Version.<b>entries.toTypedArray()</b>)
+</code></pre>
+</body>
+</html>

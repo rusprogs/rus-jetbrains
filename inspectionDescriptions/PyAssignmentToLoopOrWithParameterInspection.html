@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о случаях переопределения переменной цикла во вложенном цикле.
+<p><b>Пример:</b></p>
+<pre><code>
+    for i in range(5):
+      for i in range(20, 25):
+          print("Inner", i)
+      print("Outer", i)
+  </code></pre>
+Также выдаёт предупреждение, если переменная, объявленная в операторе <code>with</code>, повторно объявляется внутри блока:
+<pre><code>
+    with open("file") as f:
+      f.read()
+      with open("file") as f:
+  </code></pre>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о блоках <code>catch</code>, которые перехватывают некорректные исключения.
+<p>Некоторые исключения (например, <code>java.lang.NullPointerException</code> или <code>java.lang.IllegalMonitorStateException</code>) указывают на ошибки программования и, следовательно, практически никогда не должны перехватываться в производственном коде.
+<p><b>Пример:</b></p>
+<pre><code>
+  try {
+    return component.getMousePosition(true) != null;
+  } catch (NullPointerException e) { // warning: Prohibited exception 'NullPointerException' caught
+    return false;
+  }
+</code></pre>
+<p>Используйте список <b>запрещенных исключений</b>, чтобы указать, о каких исключениях следует сообщать.<p>
+</body>
+</html>

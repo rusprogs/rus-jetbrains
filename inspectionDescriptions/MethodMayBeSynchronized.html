@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о методах, тело которых содержит только один оператор <code>synchronized</code>.
+Для методов экземпляра выражение блокировки в операторе <code>synchronized</code> должно быть равно <code>this</code>; для статических методов оно должно быть равно <code>[ClassName].class</code>.
+<p>
+  Для улучшения читаемости таких методов можно удалить оболочку <code>synchronized</code> и пометить сам метод как <code>synchronized</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public int generateInt(int x) {
+    synchronized (this) {
+      return 1;
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  public synchronized int generateInt(int x) {
+    return 1;
+  }
+</code></pre>
+</body>
+</html>

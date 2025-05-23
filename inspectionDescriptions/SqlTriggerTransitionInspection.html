@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о некорректном использовании переходных табличных переменных в триггерах.
+<p>Пример (HSQLDB):</p>
+<pre><code>CREATE TABLE foo(a INT);
+CREATE TRIGGER trg
+ AFTER DELETE ON foo
+BEGIN
+   SELECT * FROM NEW;
+END;
+CREATE TRIGGER trig AFTER INSERT ON foo
+   REFERENCING OLD ROW AS newrow
+   FOR EACH ROW WHEN (a > 1)
+   INSERT INTO foo VALUES (1)</code></pre>
+<p>В HSQLDB триггеры DELETE могут использовать только состояние OLD, а триггеры INSERT могут использовать только состояние NEW. Поэтому в приведенном выше примере будут подсвечены NEW в <code>SELECT * FROM NEW;</code> и OLD в <code>REFERENCING OLD ROW AS newrow</code>.</p>
+</body>
+</html>

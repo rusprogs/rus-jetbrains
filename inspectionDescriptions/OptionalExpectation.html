@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о необязательных ожидаемых аннотациях, для которых отсутствуют фактические аннотации в некоторых платформенных модулях.
+<p><b>Пример:</b></p>
+<pre><code>// 通用代码
+@OptionalExpectation
+expect annotation class JvmName(val name: String)
+@JvmName(name = "JvmFoo")
+fun foo() { }
+// jvm 代码
+actual annotation class JvmName(val name: String)
+</code></pre>
+<p>Эта проверка также сообщает о случаях, когда <code>actual annotation class JvmName</code> опущен для не-JVM платформ (например, Native).</p>
+</body>
+</html>

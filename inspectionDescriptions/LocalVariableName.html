@@ -1,0 +1,27 @@
+<html>
+<body>
+Сообщает о локальных переменных, не соответствующих соглашению об именовании.
+<p>Вы можете указать желаемый шаблон в настройках проверки.</p>
+<p><a href="https://kotlinlang.org/docs/coding-conventions.html#function-names">Рекомендуемые соглашения об именовании</a>: должны начинаться с маленькой буквы, использовать camelCase и не содержать подчеркиваний.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun fibonacciNumber(index: Int): Long = when(index) {
+      0 -> 0
+      else -> {
+          // Не соответствует соглашению: содержит символ подчеркивания (`_`)
+          var number_one: Long = 0
+          // Не соответствует соглашению: начинается с заглавной буквы
+          var NUMBER_TWO: Long = 1
+          // Соответствует соглашению: начинается с маленькой буквы, использует camelCase и не содержит подчеркиваний
+          var numberThree: Long = number_one + NUMBER_TWO
+          for(currentIndex in 2..index) {
+              numberThree = number_one + NUMBER_TWO
+              number_one = NUMBER_TWO
+              NUMBER_TWO = numberThree
+          }
+          numberThree
+      }
+  }
+</code></pre>
+</body>
+</html>

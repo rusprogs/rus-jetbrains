@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщает о любых необязательных точках с запятой, включая те, которые используются между членами класса, внутри блоков операторов или после определений классов.
+<p>Хотя эти точки с запятой допустимы в Java, они избыточны и могут быть удалены.</p>
+<p>Пример:</p>
+<pre><code>
+  class C {
+    ;
+    void m() throws Exception {
+        try (AutoCloseable r1 = createAutoCloseable();) {
+          ;
+        }
+    }
+    ;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class C {
+    void m() throws Exception {
+      try (AutoCloseable r1 = createAutoCloseable()) {
+      }
+    }
+  }
+</code></pre>
+<p>
+</body>
+</html>

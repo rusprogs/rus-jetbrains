@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о выражениях доступа к массиву или указателю, где индекс может выходить за пределы массива или выделенного буфера.
+<p><b>Пример:</b></p>
+<pre><code>
+  void foo() {
+      int buffer[100];
+      for (int i = 0; i &lt;= 100; i ++)
+          buffer[i] = 0; // buffer overflow when <i>i</i> is equal to <i>100</i>
+  }
+</code></pre>
+<p><small>Изменения в версии 2022.2</small></p>
+</body>
+</html>

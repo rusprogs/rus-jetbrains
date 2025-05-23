@@ -1,0 +1,27 @@
+<html>
+<body>
+Любой тестовый класс на основе JUnit может быть преобразован в модульный тест на основе TestNG.
+<p>Пример:</p>
+<pre><code>
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class ExampleTest {
+  @Test
+  public void testExample(){
+    assertEquals(2 + 2, 4);
+  }
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+import org.testng.Assert;
+import org.testng.annotations.Test;
+public class ExampleTest {
+  @Test
+  public void testExample(){
+    Assert.assertEquals(4, 2 + 2);
+  }
+}
+</code></pre>
+</body>
+</html>

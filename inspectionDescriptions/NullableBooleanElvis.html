@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о случаях, когда следует использовать проверку на равенство вместо оператора elvis.
+<p><b>Пример:</b></p>
+<pre><code>
+fun check(a: Boolean? == null) {
+    if (a ?: false) throw IllegalStateException()
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+fun check(a: Boolean? == null) {
+    if (a == true) throw IllegalStateException()
+}
+</code></pre>
+</body>
+</html>

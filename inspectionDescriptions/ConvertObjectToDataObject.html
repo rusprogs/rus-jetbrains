@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Сообщает об <code>object</code>, который может быть преобразован в <code>data object</code></p>
+<p><code>data object</code> автоматически генерирует методы <code>toString</code>, <code>equals</code> и <code>hashCode</code></p>
+<p>Эта проверка предлагает преобразовать <code>object</code> в <code>data object</code> в следующих двух случаях:</p>
+<ul>
+    <li>Когда пользовательский метод <code>toString</code> возвращает имя класса</li>
+    <li>Когда <code>object</code> наследуется от sealed <code>class</code>/<code>interface</code></li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code>
+    object Foo {
+        override fun toString(): String = "Foo"
+    }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+    data object Foo
+</code></pre>
+<p>Эта проверка выполняется только если уровень языка Kotlin в проекте или модуле 1.9 или выше</p>
+</body>
+</html>

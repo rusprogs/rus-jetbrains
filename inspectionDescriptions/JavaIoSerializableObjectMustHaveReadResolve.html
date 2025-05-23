@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>
+    Сообщает об <code>object</code> (включая <code>data object</code>), который реализует <code>java.io.Serializable</code>, но не реализует метод <a href="https://docs.oracle.com/en/java/javase/11/docs/specs/serialization/input.html#the-readresolve-method">readResolve</a>
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  import java.io.Serializable
+  object Foo : Serializable
+</code></pre>
+<p>Быстрое исправление реализует метод <code>readResolve</code>:</p>
+<pre><code>
+  import java.io.Serializable
+  object Foo : Serializable {
+      private fun readResolve() = Foo
+  }
+</code></pre>
+</body>
+</html>

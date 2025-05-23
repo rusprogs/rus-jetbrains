@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>java.util.List.get()</code>. Такие вызовы могут быть заменены более короткой и явной формой доступа по индексу.
+<p><b>Пример:</b></p>
+<pre>
+<code>
+def list = ["foo"]
+def str = list.get(0) // list.get(0) можно заменить на list[0]
+</code>
+</pre>
+<p>После применения быстрого исправления:</p>
+<pre>
+<code>
+def list = ["foo"]
+def str = list[0]
+</code>
+</pre>
+</body>
+</html>

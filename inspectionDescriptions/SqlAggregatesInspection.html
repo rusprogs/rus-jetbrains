@@ -1,0 +1,27 @@
+<html>
+<body>
+Обнаружено некорректное использование SQL агрегатных функций.
+<p>А именно следующие случаи:</p>
+<ul>
+  <li><p>Столбцы, используемые в предложениях HAVING и ORDER BY, но отсутствующие в предложении GROUP BY.</p>
+    <pre><code>CREATE TABLE foo(id INT PRIMARY KEY, a INT, b INT);
+SELECT a, MAX(b) FROM foo GROUP BY a HAVING b > 0;
+SELECT * FROM foo GROUP BY a ORDER BY b;</code></pre>
+    <p>Это правило не применяется при группировке по первичному ключу.</p>
+    <pre><code>SELECT * FROM foo GROUP BY id ORDER BY b;</code></pre>
+  </li>
+  <li><p>Агрегатные функции в неправильном контексте. Как правило, агрегатные функции можно использовать в следующих контекстах: список выражений в SELECT; в секциях HAVING и ORDER BY; и в других специфичных для диалекта случаях. Следующие запросы вызовут ошибку.</p>
+    <pre><code>SELECT a FROM foo WHERE MAX(b) > 0;
+SELECT a FROM foo GROUP BY MAX(a);</code></pre>
+  </li>
+  <li><p>Вложенные вызовы агрегатных функций.</p>
+    <pre><code>SELECT MAX(SUM(a)) FROM foo GROUP BY a;</code></pre>
+    <p>Это правило не применяется к оконным функциям. Следующий запрос является допустимым и корректным.</p>
+    <pre><code>SELECT MAX(SUM(a) OVER ()) FROM foo;</code></pre>
+  </li>
+  <li><p>Использование HAVING без агрегатных функций. В этом случае рекомендуется переписать код, используя секцию WHERE.</p>
+    <pre><code>SELECT a, MAX(b) FROM foo GROUP BY a HAVING a > 0;</code></pre>
+  </li>
+</ul>
+</body>
+</html>

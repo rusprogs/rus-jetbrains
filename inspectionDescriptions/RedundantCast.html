@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщать о ненужных операциях приведения типов.
+<p>Пример:</p>
+<pre><code>
+  static Object toObject(String s) {
+    return (Object) s;
+  }
+</code></pre>
+<p>
+  Используйте флажок ниже, чтобы игнорировать уточняющие приведения типов, например приведение типа в вызовах коллекций, которые должны быть типа <code>Object</code>:
+<pre><code>
+  static void removeFromList(List&lt;String&gt; l, Object o) {
+    l.remove((String)o);
+  } 
+</code></pre>
+</body>
+</html>

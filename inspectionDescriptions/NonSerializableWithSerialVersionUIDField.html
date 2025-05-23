@@ -1,0 +1,11 @@
+<html>
+<body>
+Сообщает о классах, не реализующих <code>Serializable</code>, но содержащих поле <code>serialVersionUID</code>. Наличие поля <code>serialVersionUID</code> в таком контексте обычно указывает на ошибку, так как это поле будет проигнорировано, а класс не будет сериализован.
+<p><b>Пример:</b></p>
+<pre><code>
+  public class IWantToSerializeThis {
+    private static final long serialVersionUID = 2669293150219020249L;
+  }
+</code></pre>
+</body>
+</html>

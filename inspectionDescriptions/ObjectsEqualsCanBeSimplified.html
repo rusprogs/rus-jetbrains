@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о вызовах <code>Objects.equals(a, b)</code>, где первый аргумент статически известен как ненулевой.
+<p>Если оба аргумента являются примитивами, такой вызов можно безопасно заменить на <code>a.equals(b)</code> или <code>a == b</code>.</p>
+<p>Пример:</p>
+<pre><code>
+  String defaultName = "default";
+  boolean isDefault = Objects.equals(defaultName, name);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  String defaultName = "default";
+  boolean isDefault = defaultName.equals(name);
+</code></pre>
+<p><small>Новое в версии 2018.3</small></p>
+</body>
+</html>

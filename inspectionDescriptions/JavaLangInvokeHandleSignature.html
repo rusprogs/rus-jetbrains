@@ -1,0 +1,29 @@
+<html>
+<body>
+Сообщает о вызовах фабричных методов <code>MethodHandle</code> и <code>VarHandle</code>, которые не соответствуют никаким методам или полям.
+<p>Также сообщает о несоответствии аргументов для <code>MethodHandle.invoke()</code> и подобных методов с сигнатурой <code>MethodHandle</code>, а также о несоответствии аргументов для <code>VarHandle.set()</code> с типом <code>VarHandle</code>
+<p>Пример:</p>
+<pre>
+  MethodHandle mh = MethodHandles.lookup().findVirtual(
+      MyClass.class, "foo", MethodType.methodType(void.class, int.class));
+  <i>// Этот аргумент должен быть значением типа <b>int</b></i>
+  mh.invoke(myObj, "<b>abc</b>");
+</pre>
+<br>
+<pre>
+  <i>// Этот аргумент должен быть <b>String</b>.class</i>
+  VarHandle vh = MethodHandles.lookup().findVarHandle(
+      MyClass.class, "text", <b>int</b>.class);
+</pre>
+<br>
+<pre>
+  VarHandle vh = MethodHandles.lookup().findVarHandle(
+      MyClass.class, "text", String.class);
+  <i>// Этот аргумент должен быть значением типа <b>String</b></i>
+  vh.set(myObj, <b>42</b>);
+</pre>
+<p>
+  <small>Новое в версии 2017.2</small>
+</p>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщение о цепочке операторов сравнения на равенство.
+<p>Такие сравнения могут вводить в заблуждение: <code>a == b == c</code> интерпретируется как <code>(a == b) == c</code>, хотя возможно предполагалось <code>a == b && a == c</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  boolean chainedEquality(boolean a, boolean b, boolean c) {
+    return a == b == c;
+  }
+</code></pre>
+<p>Вы можете использовать круглые скобки, чтобы сделать сравнение более понятным:</p>
+<pre><code>
+  boolean chainedEquality(boolean a, boolean b, boolean c) {
+    return (a == b) == c;
+  }
+</code></pre>
+</body>
+</html>

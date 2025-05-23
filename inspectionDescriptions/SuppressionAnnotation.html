@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о запрещенных проверках в комментариях или аннотациях.
+<p>Эта проверка может быть полезна, когда запрещенные проверки намеренно сохраняются для дальнейшего анализа.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="Java">
+@SuppressWarnings("unused")
+static Stream&lt;String&gt; stringProvider() {
+    return Stream.of("foo", "bar");
+}
+</code></pre>
+</body>
+</html>

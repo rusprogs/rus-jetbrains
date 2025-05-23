@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщение предлагает заменить сравнение без учета регистра на <code>equals(..., ignoreCase = true)</code>.
+<p>Использование <code>equals()</code> позволяет сравнивать строки без создания дополнительных строковых объектов с помощью <code>toLowerCase()</code> или <code>toUpperCase()</code>.</p>
+<p>Это быстрое исправление заменит сравнение без учета регистра, использующее <code>toLowerCase()</code> или <code>toUpperCase()</code>, на <code>equals(..., ignoreCase = true)</code>.</p>
+<p><b>Примечание</b>: может изменить семантику для некоторых локалей.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun main() {
+      val a = &quot;KoTliN&quot;
+      val b = &quot;KOTLIN&quot;
+      println(a.toLowerCase() == b.toLowerCase())
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun main() {
+      val a = &quot;KoTliN&quot;
+      val b = &quot;KOTLIN&quot;
+      println(a.equals(b, ignoreCase = true))
+  }
+</code></pre>
+</body>
+</html>

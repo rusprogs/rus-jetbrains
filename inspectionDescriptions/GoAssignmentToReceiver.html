@@ -1,0 +1,39 @@
+<html>
+<body>
+Присваивание значения методу-приёмнику.
+<p>Когда вы присваиваете значение методу-приёмнику, это значение не будет отражено за пределами самого метода.
+  Значение будет отражено в последующих вызовах из того же метода.</p>
+<p>Пример:</p>
+<pre><code>package main
+import "fmt"
+type demo struct {
+ Val int
+}
+func (d *demo) change() {
+ d = nil // присваивание методу-приёмнику распространяется только на вызываемую сторону, но не на вызывающую
+ d.myVal()
+}
+func (d *demo) myVal() {
+ fmt.Printf("my val: %#v\n", d)
+}
+func (d demo) change2() {
+ d = demo{} // присваивание методу-приёмнику не распространяется на другие вызовы
+ d.myVal()
+}
+func (d *demo) change3() {
+ d.Val = 3
+ d.myVal()
+}
+func main() {
+ d := &demo{}
+ d.myVal()
+ d.change()
+ d.myVal()
+ d.Val = 2
+ d.change2()
+ d.myVal()
+ d.change3()
+ d.myVal()
+}</code></pre>
+</body>
+</html>

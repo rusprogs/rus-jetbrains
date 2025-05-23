@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Сообщать об ошибке, когда метод с декоратором @override не имеет соответствующего метода в родительском классе</p>
+<p><b>Пример:</b></p>
+<pre><code>
+from typing import override
+class Parent:
+    def foo(self) -> int:
+        return 1
+    def bar(self, x: str) -> str:
+        return x
+class Child(Parent):
+    @override
+    def foo(self) -> int:
+        return 2
+    @override # Переопределённая функция не имеет метода в родительском классе
+    def baz(self) -> int:
+        return 1
+</code></pre>
+</body>
+</html>

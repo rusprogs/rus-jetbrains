@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о возможности замены вызовов Java-методов <code>get</code> и <code>set</code> на синтетические свойства Kotlin.
+<p><b>Быстрое исправление с использованием синтаксиса доступа к свойствам</b> доступно для автоматического исправления кода.</p>
+<p>Пример:</p>
+<pre><code>
+  // Java:
+  public class JavaClassWithGetter {
+      private final String expr = "result";
+      // ...
+      public String getExpr() {
+          return expr;
+      }
+  }
+</code></pre>
+<pre><code>
+  // Kotlin:
+  fun test(j: JavaClassWithGetter) {
+      // ...
+      j.getExpr() // &lt;== Быстрое исправление упростит выражение до 'j.expr'
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<body>
+Сообщает об упрощаемых логических выражениях.
+<p>Пример:</p>
+<pre><code>
+  void f(boolean foo, boolean bar) {
+    boolean b = !(foo ^ bar);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void f(boolean foo, boolean bar) {
+    boolean b = foo == bar;
+  }
+</code></pre>
+<p>Пример:</p>
+<pre><code>
+  void f(boolean foo, boolean bar) {
+    boolean b = (foo && bar) || !foo;
+  }
+  </code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void f(boolean foo, boolean bar) {
+    boolean b = !foo || bar;
+  }
+  </code></pre>
+</body>
+</html>

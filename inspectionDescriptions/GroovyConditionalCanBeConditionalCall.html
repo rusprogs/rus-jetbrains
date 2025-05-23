@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о тернарных выражениях, которые можно заменить безопасным вызовом.
+<p><b>Пример:</b></p>
+<pre><code>
+  def charArray(String s) {
+      s == null ? null : s.toCharArray()
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  def charArray(String s) {
+      s?.toCharArray()
+  }
+</code></pre>
+</body>
+</html>

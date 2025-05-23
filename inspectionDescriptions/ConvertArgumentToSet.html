@@ -1,0 +1,23 @@
+<html>
+<body>
+Обнаружение вызовов функций, которые можно ускорить путем преобразования аргументов в <code>Set</code>.
+<p>
+    Операции вроде 'minus' или 'intersect' работают эффективнее, когда аргументы являются множествами.
+    Явное преобразование <code>Iterable&lt;T&gt;</code> или <code>Array&lt;T&gt;</code> в <code>Set&lt;T&gt;</code> обычно повышает производительность кода.
+</p>
+<p>
+    Это быстрое исправление добавит явное преобразование к вызову функции.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun &lt;T&gt; f(a: Iterable&lt;T&gt;, b: Iterable&lt;T&gt;): Int =
+      a.intersect(b).size
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun &lt;T&gt; f(a: Iterable&lt;T&gt;, b: Iterable&lt;T&gt;): Int =
+      a.intersect(b.toSet()).size
+</code></pre>
+</body>
+</body>
+</html>

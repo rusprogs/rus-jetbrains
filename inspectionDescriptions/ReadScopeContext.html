@@ -1,0 +1,18 @@
+<html>
+<body>
+Обнаружен некорректный вызов <code>ReadScope</code> из приостановленного или операционного контекста.
+<p>
+  Функция <code>ReadScope</code> не может быть вызвана из корутины или операции.
+  Это может привести к исключению во время выполнения.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun ReadScope.kernel(/*...*/) { /*...*/ }
+  fun ReadScope.foo() {
+      readEditorAction { ac ->
+          kernel() // Некорректно
+      }
+  }
+</code></pre>
+</body>
+</html>

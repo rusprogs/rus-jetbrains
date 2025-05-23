@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает о функциях и свойствах, помеченных как устаревшие (deprecated), в аннотации <code>kotlin.deprecated</code> которых отсутствует аргумент <code>kotlin.ReplaceWith</code>. ИСР предложит добавить его на основе их реализации.
+<p>
+    Kotlin предоставляет аргумент <code>ReplaceWith</code> для автоматической замены устаревших объявлений.
+    Рекомендуется использовать этот аргумент для исправления проблем с устаревшим кодом.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  @Deprecated("Use refined() instead.")
+  fun deprecated() = refined()
+  fun refined() = 42
+</code></pre>
+<p>Быстрое исправление добавит аргумент <code>ReplaceWith()</code>:</p>
+<pre><code>
+  @Deprecated("Use refined() instead.", ReplaceWith("refined()"))
+  fun deprecated() = refined()
+  fun refined() = 42
+</code></pre>
+</body>
+</html>

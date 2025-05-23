@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о вызовах конструктора <code>StringTokenizer()</code> или метода <code>nextToken()</code>, содержащих повторяющиеся символы в аргументе-разделителе.
+<p><b>Пример:</b></p>
+<pre><code>
+  void printTokens(String text) {
+    StringTokenizer tokenizer = new StringTokenizer(text, "\n\n");
+    while (tokenizer.hasMoreTokens()) {
+      System.out.println(tokenizer.nextToken());
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void printTokens(String text) {
+    StringTokenizer tokenizer = new StringTokenizer(text, "\n");
+    while (tokenizer.hasMoreTokens()) {
+      System.out.println(tokenizer.nextToken());
+    }
+  }
+</code></pre>
+</body>
+</html>

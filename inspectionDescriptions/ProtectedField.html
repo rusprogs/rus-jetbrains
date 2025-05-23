@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщать о <code>protected</code> полях.
+<p>Не сообщать о константах (то есть переменных, помеченных как <code>static</code> или <code>final</code>).</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public class A {
+    protected Object object;              // предупреждение
+    protected final static int MODE = 0;  // константа, без предупреждения
+  }
+</code></pre>
+</body>
+</html>

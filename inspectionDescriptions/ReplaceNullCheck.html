@@ -1,0 +1,22 @@
+<html>
+<body>
+Проверки на <code>null</code> могут быть заменены вызовом статических методов из <code>Objects</code> или <code>Stream</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  if (message == null) {
+    application.messageStorage().save(new EmptyMessage());
+  } else {
+    application.messageStorage().save(message);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  application.messageStorage()
+    .save(Objects.requireNonNullElseGet(message, () -> new EmptyMessage()));
+</code></pre>
+<p>
+  Используйте опцию <b>Не предупреждать, если замена длиннее оригинала</b>, чтобы игнорировать случаи, когда замена превышает длину исходного кода.
+</p>
+<p><small>Что нового в версии 2017.3</small></p>
+</body>
+</html>

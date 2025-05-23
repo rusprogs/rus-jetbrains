@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщение о вызове <code>containsAll()</code> для <code>java.util.List</code>.
+<p>
+  Временная сложность этого метода составляет O(n&middot;m), где n - количество элементов в списке, для которого вызывается метод, а m - количество элементов в коллекции, передаваемой в качестве параметра.
+  Для больших списков эта операция может быть весьма затратной.
+</p>
+<p>
+  Быстрое исправление обернет список в <code>new java.util.HashSet&lt;&gt;()</code>, поскольку время, необходимое для создания 
+  <code>java.util.HashSet</code> из <code>java.util.List</code> и выполнения <code>containsAll()</code> на <code>java.util.HashSet</code>, составляет O(n+m).
+</p>
+<p><b>Пример:</b></p>
+<pre><code>  public boolean check(List&lt;String&gt; list, Collection&lt;String&gt; collection) {
+    // Сложность O(n&middot;m)
+    return list.containsAll(collection);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>  public boolean check(List&lt;String&gt; list, Collection&lt;String&gt; collection) {
+    // Сложность O(n+m)
+    return new HashSet&lt;&gt;(list).containsAll(collection);
+  }
+</code></pre>
+<p><small>Новое в версии 2022.1</small></p>
+</body>
+</html>

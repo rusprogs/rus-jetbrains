@@ -1,0 +1,35 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">
+      Создание тела переопределённой функции при генерации (например, с помощью действия <b>Код | Переопределить методы</b>).<br>
+      При редактировании шаблона вы можете использовать выражения C++, комментарии и следующие предопределённые переменные:</font>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${CALL_SUPER}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Вызов базовой функции, для функций типа <code>void</code> — <code><b>BaseClass</b>::<i>functionName</i>()</code>, с параметрами или без;
+    для остальных функций - <code><b>return</b> <b>BaseClass</b>::<i>functionName</i>()</code>, с параметрами или без.
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${RETURN_TYPE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Возвращаемый тип функции.</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${DEFAULT_RETURN_VALUE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Значение по умолчанию, возвращаемое функцией.</font></td>
+  </tr>
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Все предопределённые переменные из шаблона <b>Заголовок C-файла</b> (вкладка <b>Включить</b>), такие как <font face="verdana" size="-2"><b>${USER}</b></font> и <font face="verdana" size="-2"><b>${DATE}</b></font>, также доступны.</font>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

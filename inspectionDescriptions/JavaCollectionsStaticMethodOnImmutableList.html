@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о вызовах модифицирующих методов Java (таких как <code>fill</code>, <code>reverse</code>, <code>shuffle</code>, <code>sort</code>) для неизменяемых коллекций Kotlin.
+<p>Это может привести к исключению <code>UnsupportedOperationException</code> во время выполнения.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  import java.util.Collections
+  fun test() {
+      val immutableList = listOf(1, 2)
+      Collections.reverse(immutableList)
+  }
+</code></pre>
+<p>Чтобы исправить эту проблему, сделайте список изменяемым.</p>
+</body>
+</html>

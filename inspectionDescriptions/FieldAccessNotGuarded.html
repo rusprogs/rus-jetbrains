@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о доступе к полям, помеченным аннотацией <code>@GuardedBy</code>, которые не защищены соответствующей синхронизацией.
+<p>Пример:</p>
+<pre><code>
+    @GuardedBy("this")
+    void x() {
+        notify();
+    }
+    void y() {
+        x(); // Незащищенный вызов метода
+    }
+</code></pre>
+<p>Поддерживаемые аннотации <code>@GuardedBy</code>:</p>
+<ul>
+  <li><code>net.jcip.annotations.GuardedBy</code></li>
+  <li><code>javax.annotation.concurrent.GuardedBy</code></li>
+  <li><code>org.apache.http.annotation.GuardedBy</code></li>
+  <li><code>com.android.annotations.concurrency.GuardedBy</code></li>
+  <li><code>androidx.annotation.GuardedBy</code></li>
+  <li><code>com.google.errorprone.annotations.concurrent.GuardedBy</code></li>
+</ul>
+</body>
+</html>

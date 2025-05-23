@@ -1,0 +1,17 @@
+<html>
+<body>
+Обнаружено поле типа <code>java.lang.ThreadLocal</code>, которое не объявлено как <code>static final</code>.
+<p>
+  В большинстве случаев экземпляры <code>java.lang.ThreadLocal</code> используются для привязки состояния к потоку.
+  Поля <code>java.lang.ThreadLocal</code>, не являющиеся static и final, связывают состояние с комбинацией экземпляра и потока.
+  Это обычно является излишним и может привести к утечкам памяти и некорректному поведению.
+</p>
+<p>
+  Рекомендуется использовать быстрое исправление, чтобы сделать поле <code>static final</code>.
+<p>
+<p><b>Пример:</b></p>
+<pre><code>
+  private ThreadLocal tl = ThreadLocal.withInitial(() -> Boolean.TRUE);
+</code></pre>
+</body>
+</html>

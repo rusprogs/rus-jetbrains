@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о вызовах <code>assert</code>, которые проверяют, что объявленная переменная не равна null.
+<p>Код можно упростить, используя операторы <code>!!</code> или <code>?:</code>.</p>
+<p>Быстрое исправление заменит <code>assert</code> в инициализаторе переменной на операторы <code>!!</code> или <code>?:</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(p: Array&lt;String?&gt;) {
+      val v = p[0]
+      assert(v != null, { &quot;Should be not null&quot; })
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(p: Array&lt;String?&gt;) {
+      val v = p[0] ?: error(&quot;Should be not null&quot;)
+  }
+</code></pre>
+</body>
+</html>

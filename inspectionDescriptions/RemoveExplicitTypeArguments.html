@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщать о вызовах функций с типовыми аргументами, которые могут быть автоматически выведены. Такие типовые аргументы избыточны и могут быть безопасно опущены.
+<p>Используйте быстрое исправление "Удалить явные типовые аргументы" для очистки кода.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  // 在这里可以推断 'String' 类型
+  fun foo(): MutableList&lt;String&gt; = mutableListOf&lt;String&gt;()
+  // 在这里无法推断 'String'，类型实参为必选项。
+  fun bar() = mutableListOf&lt;String&gt;()
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(): MutableList&lt;String&gt; = mutableListOf() &lt;== обновлено
+  fun bar() = mutableListOf&lt;String&gt;()
+</code></pre>
+</body>
+</html>

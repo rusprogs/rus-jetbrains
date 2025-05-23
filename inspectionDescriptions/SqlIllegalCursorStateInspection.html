@@ -1,0 +1,27 @@
+<html>
+<body>
+Сообщение о недопустимом состоянии курсора в SQL-процедуре.
+<ul>
+  <li>Процедура содержит оператор CLOSE или FETCH, но курсор может быть уже закрыт.</li>
+  <li>Процедура содержит оператор OPEN, но курсор может быть уже открыт.</li>
+</ul>
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE t(col INT);
+CREATE PROCEDURE foo() AS
+BEGIN
+DECLARE my_cursor CURSOR FOR SELECT * FROM t;
+DECLARE a INT;
+FETCH my_cursor INTO a;
+CLOSE my_cursor;
+END;</code></pre>
+<p>Согласно документации <a href="https://docs.microsoft.com/en-us/sql/t-sql/language-elements/close-transact-sql">CLOSE (Transact-SQL) на docs.microsoft.com</a>, оператор CLOSE должен выполняться только для открытого курсора и не допускается для курсора, который только объявлен или уже закрыт. Поэтому для исправления предупреждения необходимо открыть курсор.</p>
+<pre><code>CREATE PROCEDURE foo() AS
+BEGIN
+DECLARE my_cursor CURSOR FOR SELECT * FROM t;
+DECLARE a INT;
+OPEN my_cursor;
+FETCH my_cursor INTO a;
+CLOSE my_cursor;
+END;</code></pre>
+</body>
+</html>

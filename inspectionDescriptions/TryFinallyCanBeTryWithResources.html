@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает о возможности использования автоматического управления ресурсами Java 7 (что менее подвержено ошибкам) вместо конструкции <code>try</code>-<code>finally</code>.
+<p>Конструкцию <code>try</code>-<code>finally</code> можно преобразовать в конструкцию <code>try</code>-with-resources с помощью быстрого исправления.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  PrintStream printStream = new PrintStream(fileName);
+  try {
+    printStream.print(true);
+  } finally {
+    printStream.close();
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  try (PrintStream printStream = new PrintStream(fileName)) {
+    printStream.print(true);
+  }
+</code></pre>
+</body>
+</html>

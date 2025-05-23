@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщение о том, что non-null утверждение (<code>!!</code>) может быть заменено на оператор elvis с return (<code>?: return</code>).
+<p>Non-null утверждение может привести к неожиданному NPE (NullPointerException). Рекомендуется избегать использования <code>!!</code>.</p>
+<p>Это быстрое исправление заменит non-null утверждение на <code>return</code> или <code>return null</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun test(number: Int?) {
+      val x = number!!
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun test(number: Int?) {
+      val x = number ?: return
+  }
+</code></pre>
+</body>
+</html>

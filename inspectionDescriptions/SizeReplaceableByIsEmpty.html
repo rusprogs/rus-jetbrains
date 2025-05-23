@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о сравнениях <code>0</code> с вызовами <code>.size()</code> или <code>.length()</code>, которые могут быть заменены вызовом <code>.isEmpty()</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  boolean emptyList = list.size() == 0;
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  boolean emptyList = list.isEmpty();
+  </code></pre>
+<p>
+  Используя список <b>игнорируемых классов</b>, можно добавить классы, для которых не следует заменять сравнения <code>.size()</code> или <code>.length()</code>.
+</p>
+<p>Опция <b>игнорировать выражения, которые будут заменены на <code>'!isEmpty()'</code></b> позволяет исключить любые выражения, которые были бы заменены на <code>!isEmpty()</code>.
+</p>
+</body>
+</html>

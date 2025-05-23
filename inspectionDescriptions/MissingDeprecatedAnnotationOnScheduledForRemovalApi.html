@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает об объявлениях, помеченных <code>@ApiStatus.ScheduledForRemoval</code> (без <code>@Deprecated</code>).
+<p>Пример:</p>
+<pre><code lang="java">
+  @ApiStatus.ScheduledForRemoval(inVersion = "2017.3")
+  public void myLegacyMethod() { }
+</code></pre>
+<p>После применения быстрого исправления результат будет выглядеть следующим образом:</p>
+<pre><code lang="java">
+  @Deprecated
+  @ApiStatus.ScheduledForRemoval(inVersion = "2017.3")
+  public void myLegacyMethod() { }
+</code></pre>
+</body>
+</html>

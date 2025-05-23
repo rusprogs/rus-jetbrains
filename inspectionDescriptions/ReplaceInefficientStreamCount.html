@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о цепочках вызовов Stream API, которые можно оптимизовать и которые заканчиваются операцией <code>count()</code>.
+<p>
+  Следующие цепочки вызовов могут быть заменены этой проверкой:
+</p>
+<ul>
+  <li><code>Collection.stream().count()</code> &rarr; <code>Collection.size()</code>. В Java 8, <code>Collection.stream().count()</code> фактически подсчитывает элементы путем итерации по коллекции, тогда как <code>Collection.size()</code> работает намного быстрее для большинства коллекций.</li>
+  <li><code>Stream.flatMap(Collection::stream).count()</code> &rarr; <code>Stream.mapToLong(Collection::size).sum()</code>. Аналогично, нет необходимости перебирать все вложенные коллекции. Вместо этого можно просто сложить их размеры.</li>
+  <li><code>Stream.filter(o -> ...).count() > 0</code> &rarr; <code>Stream.anyMatch(o -> ...)</code>. В отличие от исходного вызова, <code>anyMatch()</code> может прекратить вычисления сразу после нахождения совпадения.</li>
+  <li><code>Stream.filter(o -> ...).count() == 0</code> &rarr; <code>Stream.noneMatch(o -> ...)</code>. Аналогично предыдущему случаю.</li>
+</ul>
+<p>
+  Обратите внимание, что если замена включает короткозамкнутые операции вроде <code>anyMatch()</code>, может наблюдаться заметное изменение поведения, если промежуточные операции потока имеют побочные эффекты. Побочных эффектов следует избегать в вызовах Stream API.
+</p>
+</body>
+</html>

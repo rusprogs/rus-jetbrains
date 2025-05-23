@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Сообщает об использовании функций и методов Python, помеченных как устаревшие и вызывающих предупреждения <code>DeprecationWarning</code> или <code>PendingDeprecationWarning</code>.</p>
+<p>Кроме того, проверка подсвечивает использование декораторов <code>abc.abstractstaticmethod</code>, <code>abc.abstractproperty</code> и <code>abc.abstractclassmethod</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+class Foo:
+    @property
+    def bar(self):
+        import warnings
+        warnings.warn("this is deprecated", DeprecationWarning, 2)
+        return 5
+foo = Foo()
+print(foo.bar)
+</code></pre>
+</body>
+</html>

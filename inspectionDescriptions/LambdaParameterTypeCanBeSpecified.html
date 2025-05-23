@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о лямбда-параметрах с неуказанным типом и предлагает добавить отсутствующее объявление типа.
+<p>Пример:</p>
+<pre><code>
+  Function&lt;String, Integer&gt; length = a -&gt; a.length();
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  Function&lt;String, Integer&gt; length = (String a) -&gt; a.length();
+</code></pre>
+</body>
+</html>

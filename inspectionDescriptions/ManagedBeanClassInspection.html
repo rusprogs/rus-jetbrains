@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщать об ошибках определения управляемых Bean-классов в следующих случаях:
+<ul>
+  <li>Класс не является final</li>
+  <li>Класс является abstract</li>
+  <li>Bean является нестатическим внутренним классом</li>
+</ul>
+<p><b>Пример:</b></p><br/>
+<pre><code>
+  @ManagedBean
+  public final class JavaManagedBean { // Ошибка: управляемый Bean не должен быть final
+    ...
+  }
+</code></pre>
+</body>
+</html>

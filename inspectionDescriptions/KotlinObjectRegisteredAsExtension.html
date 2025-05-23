@@ -1,0 +1,26 @@
+<html>
+<body>
+Регистрация Kotlin-объекта в качестве расширения плагина.
+<p>
+  Жизненным циклом расширений управляет платформа IntelliJ.
+  Использование Kotlin-объектов для регистрации расширений может привести к созданию ненужных экземпляров расширений и сделать невозможным корректное удаление плагина.
+</p>
+<h2>Пример</h2>
+<p>Регистрация расширения:</p>
+<pre><code lang="xml">
+&lt;annotator language="myLang" implementationClass="com.example.MyAnnotator"/&gt;
+</code></pre>
+<p>Реализация расширения:</p>
+<pre><code lang="kotlin">
+// Неправильно:
+object MyAnnotator : Annotator {
+  ...
+}
+// Правильно:
+class MyAnnotator : Annotator {
+  ...
+}
+</code></pre>
+<p><small>Изменения в версии 2023.1</small>
+</body>
+</html>

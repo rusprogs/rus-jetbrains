@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Обнаружено неизвестное значение атрибута <code>scope</code> в элементе <code>&lt;bean&gt;</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  &lt;beans&gt;
+    &lt;bean class="beans.FooComponent" id="foo" scope="unknown"/&gt;
+    &lt;!-- Сообщение "Не удаётся разрешить символ 'unknown'"&gt;
+    &lt;bean class="beans.BarComponent" id="bar" scope="prototype"/&gt;
+  &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

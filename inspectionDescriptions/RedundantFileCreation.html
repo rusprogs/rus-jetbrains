@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о избыточном создании объекта <code>File</code> в случаях, когда можно использовать только строковый путь (<code>String</code>) в следующих конструкторах: <code>FileInputStream</code>, <code>FileOutputStream</code>, <code>FileReader</code>, <code>FileWriter</code>, <code>PrintStream</code>, <code>PrintWriter</code>, <code>Formatter</code>.
+<p>Пример:</p>
+<pre><code>
+InputStream is = new FileInputStream(new File("in.txt"));
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+InputStream is = new FileInputStream("in.txt");
+</code></pre>
+<p><small>Что нового в версии 2020.3</small></p>
+</body>
+</html>

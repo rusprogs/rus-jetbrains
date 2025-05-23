@@ -1,0 +1,24 @@
+<html>
+<body>
+Обнаружены следующие ошибки спецификации JPA:
+<ul>
+  <li>Несколько аннотаций настроено для одного метода или поля</li>
+  <li>Недопустимые аннотации используются в Embeddable объекте (JPA 1.0)</li>
+  <li>Метаданные персистентных свойств не указаны на поле или геттере свойства</li>
+  <li>Отсутствует сеттер или геттер для доступа к свойству</li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @Entity
+  @Table(name = "TABLE")
+  public class JavaEntity {
+    private Integer id; // Ошибка: должны присутствовать и getter, и setter
+    public Integer getId() { ... }
+    private String data;
+    public String getData() { ... }
+    @Basic // Ошибка: аннотация персистентности должна быть на поле или методе getter
+    public void setData(String data) { ... }
+  }
+</code></pre><br/>
+</body>
+</html>

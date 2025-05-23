@@ -1,0 +1,10 @@
+<html>
+<body>
+Показывает неиспользуемые столбцы, псевдонимы и другие элементы подзапросов во внешних запросах.
+<p>Пример (PostgreSQL):</p>
+<pre><code>CREATE TABLE for_subquery(id INT);
+SELECT a, q FROM (SELECT 1 AS a, 10 AS b, 2 + 3 AS q, id
+      FROM for_subquery) x;</code></pre>
+<p>Мы используем псевдонимы <code>a</code> и <code>q</code> из подзапроса. Однако псевдоним <code>b</code> и столбец <code>id</code> не используются во внешнем SELECT-запросе. Поэтому <code>b</code> и <code>id</code> будут отображаться серым цветом.</p>
+</body>
+</html>

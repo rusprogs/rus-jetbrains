@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает об условных выражениях <code>if</code> с константными литералами <code>true</code> или <code>false</code>, которые можно упростить.
+<p>Хотя иногда это делается намеренно, такая структура может вводить в заблуждение и обычно является результатом опечаток или предыдущего рефакторинга.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun example() {
+      if (true) {
+          throw IllegalStateException("Unexpected state")
+      }
+  }
+</code></pre>
+<p>Быстрое исправление удалит условие <code>if</code>:</p>
+<pre><code>
+  fun example() {
+      throw IllegalStateException("Unexpected state")
+  }
+</code></pre>
+</body>
+</html>

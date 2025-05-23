@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает о циклах, содержащих оператор <code>if</code> и заканчивающихся оператором <code>break</code>, без изменения семантики.
+Это помогает избежать избыточных итераций цикла.
+<p><b>Пример:</b></p>
+<pre><code>
+  boolean found = false;
+  for (int i = 0; i &lt; arr.length; i++) {
+    if (Objects.equals(value, arr[i])) {
+      found = true;
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  boolean found = false;
+  for (int i = 0; i &lt; arr.length; i++) {
+    if (Objects.equals(value, arr[i])) {
+      found = true;
+      break;
+    }
+  }
+</code></pre>
+<p><small>Новое в версии 2019.2</small></p>
+</body>
+</html>

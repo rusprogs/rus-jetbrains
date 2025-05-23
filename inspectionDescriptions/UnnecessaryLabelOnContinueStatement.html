@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает об операторе <code>continue</code> с избыточной меткой.
+<p>Пример:</p>
+<pre><code>
+  LABEL:
+  while (a &gt; b) {
+    System.out.println("Hello");
+    //Следующий код является последним оператором в цикле,
+    //поэтому метка и continue являются избыточными
+    continue LABEL;
+  }
+</code></pre>
+</body>
+</html>

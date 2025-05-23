@@ -1,0 +1,26 @@
+<html>
+<body>
+Параметры типа в отчёте могут иметь вариативность <code>in</code> или <code>out</code>.
+<p>Использование вариативности <code>in</code> и <code>out</code> обеспечивает более точный вывод типов в Kotlin и делает семантику кода более понятной.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Box&lt;T&gt;(val obj: T)
+  fun consumeString(box: Box&lt;String&gt;) {}
+  fun consumeCharSequence(box: Box&lt;CharSequence&gt;) {}
+  fun usage(box: Box&lt;String&gt;) {
+      consumeString(box)
+      consumeCharSequence(box) // ошибка компиляции
+  }
+</code></pre>
+<p>Быстрое исправление добавит соответствующий модификатор вариативности:</p>
+<pre><code>
+  class Box&lt;out T&gt;(val obj: T)
+  fun consumeString(box: Box&lt;String&gt;) {}
+  fun consumeCharSequence(box: Box&lt;CharSequence&gt;) {}
+  fun usage(box: Box&lt;String&gt;) ++{
+      consumeString(box)
+      consumeCharSequence(box) // теперь работает
+  }
+</code></pre>
+</body>
+</html>

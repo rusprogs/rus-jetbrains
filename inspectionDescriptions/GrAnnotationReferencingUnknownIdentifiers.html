@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщать о неразрешённых идентификаторах в значениях аннотаций <code>@TupleConstructor</code> и <code>@MapConstructor</code>
+<code>includes</code> и <code>excludes</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  // Неразрешённый 'c'
+  @TupleConstructor(includes = ['a', 'b', 'c'])
+  class X {
+      def a
+      def b
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<body>
+Цикл может быть заменен единственным методом <code>String.repeat()</code> (доступен с Java 11).
+<p><b>Пример:</b></p>
+<pre><code>
+  void append(StringBuilder sb, int count, Object obj) {
+    for (int i = 0; i &lt; count; i++) {
+      sb.append(obj);
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void append(StringBuilder sb, int count, Object obj) {
+    sb.append(String.valueOf(obj).repeat(Math.max(0, count)));
+  }
+</code></pre>
+<p>
+  По умолчанию, если нельзя статически доказать, что <code>count</code> неотрицательный, проверка может обернуть <code>count</code> в <code>Math.max(0, count)</code>. Это делается для предотвращения возможных семантических изменений, так как <code>String.repeat()</code> не принимает отрицательные числа.
+  При необходимости это поведение можно отключить с помощью опции <b>Добавить Math.max(0, count) во избежание возможных семантических изменений</b>.</p>
+  <p>Аналогично, если неизвестно, может ли повторяемая строка быть <code>null</code>, её можно обернуть в <code>String.valueOf</code>, чтобы предотвратить возможное исключение <code>NullPointerException</code>.
+</p>
+<p>Эта проверка срабатывает только если уровень языка проекта или модуля установлен на 11 или выше.</p>
+<p><small>Новое в версии 2019.1</small></p>
+</body>
+</html>

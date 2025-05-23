@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о неиспользуемых аннотациях <code>@DelegatesTo.Target</code> и неразрешённых значениях атрибутов аннотаций <code>@DelegatedTo.target</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  // Неиспользуемая цель 't1' и неразрешённая цель 't2'
+  def m(
+      @DelegatesTo.Target('t1') target,
+      @DelegatesTo(target = 't2') Closure c
+  ) {}
+</code></pre>
+</body>
+</html>

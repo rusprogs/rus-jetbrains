@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Значение атрибута <code>parameters</code> содержит имя параметра метода, которое не определено в аннотациях Micronaut Cache.</p>
+<p>Поддерживаются следующие аннотации:</p>
+<ul>
+  <li><code>io.micronaut.cache.annotation.Cacheable</code></li>
+  <li><code>io.micronaut.cache.annotation.CachePut</code></li>
+  <li><code>io.micronaut.cache.annotation.CacheInvalidate</code></li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @CachePut(parameters = "myParameter") // Ошибка: не удаётся разрешить символ 'myParameter'
+  public String cachedMethod(String name_is_not_equal_to_myParameter) {
+    return "...";
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает об использовании операторов <code>return</code>, <code>throw</code>, <code>break</code>, <code>continue</code> и <code>yield</code> внутри блока <code>finally</code>.
+Это приводит к преждевременному завершению блока <code>finally</code> вместо его нормального выполнения.
+Любые исключения, выброшенные из блоков <code>try</code> и <code>catch</code> того же оператора <code>try</code>-<code>catch</code>, будут подавлены.
+<p><b>Пример:</b></p>
+<pre><code>
+  void x() {
+    <b>try</b> {
+      throw new RuntimeException();
+    } <b>finally</b> {
+      // Если bar() вернет true, RuntimeException будет подавлено
+      <b>if</b> (bar()) <b>return</b>;
+    }
+  }
+</code></pre>
+</body>
+</html>

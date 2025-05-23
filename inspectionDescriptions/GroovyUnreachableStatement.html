@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Сообщение о недостижимых операторах. Это может произойти, если оператор находится после бесконечного цикла или после операторов <code>return</code>, <code>break</code> или <code>continue</code>.</p>
+<p><b>Пример:</b>
+<pre><code>
+  <b>void</b> foo (int n) {
+      if (n < 1) {
+          return
+          <b>print('This statement is unreachable')</b>
+      }
+      while (true){
+          print ('Hello, world!')
+      }
+      <b>print('This statement is unreachable too')</b>
+  }
+</code></pre>
+</body>
+</html>

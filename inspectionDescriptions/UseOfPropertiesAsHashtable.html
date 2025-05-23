@@ -1,0 +1,36 @@
+<html>
+<body>
+Сообщает о вызовах следующих методов объекта <code>java.util.Properties</code>:
+<ul>
+  <li><code>put()</code></li>
+  <li><code>putIfAbsent()</code></li>
+  <li><code>putAll()</code></li>
+  <li><code>get()</code></li>
+</ul>
+<p>
+  По историческим причинам <code>java.util.Properties</code> наследуется от <code>java.util.Hashtable</code>, но использование этих методов не рекомендуется во избежание загрязнения значений свойств типами, отличными от <code>String</code>.
+</p>
+<p>
+  Вызовы <code>java.util.Properties.putAll()</code> не отмечаются, когда ключи и значения в отображении имеют тип <code>String</code>.
+  Такие вызовы безопасны, и лучшей альтернативы нет.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  Object f(Properties props) {
+    props.put("hello", "world");
+    props.putIfAbsent("hello", "world");
+    props.putAll(new HashMap&lt;&gt;());
+    return props.get("Hello");
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  Object f(Properties props) {
+    props.setProperty("hello", "world");
+    props.putIfAbsent("hello", "world");
+    props.putAll(new HashMap&lt;&gt;());
+    return props.getProperty("hello");
+  }
+</code></pre>
+</body>
+</html>

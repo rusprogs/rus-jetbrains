@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает об использовании констант абсолютного выравнивания в AWT и Swing. Интернационализованные приложения должны использовать относительное выравнивание, так как оно учитывает настройки направления компонентов для локали.
+<p><b>Пример:</b></p>
+<pre><code>
+  JPanel panel = new JPanel(new BorderLayout(2, 2));
+  JLabel label = new JLabel("Hello World");
+  panel.add(label, BorderLayout.NORTH);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  JPanel panel = new JPanel(new BorderLayout(2, 2));
+  JLabel label = new JLabel("Hello World");
+  panel.add(label, BorderLayout.PAGE_START);
+</code></pre>
+</body>
+</html>

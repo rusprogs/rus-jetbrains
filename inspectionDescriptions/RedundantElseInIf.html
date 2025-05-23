@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Обнаружение избыточного <code>if</code> с оператором <code>return</code> внутри <code>if</code></p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(arg: Boolean): Int {
+      if (arg) return 0
+      else { // этот else избыточен, код в фигурных скобках можно сдвинуть влево
+          someCode()
+      }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(arg: Boolean): Int {
+      if (arg) return 0
+      someCode()
+  }
+</code></pre>
+</body>
+</html>

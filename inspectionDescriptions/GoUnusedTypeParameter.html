@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщать о неиспользуемых параметрах типа.
+<pre><code>func main() {
+ printAll(
+  42,
+  "bird",
+ )
+}
+func printAll[I int, S string](
+ i I,
+ s string,
+) {
+ fmt.Println(i)
+ fmt.Println(s)
+}</code></pre>
+<p>Функция <b>printAll</b> имеет два параметра типа <code>I</code> и <code>S</code>, но использует только первый из них.
+  Поэтому <code>S string</code> будет отображаться серым цветом.
+</p>
+</body>
+</html>

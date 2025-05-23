@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает об использовании <code>Optional.ofNullable()</code> в случаях, когда аргумент всегда null или всегда не null.
+Использование <code>Optional.ofNullable()</code> в таких случаях не имеет смысла: следует использовать <code>Optional.empty()</code> или <code>Optional.of()</code> для явного объявления намерения создать Optional, который всегда пуст или всегда содержит значение. Также возможно наличие ошибки в аргументе <code>Optional.ofNullable()</code>, поэтому его следует проверить.
+<p>
+  Пример:
+</p>
+<pre><code>
+Optional&lt;String&gt; empty = Optional.ofNullable(null); // следует использовать Optional.empty();
+Optional&lt;String&gt; present = Optional.ofNullable("value"); // следует использовать Optional.of("value"); 
+</code></pre>
+</body>
+</html>

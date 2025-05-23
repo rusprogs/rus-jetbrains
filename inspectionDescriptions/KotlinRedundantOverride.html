@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщать о избыточных объявлениях переопределения.
+<p>
+    Переопределение может быть опущено, если оно не изменяет семантику унаследованной сигнатуры, например при изменении только видимости.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  <b>open class</b> Foo {
+      open fun singleExpression() {
+      }
+  }
+  class Bar : Foo() {
+      <b>override</b> fun singleExpression() = super.singleExpression()
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Bar : Foo() {
+  }
+</code></pre>
+</body>
+</html>

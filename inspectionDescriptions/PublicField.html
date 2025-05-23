@@ -1,0 +1,29 @@
+<html>
+<body>
+Сообщать о полях с модификатором <code>public</code>.
+Не сообщать о константах (полях, помеченных как <code>static</code> и <code>final</code>).
+<p><b>Пример:</b></p>
+<pre><code>
+  class Main {
+    public String name;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Main {
+    private String name;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+  }
+</code></pre>
+<p>Настройка проверки:</p>
+<ul>
+  <li>Используйте список <b>Игнорировать при наличии аннотаций</b> для указания аннотаций, которые следует игнорировать. Проверка будет пропускать поля с любой из указанных аннотаций.</li>
+  <li>Используйте опцию <b>Игнорировать поля 'public final' в перечислениях</b>, чтобы пропускать поля <code>public final</code> в типах <code>enum</code>.</li>
+</ul>
+</body>
+</html>

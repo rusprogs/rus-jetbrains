@@ -1,0 +1,49 @@
+<html>
+<body>
+Сообщает о распространенных шаблонах использования <code>java.util.Map</code> и предлагает заменить их на:
+<code>getOrDefault()</code>, <code>computeIfAbsent()</code>, <code>putIfAbsent()</code>, <code>merge()</code> или <code>replaceAll()</code>.
+<p>Пример:</p>
+<pre><code>
+  map.containsKey(key) ? map.get(key) : "default";
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  map.getOrDefault(key, "default");
+</code></pre>
+<p>Пример:</p>
+<pre><code>
+  List&lt;String&gt; list = map.get(key);
+  if (list == null) {
+    list = new ArrayList&lt;&gt;();
+    map.put(key, list);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  map.computeIfAbsent(key, localKey -> new ArrayList&lt;&gt;());
+</code></pre>
+<p>Пример:</p>
+<pre><code>
+  Integer val = map.get(key);
+  if (val == null) map.put(key, 1);
+  else map.put(key, val + 1);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  map.merge(key, 1, (localKey, localValue) -> localValue + 1);
+</code></pre>
+<p>Пример:</p>
+<pre><code>
+  for (Map.Entry&lt;String, String&gt; entry : map.entrySet()) {
+    map.put(entry.getKey(), transform(entry.getValue()));
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  map.replaceAll((localKey, localValue) -> transform(localValue));
+</code></pre>
+<p>Обратите внимание, что замена на <code>computeIfAbsent()</code> или <code>merge()</code> может не работать корректно для некоторых <code>Map</code>, если код, извлекаемый в лямбда-выражение, модифицирует тот же самый <code>Map</code>. По умолчанию предупреждение не появляется, если этот код имеет побочные эффекты. При необходимости включите опцию <b>Предлагать замену даже если лямбда может иметь побочные эффекты</b>, чтобы всегда показывать предупреждение.</p>
+<p>Кроме того, семантика может измениться из-за различной обработки значений <code>null</code> в старых методах, таких как <code>put()</code>, и новых методах, таких как <code>computeIfAbsent()</code> или <code>merge()</code>. Это следует учитывать, если хранение значений <code>null</code> в данном <code>Map</code> важно. Проверка не предлагает замену, когда значение статически известно как null. Однако замена все еще предлагается для значений с неизвестной nullability. В таких случаях рекомендуется отключить предупреждение и добавить поясняющий комментарий.
+</p>
+</body>
+</html>

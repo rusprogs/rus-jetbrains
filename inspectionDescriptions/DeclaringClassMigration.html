@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщение о вызовах свойства 'declaringClass' для Enum, которые приводят к ошибкам компиляции начиная с версии 1.9.
+<p>'Enum.getDeclaringClass' - это "скрытая" функция Java, обычно недоступная через разбор. Однако она доступна через синтетическое свойство, что является ошибкой фронтенда.</p>
+<p><b>Подробнее</b>: <a href="https://youtrack.jetbrains.com/issue/KT-49653">KT-49653 Объявить устаревшим и удалить синтетическое свойство Enum.declaringClass</a></p>
+<p>Быстрое исправление заменит вызов на 'declaringJavaClass'.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun &lt;E: Enum&lt;E&gt;&gt; foo(values: Array&lt;E&gt;) {
+    EnumSet.noneOf(values.first().declaringClass)
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun &lt;E: Enum&lt;E&gt;&gt; foo(values: Array&lt;E&gt;) {
+    EnumSet.noneOf(values.first().declaringJavaClass)
+  }
+</code></pre>
+<p>Эта проверка выполняется только если уровень языка Kotlin для проекта или модуля установлен на 1.7 или выше.</p>
+</body>
+</html>

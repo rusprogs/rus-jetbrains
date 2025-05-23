@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Сообщает о операциях преобразования, вызываемых для значений <code>Mono&lt;Void&gt;</code> в цепочке Reactor.</p>
+<p>
+  <code>Mono&lt;Void&gt;</code> завершается без каких-либо значений, поэтому функция преобразования никогда не будет вызвана.
+  Быстрое исправление предлагает заменить <code>map()</code> и <code>flatMap()</code> на <code>then()</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">Mono.when(Mono.just(1), Mono.just(2))
+                .map(v -> "New value")
+                .doFinally(System.out::println);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">Mono.when(Mono.just(1), Mono.just(2))
+                .then(Mono.fromCallable(() -> "New value"))
+                .doFinally(System.out::println);
+</code></pre>
+<p><small>Изменения в версии 2023.1</small></p>
+</body>
+</html>

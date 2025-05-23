@@ -1,0 +1,15 @@
+<html>
+<body>
+Обнаружено недопустимое перекрытие подпрограмм в Oracle.
+<p>Пример (Oracle):</p>
+<pre><code>DECLARE
+    SUBTYPE fff IS BINARY_INTEGER;
+    SUBTYPE ggg IS NATURAL;
+    PROCEDURE foo (a IN ggg) IS BEGIN NULL; END;
+    PROCEDURE foo (a IN fff) IS BEGIN NULL; END;
+BEGIN
+    NULL;
+END;</code></pre>
+<p>Нельзя перегружать подпрограммы, параметры которых отличаются только подтипом. Например, нельзя перегрузить процедуру, которая принимает параметр типа BINARY INTEGER, другой процедурой, принимающей параметр типа NATURAL. Дополнительную информацию об ограничениях перегрузки процедур см. в разделе <a href="https://docs.oracle.com/cd/B19306_01/appdev.102/b14261/subprograms.htm">Restrictions on Overloading на docs.oracle.com</a>.</p>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о вызовах <code>Object.wait()</code> или <code>Condition.await()</code> без указания тайм-аута.
+<p>
+  Такие вызовы могут быть опасны в программах с высокой доступностью, поскольку сбой в одном компоненте может привести к блокировке ожидающего компонента, если <code>notify()</code>/<code>notifyAll()</code> или <code>signal()</code>/<code>signalAll()</code> никогда не будут вызваны.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void foo(Object bar) throws InterruptedException {
+    bar.wait();
+  }
+</code></pre>
+</body>
+</html>

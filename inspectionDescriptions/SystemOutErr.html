@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает об использовании <code>System.out</code> или <code>System.err</code>.
+<p>Такие операторы обычно используются для временной отладки и должны быть удалены из производственного кода или заменены более надежным инструментом логования.</p>
+<p>Предлагаемое быстрое исправление поддерживает <b>SLF4J</b> и <b>Log4j 2</b>.
+ Оно заменяет вызовы <code>System.out</code> и <code>System.err</code> на вызовы логгера</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public static void test(Object o) {
+    System.out.println("Test: "+ o);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  private static final Logger log = LoggerFactory.getLogger(Test.class);
+  public static void test(Object o) {
+      log.info("Test: {}", o);;
+  }
+</code></pre>
+<p>
+  Опция <b>метод логования для 'System.err'</b> позволяет указать метод для записи сообщений из вызовов 'System.err'.
+  Опция <b>метод логования для 'System.out'</b> позволяет указать метод для записи сообщений из вызовов 'System.out'.
+</p>
+</body>
+</html>

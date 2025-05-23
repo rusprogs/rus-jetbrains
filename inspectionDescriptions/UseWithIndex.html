@@ -1,0 +1,29 @@
+<html>
+<body>
+Обнаружен цикл <code>for</code> с переменной индекса, увеличивающейся вручную.
+<p>Цикл <code>for</code> с переменной индекса, увеличивающейся вручную, можно упростить с помощью функции <code>withIndex()</code>.</p>
+<p>Быстрое исправление <b>Использовать withIndex() вместо ручного увеличения индекса</b> доступно для автоматического исправления кода.</p>
+<p>Пример:</p>
+<pre><code>
+  fun foo(list: List&lt;String&gt;): Int? {
+      var index = 0
+      for (s in list) { &lt;== can be simplified
+          val x = s.length * index
+          index++
+          if (x > 0) return x
+      }
+      return null
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(list: List&lt;String&gt;): Int? {
+      for ((index, s) in list.withIndex()) {
+          val x = s.length * index
+          if (x > 0) return x
+      }
+      return null
+  }
+</code></pre>
+</body>
+</html>

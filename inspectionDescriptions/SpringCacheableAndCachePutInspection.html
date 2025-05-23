@@ -1,0 +1,8 @@
+<html>
+<body>
+<p>Сообщение о наличии аннотаций <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/cache/annotation/CachePut.html">@CachePut</a> и <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/cache/annotation/Cacheable.html">@Cacheable</a>, объявленных в одном методе.</p>
+<code>@Cacheable</code> позволяет методу пропустить выполнение с использованием кэша, а <code>@CachePut</code> принудительно выполняется для обновления кэша.
+Это приводит к непредсказуемому поведению и следует избегать, за исключением особых случаев, когда условия в аннотациях исключают их взаимодействие.
+Обратите внимание, что такие условия не должны зависеть от результирующего объекта (переменная <code>#result</code>), поскольку эти условия проверяются заранее для подтверждения исключения.
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о некорректном доступе к свойствам:
+<ul>
+  <li>Установка значения свойства только для чтения</li>
+  <li>Чтение свойства только для записи</li>
+  <li>Удаление неудаляемого свойства</li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code>
+class MyClass:
+    @property
+    def read_only(self): return None
+    def __write_only_setter(self, value): pass
+    write_only = property(None, __write_only_setter)
+a = MyClass()
+a.read_only = 10 # нельзя установить свойство
+del a.read_only # нельзя удалить свойство
+print(a.write_only) # нельзя прочитать свойство
+</code></pre>
+</body>
+</html>

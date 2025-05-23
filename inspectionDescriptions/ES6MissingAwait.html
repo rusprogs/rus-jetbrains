@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает о вызовах <code>async</code> функций без ожидаемого префикса <code>await</code> внутри <code>async</code> функций.
+Такие вызовы возвращают <code>Promise</code>, и поток выполнения продолжается немедленно.
+<p>Пример:</p>
+<pre><code>
+async function bar() { /* ... */ }
+async function foo() {
+    bar(); // плохо
+}
+</code></pre>
+<p>
+После применения быстрого исправления будет добавлен префикс <code>await</code>:</p>
+<pre><code>
+async function bar() { /* ... */ }
+async function foo() {
+    await bar(); // хорошо
+}
+</code></pre>
+<br/>
+Если установлен флажок "Сообщать о промисах в операторах return", также рекомендуется добавлять <code>await</code> в операторы return.<br/>
+Хотя это обычно не требуется, есть два существенных преимущества.<br/><ul><li>
+При использовании блока <code>try-catch</code> вы не забудете добавить <code>await</code>.</li>
+<li>Явное использование <code>await</code> помогает среде выполнения V8 предоставлять <a href="https://bit.ly/v8-zero-cost-async-stack-traces">асинхронные трассировки стека</a>.</li></ul>
+</body>
+</html>

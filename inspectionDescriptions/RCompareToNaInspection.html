@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Сообщает об использовании константы <code>NA</code> в проверках на равенство и предлагает заменить её на функцию <code>is.na</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+if (a==NA){
+  print ("a is not available!")
+}
+</code></pre>
+<p>После применения быстрого исправления код будет выглядеть так:</p>
+<pre><code>
+if (is.na(a)){
+  print ("a is not available!")
+}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<body>
+Обнаружен вызов <code>java.lang.ThreadLocal.set()</code> с null в качестве аргумента.
+<p>Этот вызов не освобождает ресурсы и может привести к утечке памяти.</p>
+Это происходит потому что:
+<ul>
+  <li>Во-первых, <code>ThreadLocal.set(null)</code> ищет отображение, связанное с текущим потоком. Если такого отображения нет, оно создаётся</li>
+  <li>Затем устанавливаются ключ и значение: <code>map.set(this, value)</code>, где <code>this</code> является экземпляром <code>ThreadLocal</code></li>
+</ul>
+<p>Для освобождения ресурсов следует использовать <code>java.lang.ThreadLocal.remove()</code>.</p>
+<p>Пример:</p>
+<pre><code>
+  ThreadLocal&lt;Integer&gt; threadLocal = new ThreadLocal&lt;&gt;();
+  threadLocal.set(null);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  threadLocal.remove();
+</code></pre>
+<p><small>Изменения в версии 2023.2</small></p>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<html>
+<body>
+Сообщать о нераспознанных свойствах в файлах <code>*.properties</code>.
+<p><b>Пример JSP файла:</b></p>
+<pre><code>
+&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;%@ taglib uri="/tags/fmt" prefix="fmt" %&gt;
+&lt;fmt:message bundle="bundle.properties" key="unknown.property"/&gt; // Ошибка: такое свойство отсутствует в указанном файле
+</code></pre>
+</body>
+</html>

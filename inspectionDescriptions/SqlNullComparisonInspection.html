@@ -1,0 +1,12 @@
+<html>
+<body>
+Обнаружено сравнение с NULL, которое может быть заменено операторами IS NULL или IS NOT NULL.
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE foo ( id int );
+SELECT * FROM foo WHERE NULL = NULL;
+SELECT * FROM foo WHERE NULL != NULL;</code></pre>
+<p><code>NULL = NULL</code> может быть заменено на <code>IS NULL</code>, а сравнение <code>NULL != NULL</code> может быть заменено на <code>IS NOT NULL</code>. Для выполнения этой замены вы можете использовать быстрое исправление <b>Использовать оператор IS NULL</b> или <b>Использовать оператор IS NOT NULL</b>.</p>
+<pre><code>SELECT * FROM foo WHERE NULL IS NULL;
+SELECT * FROM foo WHERE NULL IS NOT NULL;</code></pre>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о блоках <code>try</code>, которые перехватывают <code>java.lang.ThreadDeath</code> и не выполняют повторное возбуждение исключения.
+<p><b>Пример:</b></p>
+<pre><code>
+  try {
+    executeInParallel(request);
+  } catch (ThreadDeath ex) { // warning: ThreadDeath 'ex' not rethrown
+    return false;
+  }
+</code></pre>
+</body>
+</html>

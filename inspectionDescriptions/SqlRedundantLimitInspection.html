@@ -1,0 +1,12 @@
+<html>
+<body>
+Обнаружены избыточные условия ограничения строк в запросе, такие как FETCH и LIMIT.
+<p>Пример (PostgreSQL):</p>
+<pre><code>CREATE TABLE foo(a INT);
+SELECT * FROM foo WHERE EXISTS(SELECT * FROM foo LIMIT 2);
+SELECT * FROM foo WHERE EXISTS(SELECT * FROM foo FETCH FIRST 2 ROWS ONLY);</code></pre>
+<p>Для исправления предупреждения можно добавить OFFSET к условию ограничения. Без OFFSET использование LIMIT является избыточным, так как оно не влияет на результат выполнения EXISTS. В случае с OFFSET мы пропускаем первые <code>N</code> строк, что влияет на результат.</p>
+<pre><code>SELECT * FROM foo WHERE EXISTS(SELECT * FROM foo OFFSET 1 ROW LIMIT 2);
+SELECT * FROM foo WHERE EXISTS(SELECT * FROM foo OFFSET 1 ROW FETCH FIRST 2 ROWS ONLY);</code></pre>
+</body>
+</html>

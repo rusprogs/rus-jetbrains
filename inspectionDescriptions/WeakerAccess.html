@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о полях, методах или классах, для которых возможно уменьшение области видимости модификатора доступа.
+<p>Пример:</p>
+<pre><code>
+  class Sample {
+    void foo() {
+        bar("foo", "foo");
+    }
+    void bar(String x, String y) { } // может быть private
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Sample {
+    void foo() {
+        bar("foo", "foo");
+    }
+    private void bar(String x, String y) { }
+  }
+</code></pre>
+<p>Правила для предложений по изменению модификаторов можно определить в настройках проверки.</p>
+</body>
+</html>

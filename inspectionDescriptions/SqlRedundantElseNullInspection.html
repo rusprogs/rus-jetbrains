@@ -1,0 +1,8 @@
+<html>
+<body>
+Сообщает об избыточных конструкциях ELSE NULL.
+<p>Пример (MySQL):</p>
+<pre><code>SELECT CASE WHEN 2 > 1 THEN 'OK' ELSE NULL END AS alias FROM foo;</code></pre>
+<p>Часть <code>ELSE NULL</code> никогда не будет выполнена и может быть опущена.</p>
+</body>
+</html>

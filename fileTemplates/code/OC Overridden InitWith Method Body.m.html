@@ -1,0 +1,48 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">
+      Создает тело переопределённого метода <b><code>-init</code></b> при генерации (например, при вызове операции <b>Код | Переопределить методы</b> или <b>Код | Сгенерировать | -initWith</b>).<br>
+      Шаблон можно редактировать. Помимо выражений и комментариев Objective-C, вы можете использовать предопределённые переменные, которые впоследствии будут заменены соответствующими значениями.</font>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Предопределённые переменные принимают следующие значения:</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${CALL_SUPER}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Вызов метода super, для методов типа <b>void</b> — <code>[<b>super</b> <i>methodName</i>]</code>, с параметрами или без;
+      для остальных методов — <code><b>return</b> [<b>super</b> <i>methodName</i>]</code>, с параметрами или без
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${RETURN_TYPE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Тип возвращаемого значения создаваемого метода</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${DEFAULT_RETURN_VALUE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Значение по умолчанию, возвращаемое методом</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${CONTAINING_CLASS}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Имя класса, в котором переопределяется метод</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${CUSTOM_CODE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Тело генерируемого метода</font></td>
+  </tr>
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Все предопределённые переменные из шаблона <b>заголовка C-файла</b> (вкладка <b>Include</b>) также доступны (<font face="verdana" size="-2"><b>${USER}</b></font>, <font face="verdana" size="-2"><b>${DATE}</b></font> и т.д.)</font>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

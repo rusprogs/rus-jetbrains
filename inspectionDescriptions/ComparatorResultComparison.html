@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о сравнении результата вызова <code>Comparator.compare()</code> или <code>Comparable.compareTo()</code> с ненулевой константой.
+По соглашению, эти методы могут возвращать любое целое число (не только -1, 0 или 1), поэтому сравнение с конкретными числами считается плохой практикой. Некоторые широко используемые методы сравнения (например, <code>String.compareTo()</code>) фактически возвращают значения за пределами диапазона [-1..1], и такие сравнения могут привести к некорректному поведению программы.
+<p>Пример:</p>
+<pre><code>
+  void validate(String s1, String s2) {
+    // Некорректное сравнение с 1
+    if (s1.compareTo(s2) == 1) {
+      throw new IllegalArgumentException("Incorrect order");
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void validate(String s1, String s2) {
+    if (s1.compareTo(s2) > 0) {
+      throw new IllegalArgumentException("Incorrect order");
+    }
+  }
+</code></pre>
+<p><small>Новое в версии 2017.2</small></p>
+</body>
+</html>

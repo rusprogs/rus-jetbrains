@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о создании экземпляра <code>Throwable</code> или его подкласса, когда созданный <code>Throwable</code> фактически не был выброшен.
+<p>Отмеченный код указывает на ошибки, которые сложно обнаружить при тестовании.</p>
+<p>
+    Кроме того, эта проверка сообщает о вызовах методов, возвращающих экземпляр <code>Throwable</code> или его подкласса, когда полученный экземпляр <code>Throwable</code> не выбрасывается.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun check(condition: Boolean) {
+      if (!condition) /* throw is missing here */ IllegalArgumentException("condition is not met");
+  }
+  fun createError() = RuntimeException()
+  fun foo() {
+      /* throw is missing here */ createError()
+  }
+</code></pre>
+</body>
+</html>

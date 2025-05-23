@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Сообщение о некорректных значениях <code>max</code> и <code>min</code> в аннотациях ограничений Bean Validation.</p>
+<p><strong>Пример:</strong></p>
+<pre><code>
+public class Car {
+  @NotNull
+  @Size(min = 14, max = <strong>2</strong>) // Значение 'max' меньше значения 'min'
+  private String licensePlate;
+}
+</code></pre>
+</body>
+</html>

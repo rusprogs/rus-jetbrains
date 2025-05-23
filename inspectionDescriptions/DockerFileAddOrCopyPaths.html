@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Сообщение о недопустимом целевом каталоге в командах <code>ADD</code> и <code>COPY</code>.</p>
+<p>
+  Согласно <a href="https://docs.docker.com/engine/reference/builder/#add">спецификации Dockerfile</a>, если указано несколько источников, то целевой путь должен быть каталогом и заканчиваться косой чертой '/'.
+  В противном случае сборка Docker завершится с ошибкой.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  # Все следующие команды завершатся ошибкой
+  ADD textA.txt textB.txt relativeDir
+  ADD ["binaryA.jar", "binary2.jar", "destination"]
+  COPY text3.txt text4.txt /absolute/path
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  ADD textA.txt textB.txt relativeDir/
+  ADD ["binaryA.jar", "binary2.jar", "destination/"]
+  COPY text3.txt text4.txt /absolute/path/
+</code></pre>
+</body>
+</html>

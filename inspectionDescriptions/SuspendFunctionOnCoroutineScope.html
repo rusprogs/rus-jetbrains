@@ -1,0 +1,9 @@
+<html>
+<body>
+Сообщает о вызовах и обращениях к расширениям или членам <code>CoroutineScope</code> внутри suspend-функций, имеющих приёмник <code>CoroutineScope</code>.
+<p>Когда функция является <code>suspend</code> и имеет приёмник <code>CoroutineScope</code>, возникает неоднозначность при доступе к <code>CoroutineContext</code> через <code>kotlin.coroutines.coroutineContext</code> и <code>CoroutineScope.coroutineContext</code>, причём эти два контекста обычно различаются.</p>
+<p>
+Для исправления ситуации можно обернуть подозрительные вызовы в блок <code>coroutineScope { ... }</code> или удалить приёмник <code>CoroutineScope</code> у функции.
+</p>
+</body>
+</html>

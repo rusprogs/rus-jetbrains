@@ -1,0 +1,31 @@
+<html><body>
+Это намерение изменяет контракт метода библиотеки.
+Синтаксис контракта метода следующий:
+<pre><code>
+ contract ::= (clause ';')* clause
+ clause ::= args '->' effect
+ args ::= ((arg ',')* arg )?
+ arg ::= value-constraint
+ value-constraint ::= '_' | 'null' | '!null' | 'false' | 'true'
+ effect ::= value-constraint | 'fail' | 'new' | 'this' | 'param' number
+ number ::= [1-9] [0-9]*
+</code></pre>
+Ограничения означают:<br/>
+<ul>
+  <li> <code>_</code>: любое значение
+  <li> <code>null</code>: значение null
+  <li> <code>null!</code>: значение, статически доказанное как не null
+  <li> <code>true</code>: логическое значение true
+  <li> <code>false</code>: логическое значение false
+  <li> <code>fail</code>: метод выбросит исключение, если аргументы соответствуют ограничениям
+  <li> <code>new</code>: метод возвращает новый не null объект при каждом выполнении, отличный от всех объектов, существовавших в куче до выполнения метода. Если метод является чистым, новый объект не сохраняется в полях или массивах, и будет потерян, если возвращаемое значение метода не используется.
+  <li> <code>this</code>: метод возвращает не null ссылку this
+  <li> <code>param1 (param2, param3, etc.)</code>: метод возвращает свой первый (второй, третий и т.д.) аргумент
+</ul>
+Примеры:<br/>
+<ul>
+  <li> <code>@Contract("_, null -> null")</code>: метод вернет null, если его второй аргумент null.
+  <li> <code>@Contract("_, null -> null; _, !null -> !null")</code> - метод вернет null, если его второй аргумент null, в противном случае вернет не null значение.
+  <li> <code>@Contract("true -> fail")</code> - типичный метод <code>assertFalse</code>, который выбросит исключение, если ему передано значение <code>true</code>.
+</ul>
+</body></html>

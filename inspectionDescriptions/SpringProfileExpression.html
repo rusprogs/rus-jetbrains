@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Обнаружено некорректное выражение <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Profile.html">@Profile</a>:</p>
+<ul>
+  <li>Spring-профиль не может быть пустым</li>
+  <li>В выражении Spring-профиля операторы '&' и '|' нельзя использовать совместно без круглых скобок</li>
+</ul>
+<p><b>Примеры:</b></p>
+<pre><code lang="java">
+  // Правильная конфигурация
+  @Configuration
+  @Profile("a & (b | c)")
+  public class MyConfiguration {...}
+  // Пустой профиль
+  @Configuration
+  @Profile() // Ошибка "Выражение профиля должно содержать текст"
+  public class MyConfiguration {...}
+  // Смешанные операторы без скобок
+  @Configuration
+  @Profile("a & b | c") // Ошибка "Некорректный формат выражения профиля"
+  public class MyConfiguration {...}
+</code></pre>
+</body>
+</html>

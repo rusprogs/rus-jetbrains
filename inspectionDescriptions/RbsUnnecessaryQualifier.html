@@ -1,0 +1,17 @@
+<html>
+<body>
+Обнаружены избыточные квалификаторы в объявлении типов. Некоторые квалификаторы являются излишними при наличии оператора use или объявления пространства имён.
+<p>Можно использовать быстрое исправление для удаления избыточных квалификаторов.</p>
+<p>Пример:</p>
+<pre><code>use Enumerator::Generator
+class Example
+  # 'Enumerator::Generator' можно сократить
+  def call: -> Enumerator::Generator
+end</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>use Enumerator::Generator
+class Example
+  def call: -> Generator
+end</code></pre>
+</body>
+</html>

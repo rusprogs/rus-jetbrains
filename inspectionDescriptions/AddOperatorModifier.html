@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает о функции, которая соответствует одному из соглашений об операторах, но не имеет ключевого слова <code>operator</code>.
+<p>Добавив модификатор <code>operator</code>, вы позволите пользователям функции писать идиоматический код на Kotlin.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Complex(val real: Double, val imaginary: Double) {
+      fun plus(other: Complex) =
+          Complex(real + other.real, imaginary + other.imaginary)
+  }
+  fun usage(a: Complex, b: Complex) {
+      a.plus(b)
+  }
+</code></pre>
+<p>Быстрое исправление добавит ключевое слово модификатора <code>operator</code>:</p>
+<pre><code>
+  class Complex(val real: Double, val imaginary: Double) {
+      operator fun plus(other: Complex) =
+          Complex(real + other.real, imaginary + other.imaginary)
+  }
+  fun usage(a: Complex, b: Complex) {
+      a + b
+  }
+</code></pre>
+</body>
+</html>

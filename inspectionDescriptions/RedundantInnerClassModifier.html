@@ -1,0 +1,41 @@
+<html>
+<body>
+Модификатор <code>inner</code> помечается как избыточный, если класс не ссылается на члены своего внешнего класса.
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo {
+      <b>inner</b> class InnerClass { // Избыточный модификатор `inner`
+          fun hello() {
+              println("Hi!")
+          }
+      }
+  }
+  class List {
+      val objects = Array&lt;Any&gt;(42) { Any() }
+      <b>inner</b> class Iterator { // Неизбыточный модификатор `inner`
+          fun next(): Any {
+              return objects[0]
+          }
+      }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Foo {
+      class InnerClass { // Избыточный модификатор `inner`
+          fun hello() {
+              println("Hi!")
+          }
+      }
+  }
+  class List {
+      val objects = Array&lt;Any&gt;(42) { Any() }
+      <b>inner</b> class Iterator { // Неизбыточный модификатор `inner`
+          fun next(): Any {
+              return objects[0]
+          }
+      }
+  }
+</code></pre>
+</body>
+</html>

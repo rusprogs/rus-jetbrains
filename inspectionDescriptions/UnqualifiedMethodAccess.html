@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о вызовах нестатических методов без явного указания <code>this</code> для одного и того же экземпляра.
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo {
+    void bar() {}
+    void foo() {
+      bar();
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Foo {
+    void bar() {}
+    void foo() {
+      this.bar();
+    }
+  }
+</code></pre>
+</body>
+</html>

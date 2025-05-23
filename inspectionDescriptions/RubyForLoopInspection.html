@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщение о использовании цикла <code>for</code>. Рекомендуется использовать <code>.each</code> вместо цикла <code>for</code>.
+<p>Пример:</p>
+<pre>
+<code># 不良做法
+for i in 0..5
+  puts &quot;Value is #{i}&quot;
+end</code>
+</pre>
+Цикл <code>for</code> можно преобразовать в цикл <code>.each</code> с помощью быстрого исправления. После применения быстрого исправления результат будет выглядеть так:
+<pre>
+<code># 优良做法
+(0..5).each do |i|
+  puts &quot;Value is #{i}&quot;
+end
+</code>
+</pre>
+<p><span style="font-size: smaller;">Основано на <a href="https://github.com/martinjandrews/roodi">'Roodi'</a></span></p>
+</body>
+</html>

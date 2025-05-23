@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о сообщениях <code>assert</code>, которые не являются типом <code>java.lang.String</code>.
+<p>Использование строк позволяет предоставить больше информации, что помогает диагностировать причину сбоя или утверждения.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void foo(List&lt;Integer&gt; myList) {
+    assert myList.isEmpty() : false;
+  }
+</code></pre>
+<p>
+Опция <b>Выдавать предупреждение только когда сообщение <code>assert</code> имеет тип 'boolean' или 'java.lang.Boolean'</b> позволяет генерировать предупреждения только когда тип сообщения <code>assert</code> является <code>boolean</code> или <code>java.lang.Boolean</code>.
+Подробные сообщения типа <code>boolean</code> вряд ли предоставят дополнительную информацию о сбое утверждения и, возможно, являются результатом ошибочного ввода <code>:</code> вместо <code>&</code>.
+</body>
+</html>

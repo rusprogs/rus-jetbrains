@@ -1,0 +1,14 @@
+<html>
+<body>
+Вызовы методов assert, в которых типы аргументов "expected" и "actual" несовместимы.
+<p>Такие вызовы обычно указывают на ошибку в тесте.
+  Эта проверка охватывает соответствующие методы JUnit, TestNG и AssertJ.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  assertEquals("1", 1);
+  assertNotSame(new int[0], 0);
+  // Слабое предупреждение, возможно проверяется только контракт equals()
+  assertThat(foo).as("user type").isNotEqualTo(bar);
+</code></pre>
+</body>
+</html>

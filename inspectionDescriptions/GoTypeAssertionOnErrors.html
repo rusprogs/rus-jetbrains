@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о некорректных приведениях типов ошибок или конструкциях switch по типу, таких как <code>err.(*MyErr)</code> или <code>switch err.(type)</code>, и предлагает использовать <code>errors.As</code>.
+<p>Начиная с Go 1.13, для обёртывания ошибок можно использовать функцию <code>fmt.Errorf</code> с глаголом <code>%w</code>. Поэтому приведение типов или switch по типу будут некорректно работать с обёрнутыми ошибками. Предпочтительным способом проверки конкретного типа ошибки является использование функции <a href="https://pkg.go.dev/errors#As">errors.As</a> из стандартной библиотеки, так как она проходит по цепочке обёрнутых ошибок при проверке определённого типа ошибки.</p>
+<p>Подробную информацию о <code>errors.As</code> можно найти в статье <a href="https://go.dev/blog/go1.13-errors">working with Errors in Go 1.13</a>.</p>
+<p>Быстрое исправление заменяет некорректное приведение типов и конструкции switch по типу на вызовы <code>errors.As</code>.</p>
+<p><b>Пример</b></p>
+<pre><code>
+errFoo, ok := err.(*ErrFoo)
+switch err.(type) {
+  case *ErrBar:
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+var errFoo *ErrFoo
+ok := errors.As(err, &errFoo)
+var errBar *ErrBar
+switch {
+case errors.As(err, &errBar):
+}
+</code></pre>
+</body>
+</html>

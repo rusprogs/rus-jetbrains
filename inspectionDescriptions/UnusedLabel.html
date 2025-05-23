@@ -1,0 +1,21 @@
+<html>
+<body>
+Метка не является целью для операторов <code>break</code> или <code>continue</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  label: <b>for</b> (int i = 0; i &lt; 10; i++) {
+    <b>if</b> (i == 3) {
+      <b>break</b>;
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления метка будет удалена:</p>
+<pre><code>
+  <b>for</b> (int i = 0; i &lt; 10; i++) {
+    <b>if</b> (i == 3) {
+      <b>break</b>;
+    }
+  }
+</code></pre>
+</body>
+</html>

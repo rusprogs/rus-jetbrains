@@ -1,0 +1,30 @@
+<html>
+<body>
+Обнаружен вызов <code>wait()</code> вне цикла.
+<p>
+  <code>wait()</code> обычно используется для приостановки потока до тех пор, пока определённое условие не станет истинным.
+  Поток может быть пробужден по разным причинам, поэтому условие следует проверять после возврата из вызова <code>wait()</code>.
+  Это легко сделать с помощью цикла.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class BoundedCounter {
+    private int count;
+    synchronized void inc() throws InterruptedException {
+      if (count >= 10) wait();
+      ++count;
+    }
+  }
+</code></pre>
+<p>Правильный код должен выглядеть так:</p>
+<pre><code>
+  class BoundedCounter {
+    private int count;
+    synchronized void inc() throws InterruptedException {
+      while (count >= 10) wait();
+      ++count;
+    }
+  }
+</code></pre>
+</body>
+</html>

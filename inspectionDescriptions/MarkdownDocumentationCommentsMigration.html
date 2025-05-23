@@ -1,0 +1,23 @@
+<html>
+<body>
+Отчёт может быть преобразован из Javadoc-комментариев в документационные комментарии в формате Markdown.
+<p><b>Пример:</b></p>
+<pre><code>
+  /**
+   * For blubbering of the florz.
+   *
+   * Similar to {@link com.deeps.Querp querping} class.
+   */
+  class FlorzBlubber {
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  /// For blubbering of the florz.
+  /// Similar to [querping][com.deeps.Querp] class.
+  class FlorzBlubber {
+  }
+</code></pre>
+<p><small>Что нового в версии 2024.2</small></p>
+</body>
+</html>

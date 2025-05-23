@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>java.util.Map.get()</code>. Такие вызовы могут быть заменены более короткой и явной формой доступа по ключу.
+<p><b>Пример:</b></p>
+<pre>
+<code>
+def map = ["foo": "bar"]
+def str = map.get("foo") // map.get("foo") можно заменить на map["foo"]
+</code>
+</pre>
+<p>После применения быстрого исправления:</p>
+<pre>
+<code>
+def map = ["foo": "bar"]
+def str = map["foo"]
+</code>
+</pre>
+</body>
+</html>

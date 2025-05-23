@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о создании ненужных временных объектов при преобразовании примитивных типов в <code>String</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  String foo = new Integer(3).toString();
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  String foo = Integer.toString(3);
+</code></pre>
+</body>
+</html>

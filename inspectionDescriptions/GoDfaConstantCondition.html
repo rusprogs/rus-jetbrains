@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает об условиях в коде, которые всегда вычисляются как <code>true</code> или <code>false</code>.
+  <p>Пример:</p>
+  <pre><code>
+func _(file *os.File) {
+    if file == nil {
+        return
+    }
+    if file == nil {
+    }
+}
+  </code></pre>
+<p>
+  В приведенном примере второе условие <code>if file == nil</code> избыточно. Оно всегда будет вычисляться как <code>false</code>, поскольку повторяет проверку, которая уже была выполнена в коде.
+</p>
+</body>
+</html>

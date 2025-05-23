@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Сообщает о синтаксических ошибках в коде Spring Expression Language (SpEL), таких как неразрешённые ссылки и недопустимые позиции.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+@Controller
+public class MyController {
+    @Value("#{T(java.lang.Math).<strong>unknown</strong>()}") // Невозможно разрешить свойство или метод 'unknown'
+    public void setValue(String s) {}
+}
+</code></pre>
+</body>
+</html>

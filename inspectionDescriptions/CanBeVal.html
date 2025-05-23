@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о локальных переменных, объявленных с помощью ключевого слова <code>var</code>, которые никогда не изменяются.
+<p>Kotlin рекомендует использовать ключевое слово <code>val</code> для объявления фактически неизменяемых переменных, чтобы гарантировать, что их значения никогда не будут изменены.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun example() {
+      var primeNumbers = listOf(1, 2, 3, 5, 7, 11, 13)
+      var fibonacciNumbers = listOf(1, 1, 2, 3, 5, 8, 13)
+      print("Same numbers: " + primeNumbers.intersect(fibonacciNumbers))
+  }
+</code></pre>
+<p>Быстрое исправление заменит ключевое слово <code>var</code> на <code>val</code>:</p>
+<pre><code>
+  fun example() {
+      val primeNumbers = listOf(1, 2, 3, 5, 7, 11, 13)
+      val fibonacciNumbers = listOf(1, 1, 2, 3, 5, 8, 13)
+      print("Same numbers: " + primeNumbers.intersect(fibonacciNumbers))
+  }
+</code></pre>
+</body>
+</html>

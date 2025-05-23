@@ -1,0 +1,37 @@
+<html>
+<body>
+Сообщает о вызовах методов суперкласса из анонимных классов, внутренних классов или локальных классов, если в окружающем коде класса существуют методы с такой же сигнатурой.
+В таких случаях может показаться, что вызывается метод из окружающего кода, хотя на самом деле вызывается метод из суперкласса.
+<p>
+  Для большей ясности кода рекомендуется добавить явный квалификатор <code>super</code> к вызову метода.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Parent {
+    void ambiguous(){}
+  }
+  class Example {
+    void ambiguous(){}
+    class Inner extends Parent {
+      void example(){
+        ambiguous(); //предупреждение
+      }
+    }
+  }
+  </code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Parent {
+    void ambiguous(){}
+  }
+  class Example {
+    void ambiguous(){}
+    class Inner extends Parent {
+      void example(){
+        super.ambiguous();
+      }
+    }
+  }
+</code></pre>
+</body>
+</html>

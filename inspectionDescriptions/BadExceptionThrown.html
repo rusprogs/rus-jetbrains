@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает об операторах <code>throw</code>, которые выбрасывают некорректные исключения.
+Например, исключение может быть некорректным из-за слишком общего типа, такого как <code>java.lang.Exception</code> или <code>java.io.IOException</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  void setup(Mode mode) {
+      if (mode == null)
+          throw new RuntimeException("Problem during setup"); // Предупреждение: выброшено запрещенное исключение 'RuntimeException'
+      ...
+  }
+</code></pre>
+<p>Используйте список <b>запрещенных исключений</b>, чтобы указать, о каких исключениях следует сообщать.<p>
+</body>
+</html>

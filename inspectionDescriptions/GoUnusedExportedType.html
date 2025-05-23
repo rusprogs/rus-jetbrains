@@ -1,0 +1,8 @@
+<html>
+<body>
+Сообщает о неиспользуемых экспортуемых типах в пакете <code>main</code> и тестах. Подробнее об экспортуемых идентификаторах см. в разделе <a href="https://go.dev/ref/spec#Exported_identifiers">Exported identifiers на go.dev</a>.
+<pre><code>type User struct {}
+func main() {}</code></pre>
+<p>Структурный тип <code>User</code> объявлен, но нигде не используется в коде. Этот тип будет отображаться серым цветом.</p>
+</body>
+</html>

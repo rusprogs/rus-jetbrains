@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Сообщает о попытках внедрения Spring Expression Language (SpEL) в статические поля (внедрение значения 'null').</p>
+<p><b>Пример:</b></p>
+<pre><code>
+@Controller
+public class MyController {
+    <strong>@Value</strong>("#{systemProperties['some.key']}")  //  внедрение в static поля не допускается
+    static String spelWithDefaultValue;
+}
+</code></pre>
+</body>
+</html>

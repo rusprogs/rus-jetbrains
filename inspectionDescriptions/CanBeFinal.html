@@ -1,0 +1,37 @@
+<html>
+<body>
+Сообщает о полях, методах или классах, к которым можно добавить модификатор <code>final</code>.
+<p>Классы с модификатором final не могут быть расширены, методы с final не могут быть переопределены, поля с final не могут быть переназначены.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public class Person {
+    private String name;
+    Person(String name) {
+      this.name = name;
+    }
+    public String getName() {
+      return name;
+    }
+    public String toString() {
+      return getName();
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  public final class Person {
+    private final String name;
+    Person(String name) {
+      this.name = name;
+    }
+    public final String getName() {
+      return name;
+    }
+    public final String toString() {
+      return getName();
+    }
+  }
+</code></pre>
+<p>Используйте опции <b>Сообщать о классах</b> и <b>Сообщать о методах</b> для определения объявлений, о которых следует сообщать.</p>
+</body>
+</html>

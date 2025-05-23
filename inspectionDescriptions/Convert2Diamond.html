@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает обо всех выражениях <code>new</code>, где типовые аргументы могут быть заменены ромбовидным оператором <code>&lt;&gt;</code>.
+<p>Пример:</p>
+<pre><code>
+  List&lt;String&gt; list = new ArrayList&lt;String&gt;(); // сообщает о типовом аргументе ArrayList
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  List&lt;String&gt; list = new ArrayList&lt;&gt;();
+</code></pre>
+</body>
+</html>

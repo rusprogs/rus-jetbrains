@@ -1,0 +1,34 @@
+<html>
+<body>
+Сообщает об объявлениях локальных переменных и обращениях к методам доступа, которые могут быть заменены переменными шаблона в расширенном операторе 'for' (что обычно делает код более компактным).
+<p><b>Пример:</b></p>
+<pre><code>
+record Record(Integer x, String y) {
+}
+public static void test(List&lt;Record&gt; records) {
+    for (Record record : records) {
+        System.out.println(record.y());
+        Integer x = record.x;
+        System.out.println(x);
+    }
+}
+</code></pre>
+<p>Может быть заменено на:</p>
+<pre><code>
+record Record(Integer x, String y) {
+}
+public static void test(List&lt;Record&gt; records) {
+    for (Record(Integer x, String y) : records) {
+        System.out.println(y);
+        System.out.println(x);
+    }
+}
+</code></pre>
+<ul>
+  <li>Используйте опцию <b>Предел глубины вложенности</b>, чтобы указать максимальное количество вложенных шаблонов деструктурирования для отчёта</li>
+  <li>Используйте опцию <b>Максимальное количество компонентов записи для деструктурирования</b>, чтобы указать максимальное количество компонентов, которые может содержать запись для использования в шаблоне деструктурирования</li>
+  <li>Используйте опцию <b>Максимальное количество неиспользуемых компонентов записи</b>, чтобы указать максимальное количество неиспользуемых компонентов в операторе <code>for</code></li>
+</ul>
+<p><small>Новое в версии 2023.1</small></p>
+</body>
+</html>

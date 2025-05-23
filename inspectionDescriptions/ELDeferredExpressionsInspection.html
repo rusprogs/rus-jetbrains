@@ -1,0 +1,11 @@
+<html>
+<body>
+Сообщает о динамических выражениях, где требуются отложенные выражения, или об отложенных выражениях, где требуются динамические выражения.
+<p><b>Пример:</b></p><br/>
+<pre><code>
+&lt;jsp:useBean id="exampleBean" scope="request" type="java.util.Date"/&gt;
+&lt;h:outputText id="${exampleBean.day}" value="#{exampleBean.day}" /&gt; // OK
+&lt;h:outputText id="#{exampleBean.day}" value="${exampleBean.day}" /&gt; // Ошибка: атрибут `id` требует динамического выражения, `value` - отложенного
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<body>
+Сообщает о несоответствии между уровнем облегченного сервиса и его конструктором.
+<p>Будут отмечены следующие проблемы:</p>
+<ul>
+  <li>Класс облегченного сервиса с конструктором, имеющим два параметра типа <code>com.intellij.openapi.project.Project</code> и <code>kotlinx.coroutines.CoroutineScope</code> или один параметр типа <code>Project</code>, не аннотирован как сервис проектного уровня.
+  </li>
+  <li>Класс облегченного сервиса, аннотированный как сервис уровня приложения, не имеет конструктора без параметров или конструктора с одним параметром типа <code>CoroutineScope</code>.
+  </li>
+</ul>
+<p></p>
+<p>Пример (Kotlin):</p>
+<pre><code lang="kotlin">
+@Service                              // Рекомендуется указать параметр 'Service.Level.PROJECT' в аннотации '@Service'
+class MyService(val project: Project) // Рекомендуется удалить параметр из конструктора 'MyService'
+</code></pre>
+<p></p>
+<p>После применения быстрого исправления с указанием параметра 'Service.Level.PROJECT' в аннотации '@Service':</p>
+<pre><code lang="kotlin">
+@Service(Service.Level.PROJECT)
+class MyService(val project: Project)
+</code></pre>
+<p>После применения быстрого исправления с удалением параметра из конструктора 'MyService':</p>
+<pre><code lang="kotlin">
+@Service
+class MyService()
+</code></pre>
+<p><small>Изменения в версии 2023.2</small>
+</body>
+</html>

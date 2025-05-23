@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщает о вызовах функций стандартной библиотеки PHP, которые считаются устаревшими начиная с PHP 8.1.
+<p>
+  Отслеживаются следующие вызовы:
+</p>
+<ul>
+  <li>
+    Вызовы функций <code>key()</code>, <code>current()</code>, <code>next()</code>, <code>prev()</code> и <code>reset()</code> с объектами в качестве аргументов.
+  </li>
+  <li>
+    Вызовы <code>mb_check_encoding()</code> без аргументов.
+  </li>
+  <li>
+    Вызовы <code>get_class()</code>, <code>get_parent_class()</code> и <code>get_Called_class()</code> без аргументов.
+  </li>
+  <li>
+    Вызовы <code>IntlCalendar::roll()</code> с булевым значением в качестве аргумента <code>$value</code>.
+  </li>
+  <li>
+    Вызовы <code>ctype_*()</code> с нестроковыми аргументами.
+  </li>
+</ul>
+<p>
+  Для получения дополнительной информации см. <a href="https://wiki.php.net/rfc/deprecations_php_8_1">PHP RFC: Устаревшие функции в PHP 8.1</a>.
+</p>
+</body>
+</html>

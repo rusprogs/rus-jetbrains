@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о двойных отрицаниях, которые можно упростить.
+<p>Пример:</p>
+<pre><code>
+  if (!!functionCall()) {}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  if (functionCall()) {}
+</code></pre>
+<p>Пример:</p>
+<pre><code>
+  if (!(a != b)) {}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  if (a == b) {}
+</code></pre>
+<p>
+</body>
+</html>

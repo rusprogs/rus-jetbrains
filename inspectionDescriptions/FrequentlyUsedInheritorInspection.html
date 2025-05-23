@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщение может быть заменено на более конкретные классы или интерфейсы, которые часто используются для реализации или расширения класса или интерфейса.
+<p>Для выполнения этой проверки суперкласс должен находиться в исходных файлах проекта, и проект должен использовать систему сборки IntelliJ ИСРA.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class MyInheritor implements A {} // B предлагает рекомендации для ссылки на A
+  interface A {}
+  abstract class B implements A {}
+  abstract class C1 extends B {}
+  abstract class C2 extends B {}
+  abstract class C3 extends B {}
+  abstract class C4 extends B {}
+  abstract class C5 extends B {}
+</code></pre>
+<p>По умолчанию эта проверка не подсвечивает проблемы в редакторе, а только предоставляет быстрое исправление.</p>
+<p><small>Изменения в версии 2017.2</small>
+</body>
+</html>

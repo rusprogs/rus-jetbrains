@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Сообщается, что оператор <code>until</code> может быть заменен на оператор <code>..&lt;</code>.</p>
+<p>Каждая замена <code>until</code> на <code>..&lt;</code> не меняет семантику кода.</p>
+<p>Исследования пользовательского опыта показывают, что разработчики допускают примерно на 20-30% меньше ошибок при чтении кода с <code>..&lt;</code> по сравнению с <code>until</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun main(args: Array&lt;String&gt;) {
+      for (index in 0 until args.size) {
+          println(index)
+      }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun main(args: Array&lt;String&gt;) {
+      for (index in 0..&lt;args.size) {
+          println(index)
+      }
+  }
+</code></pre>
+<p>Эта проверка выполняется только если уровень языка Kotlin в проекте или модуле 1.7 или выше.</p>
+</body>
+</html>

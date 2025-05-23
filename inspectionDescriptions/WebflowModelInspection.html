@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>Сообщение об ошибках конфигурации в XML-определении <code>&lt;flow&gt;</code> для <a href="https://spring.io/projects/spring-webflow">Spring Webflow</a>.</p>
+<ul>
+  <li>Неразрешённые ссылки на Bean</li>
+  <li>Отсутствующие обязательные теги или атрибуты</li>
+  <li>Неверные типы атрибутов</li>
+  <li>Несоответствие атрибутов типа <code>enum</code></li>
+  <li>Неверные типы для ссылок на Bean</li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code>
+  &lt;flow
+    start-state="unknown-state" &lt;!-- Cannot resolve symbol 'unknown-state' -&gt;
+    parent="<strong>unknownParentFlow</strong>,another-flow" &lt;!-- Не удаётся найти поток 'unknownParentFlow' --&gt;&gt;
+    &lt;input name=<strong>""</strong> // Value must not be empty
+         type="<strong>foo.com.UnknownType</strong>" &lt;!--Cannot resolve class 'UnknownType'--&gt;
+         value="42"/&gt;
+    &lt;exception-handler bean="<strong>dummyBean</strong>"; &lt;!--Bean должен быть типа 'org.springframework.webflow.engine.FlowExecutionExceptionHandler' --&gt;
+    &lt;view-state id="validFlowButInvalidState_forParent"
+           parent="another-flow#<strong>unknownParentState</strong>"/&gt; &lt;!-- Не удаётся разрешить родительское состояние 'unknownParentState' --&gt;
+    &lt;bean-import resource="<strong>foo.xml</strong>" /&gt; &lt;!-- Не удаётся найти файл 'foo.xml' --&gt;
+    &lt;bean-import resource="<strong>highlighting-20-wrong-flow.xml</strong>"/&gt; &lt;!-- Недействительный файл spring.xml --&gt;
+  &lt;/flow&gt;</code></pre>
+</body>
+</html>

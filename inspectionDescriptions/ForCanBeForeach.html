@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает о циклах <code>for</code>, которые перебирают коллекции или массивы и могут быть автоматически заменены на улучшенный цикл <code>for</code> (синтаксис foreach).
+<p><b>Пример:</b></p>
+<pre><code>
+  for (Iterator&lt;String&gt; iterator = list.iterator(); iterator.hasNext(); ) {
+    String item = iterator.next();
+    System.out.println(item);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  for (String item : list) {
+    System.out.println(item);
+  }
+</code></pre>
+<p>
+  Опция <b>сообщать о циклах по 'java.util.List' с использованием индекса</b> позволяет находить циклы с вызовами <code>list.get(index)</code>.
+  Такие циклы обычно можно заменить на улучшенный цикл <code>for</code>, если только они не модифицируют список в процессе выполнения, например через вызов <code>list.remove(index)</code>.
+  В последнем случае улучшенный цикл <code>for</code> может вызвать исключение <code>ConcurrentModificationException</code>.
+  В некоторых случаях циклы с <code>list.get(index)</code> также могут работать быстрее.</p>
+<p>
+  Опция <b>не сообщать об итерациях по нетипизованным коллекциям</b> позволяет игнорировать коллекции без параметров типа.
+  Это предотвратит создание переменных улучшенного цикла <code>for</code> типа <code>java.lang.Object</code> и вставку приведения типов в местах использования переменной цикла.</p>
+</body>
+</html>

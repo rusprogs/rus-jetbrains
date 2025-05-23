@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщать обо всех методах с переменной арностью (varargs), которые могут быть аннотированы как <code>@SafeVarargs</code>.
+Аннотация <code>@SafeVarargs</code> подавляет непроверенные предупреждения о создании параметризованного массива в точке вызова.
+<p><b>Пример:</b></p>
+<pre><code>
+  public class Foo&lt;T&gt; {
+    private List&lt;T&gt; list = new ArrayList&lt;&gt;();
+    public final void safeVarargs(T... elements) {
+      Collections.addAll(list, elements);
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  public class Foo&lt;T&gt; {
+    private List&lt;T&gt; list = new ArrayList&lt;&gt;();
+    @SafeVarargs
+    public final void safeVarargs(T... elements) {
+      Collections.addAll(list, elements);
+    }
+  }
+</code></pre>
+<p>
+  Эта аннотация не поддерживается в JVM версии 1.6 и ниже.
+</p>
+</body>
+</html>

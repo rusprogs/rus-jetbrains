@@ -1,0 +1,11 @@
+<html>
+<body>
+<p>Сообщает о неразрешённых файлах и директориях в атрибуте <code>locations</code> аннотации <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ImportResource.html">@ImportResource</a> и соответствующих псевдонимах мета-аннотации <code>@ImportResource</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @Configuration
+  @ImportResource(locations = "classpath:META-INF/unknown-context.xml") // Сообщение "Не удаётся разрешить файл 'unknown-context.xml'"
+  public class MyConfiguration {...}
+</code></pre>
+</body>
+</html>

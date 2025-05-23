@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает об интерфейсах, которые могут быть помечены аннотацией <code>@FunctionalInterface</code>.
+<p>Добавление аннотации <code>@FunctionalInterface</code> к интерфейсу указывает, что это функциональный интерфейс, и в него нельзя добавлять дополнительные методы <code>abstract</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  interface FileProcessor {
+    void execute(File file);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  @FunctionalInterface
+  interface FileProcessor {
+    void execute(File file);
+  }
+</code></pre>
+</body>
+</html>

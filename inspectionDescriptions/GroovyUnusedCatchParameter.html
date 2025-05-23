@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Сообщает о неиспользуемых параметрах <b>catch</b> в соответствующем блоке. Проверка не выдаёт предупреждения для параметров <b>catch</b>, названных "ignore" или "ignored".</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  try {
+      def arr = new int[3]
+      arr[5] = 5
+  } catch(Exception <b>ex</b>) {
+      println('Catching the exception')
+  }
+</code></pre>
+<p>Параметр <b>ex</b> никогда не используется в блоке <b>catch</b>.
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  try {
+      def arr = new int[3]
+      arr[5] = 5
+  } catch(Exception <b>ignored</b>) {
+      println('Catching the exception')
+  }
+</code></pre>
+</body>
+</html>

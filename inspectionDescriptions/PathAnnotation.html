@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Сообщает о синтаксических ошибках и неиспользуемых URI-шаблонах в аннотации <code>@Path</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  @GET
+  @Path("/<b>{unused}</b>") // Шаблон 'unused' никогда не используется
+  public String get() {
+    return "";
+  }
+</code></pre>
+</body>
+</html>

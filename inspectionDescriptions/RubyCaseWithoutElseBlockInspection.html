@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о конструкциях <code>case</code> без блока <code>else</code>. Блок <code>else</code> должен всегда присутствовать, чтобы определить поведение по умолчанию, когда совпадений не найдено.
+<p>Пример:</p>
+<pre>
+<code># 不良做法
+case status
+when :active
+  perform_action
+end</code>
+</pre>
+Блок <code>else</code> можно добавить с помощью быстрого исправления. После применения быстрого исправления код будет выглядеть так:
+<pre>
+<code># 优良做法
+case status
+when :active
+  perform_action
+else
+  # 此处键入代码
+end</code>
+</pre>
+<p><span style="font-size: smaller;">Основано на <a href="https://github.com/martinjandrews/roodi">'Roodi'</a></span></p>
+</body>
+</html>

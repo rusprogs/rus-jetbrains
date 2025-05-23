@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает о сервисах, зарегистрированных в <code>plugin.xml</code>, которые могут быть преобразованы в облегченные сервисы.
+<p>
+  Сервисы, которые не планируется переопределять, не нужно регистрировать в файле <code>plugin.xml</code>.
+  Вместо этого можно использовать аннотацию <code>@com.intellij.openapi.components.Service</code> для класса сервиса. Для сервисов уровня проекта укажите <code>@Service(Service.Level.PROJECT)</code>.
+<p>
+  Требования:
+<ul>
+  <li>IntelliJ Platform 2019.3 или выше.</li>
+  <li>Класс сервиса должен быть <code>final</code>.</li>
+  <li>Не указан <code>serviceInterface</code>.</li>
+  <li>Если сервис уровня приложения является <code>com.intellij.openapi.components.PersistentStateComponent</code>, роуминг должен быть отключен (<code>roamingType = RoamingType.DISABLED</code>).
+  </li>
+  <li>Не указаны следующие атрибуты: <code>os</code>, <code>client</code>, <code>overrides</code>, <code>id</code>, <code>preload</code>, <code>configurationSchemaKey</code>.</li>
+</ul>
+<p>Также сообщает о сервисах, зарегистрированных в <code>plugin.xml</code>, классы которых уже имеют аннотацию <code>@Service</code>.
+<p>
+  Для получения дополнительной информации см. раздел <a href="https://plugins.jetbrains.com/docs/intellij/plugin-services.html">Сервисы</a> в документации SDK платформы IntelliJ.
+</p>
+<p>
+  См. также проверку <code>Plugin DevKit | Код | Сервис может быть преобразован в облегченный сервис</code>.
+</p>
+<p><small>Новое в 2023.2</small>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<body>
+<p>
+  Сообщает о попытках доступа к несуществующим столбцам PySpark DataFrame в архитектуре.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="Python">
+df = spark.createDataFrame(data=[("John", 10),
+                                 ("Anakin", 20),
+                                 ("Luke", 30)],
+                           schema=["name", "age"])
+df.select("unknown_column")
+</code></pre>
+</body>
+</html>

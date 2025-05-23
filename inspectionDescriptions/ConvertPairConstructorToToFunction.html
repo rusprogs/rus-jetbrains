@@ -1,0 +1,25 @@
+<html>
+<body>
+Вызов конструктора <code>Pair</code> может быть заменен на инфиксный вызов функции <code>to()</code>.
+<p>
+    Явный вызов конструктора может создавать избыточность, особенно при многократном использовании.
+    Замена вызова конструктора на <code>to()</code> делает код более читаемым и простым в обслуживании.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  val countries = mapOf(
+      Pair("France", "Paris"),
+      Pair("Spain", "Madrid"),
+      Pair("Germany", "Berlin")
+  )
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  val countries = mapOf(
+      "France" to "Paris",
+      "Spain" to "Madrid",
+      "Germany" to "Berlin"
+  )
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает об инициализации объекта <code>java.util.Map</code>, где тип ключа является перечислением. Такой объект <code>java.util.Map</code> может быть заменен объектом <code>java.util.EnumMap</code>.
+<p>
+  Реализация <code>java.util.EnumMap</code> более эффективна, так как использует простой массив в качестве базовой структуры данных.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  Map&lt;MyEnum, String&gt; myEnums = new HashMap&lt;&gt;();
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  Map&lt;MyEnum, String&gt; myEnums = new EnumMap&lt;&gt;(MyEnum.class);
+</code></pre>
+</body>
+</html>

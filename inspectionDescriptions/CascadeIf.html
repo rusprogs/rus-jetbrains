@@ -1,0 +1,37 @@
+<html>
+<body>
+Сообщает об операторах <code>if</code> с тремя или более ветвями, которые могут быть заменены выражением <code>when</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  fun checkIdentifier(id: String) {
+      fun Char.isIdentifierStart() = this in 'A'..'z'
+      fun Char.isIdentifierPart() = isIdentifierStart() || this in '0'..'9'
+      if (id.isEmpty()) {
+          print("Identifier is empty")
+      } else if (!id.first().isIdentifierStart()) {
+          print("Identifier should start with a letter")
+      } else if (!id.subSequence(1, id.length).all(Char::isIdentifierPart)) {
+          print("Identifier should contain only letters and numbers")
+      }
+  }
+</code></pre>
+<p>Быстрое исправление преобразует выражение <code>if</code> в выражение <code>when</code>:</p>
+<pre><code>
+  fun checkIdentifier(id: String) {
+      fun Char.isIdentifierStart() = this in 'A'..'z'
+      fun Char.isIdentifierPart() = isIdentifierStart() || this in '0'..'9'
+      when {
+          id.isEmpty() -> {
+              print("Identifier is empty")
+          }
+          !id.first().isIdentifierStart() -> {
+              print("Identifier should start with a letter")
+          }
+          !id.subSequence(1, id.length).all(Char::isIdentifierPart) -> {
+              print("Identifier should contain only letters and numbers")
+          }
+      }
+  }
+</code></pre>
+</body>
+</html>

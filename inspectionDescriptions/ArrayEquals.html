@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщение о сравнении двух массивов с помощью метода <code>equals()</code>.
+<p>Вызов метода <code>equals()</code> для массивов сравнивает идентичность, что эквивалентно использованию оператора <code>==</code>.
+  Используйте <code>Arrays.equals()</code> для сравнения содержимого двух массивов или <code>Arrays.deepEquals()</code> для сравнения содержимого многомерных массивов.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void sample(int[] first, int[] second){
+    if (first.equals(second)) return;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void sample(int[] first, int[] second){
+    if (Arrays.equals(first, second)) return;
+  }
+</code></pre>
+</body>
+</html>

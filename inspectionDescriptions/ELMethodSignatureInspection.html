@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщать о вызовах методов в EL, которые не соответствуют ограничению <code>method-signature</code> в TLD файле.
+<p><b>Пример Java класса:</b></p><br/>
+<pre><code lang="java">
+public class ExampleAction {
+  public void goodAction() { ... }
+  public void badAction(String str) { ... }
+}
+</code></pre>
+<p><b>Пример JSP файла:</b></p><br/>
+<pre><code lang="jsp">
+&lt;jsp:useBean id="example" scope="request" type="org.example.ExampleAction"/&gt;
+&lt;f:view&gt;
+  &lt;h:commandButton action="#{example.goodAction}"/&gt; // Правильно: метод принимает ноль аргументов и возвращает `void`
+  &lt;h:commandButton action="#{example.badAction}"/&gt; // Ошибка: метод `void badAction(String)` возвращает тип `java.lang.String` вместо `void`
+&lt;/f:view&gt;
+</code></pre>
+</body>
+</html>

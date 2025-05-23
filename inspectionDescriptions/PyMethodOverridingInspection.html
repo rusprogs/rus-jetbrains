@@ -1,0 +1,15 @@
+<html>
+<body>
+<p>Сообщает о несоответствии сигнатур переопределённых методов.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+class Book:
+    def add_title(self):
+        pass
+class Novel(Book):
+    def add_title(self, text):
+        pass
+</code></pre>
+<p>Параметры метода <code>add_title</code> в классе <code>Novel</code> не соответствуют сигнатуре метода, определённой в классе <code>Book</code>. ИСР предлагает исправить это с помощью рефакторинга "Изменить сигнатуру".</p>
+</body>
+</html>

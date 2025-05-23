@@ -1,0 +1,12 @@
+<html>
+<body>
+Обнаружение недостижимых операторов в SQL-процедурах.
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>CREATE FUNCTION foo() RETURNS INT AS
+BEGIN
+    THROW;
+    RETURN 1;
+END;</code></pre>
+<p>В Microsoft SQL Server оператор <code>THROW</code> вызывает исключение и передает управление в блок CATCH конструкции TRY...CATCH. Следовательно, часть <code>RETURN 1;</code> никогда не будет выполнена.</p>
+</body>
+</html>

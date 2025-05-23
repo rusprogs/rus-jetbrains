@@ -1,0 +1,41 @@
+<html>
+<body>
+Сообщает о стандартных геттер-методах, которые могут быть заменены аннотацией lombok <code>@Getter</code>.
+<p>Пример:</p>
+<pre><code>
+  import java.util.Date;
+  public class MyClass {
+    /**
+     * Дата обработки.
+     */
+    private Date processDate;
+    /**
+     * Возвращает дату.
+     *
+     * @return The date
+     */
+    public Date getProcessDate() {
+      return processDate;
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления/очистки:</p>
+<pre><code>
+  import lombok.Getter;
+  import java.util.Date;
+  @Getter
+  public class MyClass {
+    /**
+     * Дата обработки.
+     * -- GETTER --
+     * Возвращает дату.
+     *
+     * @return The date
+     */
+    private Date processDate;
+  }
+</code></pre>
+<p>Сообщение появляется только при настроенной библиотеке lombok. Для удаления lombok посетите сайт lombok.</p>
+<p><small>Изменения в версии 2023.2</small></p>
+</body>
+</html>

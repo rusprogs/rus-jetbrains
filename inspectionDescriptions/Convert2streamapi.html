@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о циклах, которые можно заменить вызовами Stream API с использованием лямбда-выражений.
+<p>Такая замена преобразует императивный стиль в функциональный, делая код более компактным.</p>
+<p>Пример:</p>
+<pre><code>
+  <b>boolean</b> check(List&lt;String> data) {
+    <b>for</b> (String e : data) {
+      String trimmed = e.trim();
+      <b>if</b> (!trimmed.startsWith("xyz")) {
+        <b>return</b> false;
+      }
+    }
+    return true;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  <b>boolean</b> check(List&lt;String> data) {
+    <b>return</b> data.stream().map(String::trim).allMatch(trimmed -> trimmed.startsWith("xyz"));
+  }
+</code></pre>
+</body>
+</html>

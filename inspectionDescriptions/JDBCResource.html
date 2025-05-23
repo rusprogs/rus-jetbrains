@@ -1,0 +1,27 @@
+<html>
+<body>
+Сообщает о незакрытых JDBC-ресурсах. Эта проверка отслеживает следующие JDBC-ресурсы: <code>java.sql.Connection</code>, <code>java.sql.Statement</code>, <code>java.sql.PreparedStatement</code>, <code>java.sql.CallableStatement</code> и <code>java.sql.ResultSet</code>.
+<p>
+  По умолчанию проверка предполагает, что ресурсы могут быть закрыты любым методом, содержащим в названии 'close' или 'cleanup'.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  ResultSet findAllElements(Connection connection) throws SQLException {
+    PreparedStatement statement = connection.prepareStatement("SELECT * FROM TABLE");//оператор не закрыт
+    statement.execute();
+    return statement.getResultSet();
+  }
+</code></pre>
+<p>
+  Проверка настраивается следующими параметрами:
+</p>
+<ul>
+  <li>
+    Разрешать ли открытие JDBC-ресурсов внутри блока <code>try</code>. Этот стиль менее предпочтителен, так как он более многословен, чем открытие ресурсов перед блоком <code>try</code>.
+  </li>
+  <li>
+    Могут ли ресурсы быть закрыты любым вызовом метода, которому ресурс передается в качестве аргумента.
+  </li>
+</ul>
+</body>
+</html>

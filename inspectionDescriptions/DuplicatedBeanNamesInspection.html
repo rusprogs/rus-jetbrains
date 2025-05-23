@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Сообщает о повторяющихся именах Bean-компонентов, определённых в контексте приложения.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  &lt;beans profile="PROD"&gt;
+    &lt;bean class="..." id="duplicatedName"/&gt;  &lt;!-- ошибка --&gt;
+    &lt;bean class="..." name="foo_name, duplicatedName"/&gt; &lt;!-- 'duplicatedName' ошибка --&gt;
+    &lt;bean class="..." id="toBeAliased"/&gt;
+    &lt;alias alias="duplicatedName" name="toBeAliased"/&gt; &lt;!-- 'duplicatedName' ошибка --&gt;
+  &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

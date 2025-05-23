@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о существующих проблемах Javac, проблемах производительности и несовместимости.
+Например, вывод типов замедляется при обработке множества вложенных вызовов.
+<p>Следующий код вызывает предупреждение, поскольку вызов vararg-метода содержит более 50 полиморфных аргументов:</p>
+<pre><code>
+  Arrays.asList(
+      Arrays.asList("a1", "b1"),
+      Arrays.asList("a2", "b2"),
+      ...
+      Arrays.asList("a100", "b100"));
+</code></pre>
+<p>Быстрое исправление добавляет явные аргументы типа, что ускоряет компиляцию и работу ИСР.</p>
+<pre><code>
+  //noinspection RedundantTypeArguments
+  Arrays.&lt;List&lt;String&gt;&gt;asList(
+      Arrays.asList("a1", "b1"),
+      Arrays.asList("a2", "b2"),
+      ...
+      Arrays.asList("a100", "b100"));
+</code></pre>
+</body>
+</html>

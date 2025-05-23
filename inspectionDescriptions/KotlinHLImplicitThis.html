@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщать об использовании неявного <b>this</b>.
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo {
+      fun s() = ""
+      fun test() {
+          s()
+      }
+  }
+</code></pre>
+<p>Быстрое исправление явно указывает <b>this</b>:</p>
+<pre><code>
+  class Foo {
+      fun s() = ""
+      fun test() {
+          this.s()
+      }
+  }
+</code></pre>
+</body>
+</html>

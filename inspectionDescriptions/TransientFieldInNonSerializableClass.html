@@ -1,0 +1,17 @@
+<html>
+<body>
+Обнаружено поле с модификатором <code>transient</code> в классе, который не реализует интерфейс <code>java.io.Serializable</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  public class NonSerializableClass {
+    private transient String password;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  public class NonSerializableClass {
+    private String password;
+  }
+</code></pre>
+</body>
+</html>

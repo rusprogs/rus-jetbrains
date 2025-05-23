@@ -1,0 +1,34 @@
+<html>
+<body>
+Сообщает о ненужных вызовах статических методов (таких как <code>String.valueOf()</code> или <code>Integer.toString()</code>), которые преобразуют свои параметры в строки.
+Такие вызовы излишни при конкатенации строк.
+<p>Пример:</p>
+<pre><code>
+  System.out.println("Number: " + Integer.toString(count));
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  System.out.println("Number: " + count);
+</code></pre>
+Кроме того, такие вызовы излишни при использовании в качестве аргументов методов библиотек, которые сами выполняют преобразование в строку.
+Вот примеры методов библиотек, которые сами выполняют преобразование в строку:
+<ul>
+  <li>
+    Классы <code>java.io.PrintWriter</code>, <code>java.io.PrintStream</code>
+    <ul><li><code>print()</code>, <code>println()</code></li></ul>
+  </li>
+  <li>
+    Классы <code>java.lang.StringBuilder</code>, <code>java.lang.StringBuffer</code>
+    <ul><li><code>append()</code></li></ul>
+  </li>
+  <li>
+    Класс <code>org.slf4j.Logger</code>
+    <ul>
+      <li><code>trace()</code>, <code>debug()</code>, <code>info()</code>, <code>warn()</code>, <code>error()</code></li>
+    </ul>
+  </li>
+</ul>
+<p>
+  Опция <b>Сообщать о вызовах, которые можно заменить конкатенацией с пустой строкой</b> также позволяет обнаруживать случаи, когда вызов <code>String.valueOf()</code> можно заменить конкатенацией с пустой строкой.
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о возможности замены тернарного оператора на оператор elvis.
+<p><b>Пример:</b></p>
+<pre><code>
+  def notNull(o, defaultValue) {
+      o != null ? o : defaultValue
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  def notNull(o, defaultValue) {
+      o ?: defaultValue
+  }
+</code></pre>
+</body>
+</html>

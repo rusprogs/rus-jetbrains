@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает об использовании <code>java.awt.Insets</code> и <code>JBUI.insetsXyz()</code>, которое можно упростить.
+<p>
+  Экземпляры <code>Insets</code> не учитывают DPI и могут вызвать проблемы с компоновкой UI.
+</p>
+<p>
+  Быстрое исправление выполнит замену или упростит выражение с помощью <code>JBUI.insets()</code>.
+</p>
+<p>Пример:</p>
+<pre><code lang="java">
+// Неверно:
+Insets insets1 = new Insets(1, 2, 3, 4);
+Insets insets2 = new Insets(1, 2, 1, 2);
+Insets insets3 = new Insets(1, 0, 0, 0);
+// Верно:
+Insets insets1 = JBUI.insets(1, 2, 3, 4);
+Insets insets2 = JBUI.insets(1, 2);
+Insets insets3 = JBUI.insetsTop(1);
+</code></pre>
+</body>
+</html>

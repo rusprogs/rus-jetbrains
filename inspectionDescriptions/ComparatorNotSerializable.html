@@ -1,0 +1,29 @@
+<html>
+<body>
+Сообщает о классах, которые реализуют <code>java.lang.Comparator</code>, но не реализуют <code>java.io.Serializable</code>.
+<p>
+  Если использовать несериализуемый компаратор для создания упорядоченных коллекций, таких как <code>java.util.TreeMap</code> или <code>java.util.TreeSet</code>, эти коллекции также станут несериализуемыми. Это может привести к неожиданным и трудно диагностируемым ошибкам.
+</p>
+<p>
+  Подклассы <code>java.lang.Comparator</code> обычно не имеют состояния, поэтому такие проблемы легко избежать, просто пометив их как сериализуемые.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo implements Comparator { // предупреждение
+      @Override
+      public int compare(Object o1, Object o2) {
+          /* ... */
+      }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Foo implements Comparator, Serializable { // нет предупреждения
+      @Override
+      public int compare(Object o1, Object o2) {
+          /* ... */
+      }
+  }
+</code></pre>
+</body>
+</html>

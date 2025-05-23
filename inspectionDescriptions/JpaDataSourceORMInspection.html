@@ -1,0 +1,33 @@
+<html>
+<body>
+Сообщает о ссылках в следующих аннотациях Persistence ORM, которые не могут быть разрешены в настроенном источнике данных:<br/>
+<ul>
+  <li> Table</li>
+  <li> Column</li>
+  <li> [Any]To[Any]</li>
+  <li> JoinColumn / JoinTable</li>
+  <li> NamedQuery / NativeQuery</li>
+  <li> Embeddable</li>
+</ul><br/>
+Рекомендуется обновить источник данных или назначить другой источник данных.<br/>
+<p><b>Пример таблицы базы данных:</b></p>
+<pre><code lang="sql">
+  CREATE TABLE DATA_TABLE (
+    ID INTEGER,
+    DATA VARCHAR(100)
+);
+</code></pre><br/>
+<p><b>Пример JPA-сущности:</b></p>
+<pre><code lang="java">
+  @Entity
+  @Table(name = "UNKNOWN_TABLE") // Неразрешённая ссылка
+  public class JavaEntity {
+    @Column(name = "ID") // Невозможно разрешить столбец в неопределённой таблице
+    Integer id;
+  }
+</code></pre><br/>
+<p>
+  <b>Примечание</b>: Источник данных может быть настроен через действие `Назначить источник данных` или через соответствующий значок на панели привязки сущности
+</p>
+</body>
+</html>

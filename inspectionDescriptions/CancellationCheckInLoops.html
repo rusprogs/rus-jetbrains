@@ -1,0 +1,44 @@
+<html>
+<body>
+Сообщает об отсутствии проверки отмены в циклах, методах типа <code>forEach</code> и <code>ContainerUtil.process()</code>.
+<p>Выполняется только внутри методов с аннотацией <code>com.intellij.util.concurrency.annotations.RequiresReadLock</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="kotlin">
+@RequiresReadLock
+fun doSomething() {
+  ...
+  for (item in items) {
+        ProgressManager.checkCanceled() // должно появиться в первой строке
+    ...
+  }
+  items.forEach {
+    ProgressManager.checkCanceled() // должно появиться в первой строке
+    ...
+  }
+  ...
+}
+</code></pre>
+<p>В случае, когда между вложенными циклами нет никакого содержимого:</p>
+<pre><code lang="kotlin">
+@RequiresReadLock
+fun doSomething() {
+  ...
+  for (item in items) {
+        // между циклами нет содержимого
+        for (inner in item.inners) {
+            ProgressManager.checkCanceled() // должно появиться только в первой строке внутреннего цикла
+      ...
+    }
+  }
+  ...
+}
+</code></pre>
+<p>
+    В блокирующем контексте следует использовать <code>com.intellij.openapi.progress.ProgressManager.checkCanceled()</code>, а в контексте корутин - <code>com.intellij.openapi.progress.CoroutinesKt.checkCancelled()</code>.
+</p>
+<p>
+    Для получения дополнительной информации см. раздел <a href="https://plugins.jetbrains.com/docs/intellij/background-processes.html#cancellation">Отмена фоновых процессов</a> в документации SDK платформы IntelliJ.
+</p>
+<p><small>Изменения в версии 2023.1</small>
+</body>
+</html>

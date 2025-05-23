@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщает о свойствах типа <code>Array</code> в классе <code>data</code>, для которых не переопределены методы <code>equals()</code> или <code>hashCode()</code>.
+<p>
+    Массивы сравниваются по ссылке, что может привести к непредвиденному поведению.
+    В таких случаях настоятельно рекомендуется переопределить методы <code>equals()</code> и <code>hashCode()</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  data class Text(val lines: Array&lt;String&gt;)
+</code></pre>
+<p>Быстрое исправление сгенерирует отсутствующие реализации методов <code>equals()</code> и <code>hashCode()</code>:</p>
+<pre><code>
+  data class Text(val lines: Array&lt;String&gt;) {
+      override fun equals(other: Any?): Boolean {
+          if (this === other) return true
+          if (javaClass != other?.javaClass) return false
+          other as Text
+          if (!lines.contentEquals(other.lines)) return false
+          return true
+      }
+      override fun hashCode(): Int {
+          return lines.contentHashCode()
+      }
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщать о вызовах <code>toString()</code> в следующих случаях:
+<ul>
+  <li>В конкатенации строк</li>
+  <li>В методах <code>java.lang.StringBuilder#append()</code> или <code>java.lang.StringBuffer#append()</code></li>
+  <li>В методах <code>java.io.PrintWriter</code> или <code>java.io.PrintStream</code></li>
+  <li>В методах <code>org.slf4j.Logger</code></li>
+</ul>
+<p>В этих случаях преобразование в строку будет обработано методами базовой библиотеки, и явный вызов <code>toString()</code> не требуется.
+  Удаление избыточных вызовов <code>toString()</code> иногда может даже улучшить производительность и уменьшить выделение объектов.</p>
+<p>Пример:</p>
+<pre><code>
+  System.out.println(this.toString())
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  System.out.println(this)
+</code></pre>
+<p>
+  Обратите внимание, что без вызова <code>toString()</code> семантика кода может отличаться: если выражение равно null, будет использована строка <code>null</code> вместо выброса исключения <code>NullPointerException</code>.</p>
+  <p>Используйте опцию <b>Сообщать только когда известно, что квалификатор не null</b>, чтобы избежать предупреждений для значений, которые могут быть null.
+  Удаление явного <code>toString()</code> в таких случаях изменит поведение во время выполнения с выброса <code>NullPointException</code> на молчаливое принятие значения, когда оно <code>null</code>.
+</p>
+</body>
+</html>

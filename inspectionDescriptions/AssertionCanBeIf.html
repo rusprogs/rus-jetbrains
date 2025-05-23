@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает об операторах <code>assert</code> и предлагает заменить их на операторы <code>if</code>, выбрасывающие <code>java.lang.AssertionError</code>.
+<p>Пример:</p>
+<pre><code>
+  assert param != null;
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  if (param == null) throw new AssertionError();
+</code></pre>
+</body>
+</html>

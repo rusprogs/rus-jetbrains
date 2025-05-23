@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>Сообщает о наличии избыточных аннотаций <code>@EnableAutoConfiguration</code> или <code>@ComponentScan</code> при использовании <code>@SpringBootApplication</code> в пакете по умолчанию.</p>
+<p>Быстрое исправление удалит избыточные аннотации.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+@SpringBootApplication
+@ComponentScan // Сообщение 'Избыточное объявление: @SpringBootApplication уже включает @ComponentScan'
+public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  @SpringBootApplication
+  public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+  }
+</code></pre>
+<p><small>Что нового в версии 2018.2</small></p>
+</body>
+</html>

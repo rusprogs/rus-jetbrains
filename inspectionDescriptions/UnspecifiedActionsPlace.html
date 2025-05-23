@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщать о случаях передачи неопределённого параметра <code>place</code> в методы <code>ActionManager.createActionToolbar()</code> и <code>ActionManager.createActionPopupMenu()</code>.
+<p>
+  Необходимо указывать корректное значение <code>place</code>, чтобы различать использование действий в методах <code>update()/actionPerformed()</code> через <code>AnActionEvent.getPlace()</code>.
+</p>
+<p>
+Примеры:
+<pre><code lang="java">
+// Неправильно:
+actionManager.createActionToolbar("", group, false);
+actionManager.createActionToolbar("unknown", group, false);
+actionManager.createActionPopupMenu(ActionPlaces.UNKNOWN, group);
+// Правильно:
+actionManager.createActionToolbar("MyPlace", group, false);
+actionManager.createActionPopupMenu(ActionPlaces.EDITOR_TOOLBAR, group);
+</code></pre>
+</p>
+</body>
+</html>

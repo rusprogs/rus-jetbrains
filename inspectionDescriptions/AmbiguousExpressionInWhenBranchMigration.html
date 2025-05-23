@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Сообщает о неоднозначных логических выражениях в ветвях оператора <code>when</code>, которые будут вызывать ошибки компиляции в Kotlin 1.8 и выше.</p>
+<pre><code>
+  fun Int.matches(strict: Boolean): Boolean = when (strict) {
+      true -> this == 6
+      this in (4..7) -> true // неоднозначно
+      else -> false
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun Int.matches(strict: Boolean): Boolean = when (strict) {
+      true -> this == 6
+      (this in (4..7)) -> true // обернуто в круглые скобки
+      else -> false
+  }
+</code></pre>
+<p>Проверка доступна для уровня языка Kotlin начиная с версии 1.7.</p>
+</body>
+</html>

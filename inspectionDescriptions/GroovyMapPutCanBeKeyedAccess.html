@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>java.util.Map.put()</code>. Такие вызовы могут быть заменены более короткой и явной формой доступа по ключу.
+<p><b>Пример:</b></p>
+<pre>
+<code>
+def map = ["foo": "bar"]
+map.put("foo", "baz") // map.put("foo", "baz") можно заменить на map["foo"] = "baz"
+</code>
+</pre>
+<p>После применения быстрого исправления:</p>
+<pre>
+<code>
+def map = ["foo": "bar"]
+map["foo"] = "baz"
+</code>
+</pre>
+</body>
+</html>

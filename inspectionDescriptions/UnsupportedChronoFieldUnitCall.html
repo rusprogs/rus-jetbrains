@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о вызовах методов <code>java.time</code> (<code>get()</code>, <code>getLong()</code>,
+<code>with()</code>, <code>plus()</code>, <code>minus()</code>) с неподдерживаемыми константами перечислений <code>java.time.temporal.ChronoField</code> или <code>java.time.temporal.ChronoUnit</code> в качестве аргументов.
+Такие вызовы приведут к исключению <code>UnsupportedTemporalTypeException</code> во время выполнения.
+<p>Пример:</p>
+<pre><code>
+LocalTime localTime = LocalTime.now();
+int year = localTime.get(ChronoField.YEAR);
+</code></pre>
+<p><small>Новое в версии 2023.2</small></p>
+</body>
+</html>

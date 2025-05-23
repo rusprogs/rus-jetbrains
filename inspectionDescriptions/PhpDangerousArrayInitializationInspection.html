@@ -1,0 +1,10 @@
+<html>
+<body>
+Сообщает об опасной инициализации массива (например, <code>$arr[] = value</code>).
+<p>
+  Такой подход не рекомендуется, поскольку если <code>$arr</code> уже содержит некоторое значение (например, строку из переменных запроса), это значение сохранится, и <code>[]</code> фактически может представлять оператор доступа к строке. Лучше всегда инициализовать переменные путем прямого присваивания.
+</p>
+<p>Для получения дополнительной информации см. <a href="https://www.php.net/manual/en/language.types.array.php#language.types.array.syntax.modifying">Creating/modifying with square bracket syntax (php.net)</a>.
+</p>
+</body>
+</html>

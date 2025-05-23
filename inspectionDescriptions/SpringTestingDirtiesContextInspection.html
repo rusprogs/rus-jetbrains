@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Сообщение о неправильной конфигурации параметра 'mode' в аннотации <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/annotation/DirtiesContext.html">@DirtiesContext</a>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  @ContextConfiguration
+  @DirtiesContext(methodMode = MethodMode.AFTER_METHOD, // Использование methodMode на уровне тестового класса не имеет смысла. Для управления на уровне класса используйте classMode.
+                  hierarchyMode = DirtiesContext.HierarchyMode.CURRENT_LEVEL) // hierarchyMode следует использовать, когда контекст настроен как часть иерархии через @ContextHierarchy
+  public class MyTest {
+    @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS, // Использование classMode на уровне тестового метода не имеет смысла. Для управления на уровне метода используйте methodMode.
+                     hierarchyMode = DirtiesContext.HierarchyMode.CURRENT_LEVEL) // hierarchyMode следует использовать, когда контекст настроен как часть иерархии через @ContextHierarchy
+    public void testFoo() {...}
+  }
+</code></pre>
+</body>
+</html>

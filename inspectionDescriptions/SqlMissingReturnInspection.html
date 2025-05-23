@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает о функциях без оператора RETURN.
+<p>Пример (Oracle):</p>
+<pre>
+<code>CREATE FUNCTION foo RETURN int AS
+BEGIN
+END;
+</code></pre>
+<p>Функция <code>foo</code> должна возвращать целочисленное значение, но тело функции ничего не возвращает. Чтобы исправить ошибку, добавьте оператор RETURN (например, <code>RETURN 1;</code>).</p>
+<pre><code>CREATE FUNCTION foo RETURN int AS
+BEGIN
+ RETURN 1;
+END;</code></pre>
+</body>
+</html>

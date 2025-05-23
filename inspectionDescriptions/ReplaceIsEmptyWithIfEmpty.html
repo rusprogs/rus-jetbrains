@@ -1,0 +1,27 @@
+<html>
+<body>
+Сообщает о вызовах <code>isEmpty</code>, <code>isBlank</code>, <code>isNotEmpty</code> или <code>isNotBlank</code> в операторе <code>if</code> для присвоения значения по умолчанию.
+<p>Быстрое исправление заменяет условие <code>if</code> на вызов <code>ifEmpty</code> или <code>ifBlank</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun test(list: List&lt;Int&gt;): List&lt;Int&gt; {
+      return if (list.isEmpty()) {
+          println()
+          foo()
+      } else {
+          list
+      }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun test(list: List&lt;Int&gt;): List&lt;Int&gt; {
+      return list.ifEmpty {
+          println()
+          foo()
+      }
+  }
+</code></pre>
+<p>Эта проверка выполняется только если версия языка Kotlin для проекта или модуля 1.3 или выше.</p>
+</body>
+</html>

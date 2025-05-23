@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Обнаружен несинхронизованный метод, который переопределяет <b>synchronized</b> метод.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  abstract class Base {
+      <b>synchronized</b> void foo() {
+          // ...
+      }
+  }
+  class Derived extends Base {
+      @Override
+      <b>void foo()</b> {
+          super.foo()
+            // ...
+        }
+    }
+</code></pre>
+<p>В данном случае несинхронизованный метод <code>foo()</code> в классе <code>Bar</code> переопределяет synchronized метод.</p>
+</body>
+</html>

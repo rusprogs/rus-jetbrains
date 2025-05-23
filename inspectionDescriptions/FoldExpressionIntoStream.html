@@ -1,0 +1,30 @@
+<html>
+<body>
+Повторяющиеся шаблоны в коде могут быть заменены выражениями с использованием <i>Stream API</i> или вызовом <code>String.join()</code>.
+<p>Пример:</p>
+<pre><code>
+  boolean allStartWith(String a, String b, String c, String d, String prefix) {
+    return a.startsWith(prefix) && b.startsWith(prefix) && c.startsWith(prefix) && d.startsWith(prefix);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  boolean foo(String a, String b, String c, String d, String prefix) {
+    return Stream.of(a, b, c, d).allMatch(s -> s.startsWith(prefix));
+  }
+</code></pre>
+<p>Пример:</p>
+<pre><code>
+  String joinAll(String a, String b, String c, String d) {
+    return a + "," + b + "," + c + "," + d;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  String joinAll(String a, String b, String c, String d) {
+    return String.join(",", a, b, c, d);
+  }
+</code></pre>
+<p><small>Новое в версии 2018.2</small></p>
+</body>
+</html>

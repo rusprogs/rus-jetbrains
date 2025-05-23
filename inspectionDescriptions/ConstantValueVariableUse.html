@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает обо всех использованиях переменных, которые известны как константы.
+<p>Это происходит, когда (читаемое) использование переменной окружено операторами <code>if</code>, <code>while</code> или <code>for</code>, и существует условие <code>==</code>, сравнивающее эту переменную с константой.
+  В таких случаях использование переменной, известной как константа, может быть заменено фактической константой.</p>
+<p>Пример:</p>
+<pre><code>
+    private static void foo(double number) {
+        if (number == 1.0) {
+            f(number);
+        }
+    }
+    private static void f(double number) {}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+    private static void foo(double number) {
+        if (number == 1.0) {
+            f(1.0);
+        }
+    }
+    private static void f(double number) {}
+</code></pre>
+</body>
+</html>

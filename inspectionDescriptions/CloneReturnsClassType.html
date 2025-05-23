@@ -1,0 +1,31 @@
+<html>
+<body>
+Сообщает о методе <code>clone()</code>, который возвращает тип, отличный от класса, в котором он находится.
+<p>Метод <code>clone()</code> обычно возвращает тип <code>java.lang.Object</code>, что затрудняет его использование клиентским кодом.
+<i>Effective Java</i> (второе и третье издания) рекомендует установить возвращаемый тип метода <code>clone()</code> таким же, как тип класса возвращаемого объекта.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  <b>class</b> Foo <b>implements</b> Cloneable {
+    <b>public</b> Object clone() {
+      <b>try</b> {
+        <b>return</b> super.clone();
+      } <b>catch</b> (CloneNotSupportedException e) {
+        <b>throw new</b> AssertionError();
+      }
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  <b>class</b> Foo <b>implements</b> Cloneable {
+    <b>public</b> Foo clone() {
+      <b>try</b> {
+        <b>return</b> (Foo)super.clone();
+      } <b>catch</b> (CloneNotSupportedException e) {
+        <b>throw new</b> AssertionError();
+      }
+    }
+  }
+</code></pre>
+</body>
+</html>

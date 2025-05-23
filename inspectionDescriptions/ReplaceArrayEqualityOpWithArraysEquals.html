@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает об использовании операторов <code>==</code> или <code>!=</code> для массивов, где следует использовать <code>contentEquals()</code>.
+<p>
+    Операторы <code>==</code> и <code>!=</code> сравнивают ссылки на массивы, а не их содержимое.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>  fun test() {
+      val a = arrayOf(1, 2, 3)
+      val b = arrayOf(1, 2, 3)
+      println(a == b) // сравнение по ссылке
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>  fun test() {
+      val a = arrayOf(1, 2, 3)
+      val b = arrayOf(1, 2, 3)
+      println(a.contentEquals(b))
+  }
+</code></pre>
+</body>
+</html>

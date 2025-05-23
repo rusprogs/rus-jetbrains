@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о реализации метода <code>clone()</code>, его вызовах и использовании интерфейса <code>java.lang.Cloneable</code>.
+<p>Некоторые стандарты кодования запрещают использование <code>clone()</code> и рекомендуют вместо этого использовать конструктор копирования или <code>static</code> фабричный метод.</p>
+<p>Эта проверка игнорирует вызовы <code>clone()</code> для массивов, поскольку это правильный и компактный способ копирования массивов.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Copy implements Cloneable /*предупреждение*/ {
+    public Copy clone() /*предупреждение*/ {
+      try {
+        return (Copy) super.clone(); // предупреждение
+      } catch (CloneNotSupportedException e) {
+        throw new AssertionError();
+      }
+    }
+  }
+</code></pre>
+</body>
+</html>

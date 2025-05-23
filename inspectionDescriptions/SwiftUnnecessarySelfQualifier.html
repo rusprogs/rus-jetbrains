@@ -1,0 +1,36 @@
+<html>
+<body>
+<p>
+  Сообщает об использовании <code>self</code> в качестве квалификатора, когда это не требуется для замыкания.
+</p>
+<p>
+  Рекомендуется удалить избыточное использование <code>self</code>.
+</p>
+<p>
+  <b>Пример:</b>
+</p>
+<pre><code>
+  struct URL {
+      func loadAsync() {
+          print(self.path)
+          DispatchQueue.global().async {
+              self.loadSync()
+          }
+      }
+  }
+</code></pre>
+<p>
+  После применения быстрого исправления:
+</p>
+<pre><code>
+  struct URL {
+      func loadAsync() {
+          print(path)
+          DispatchQueue.global().async {
+              loadSync()
+          }
+      }
+  }
+</code></pre>
+</body>
+</html>

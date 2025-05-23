@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о реализациях <code>Iterator.next()</code>, которые не выбрасывают исключение <code>java.util.NoSuchElementException</code>.
+<p>
+  Такие реализации нарушают контракт <code>java.util.iterator</code> и могут привести к труднообнаруживаемым ошибкам при нестандартном использовании итератора.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Numbers implements Iterator&lt;Integer&gt; {
+    @Override
+    public Integer next() { //warning
+        if (hasNext()) {
+            return generateNext();
+        } else {
+            return null; //вместо этого нужно выбросить NoSuchElementException
+        }
+    }
+    ...
+  }
+</code></pre>
+</body>
+</html>

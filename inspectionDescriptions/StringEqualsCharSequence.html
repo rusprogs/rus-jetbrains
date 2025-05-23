@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о вызовах <code>String.equals()</code> с аргументом типа <code>CharSequence</code>.
+<p>
+  Метод <code>String.equals()</code> может вернуть <code>true</code> только для аргументов типа <code>String</code>.
+  Для сравнения содержимого <code>String</code> с аргументом типа <code>CharSequence</code>, не являющимся <code>String</code>, используйте метод <code>contentEquals()</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  boolean equals(String s, CharSequence ch) {
+    return s.equals(ch);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  boolean equals(String s, CharSequence ch) {
+    return s.contentEquals(ch);
+  }
+</code></pre>
+<p>
+<small>Новое в версии 2017.3</small>
+</body>
+</html>

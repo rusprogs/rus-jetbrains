@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>
+  Обнаружено использование одинарных кавычек в строках JSON-массива.
+</p>
+<p>
+  В формате JSON-массива необходимо использовать двойные кавычки (") вместо одинарных ('). В противном случае сборка Docker завершится с ошибкой.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  # Все следующие команды завершатся ошибкой
+  RUN ['/bin/bash', '-c', 'echo hello']
+  ADD ['binaryA.jar', 'binary2.jar', 'destination/']
+  COPY ['binaryA.jar', 'binary2.jar', 'destination/']
+</code></pre>
+<p>После применения исправления:</p>
+<pre><code>
+  RUN ["/bin/bash", "-c", "echo hello"]
+  ADD ["binaryA.jar", "binary2.jar", "destination/"]
+  COPY ["binaryA.jar", "binary2.jar", "destination/"]
+</code></pre>
+</body>
+</html>

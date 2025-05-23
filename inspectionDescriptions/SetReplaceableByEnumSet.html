@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает об инициализации объекта <code>java.util.Set</code> для перечислений. Такой объект <code>Set</code> может быть заменен на объект <code>java.util.EnumSet</code>.
+<p>
+  По сравнению с другими коллекциями, реализация <code>EnumSet</code> более эффективна, так как использует битовый вектор в качестве базовой структуры данных. Это быстрое исправление позволяет заменить инициализатор на вызов <code>EnumSet.noneOf()</code>. Быстрое исправление недоступно, когда тип переменной является подклассом <code>Set</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  enum MyEnum { FOO, BAR; }
+  Set&lt;MyEnum&gt; enums = new HashSet&lt;MyEnum&gt;();
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  enum MyEnum { FOO, BAR; }
+  Set&lt;MyEnum&gt; enums = EnumSet.noneOf(MyEnum.class);
+</code></pre>
+</body>
+</html>

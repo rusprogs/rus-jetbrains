@@ -1,0 +1,17 @@
+<html>
+<body>
+Обнаружение абсолютных путей в JSP файлах.
+<p>Абсолютные пути запрещены в JSP, так как они не будут корректно разрешены, если контекст приложения не пустой.</p>
+<p>Быстрое исправление добавит динамический префикс к пути.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  &lt;%@page contentType=&quot;text/html; ISO-8859-1&quot; %&gt;
+  &lt;a href=&quot;/hey.jsp&quot;&gt;hey&lt;/a&gt;
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  &lt;%@page contentType=&quot;text/html; ISO-8859-1&quot; %&gt;
+  &lt;a href=&quot;${pageContext.request.contextPath}/hey.jsp&quot;&gt;hey&lt;/a&gt;
+</code></pre>
+</body>
+</html>

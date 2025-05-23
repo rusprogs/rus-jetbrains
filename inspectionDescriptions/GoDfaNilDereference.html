@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о случаях разыменования указателя, который может быть <code>nil</code>.
+<p>Пример:</p>
+<pre><code>
+type Person struct{ Name string }
+func _(person *Person) {
+	if person != nil || person.Name != "Peter" {
+	}
+}
+</code></pre>
+<p>В приведенном примере <code>person</code> является указателем на структуру <code>Person</code>, но имеет значение <code>nil</code>, поскольку ему не было присвоено значение. 
+  Попытка разыменовать <code>person</code> для доступа к полю <code>Name</code> без проверки <code>person</code> на <code>nil</code> приведет к ошибке времени выполнения.</p>
+</body>
+</html>

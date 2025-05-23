@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о вызове функции с типом результата <code>Deferred</code>, если возвращаемое значение не используется.
+<p>Если возвращаемое значение <code>Deferred</code> не используется, точка вызова не будет ожидать завершения выполнения функции.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun calcEverythingAsync() = CompletableDeferred(42)
+  fun usage() {
+      calcEverythingAsync()
+  }
+</code></pre>
+<p>Быстрое исправление предложит создать переменную с инициализатором <code>Deferred</code>:</p>
+<pre><code>
+  fun calcEverythingAsync() = CompletableDeferred(42)
+  fun usage() {
+      val answer = calcEverythingAsync()
+  }
+</code></pre>
+</body>
+</html>

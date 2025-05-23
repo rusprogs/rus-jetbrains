@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о вызовах методов, использующих <code>java.nio.file.Files</code> для чтения или записи <code>String</code> в виде байтов
+Такие вызовы могут быть заменены вызовами методов <code>Files.readString()</code> или <code>Files.writeString()</code>, представленных в Java 11.
+<p><b>Пример:</b></p>
+<pre><code>
+  String s = "example";
+  Files.write(Paths.get("out.txt"), s.getBytes(StandardCharsets.UTF_8), StandardOpenOption.WRITE);
+  s = new String(Files.readAllBytes(Paths.get("in.txt")), StandardCharsets.ISO_8859_1);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  String s = "example";
+  Files.writeString(Paths.get("out.txt"), s, StandardOpenOption.WRITE);
+  s = Files.readString(Paths.get("in.txt"), StandardCharsets.ISO_8859_1);
+</code></pre>
+<p><small>Новое в версии 2018.3</small></p>
+</body>
+</html>

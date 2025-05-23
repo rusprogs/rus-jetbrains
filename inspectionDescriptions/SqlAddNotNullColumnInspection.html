@@ -1,0 +1,13 @@
+<html>
+<body>
+Обнаружена попытка создания столбца NOT NULL без значения DEFAULT.
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE foo (a INT, b  INT)
+ALTER TABLE foo ADD c INT NOT NULL;</code></pre>
+<p>По умолчанию столбцы содержат значения NULL. В примере мы используем ограничение NOT NULL, чтобы запретить использование NULL в столбце.
+  Если мы запрещаем использование значений NULL, необходимо установить значение DEFAULT, которое SQL будет использовать при создании новых записей.
+</p>
+<pre><code>ALTER TABLE foo ADD c INT NOT NULL DEFAULT 42;</code></pre>
+<p>Вы можете использовать быстрое исправление <b>Добавить значение DEFAULT</b> для быстрого добавления значения по умолчанию.</p>
+</body>
+</html>

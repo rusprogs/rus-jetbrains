@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщать о любых ссылках на классы из пакета по умолчанию в JSP файлах.
+<p><b>Пример:</b></p>
+<pre><code lang="jsp">
+  &lt;%!
+  Integer countSomeUsefulStuff() {
+    ...
+    new ClassFromDefaultPackage(...); // Ошибка
+    new com.example.GoodClass(...); // OK
+  }
+  %&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;Hello, JSP!&lt;/title&gt;
+    &lt;/head&gt;
+  &lt;/html&gt;
+</code></pre><br/>
+<p>
+  <b>Примечание</b>: Такие ссылки не будут разрешены во время компиляции JSP, поскольку скомпилированные классы JSP обычно помещаются в непустой пакет (например, "org.apache.jsp" для Tomcat или "com.ibm._jsp" для WebSphere), а в Java импорт из пакета по умолчанию не разрешен.
+</p>
+</body>
+</html>

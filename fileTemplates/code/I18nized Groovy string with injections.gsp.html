@@ -1,0 +1,55 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">
+    Это встроенный шаблон для замены текста в <b>GSP</b>,
+    например:
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;<span style="font-weight:bold;">html</span>&gt;
+        &lt;<span style="font-weight:bold;">body</span>&gt;
+      <font face="verdana">Hello ${'world'}!</font>
+      &lt;<span style="font-weight:bold;">/body</span>&gt;
+      &lt;<span style="font-weight:bold;">/html</span>&gt;
+      <br>
+    на интернационализованное использование пользовательских тегов GSP,
+      например:
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      &lt;<span style="font-weight:bold;">html</span>&gt;
+      &lt;<span style="font-weight:bold;">body</span>&gt;
+      <font face="verdana">&lt;g:message code="HelloKey" args="['world']"/&gt;</font>
+    &lt;<span style="font-weight:bold;">/body</span>&gt;
+    &lt;<span style="font-weight:bold;">/html</span>&gt;
+    .
+    <p>
+    Этот шаблон можно редактировать. Помимо выражений, разрешённых в контексте GSP, вы можете использовать предопределённые переменные, которые впоследствии будут развернуты в соответствующие значения.</font>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Предопределённые переменные принимают следующие значения:</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROPERTY_KEY}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Имя ключа свойства, указанного в соответствующем файле свойств.
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROPERTY_VALUE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Значение свойства, указанное в соответствующем файле свойств.
+      Это исходное значение выбранного текста GSP.
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${ARGS_KEY}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Аргументы</font></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+Обнаружены следующие ошибки спецификации JPA:<br/>
+<ul>
+  <li>Класс слушателя сущности без публичного конструктора без параметров</li>
+  <li>Методы слушателя сущности с некорректной сигнатурой</li>
+</ul><br/>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @Entity
+  @EntityListeners(value = JavaEntityListener.class)
+  class JavaEntity { ... }
+  class JavaEntityListener {
+    @PostLoad
+    void postLoad(String parameter) { ... } // Ошибка: метод 'postLoad' должен принимать параметр типа 'Object'
+  }
+</code></pre>
+</body>
+</html>

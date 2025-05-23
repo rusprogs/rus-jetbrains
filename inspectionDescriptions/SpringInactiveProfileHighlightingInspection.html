@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Отображение неиспользуемых профилей в контексте Spring XML приложения.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  &lt;!-- Для этого контекста приложения активен профиль <strong>'DEV'</strong> --&gt;
+  &lt;beans profile="<strong>DEV</strong>"&gt;
+    &lt;bean class="MyFactory" factory-method="createBean"/&gt;
+  &lt;/beans&gt;
+  &lt;!--  Содержимое этого тега подсвечивается как 'unused' --&gt;
+  <em>&lt;beans profile="<strong>TESTS</strong>"&gt;
+    &lt;bean class="MyTestFactory" factory-method="createBean"/&gt;
+  &lt;/beans&gt;</em>
+  &lt;!--  Конец секции 'unused' --&gt;
+  &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

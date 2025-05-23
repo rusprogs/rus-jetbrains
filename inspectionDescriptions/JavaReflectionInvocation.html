@@ -1,0 +1,12 @@
+<html>
+<body>
+Случай, когда аргументы, переданные в <code>Method.invoke()</code> и <code>Constructor.newInstance()</code>, не соответствуют сигнатуре, указанной в <code>Class.getMethod()</code> и <code>Class.getConstructor()</code>.
+<p>Пример:</p>
+<pre><code>
+  Method m = myObj.getClass().getMethod("myMethod", <b>int</b>.class);
+  <i>//здесь аргумент должен быть значением типа <b>int</b></i>
+  m.invoke(myObj, "<b>abc</b>");
+</code></pre>
+<p><small>Изменения в версии 2017.2</small></p>
+</body>
+</html>

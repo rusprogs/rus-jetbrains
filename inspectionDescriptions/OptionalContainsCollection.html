@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает об использовании типов <code>java.util.Optional</code> или <code>com.google.common.base.Optional</code> с параметрами массива или коллекции.
+<p>В таких случаях предпочтительнее использовать пустой массив или коллекцию для обозначения отсутствия результата.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  Optional&lt;List&lt;Integer&gt;&gt; foo() {
+    return Optional.empty();
+  }
+</code></pre>
+<p>Этот код лучше переписать так:</p>
+<pre><code>
+  List&lt;Integer&gt; foo() {
+    return List.of();
+  }
+  </code></pre>
+</body>
+</html>

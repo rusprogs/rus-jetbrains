@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает об операторах <code>try</code> с несколькими ресурсами, которые могут быть автоматически разделены на несколько отдельных операторов try-with-resources.
+<p>Такое преобразование полезно для дальнейшего рефакторинга (например, для извлечения вложенных операторов <code>try</code> в отдельные методы).</p>
+<p>Пример:</p>
+<pre><code>
+  try (FileInputStream in = new FileInputStream("in.txt");
+     FileOutputStream out = new FileOutputStream("out.txt")) {
+     /*чтение и запись*/
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  try (FileInputStream in = new FileInputStream("in.txt")) {
+    try (FileOutputStream out = new FileOutputStream("out.txt")) {
+      /*чтение и запись*/
+    }
+  }
+</code></pre>
+</body>
+</html>

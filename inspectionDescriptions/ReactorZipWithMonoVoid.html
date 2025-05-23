@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Сообщает об использовании операции zip с аргументами, возвращающими <code>Mono&lt;Void&gt;</code> в цепочке Reactor.</p>
+<p>
+  <code>Zip</code> завершается пустой операцией сразу после завершения переданного <code>Mono&lt;Void&gt;</code>.
+  Быстрое исправление предлагает заменить <code>zip()</code>, <code>zipWhen()</code> и <code>zipWith()</code> на <code>when</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">Mono.zip(Mono.just(1), Mono.fromRunnable(() -> System.out.println("value")))
+                .map(v -> "New value")
+                .doFinally(System.out::println);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">Mono.when(Mono.just(1), Mono.fromRunnable(() -> System.out.println("value")))
+                .then(Mono.fromCallable(() -> "New value"))
+                .doFinally(System.out::println);
+</code></pre>
+<p><small>Новое в версии 2023.1</small></p>
+</body>
+</html>

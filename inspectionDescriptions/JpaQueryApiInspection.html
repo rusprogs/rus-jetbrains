@@ -1,0 +1,23 @@
+<html>
+<body>
+Обнаружение нераспознанных символов в именованных запросах, нативных запросах и связанных методах API:
+<ul>
+  <li>Неизвестный именованный запрос</li>
+  <li>Неизвестный параметр запроса</li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @Entity
+  @NamedQuery(name = "SelectByConditionQuery", query = "...")
+  public class JavaEntity { ... }
+  class Main {
+    public static void executeQuery() {
+      Persistence.createEntityManagerFactory("")
+        .createEntityManager()
+        .createNamedQuery("SelectAllQuery") // Ошибка: неизвестное имя запроса
+        ...
+    }
+  }
+</code></pre>
+</body>
+</html>

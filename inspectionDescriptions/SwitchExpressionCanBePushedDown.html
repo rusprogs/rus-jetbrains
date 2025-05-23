@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщает о ситуациях, когда каждая ветка содержит общее подвыражение, поэтому конструкция <code>switch</code> может быть перемещена внутрь выражения и операторов switch.
+Эта операция сокращает код. Во многих случаях целесообразно выделить полученное выражение switch в отдельную переменную или метод.
+<p>Пример:</p>
+<pre><code>
+  switch (value) {
+    case 0 -> System.out.println("zero");
+    case 1 -> System.out.println("one");
+    case 2, 3, 4 -> System.out.println("few");
+    default -> System.out.println("many");
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  System.out.println(switch (value) {
+    case 0 -> "zero";
+    case 1 -> "one";
+    case 2, 3, 4 -> "few";
+    default -> "many";
+  });
+</code></pre>
+<p>
+  Эта проверка применяется только к расширенным конструкциям switch, использующим синтаксис со стрелками.
+</p>
+<p><small>Новое в версии 2022.3</small></p>
+</body>
+</html>

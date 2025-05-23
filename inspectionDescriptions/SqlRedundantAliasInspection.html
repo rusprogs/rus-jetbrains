@@ -1,0 +1,12 @@
+<html>
+<body>
+Отчёт может содержать перекрывающиеся имена столбцов в таблице и избыточные псевдонимы.
+<p>Пример (PostgreSQL):</p>
+<pre><code>CREATE TABLE foo(a INT, b INT);
+SELECT * FROM foo foo(a, b);
+SELECT * FROM foo foo(a);
+SELECT * FROM foo foo(x);
+SELECT * FROM foo foo(x, y);</code></pre>
+<p>Первые два псевдонима используют те же имена столбцов, что и в таблице <code>foo</code>. Они считаются избыточными, так как столбцы имеют одинаковые имена.</p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<body>
+Сообщает о возврате или присваивании из параметров метода в массивы или изменяемые типы (такие как <code>Collection</code>, <code>Date</code>, <code>Map</code>, <code>Calendar</code> и другие)
+<p>Поскольку эти типы изменяемы, такая структура может привести к непреднамеренным изменениям состояния объекта извне класса. Хотя такая структура может быть полезна для оптимизации производительности, она по своей природе подвержена ошибкам.</p>
+<p>Отслеживаются следующие изменяемые типы:</p>
+<ul>
+  <li><code>java.util.Date</code></li>
+  <li><code>java.util.Calendar</code></li>
+  <li><code>java.util.Collection</code></li>
+  <li><code>java.util.Map</code></li>
+  <li><code>com.google.common.collect.Multimap</code></li>
+  <li><code>com.google.common.collect.Table</code></li>
+</ul>
+<p>Быстрое исправление добавляет вызов метода <code>.clone()</code> для поля.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Log {
+    String[] messages;
+    ...
+    String[] getMessages() {
+      return messages; // Предупреждение: возврат поля String[] 'messages'
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Log {
+    String[] messages;
+    ...
+    String[] getMessages() {
+      return messages.clone();
+    }
+  }
+</code></pre>
+<p>Используйте опцию <b>Игнорировать присваивания и возвраты в private методах</b>, чтобы игнорировать присваивания и возвраты значений в методах с модификатором <code>private</code>.
+</body>
+</html>

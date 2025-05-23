@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о присваивании <code>null</code> переменной типа <code>Optional</code> или возврате <code>null</code> из метода, возвращающего <code>Optional</code>.
+<p>Рекомендуется использовать <code>Optional.empty()</code> (или <code>Optional.absent()</code> для Guava) для представления пустого значения.</p>
+<p>Пример:</p>
+<pre><code>
+  Optional&lt;Integer&gt; foo(boolean flag) {
+    return flag ? Optional.of(42) : null;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  Optional&lt;Integer&gt; foo(boolean flag) {
+    return flag ? Optional.of(42) : Optional.empty();
+  }
+</code></pre>
+<p>Настройка проверки:</p>
+<p>
+  Опция <b>Сообщать о сравнении Optional с null</b> также позволяет обнаруживать сравнения вида <code>optional == null</code>. Хотя в редких случаях (например, для полей Optional с отложенной инициализацией) это может быть корректным, обычно переменные Optional не должны быть null, и вместо этого следует использовать <code>optional.isPresent()</code>.
+</p>
+<p><small>Изменения в версии 2017.2</small>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>Сообщает о вызовах методов из классов <code>junit.framework.Assert</code>, <code>org.junit.Assert</code> или <code>org.junit.Assume</code> в тестах JUnit 5.</p>
+<p>Хотя эти тесты работают корректно, переход на <code>org.junit.jupiter.api.Assertions</code>/<code>org.junit.jupiter.api.Assumptions</code> поможет избежать зависимостей от устаревших версий JUnit.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  import org.junit.Assert;
+  import org.junit.jupiter.api.Test;
+  public class MyTest {
+    @Test
+    public void simpleTest() {
+      Assert.assertEquals(4, 2 + 2);
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  import org.junit.jupiter.api.Assertions;
+  import org.junit.jupiter.api.Test;
+  public class MyTest {
+    @Test
+    public void simpleTest() {
+      Assertions.assertEquals(4, 2 + 2);
+    }
+  }
+</code></pre>
+</body>
+</html>

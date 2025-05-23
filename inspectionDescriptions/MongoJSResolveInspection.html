@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщать о неразрешённых ссылках в коде MongoDB и JavaScript.
+<p>Пример:</p>
+<pre><code>db
+use foo
+  -- a reference to a non-existing collection
+db.non_existing_collection
+db['non_existing_collection']
+db['non_existing_collection'].find().hasNext()</code></pre>
+<p>Коллекция <code>non_existing_collection</code> не существует в базе данных и будет отмечена.</p>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<html>
+<body>
+Сообщает о совпадении псевдонима в SELECT с именем столбца в предложении FROM.
+<p>Пример (MySQL):</p>
+<pre><code>CREATE TABLE foo (a INT, b INT, c INT);
+SELECT a b, c FROM foo;</code></pre>
+<p>Столбец <code>a</code> использует псевдоним <code>b</code>, но имя <code>b</code> также используется столбцом в таблице <code>foo</code>.</p>
+</body>
+</html>

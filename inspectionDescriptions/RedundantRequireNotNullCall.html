@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Сообщает о избыточных вызовах <code>requireNotNull</code> или <code>checkNotNull</code> для выражений, которые не могут быть null.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(i: Int) {
+      requireNotNull(i) //Переменная 'i' никогда не может быть null, поэтому вызов 'requireNotNull' избыточен.
+      ...
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(i: Int) {
+      ...
+  }
+</code></pre>
+</body>
+</html>

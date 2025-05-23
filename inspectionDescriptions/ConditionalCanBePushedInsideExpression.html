@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о выражениях с ветками <code>then</code> и <c>else</c>, которые достаточно похожи, чтобы выражение можно было переместить внутрь. Эта операция сокращает код.
+<p>Пример:</p>
+<pre><code>
+  double g(int a, int b) {
+    return a == b ? Math.cos(0) : Math.cos(1);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  double g(int a, int b) {
+    return Math.cos(a == b ? 0 : 1);
+  }
+</code></pre>
+<p><small>Новое в версии 2017.2</small></p>
+</body>
+</html>

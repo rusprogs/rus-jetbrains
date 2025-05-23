@@ -1,0 +1,18 @@
+<html>
+<body>
+Массив констант перечисления может быть заменен вызовом <code>EnumType.values()</code>.
+<p>Обычно при обновлении такого перечисления необходимо также обновлять массив. Однако если вместо этого использовать <code>EnumType.values()</code>, изменения не потребуются.</p>
+<p>Пример:</p>
+<pre><code>
+  enum States {
+     NOT_RUN, IN_PROGRESS, FINISHED;
+  }
+  handleStates(new States[] {NOT_RUN, IN_PROGRESS, FINISHED});
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  handleStates(States.values());
+</code></pre>
+<p><small>Новое в версии 2019.1</small></p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Сообщает о некорректных <a href="https://www.springframework.org/schema/util">схемных бинах</a>, определённых в контексте XML-приложения.</p>
+<pre><code>
+  &lt;beans ... xmlns:util="https://www.springframework.org/schema/util"&gt;
+    &lt;bean class="MyBean" id="myBean"/&gt;
+    &lt;bean class="ErrTypeBean" id="errTypeBean"/&gt;
+    &lt;util:list list-class="java.lang.String"/&gt; // Сообщает "класс должен быть наследником 'java.util.List'"
+    &lt;util:set value-type="MyBean"&gt;
+      &lt;ref bean="fooBean"/&gt;
+      &lt;ref bean="errTypeBean"/&gt; // Сообщает "невозможно добавить в коллекцию типа 'MyBean'"
+    &lt;/util:set&gt;
+  &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

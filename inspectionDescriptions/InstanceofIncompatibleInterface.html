@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о выражениях <code>instanceof</code>, где проверяемый тип класса/интерфейса не расширяет и не реализует тип класса/интерфейса справа от <code>instanceof</code>, а также не имеет подклассов, которые это делают.
+<p>
+  Хотя такая конструкция может использоваться в библиотечном коде, она, вероятно, ошибочна, поскольку ни один экземпляр любого класса, объявленного в проекте, не сможет пройти эту проверку <code>instanceof</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo { }
+  interface Bar { }
+  class Main {
+      void test(Foo f, Bar b) {
+          if (f instanceof Bar) { // Проблема
+              System.out.println("fail");
+          }
+          if (b instanceof Foo) { // Проблема
+              System.out.println("fail");
+          }
+      }
+  }
+</code></pre>
+</body>
+</html>

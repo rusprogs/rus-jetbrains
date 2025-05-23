@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о попытках выполнения рефлексивных проверок на наличие нерантайм-аннотаций.
+<p>Использование <code>Class.isAnnotationPresent()</code> для проверки аннотаций с политикой удержания <code>SOURCE</code> или <code>CLASS</code> (значение по умолчанию) всегда возвращает отрицательный результат. Эту ошибку легко пропустить.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  {
+    getClass().isAnnotationPresent(SourceAnnotation.class); //всегда false
+  }
+  @Retention(RetentionPolicy.SOURCE)
+  @interface SourceAnnotation {}
+</code></pre>
+<p>
+</body>
+</html>

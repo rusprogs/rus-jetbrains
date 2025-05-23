@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о методе <code>clone()</code> без модификатора <code>final</code>.
+<p>
+  Метод <code>clone()</code> может использоваться для создания экземпляров объектов без использования конструктора, поэтому возможность переопределения метода <code>clone()</code> может привести к повреждению объекта или даже к уязвимостям безопасности. Этого можно избежать, объявив метод <code>clone()</code> или сам включающий класс как <code>final</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Main implements Cloneable {
+      @Override
+      protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+      }
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о коде, который получает объект Class через создание экземпляра класса.
+<p>Прямой доступ к объекту Class по имени более эффективен.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  Class&lt;?&gt; c = new Sample().getClass();
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  Class&lt;?&gt; c = Sample.class;
+</code></pre>
+</body>
+</html>

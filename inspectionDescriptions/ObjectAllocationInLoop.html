@@ -1,0 +1,35 @@
+<html>
+<body>
+Сообщает о выделении объектов или массивов внутри циклов. Хотя это не обязательно является проблемой, выделение объектов в циклах - хорошее место для поиска утечек памяти и проблем с производительностью.
+<p>
+  Проверка обнаруживает следующие структуры:
+</p>
+<ul>
+  <li>Явное выделение памяти через оператор <code>new</code></li>
+  <li>Известные методы, возвращающие новые объекты</li>
+  <li>Ссылки на методы с привязкой к экземпляру</li>
+  <li>Лямбды, захватывающие переменные или ссылку на <code>this</code></li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code>
+  // 显式分配
+  for (Status status : Status.values()) {
+    declarationsMap.put(status, new ArrayList&lt;&gt;());
+  }
+  // Lambda 捕获变量
+  String message = "Engine running.";
+  for (Engine engine : engines) {
+      if (!isRunning(engine)) {
+          logger.warn(() -> {
+              return String.format(message);
+          });
+      }
+  }
+  // 实例绑定方法引用
+  for(Node node : nodes) {
+    descriptor = node.getDescription();
+    descriptor.ifPresent(dynamicTestExecutor::execute);
+  }
+</code></pre>
+</body>
+</html>

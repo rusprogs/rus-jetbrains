@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает о методах <code>equals()</code>, которые принимают тип аргумента, отличный от <code>java.lang.Object</code>, если включающий класс не имеет других перегрузок <code>equals()</code> с <code>java.lang.Object</code> в качестве типа аргумента.
+<p>
+  Ковариантная версия <code>equals()</code> не переопределяет метод <code>Object.equals(Object)</code>. Это может привести к непредвиденному поведению во время выполнения. Например, если класс используется для создания стандартной коллекции, которая ожидает переопределения метода <code>Object.equals(Object)</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo {
+      public boolean equals(Foo foo) {  // предупреждение
+          return false;
+      }
+  }
+  class Bar {
+      public boolean equals(Bar bar) {  // здесь нет предупреждения
+          return false;
+      }
+      @Override
+      public boolean equals(Object obj) {
+          return false;
+      }
+  }
+</code></pre>
+</body>
+</html>

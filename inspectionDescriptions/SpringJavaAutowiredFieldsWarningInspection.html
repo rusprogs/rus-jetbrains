@@ -1,0 +1,30 @@
+<html>
+<body>
+<p>Сообщает о полях в Spring-компонентах, которые внедряются или автоматически подключаются.</p>
+<p>Это быстрое исправление предлагает внедрение зависимостей на основе конструктора для обязательных полей в Bean-компонентах и добавляет проверки утверждений.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+class MyComponent {
+  @Inject MyCollaborator collaborator; // внедряемое поле
+  public void myBusinessMethod() {
+    collaborator.doSomething(); // выбрасывает NullPointerException
+  }
+}
+</code></pre>
+<br>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+class MyComponent {
+  private final MyCollaborator collaborator;
+  @Inject
+  public MyComponent(MyCollaborator collaborator) {
+    Assert.notNull(collaborator, "MyCollaborator must not be null!");
+    this.collaborator = collaborator;
+  }
+  public void myBusinessMethod() {
+    collaborator.doSomething(); // теперь этот вызов безопасен
+  }
+}
+</code></pre>
+</body>
+</html>

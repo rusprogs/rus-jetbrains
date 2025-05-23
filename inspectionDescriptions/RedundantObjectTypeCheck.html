@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Сообщает о нестандартных проверках типа <code>is</code> для объектов.</p>
+<p>Рекомендуется заменить такие проверки на сравнение ссылок.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  object Foo
+  fun foo(arg: Any) = when {
+      arg <b>is</b> Foo -> ...
+      arg <b>!is</b> Foo -> ...
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  object Foo
+  fun foo(arg: Any) = when {
+      arg <b>===</b> Foo -> ...
+      arg <b>!==</b> Foo -> ...
+  }
+</code></pre>
+</body>
+</html>

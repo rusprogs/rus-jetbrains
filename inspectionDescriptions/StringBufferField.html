@@ -1,0 +1,12 @@
+<html>
+<body>
+Обнаружены поля типа <code>java.lang.StringBuffer</code> или <code>java.lang.StringBuilder</code>.
+Такие поля могут бесконечно увеличиваться в размере и обычно приводят к утечкам памяти.
+<p><b>Пример:</b></p>
+<pre><code>
+  public class Example {
+    private StringBuilder builder = new StringBuilder();
+  }
+</code></pre>
+</body>
+</html>

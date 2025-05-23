@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Сообщает об отсутствующих параметрах в файле шаблона, если путь URL в функции <code>url()</code> содержит параметры формы.</p>
+<p><b>Пример:</b></p>
+<p>В файле <code>url.py</code></p>
+<pre><code lang="Python">
+url(r'^(?P&lt;question_id&gt;[0-9]+)/', views.detail, name='detail')
+</code></pre>
+<p>В файле шаблона</p>
+<pre><code lang="DjangoTemplate">
+{% url 'polls:detail' %}
+</code></pre>
+</body>
+</html>

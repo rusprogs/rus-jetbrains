@@ -1,0 +1,23 @@
+<html>
+<body>
+Обнаружен вызов метода <code>notify()</code> или <code>notifyAll()</code> для объекта <code>java.util.concurrent.locks.Condition</code>.
+<p>
+  Это может быть ошибкой программования, где следовало использовать метод <code>signal()</code> или <code>signalAll()</code>, иначе может возникнуть исключение <code>IllegalMonitorStateException</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class C {
+    final Lock l = new ReentrantLock();
+    final Condition c = l.newCondition();
+    void release() {
+      l.lock();
+      try {
+        c.notifyAll(); // здесь следовало использовать 'signalAll()'
+      } finally {
+        l.unlock();
+      }
+    }
+  }
+</code></pre>
+</body>
+</html>

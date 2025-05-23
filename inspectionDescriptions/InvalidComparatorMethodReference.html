@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о ссылках на методы, сопоставленных с интерфейсом <code>Comparator</code>, которые не соблюдают его контракт.
+<p>
+Некоторые ссылки на методы, такие как <code>Integer::max</code>, могут быть сопоставлены с интерфейсом <code>Comparator</code>.
+Однако их использование в качестве <code>Comparator</code> лишено смысла, и результаты могут быть непредсказуемыми.
+</p>
+<p>Пример:</p>
+<pre><code>
+  ArrayList&lt;Integer&gt; ints = foo();
+  ints.sort(Math::min);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  ArrayList&lt;Integer&gt; ints = foo();
+  ints.sort(Comparator.reverseOrder());
+</code></pre>
+</body>
+</html>

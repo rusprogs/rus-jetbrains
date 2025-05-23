@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает о случаях выполнения SELECT из функции или выполнения DBLINK без указания типов в псевдонимах (например, <code> AS t1 (s VARCHAR) </code>).
+  <p>Это требование не применяется к скалярным функциям.</p>
+<p>Пример (PostgreSQL):</p>
+<pre><code>CREATE FUNCTION produce_a_table() RETURNS RECORD AS $$
+SELECT 1;
+$$ LANGUAGE sql;
+SELECT * FROM produce_a_table() AS s (c1 INT);
+SELECT * FROM produce_a_table() AS s (c1);
+SELECT * FROM DBLINK('dbname=mydb', 'SELECT proname, prosrc FROM pg_proc') AS t1;</code></pre>
+<p><code>AS s (c1 INT)</code> содержит типизованный псевдоним, в то время как <code>AS s (c1)</code> и <code>AS t1</code> - нет.
+  В этом случае будут подсвечены второй вызов <code>produce_a_table()</code> и вызов <code>DBLINK()</code>.
+</p>
+</body>
+</html>

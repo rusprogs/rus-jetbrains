@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о вызовах <code>java.sql.Statement.execute()</code> или любых его вариантах, которые используют динамически сконструированные строки в качестве выполняемых запросов.
+<p>Сконструированные SQL-запросы являются распространенным источником уязвимостей безопасности.
+  По умолчанию эта проверка игнорирует константы времени компиляции.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  ResultSet execute(Statement statement, String name) throws SQLException {
+    return statement.executeQuery("select * from " + name); // выдаёт предупреждение
+  }
+</code></pre>
+<p>
+С помощью опций проверки любые поля <code>static</code> <code>final</code> могут рассматриваться как константы.
+Будьте осторожны, так как при включении этой опции такие строки будут игнорироваться:
+<pre><code>
+  private static final String SQL = "SELECT * FROM user WHERE name='" + getUserInput() + "'";
+</code></pre>
+<p>
+</body>
+</html>

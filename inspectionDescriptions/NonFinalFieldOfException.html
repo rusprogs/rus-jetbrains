@@ -1,0 +1,12 @@
+<html>
+<body>
+Сообщает о полях, не объявленных как <code>final</code> в подклассах <code>java.lang.Exception</code>.
+<p>Данные в объектах исключений не должны изменяться, так как это может привести к потере контекста ошибки, необходимого для последующей отладки и логования.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public class EditorException extends Exception {
+    private String message; // Предупреждение: нефинальное поле 'message' в классе исключения
+  }
+</code></pre>
+</body>
+</html>

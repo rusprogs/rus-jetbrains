@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Сообщает о последних достижимых операторах <code>continue</code> в цикле.
+Такие операторы <code>continue</code> являются избыточными и могут быть безопасно удалены.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  for(int i in array) {
+      println(i)
+      <b>continue</b>
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  for(int i in array) {
+      println(i)
+  }
+</code></pre>
+<p>Дополнительную информацию см. в аналогичной проверке для Java.</p>
+</body>
+</html>

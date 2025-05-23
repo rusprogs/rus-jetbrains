@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщать о пустых блоках <code>catch</code>. Хотя иногда это делается намеренно, пустые блоки <code>catch</code> могут сделать отладку крайне сложной.
+<p><b>Пример:</b></p>
+<pre>
+<code>
+try {
+  throw new Exception()
+}
+catch (Exception e) {
+}
+</code>
+</pre>
+<p>После применения быстрого исправления:</p>
+<pre>
+<code>
+try {
+  throw new Exception()
+}
+catch (Exception ignored) {
+}
+</code>
+</pre>
+</body>
+</html>

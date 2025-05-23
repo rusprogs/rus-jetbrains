@@ -1,0 +1,22 @@
+<html>
+<body>
+Обнаружено использование устаревших названий диагностик в аннотации, например <code>@Suppress("HEADER_WITHOUT_IMPLEMENTATION")</code>.
+<p>
+    Некоторые диагностики из Kotlin 1.2 и более ранних версий устарели, что делает такие подавления избыточными.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+@Suppress("HEADER_DECLARATION_WITH_BODY")
+expect fun connection() {
+  // ...
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+@Suppress("EXPECTED_DECLARATION_WITH_BODY")
+expect fun connection() {
+  // ...
+}
+</code></pre>
+</body>
+</html>

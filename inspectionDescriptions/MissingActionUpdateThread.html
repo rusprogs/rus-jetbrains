@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает об операциях, группах операций и других классах <code>ActionUpdateThreadAware</code>, которые не указывают явно свой режим.
+<p>
+  Когда операция или группа операций определяет собственный метод <code>update()</code>, платформа IntelliJ пытается имитировать старое синхронное поведение вызова методов <code>update()</code> и <code>getChildren()</code> в UI-потоке, предоставляя все данные из <code>AnActionEvent.dataContext()</code>.
+  Для этого она предварительно кэширует все возможные данные в фоновом потоке (даже если они не требуются).
+</p>
+<p>
+  Укажите один из двух режимов, переопределив метод <code>getActionUpdateThread()</code>: <code>ActionUpdateThread.EDT</code> или <code>ActionUpdateThread.BGT</code>.
+</p>
+<p>
+  Дополнительную информацию см. в документации <code>ActionUpdateThread</code>.
+</p>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о классах слушателей сущностей, которые не имеют методов слушателя сущностей.
+<p><b>Пример:</b></p><br/>
+<pre><code lang="java">
+  @Entity
+  @EntityListeners(value = JavaEntityListener.class)
+  public class JavaEntity { ... }
+  class JavaEntityListener { // Ошибка: не найдены методы слушателя сущностей
+  }
+</code></pre>
+</body>
+</html>

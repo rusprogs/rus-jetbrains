@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает об использовании выражения <code>instanceof</code> для проверки типа параметра в блоке <code>catch</code>.
+<p>Для проверки типа параметра <code>catch</code> лучше использовать отдельные блоки <code>catch</code>, чем применять <code>instanceof</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void foo(Runnable runnable) {
+    try {
+        runnable.run();
+    } catch (Throwable throwable) {
+        if (throwable instanceof NoClassDefFoundError) { // Предупреждение: использование 'instanceof' для параметра 'throwable' в блоке 'catch'
+            System.out.println("Class not found!");
+        }
+    }
+  }
+</code></pre>
+</body>
+</html>

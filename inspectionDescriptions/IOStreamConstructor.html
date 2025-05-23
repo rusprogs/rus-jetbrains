@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщается о выражениях <code>new FileInputStream()</code> или <code>new FileOutputStream()</code>, которые могут быть заменены вызовами <code>Files.newInputStream()</code> или <code>Files.newOutputStream()</code> соответственно.
+<br>
+Потоки, созданные с помощью методов <code>Files</code>, обычно более эффективны, чем потоки, созданные с помощью конструкторов потоков.
+<p>Пример:</p>
+<pre><code>
+  InputStream is = new BufferedInputStream(new FileInputStream(file));
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  InputStream is = new BufferedInputStream(Files.newInputStream(file.toPath()));
+</code></pre>
+<p>Если уровень языка 10 или выше, эта проверка не показывает предупреждения, но быстрое исправление по-прежнему доступно.</p>
+<p>Эта проверка выполняется только если уровень языка проекта или модуля 7 или выше.</p>
+<p><small>Изменения в версии 2022.1</small></p>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<body>
+Сообщает о методах, в которых количество точек <code>return</code> превышает указанное максимальное значение.
+Методы со слишком большим количеством точек <code>return</code> могут быть запутанными и сложными для рефакторинга.
+<p>Точкой <code>return</code> может быть оператор <code>return</code> или неявный возврат в конце метода <code>void</code> или конструктора.</p>
+<p><b>Пример:</b></p>
+<p>Следующий метод будет отмечен, если разрешено только два оператора <code>return</code>:</p>
+<pre><code>
+  void doSmth(User[] users) {
+    for (User user : users) {
+      if (cond1(user)) {
+        user.setId(getId());
+        return;
+      } else if (cond2(user)) {
+        if (cond3(user)) {
+          user.setId(getId());
+          return;
+        }
+      }
+    }
+  }
+</code></pre>
+<p>Рекомендуется переписать метод, чтобы сделать его более понятным:</p>
+<pre><code>
+  void doSmth(User[] users) {
+    for (User user : users) {
+      if (cond1(user) || cond2(user) && cond3(user)) {
+        user.setId(getId());
+        return;
+      }
+    }
+  }
+</code></pre>
+<p>Настройка проверки:</p>
+<ul>
+  <li>Используйте поле <b>Лимит точек return</b>, чтобы указать максимальное допустимое количество точек <code>return</code> в методе.</li>
+  <li>Используйте опцию <b>Игнорировать критические условия</b>, чтобы пропускать критические условия.
+    Критическое условие - это оператор <code>if</code>, который содержит только оператор <code>return</code></li>
+  <li>Используйте опцию <b>Игнорировать для метода 'equals()'</b>, чтобы пропускать точки <code>return</code> в методе <code>equals()</code>.</li>
+</ul>
+</body>
+</html>

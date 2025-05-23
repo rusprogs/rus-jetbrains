@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о проверяемых исключениях, которые указаны как ожидаемые в TestNG-методе, но никогда не выбрасываются в теле метода.
+<p><b>Пример:</b></p>
+<pre><code>
+  @Test(expectedExceptions = Exception.class) // Предупреждение: ожидаемое исключение 'Exception' не выбрасывается
+  public void testEngineIsRunning() {
+    assertTrue(engine.isRunning());
+  }
+  </code>
+</pre>
+</body>
+</html>

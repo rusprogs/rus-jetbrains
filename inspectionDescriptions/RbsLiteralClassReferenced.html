@@ -1,0 +1,11 @@
+<html>
+<body>
+Сообщает об использовании классов <code>NilClass</code>, <code>TrueClass</code> и <code>FalseClass</code> в сигнатурах типов. Использование этих классов является излишне многословным.
+<p>С помощью быстрого исправления можно заменить использование <code>NilClass</code>, <code>TrueClass</code> или <code>FalseClass</code> на их соответствующие литералы.</p>
+<p>Пример:</p>
+<pre><code># Используется 'NilClass' вместо 'nil', …
+type example = NilClass | TrueClass | FalseClass</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>type example = nil | true | false</code></pre>
+</body>
+</html>

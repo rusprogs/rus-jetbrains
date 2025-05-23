@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о любых публичных методах, которые не содержат операторов логования. Эта проверка не распространяется на простые геттеры и сеттеры.
+<p>Например:</p>
+<pre><code>
+  <b>public class</b> Crucial {
+    <b>private static final </b>Logger LOG = LoggerFactory.getLogger(Crucial.class);
+    <b>public void</b> doImportantStuff() {
+      // Для этого метода будет выдано предупреждение
+    }
+    <b>public void</b> doOtherStuff() {
+      LOG.info("do other stuff");
+    }
+  }
+</code></pre>
+<p>
+Используйте таблицу ниже для указания имен классов логгера.
+Проверка будет сообщать о публичных методах, которые не используют методы экземпляров указанных классов.
+</body>
+</html>

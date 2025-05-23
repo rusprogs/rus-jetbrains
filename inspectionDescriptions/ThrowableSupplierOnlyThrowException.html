@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает о вызове <code>Supplier</code> lambda в <code>Optional.orElseThrow()</code>, где исключение выбрасывается явно вместо возврата.
+<p><b>Пример:</b></p>
+<pre><code>
+optional.orElseThrow(() -> {
+    throw new RuntimeException();
+});
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+optional.orElseThrow(() -> new RuntimeException());
+</code></pre>
+<p><small>Новое в версии 2023.1</small></p>
+</body>
+</html>

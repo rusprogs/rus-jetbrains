@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о ресурсах Java ME <code>javax.microedition.rms.RecordStore</code>, которые не открываются в блоке <code>try</code> и не закрываются в соответствующем блоке <code>finally</code>.
+<p>Такие ресурсы могут быть случайно утечены, если исключение возникнет до закрытия ресурса.</p>
+<p>
+  Эта проверка применима для Java ME и других сред с сильно ограниченными ресурсами.
+  Бездумное применение этой проверки может негативно повлиять на читаемость кода и его архитектуру.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void foo1() throws RecordStoreException {
+      RecordStore rs = RecordStore.openRecordStore("bar", true); // предупреждение
+  }
+  void foo2() throws RecordStoreException {
+      RecordStore rs = RecordStore.openRecordStore("bar", true); // нет предупреждения
+      try {
+          /* ... */
+      } finally {
+          rs.closeRecordStore();
+      }
+  }
+</code></pre>
+</body>
+</html>

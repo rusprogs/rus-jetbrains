@@ -1,0 +1,10 @@
+<html>
+<body>
+Сообщает об использовании <code>0</code> в предикатных индексах или в сравнениях с функцией <code>position()</code>. 
+Такое использование почти всегда является ошибкой, поскольку в XPath индексация начинается с <code>1</code>, а <em>не</em> с <code>0</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  //someelement[<b>position() = 0</b>]</code> or <code>//something[<b>0</b>]
+</code></pre>
+</body>
+</html>

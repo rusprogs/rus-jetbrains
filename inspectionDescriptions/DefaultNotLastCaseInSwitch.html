@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщает об операторах или выражениях <code>switch</code>, где ветка <code>default</code> расположена перед другими case-ветками.
+Такая конструкция может вызвать ненужную путаницу.
+При возможности, ветку <code>default</code> можно переместить в конец с помощью быстрого исправления.
+<p><b>Пример:</b></p>
+<pre><code>
+  switch (n) {
+      default:
+          System.out.println();
+          break;
+      case 1:
+          break;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  switch (n) {
+    case 1:
+        break;
+    default:
+        System.out.println();
+        break;
+  }
+</code></pre>
+<p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает об операторах <code>continue</code>, целью которых является оператор <code>switch</code>. В PHP 7.3 и более поздних версиях такое использование считается устаревшим и вызывает <code>E_WARNING</code>, поскольку это, вероятно, является результатом ошибки программования.
+<ul>
+  <li>
+    В PHP такие операторы <code>continue</code> эквивалентны <code>break</code>, то есть они прерывают выполнение текущей структуры <code>switch</code>.
+  </li>
+  <li>
+    В других языках такие операторы <code>continue</code> ведут себя как <code>continue 2</code> в PHP, то есть они переносят выполнение на структуру управления более высокого уровня (например, на следующую итерацию внешнего цикла).
+  </li>
+</ul>
+<p>
+  Для получения дополнительной информации см. <a href="https://www.php.net/manual/en/control-structures.continue.php">continue (php.net)</a>, <a href="https://www.php.net/manual/en/control-structures.break.php">break (php.net)</a> и <a href="https://www.php.net/manual/en/control-structures.switch.php">switch (php.net)</a>.
+</p>
+</body>
+</html>

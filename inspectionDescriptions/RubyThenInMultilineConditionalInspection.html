@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о избыточном ключевом слове <code>then</code> в многострочных блоках <code>if/unless</code>.
+<p>Пример:</p>
+<pre>
+<code># Неправильно
+if x > y then
+  x = y
+end</code>
+</pre>
+Ключевое слово <code>then</code> можно удалить с помощью быстрого исправления.
+<pre>
+<code># Правильно
+if x > y
+  x = y
+end</code>
+</pre>
+<p><span style="font-size: smaller;">На основе <a href="https://github.com/rubocop/ruby-style-guide/blob/master/README.adoc#then-in-multi-line-expression">'RuboCop'</a>.</span></p>
+</body>
+</html>

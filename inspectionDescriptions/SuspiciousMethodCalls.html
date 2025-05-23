@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о вызовах методов параметризованных коллекций, где фактический тип аргумента не соответствует типу элементов коллекции.
+<p><b>Пример:</b></p>
+<pre><code>
+  List&lt;Integer&gt; list = getListOfElements();
+  list.remove(""); //remove будет подсвечен
+</code></pre>
+<p>
+  В настройках проверки можно отключить предупреждения для потенциально корректного кода, как показано ниже:
+</p>
+<pre><code>
+  public boolean accept(Map&lt;Integer, String&gt; map, Object key) {
+    return map.containsKey(key);
+  }
+</code></pre>
+</body>
+</html>

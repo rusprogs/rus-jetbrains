@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщение об операторе <code>if</code>, 
+который можно упростить до единственного присваивания
+или оператора <code>return</code>. <p>Пример:</p>
+<pre><code>
+if(foo())
+ {
+  return true;
+ }
+ else
+ {
+   return false;
+ }
+</code></pre>
+<p>После применения быстрого исправления код будет выглядеть так:</p>
+<pre>
+ <code>return foo();</code>
+</pre>
+</body>
+</html>

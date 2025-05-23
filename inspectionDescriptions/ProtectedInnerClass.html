@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщать о вложенных классах с модификатором <code>protected</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  public class Outer {
+    protected static class Nested {} // Предупреждение
+    protected class Inner {}         // Предупреждение
+    protected enum Mode {}           // Предупреждение зависит от настроек
+    protected interface I {}         // Предупреждение зависит от настроек
+  }
+</code></pre>
+<p>Настройка проверки:</p>
+<ul>
+  <li>Используйте опцию <b>Игнорировать внутренние enum с модификатором 'protected'</b>, чтобы игнорировать <code>protected</code> внутренние перечисления.</li>
+  <li>Используйте опцию <b>Игнорировать внутренние интерфейсы с модификатором 'protected'</b>, чтобы игнорировать <code>protected</code> внутренние интерфейсы.</li>
+</ul>
+</body>
+</html>

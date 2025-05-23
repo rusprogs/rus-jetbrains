@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о доступе к внешним изменяемым переменным внутри функции.
+<p>Пример:</p>
+<pre><code>
+  for (var i = 1; i &lt;= 3; i++) {
+    setTimeout(function() {
+        console.log(i); // плохо
+    }, 0);
+  }
+</code></pre>
+</body>
+</html>

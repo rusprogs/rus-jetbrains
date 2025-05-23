@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает о создании экземпляра <code>Throwable</code> или его подкласса, когда созданный <code>Throwable</code> фактически не выбрасывается.
+Кроме того, эта проверка сообщает о вызовах методов, возвращающих экземпляр <code>Throwable</code> или его подкласса, когда результат вызова не выбрасывается.
+<p>Вызовы методов, аннотированных с помощью <code>@CanIgnoreReturnValue</code> из Error Prone или AssertJ, не отмечаются.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+    void check(String s) {
+        if (s == null) {
+            new NullPointerException("s");
+        }
+        // ...
+    }
+</code></pre>
+</body>
+</html>

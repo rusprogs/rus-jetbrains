@@ -1,0 +1,12 @@
+<html>
+<body>
+Сообщает о случаях, когда указанный язык ссылки не соответствует ожидаемому языку в контексте использования.
+<p>Пример:</p>
+<pre><code>
+  @Language("JavaScript")
+  String JS_CODE = "var x;";
+  @Language("XPath")
+  String XPATH_CODE = JS_CODE; // здесь будет предупреждение
+</code></pre>
+</body>
+</html>

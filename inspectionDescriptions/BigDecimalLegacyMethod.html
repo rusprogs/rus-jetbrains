@@ -1,0 +1,11 @@
+<html>
+<body>
+Сообщает о вызовах <code>BigDecimal.divide()</code> или <code>BigDecimal.setScale()</code>, где режим округления задан целочисленной константой.
+Начиная с JDK 1.5, рекомендуется использовать методы, принимающие параметр типа <code>enum</code> <code>RoundingMode</code>.
+<p><b>Пример:</b></p>
+<pre><code>new BigDecimal("42").setScale(2, BigDecimal.ROUND_FLOOR);</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>new BigDecimal("42").setScale(2, RoundingMode.FLOOR);</code></pre>
+<p>
+</body>
+</html>

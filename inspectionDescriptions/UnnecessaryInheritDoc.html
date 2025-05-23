@@ -1,0 +1,29 @@
+<html>
+<body>
+Отчёт включает только комментарии Javadoc с тегом <code>{@inheritDoc}</code>. Поскольку Javadoc автоматически копирует комментарии суперкласса при их отсутствии, комментарии, содержащие только <code>{@inheritDoc}</code>, не добавляют никакой информации.
+<p>Кроме того, отчёт показывает использование <code>{@inheritDoc}</code> в недопустимых местах (например, в полях).</p>
+<p>Рекомендуется удалить ненужные комментарии Javadoc.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Example implements Comparable&lt;Example&gt; {
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int compareTo(Example o) {
+      return 0;
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Example implements Comparable&lt;Example&gt; {
+    @Override
+    public int compareTo(Example o) {
+      return 0;
+    }
+  }
+</code></pre>
+<p>
+</body>
+</html>

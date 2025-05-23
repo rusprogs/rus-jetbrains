@@ -1,0 +1,15 @@
+<html>
+<body>
+<p>Сообщение о несовместимых сигнатурах методов <code>__new__</code> и <code>__init__</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+class MyClass(object):
+    def __new__(cls, arg1):
+        return super().__new__(cls)
+    def __init__(self):
+        pass
+</code></pre>
+<p>Невозможно создать экземпляр <code>MyClass</code>, если методы <code>__new__</code> и <code>__init__</code> имеют разные аргументы.</p>
+<p>ИСР предлагает исправить это с помощью рефакторинга "Изменить сигнатуру".</p>
+</body>
+</html>

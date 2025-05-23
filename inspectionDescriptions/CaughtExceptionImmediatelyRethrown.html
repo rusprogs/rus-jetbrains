@@ -1,0 +1,14 @@
+<html>
+<body>
+Блок <code>catch</code>, который не выполняет никаких действий с исключением, а сразу же перебрасывает пойманное исключение.
+Такой блок <code>catch</code> является избыточным и не обрабатывает ошибку.
+<p><b>Пример:</b></p>
+<pre><code>
+        try {
+            new FileInputStream("");
+        } catch (FileNotFoundException e) {
+            throw e;
+        }
+</code></pre>
+</body>
+</html>

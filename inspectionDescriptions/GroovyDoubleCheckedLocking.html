@@ -1,0 +1,27 @@
+<html>
+<body>
+Сообщение о <a href="https://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html">двойной проверке блокировки</a>.
+<p>
+  Двойная проверка блокировки пытается инициализовать поле по требованию потокобезопасным способом, избегая при этом накладных расходов на синхронизацию.
+  К сожалению, она не является потокобезопасной при использовании с полями, не объявленными как <code>volatile</code>.
+  В Java 1.4 и более ранних версиях двойная проверка блокировки не работает даже с полями <code>volatile</code>.
+  Прочтите статью по ссылке выше для подробного объяснения проблемы.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo {
+      private Helper helper = null
+      Helper getHelper() {
+          if (helper == null)
+              synchronized(this) {
+                  if (helper == null) {
+                      helper = new Helper()
+                  }
+              }
+          }
+          return helper;
+      }
+  }
+</code></pre>
+</body>
+</html>

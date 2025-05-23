@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о случаях, когда выражение с концептуальным ограничением присваивается переменной, объявленной как <code>auto</code>, и предлагает добавить ограничение типа.
+<p><b>Пример:</b></p>
+<pre><code>
+  template&lt;class T&gt;
+  concept Foo = true;
+  Foo auto func() { return true; }
+  void bar() {
+      auto f = func(); //предупреждение: здесь требуется добавить ограничение 'Foo'
+  }
+</code></pre>
+</body>
+</html>

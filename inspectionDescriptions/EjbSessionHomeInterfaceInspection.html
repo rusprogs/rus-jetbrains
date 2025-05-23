@@ -1,0 +1,15 @@
+<html>
+<body>
+Обнаружены следующие нарушения спецификации EJB:
+<ul>
+  <li>Метод <code>create()</code> определен некорректно</li>
+  <li>Метод <code>finder()</code> не разрешен</li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code>
+public interface SessionHome extends javax.ejb.EJBHome {
+  Session create() throws java.rmi.RemoteException; // Ошибка: также должен выбрасывать `javax.ejb.CreateException`
+}
+</code></pre>
+</body>
+</html>

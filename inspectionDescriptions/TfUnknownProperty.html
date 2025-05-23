@@ -1,0 +1,29 @@
+<html>
+<body>
+<p>Неизвестные атрибуты в блоке отчёта</p>
+<p>Пример проблемы:</p>
+<pre><code>
+resource "awscc_appflow_flow" "aws_flow1" {
+  flow_name          = ""
+  source_flow_config = ""
+  trigger_config     = ""
+  destination_flow_config_list {}
+  tasks {}
+  test = ""
+}
+</code></pre>
+<p>
+  В этом примере атрибут <code>test</code> в блоке неизвестен.
+</p>
+<p>Пример исправления:</p>
+<pre><code>
+resource "awscc_appflow_flow" "aws_flow1" {
+  flow_name          = ""
+  source_flow_config = ""
+  trigger_config     = ""
+  destination_flow_config_list {}
+  tasks {}
+}
+</code></pre>
+</body>
+</html>

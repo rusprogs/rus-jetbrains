@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Сообщает о сравнении с <code>None</code>. Такой тип сравнения всегда должен выполняться с помощью операторов <code>is</code> или <code>is not</code>, а не операторов равенства.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+a = 2
+if a == None:
+    print("Success")
+</code></pre>
+<p>После применения быстрого исправления код станет:</p>
+<pre><code>
+a = 2
+if a is None:
+    print("Success")
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<body>
+<p>Обнаружены повторяющиеся провайдеры.</p>
+<p>Пример проблемы:</p>
+<pre><code>
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+provider "kubernetes" {
+  config_path = "~/kube/kubeconfig-0728633f-2c4a-4d2b-9eb7-bc629d5e7f37"
+}</code>
+</pre>
+<p>
+  Один из способов решения этой проблемы - добавить <b>псевдоним</b> и явно указать его при создании ресурсов в нужном провайдере.
+</p>
+<p>Пример исправления:</p>
+<pre><code>
+  provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+provider "kubernetes" {
+  config_path = "~/kube/kubeconfig-0728633f-2c4a-4d2b-9eb7-bc629d5e7f37"
+  alias = "cloud"
+}
+</code>
+</pre>
+<em>Техническая поддержка</em>: <a href="https://plugins.jetbrains.com/plugin/7808-terraform-and-hcl">Плагин Terraform и HCL</a>
+</body>
+</html>

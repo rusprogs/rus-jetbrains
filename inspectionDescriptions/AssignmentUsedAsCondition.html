@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщение об использовании оператора присваивания в качестве условия в операторах <code>if</code>, <code>while</code>, <code>for</code> или
+<code>do</code>, либо в условном выражении.
+<p>Хотя иногда это делается намеренно, такое использование может вводить в заблуждение и указывать на опечатку (например, когда вместо <code>=</code> следует использовать <code>==</code>).</p>
+<p>Быстрое исправление заменит <code>=</code> на <code>==</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void update(String str, boolean empty) {
+    // Предупреждение: 'empty' присваивается значение,
+    // а не сравнивается с str.isEmpty()
+    if (empty = str.isEmpty()) {
+      ...
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void update(String str, boolean empty) {
+    if (empty == str.isEmpty()) {
+      ...
+    }
+  }
+</code></pre>
+</body>
+</html>

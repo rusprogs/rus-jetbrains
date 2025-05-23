@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Сообщает о необязательных модификаторах <code>public</code>, поскольку классы и методы Groovy по умолчанию являются <code>public</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public class Foo{
+      public void bar(){
+      }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Foo{
+      void bar(){
+      }
+  }
+</code></pre>
+</body>
+</html>

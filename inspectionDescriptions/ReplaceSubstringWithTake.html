@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщается, что вызов <code>s.substring(0, x)</code> может быть заменен на <code>s.take(x)</code>.
+<p>Использование <code>take()</code> делает код более лаконичным.</p>
+<p>Это быстрое исправление заменит вызов <code>substring</code> на <code>take()</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(s: String) {
+      s.substring(0, 10)
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(s: String) {
+      s.take(10)
+  }
+</code></pre>
+</body>
+</html>

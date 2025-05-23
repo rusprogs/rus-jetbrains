@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Обнаружена ошибка в объявлении конечной точки WebSocket.</p>
+<p>
+  Согласно спецификации JSR 356, конечная точка WebSocket должна иметь только один метод <code>@OnMessage</code> для каждого типа сообщений: text, message и pong
+</p>
+<p>
+  Класс конечной точки с аннотацией <code>javax.websocket.server.ServerEndpoint</code> может иметь только один метод с одной из следующих аннотаций жизненного цикла:
+</p>
+<ul>
+  <li><code>@OnOpen</code></li>
+  <li><code>@OnClose</code></li>
+  <li><code>@OnError</code></li>
+</ul>
+<p>
+  Класс конечной точки, расширяющий <code>javax.websocket.Endpoint</code>, должен реализовывать соответствующие методы жизненного цикла вместо использования аннотаций.
+</p>
+</body>
+</html>

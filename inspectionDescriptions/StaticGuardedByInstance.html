@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает об аннотации <code>@GuardedBy</code> на статических полях или методах, где защитный элемент является нестатическим полем или <code>this</code>.
+<p>Защита статических элементов нестатическими элементами может привести к чрезмерной конкурентности, когда несколько потоков блокируются в контексте разных объектов для одновременного доступа к защищенному полю.</p>
+<p>Пример:</p>
+<pre><code>
+    private ReadWriteLock lock = new ReentrantReadWriteLock();
+    @GuardedBy("lock")
+    public static void bar() {
+        // ...
+    }
+</code></pre>
+<p>Поддерживаемые аннотации <code>@GuardedBy</code>:</p>
+<ul>
+  <li><code>net.jcip.annotations.GuardedBy</code></li>
+  <li><code>javax.annotation.concurrent.GuardedBy</code></li>
+  <li><code>org.apache.http.annotation.GuardedBy</code></li>
+  <li><code>com.android.annotations.concurrency.GuardedBy</code></li>
+  <li><code>androidx.annotation.GuardedBy</code></li>
+  <li><code>com.google.errorprone.annotations.concurrent.GuardedBy</code></li>
+</ul>
+</body>
+</html>

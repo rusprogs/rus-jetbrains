@@ -1,0 +1,43 @@
+<html>
+<body>
+Сообщает о классах, которые переопределяют <code>equals()</code>, но не переопределяют <code>hashCode()</code> (или наоборот).
+Также сообщает об объявлениях объектов, которые переопределяют <code>equals()</code> или <code>hashCode()</code>.
+<p>Это может привести к некорректному поведению при добавлении класса в <code>Collection</code></p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class C1 {
+      override fun equals(other: Any?) = true
+  }
+  class C2 {
+      override fun hashCode() = 0
+  }
+  object O1 {
+      override fun equals(other: Any?) = true
+  }
+  object O2 {
+      override fun hashCode() = 0
+  }
+</code></pre>
+<p>Быстрое исправление добавит переопределение метода <code>equals()</code> или <code>hashCode()</code> для классов и удалит эти методы для объектов:</p>
+<pre><code>
+   class C1 {
+       override fun equals(other: Any?) = true
+       override fun hashCode(): Int {
+           return javaClass.hashCode()
+       }
+   }
+   class C2 {
+       override fun hashCode() = 0
+       override fun equals(other: Any?): Boolean {
+           if (this === other) return true
+           if (javaClass != other?.javaClass) return false
+           return true
+       }
+   }
+   object O1 {
+   }
+   object O2 {
+   }
+</code></pre>
+</body>
+</html>

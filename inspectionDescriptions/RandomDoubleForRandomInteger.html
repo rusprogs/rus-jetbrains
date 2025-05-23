@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает о вызовах <code>java.util.Random.nextDouble()</code>, которые используются для создания положительных целых чисел путем умножения результата вызова на коэффициент и преобразования в целое число.
+<p>
+  Для генерации случайных положительных целых чисел в заданном диапазоне метод <code>java.util.Random.nextInt(int)</code> является более простым и эффективным.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  int getRandomInt() {
+    return (int) ((new Random()).nextDouble() * SIZE);
+  }
+  </code>
+</pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  int getRandomInt() {
+    return (new Random()).nextInt(SIZE);
+  }
+</code></pre>
+</body>
+</html>

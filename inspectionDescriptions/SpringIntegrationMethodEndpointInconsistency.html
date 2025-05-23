@@ -1,0 +1,29 @@
+<html>
+<body>
+Обнаружено некорректное объявление метода конечной точки <a href="https://spring.io/projects/spring-integration">Spring Integration</a>.
+<p><b>Пример:</b></p>
+<pre><code>
+class MyEndpoints {
+  @InboundChannelAdapter("channel")
+  public void <strong>cannotBeVoid</strong>() {...} // Метод с аннотацией @InboundChannelAdapter должен иметь возвращаемый тип
+  @InboundChannelAdapter("channel")
+  public String <strong>cannotHaveParams</strong>(String s) {..} // Метод с аннотацией @InboundChannelAdapter не может иметь параметров
+  @<strong>Filter</strong>(inputChannel = "channel", // Конечная точка может иметь только один поллер
+    outputChannel = "channel2",
+    poller = {@Poller(fixedDelay = "100"), @Poller(fixedRate = "100")})
+  public void testMultiplePollers() {
+  }
+  @Filter(inputChannel = "channel",
+  outputChannel = "channel2",
+  poller = @<strong>Poller</strong>(value = "poller", maxMessagesPerPoll = "100"))
+  public void testValue() {
+  }
+  @Filter(inputChannel = "channel",
+    outputChannel = "channel2",
+    poller = @<strong>Poller</strong>(trigger = "trigger", cron = "0 */10 * * * *")) // Атрибут 'trigger' несовместим с другими атрибутами
+  public void testTrigger() {
+  }
+}
+</code></pre>
+</body>
+</html>

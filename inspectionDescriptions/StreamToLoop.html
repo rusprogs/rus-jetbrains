@@ -1,0 +1,47 @@
+<html>
+<body>
+Инспекция может автоматически преобразовывать цепочки Stream API, вызовы <code>Iterable.forEach()</code> и <code>Map.forEach()</code> в классические циклы.
+Эта проверка помогает при необходимости обеспечить обратную совместимость со старыми версиями Java.
+<p><b>Пример:</b></p>
+<pre><code>
+  String joinNonEmpty(List&lt;String&gt; list) {
+    return list.stream() // поток может быть преобразован в цикл
+      .filter(s -> !s.isEmpty())
+      .map(String::trim)
+      .collect(Collectors.joining(", "));
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  String joinNonEmpty(List&lt;String&gt; list) {
+    StringJoiner joiner = new StringJoiner(", ");
+    for (String s : list) {
+      if (!s.isEmpty()) {
+        String trim = s.trim();
+        joiner.add(trim);
+      }
+    }
+    return joiner.toString();
+  }
+</code></pre>
+<p>
+  Обратите внимание, что иногда эта проверка может привести к небольшим семантическим изменениям.
+  Особое внимание следует уделить short-circuit операциям, так как для потоков не определено точное количество считываемых элементов при short-circuit.
+</p>
+<p>Настройка проверки:</p>
+<p>Используйте опцию <b>Итерировать неизвестные источники потоков через Stream.iterator()</b>, чтобы предложить преобразование потоков с неизвестным источником.
+  В этом случае итератор будет создан из потока.
+  Например, когда этот флажок установлен, будет предложено следующее преобразование:</p>
+<pre><code>
+  List&lt;ProcessHandle&gt; handles = ProcessHandle.allProcesses().collect(Collectors.toList());</code></pre>
+<p>В этом случае результат будет следующим:</p>
+<pre><code>
+  List&lt;ProcessHandle&gt; handles = new ArrayList&lt;&gt;();
+  for (Iterator&lt;ProcessHandle&gt; it = ProcessHandle.allProcesses().iterator(); it.hasNext(); ) {
+    ProcessHandle allProcess = it.next();
+    handles.add(allProcess);
+  }
+</code></pre>
+<p><small>Новое в версии 2017.1</small></p>
+</body>
+</html>

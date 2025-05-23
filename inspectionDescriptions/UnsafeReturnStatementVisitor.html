@@ -1,0 +1,8 @@
+<html>
+<body>
+Сообщает о небезопасном использовании <code>JavaRecursiveElementVisitor.visitReturnStatement()</code>.
+<p>
+  Обрабатывает <code>PsiReturnStatement</code>, даже если он принадлежит другому <code>PsiClass</code> или <code>PsiLambdaExpression</code>, что в большинстве случаев является ошибкой. Визитор, вероятно, должен реализовывать методы <code>visitClass()</code> и <code>visitLambdaExpression()</code>.
+</p>
+</body>
+</html>

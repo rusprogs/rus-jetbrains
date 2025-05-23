@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает об использовании оператора <code>unless</code> вместе с <code>else</code>. Рекомендуется размещать положительную ветвь условия первой.
+<p>Пример:</p>
+<pre>
+<code># 不良做法
+a = 1
+unless a > 2
+  puts 'a is 2 or less'
+else
+  puts 'a is greater than 2'
+end</code>
+</pre>
+Оператор <code>unless</code> можно преобразовать в <code>if</code> с помощью быстрого исправления. После применения быстрого исправления код будет выглядеть так:
+<pre>
+<code># 优良做法
+a = 1
+if a > 2
+  puts 'a is greater than 2'
+else
+  puts 'a is 2 or less'
+end</code>
+</pre>
+<p><span style="font-size: smaller;">На основе <a href="https://github.com/rubocop-hq/ruby-style-guide#no-else-with-unless">'Ruby Style Guide'</a></span></p>
+</body>
+</html>

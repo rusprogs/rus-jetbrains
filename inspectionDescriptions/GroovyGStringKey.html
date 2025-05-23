@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает об использовании объектов <code>groovy.lang.GString</code> в качестве ключей отображения.
+Обычно объекты <code>GString</code> изменяемы и не должны использоваться в качестве ключей.
+Кроме того, доступ к элементам <code>GString</code> невозможен при использовании объектов <code>java.lang.String</code> с тем же значением.
+<p><b>Пример:</b></p>
+<pre>
+<code>
+def map = [:]
+def key = 'foo'
+map &lt&lt ["${key}": 'bar']
+assert map[key] == null // неожиданный результат сравнения 'true'
+</code>
+</pre>
+<p><small>Изменения в версии 2017.1</small></p>
+</body>
+</html>

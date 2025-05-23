@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Сообщает о неправильном типе Bean в ссылках, определённых в конфигурации <code>&lt;flow&gt;</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  &lt;flow&gt;
+    ...
+    &lt;exception-handler bean="<strong>dummyBean</strong>"/&gt; &lt;!--Bean должен быть типа 'org.springframework.webflow.engine.FlowExecutionExceptionHandler' --&gt;
+    &lt;bean id="dummyBean" class="java.lang.String"/&gt;
+    ...
+  &lt;/flow&gt;</code></pre>
+</body>
+</html>

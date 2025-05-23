@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Сообщает о нераспознанных пакетах в аннотации <a href=https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html>@ComponentScan</a> и соответствующих псевдонимах мета-аннотации <code>@ComponentScan</code>.<br></p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @ComponentScan(basePackages = {
+     "com.my.company",
+     "com.unknown" // Сообщение "Не удаётся разрешить пакет 'unknown'"
+  }) +
+  @Configuration +
+  public class MyConfiguration {}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о случаях, когда аннотация <code>@RunWith</code> используется как в родительском, так и в дочернем классах в иерархии JUnit-тестов.
+Это может привести к непредсказуемому поведению тестов.
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @RunWith(Suite.class)
+  @SuiteClasses(MySuiteClass.class)
+  public abstract Parent {
+  }
+  @RunWith(Parameterized.class)
+  public MyTest {
+  }
+</code></pre>
+<p>
+  <small>Новое в версии 2024.1</small>
+</p>
+</body>
+</html>

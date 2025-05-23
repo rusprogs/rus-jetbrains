@@ -1,0 +1,12 @@
+<html>
+<body>
+Сообщает об использовании строковых литералов с национальными символами без префикса <code>N</code>.
+<p>Без префикса N строка будет преобразована в кодование базы данных по умолчанию. Это кодование по умолчанию может не распознавать некоторые символы. Для получения дополнительной информации см. страницу <a href="https://docs.microsoft.com/en-us/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql" target="_blank">"nchar и nvarchar" (Transact-SQL) на docs.microsoft.com</a>.</p>
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>SELECT 'abcde' AS a;
+SELECT N'abcde' AS b;
+SELECT 'абвгд' AS c;
+SELECT N'абвгд' AS d;</code></pre>
+<p>В выражении <code>SELECT 'абвгд' AS c;</code> отсутствует префикс <code>N</code>, поэтому часть <code>'абвгд'</code> будет подсвечена.</p>
+</body>
+</html>

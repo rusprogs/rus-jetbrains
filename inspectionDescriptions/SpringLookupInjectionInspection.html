@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Сообщает о некорректных ссылках на Bean в параметре <code>value</code> аннотации <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Lookup.html">@Lookup</a>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  @Component public class FooBean {...}
+  @Component public class OtherBean {...}
+  @Component public class MyComponent {
+  @Lookup("fooBean")
+  public FooBean fooBean() {...}
+  @Lookup("fooBean") // Сообщение "Bean должен быть типа 'OtherBean'"
+  public OtherBean otherBean() {...}
+  @Lookup("unknown") // Сообщение "Невозможно разрешить Bean 'unknown'"
+  public OtherBean fooBean() {...}
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает об использовании <code>this</code> в замыканиях для ссылки на свойства внешнего контекста. <p>Пример:</p>
+<pre><code>
+function Outer() {
+  this.outerProp = 1;
+  function inner() {
+    // Плохая практика, так как 'outerProp' класса Outer
+    // не будет обновлен должным образом
+    // при вызове 'new Outer()'
+    this.outerProp = 2;
+  }
+  inner();
+}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+Отчёт содержит таблицу с двумя столбцами с автоинкрементом. В диалектах MySQL, Microsoft SQL Server и Db2 таблица может иметь только одно поле с опцией автоинкремента, и это поле должно быть ключом.
+<p>Пример (MySQL):</p>
+<pre><code>CREATE TABLE my_table
+(
+    id INT AUTO_INCREMENT,
+    c2 INT AUTO_INCREMENT,
+);</code></pre>
+<p>Ограничение AUTO_INCREMENT для <code>c2</code> будет подсвечено, так как <code>c1</code> уже имеет это ограничение. Чтобы исправить предупреждение, вы можете установить <code>id</code> как первичный ключ и удалить AUTO_INCREMENT для <code>c2</code>.</p>
+<pre><code>CREATE TABLE my_table
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    c2 INT,
+);</code></pre>
+</body>
+</html>

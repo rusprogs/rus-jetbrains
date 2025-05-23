@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает о следующих проблемах в дескрипторах, используемых для развертывания веб-модулей на сервере:
+<ul>
+  <li>Ссылки на неинстанцируемые классы</li>
+  <li>Ссылки на классы, не расширяющие требуемые классы</li>
+  <li>Ссылки на классы с неправильной областью видимости</li>
+  <li>Пустые теги и значения атрибутов</li>
+  <li>Теги и значения атрибутов, не соответствующие требуемому формату (например, идентификаторы Java)</li>
+  <li>Теги без обязательных дочерних тегов или атрибутов</li>
+  <li>Теги, определяющие объекты с повторяющимися именами</li>
+</ul>
+<p><b>Пример:</b></p><br/>
+<pre><code>
+&lt;web-app&gt;
+  &lt;filter-mapping&gt;
+    &lt;filter-name&gt;CustomFilter&lt;/filter-name&gt; // Ошибка: должен быть определен дочерний тег servlet-name или url-pattern
+  &lt;/filter-mapping&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;CustomServletName&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/ baseUrl&lt;/url-pattern&gt; // Ошибка: URI шаблон не должен содержать пробелы
+  &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;
+</code></pre>
+</body>
+</html>

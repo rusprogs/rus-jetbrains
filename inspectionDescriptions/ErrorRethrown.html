@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о блоках <code>try</code>, которые перехватывают <code>java.lang.Error</code> или любой его подкласс без повторного выброса ошибки.
+<p>Не сообщает о блоках, перехватывающих <code>java.lang.ThreadDeath</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  try {
+    executeTests(request);
+  }
+  catch (OutOfMemoryError ex) { // Предупреждение: ошибка 'ex' не выброшена повторно
+    return false;
+  }
+</code></pre>
+</body>
+</html>

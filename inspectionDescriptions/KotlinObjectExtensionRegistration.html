@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщение о расширении, которое инстанцируется платформой IntelliJ, но объявлено как объект Kotlin.
+<p>
+  Жизненным циклом расширения управляет платформа IntelliJ.
+  Использование объекта Kotlin для регистрации расширения может привести к созданию ненужных экземпляров расширения и сделать невозможным выгрузку плагина.
+</p>
+<h2>Пример</h2>
+<p>Регистрация расширения:</p>
+<pre><code lang="xml">
+&lt;annotator language="myLang" implementationClass="com.example.MyAnnotator"/&gt;
+</code></pre>
+<p>Реализация расширения:</p>
+<pre><code lang="kotlin">
+// Неправильно:
+object MyAnnotator : Annotator {
+  ...
+}
+// Правильно:
+class MyAnnotator : Annotator {
+  ...
+}
+</code></pre>
+<p><small>Изменения в версии 2023.1</small>
+</body>
+</html>

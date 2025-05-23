@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Сообщает о проблемах с аргументами <code>property()</code> и функциями, отмеченными декоратором <code>@property</code>.</p>
+<pre><code>
+class C:
+    @property
+    def abc(self):  # Getter должен что-то возвращать или генерировать
+        pass
+    @abc.setter
+    def foo(self, value):  # Имя функции не соответствует декоратору
+        pass
+    @abc.setter
+    def abc(self, v1, v2):  # Сигнатура setter должна быть (self, value)
+        pass
+    @abc.deleter
+    def abc(self, v1):  # Сигнатура deleter должна быть (self)
+        pass
+</code></pre>
+<p>Быстрое исправление предлагает обновить параметры.</p>
+</body>
+</html>

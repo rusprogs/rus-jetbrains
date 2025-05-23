@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Сообщает о избыточной лямбда-стрелке в лямбда-выражениях без параметров.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(f: () -> Unit) = f()
+  fun bar() {
+      foo { <b>-></b> println("Hi!") }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(f: () -> Unit) = f()
+  fun bar() {
+      foo { println("Hi!") }
+  }
+</code></pre>
+</body>
+</html>

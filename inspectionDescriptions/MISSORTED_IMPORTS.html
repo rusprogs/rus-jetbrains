@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает об операторах <code>import</code>, которые не соответствуют текущему стилю кода (см. "Настройки|Редактор|Стиль кода").
+<p><b>Пример:</b></p>
+<pre><code>
+  import java.util.List;
+  import java.util.ArrayList;
+  public class Example {
+    List list = new ArrayList();
+  }
+</code></pre>
+<p>После применения быстрого исправления "Оптимизовать импорты":
+<pre><code>
+  import java.util.ArrayList;
+  import java.util.List;
+  public class Example {
+    List list = new ArrayList();
+  }
+</code></pre>
+</body>
+</html>

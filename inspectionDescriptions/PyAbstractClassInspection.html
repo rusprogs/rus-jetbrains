@@ -1,0 +1,29 @@
+<html>
+<body>
+<p>Сообщает о случаях, когда не все абстрактные свойства или методы определены в дочернем классе.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+from abc import abstractmethod, ABC
+class Figure(ABC):
+    @abstractmethod
+    def do_figure(self):
+        pass
+class Triangle(Figure):
+    def do_triangle(self):
+        pass
+</code></pre>
+<p>После применения быстрого исправления ИСР реализует абстрактный метод для класса <code>Triangle</code>:</p>
+<pre><code>
+from abc import abstractmethod, ABC
+class Figure(ABC):
+    @abstractmethod
+    def do_figure(self):
+        pass
+class Triangle(Figure):
+    def do_figure(self):
+        pass
+    def do_triangle(self):
+        pass
+</code></pre>
+</body>
+</html>

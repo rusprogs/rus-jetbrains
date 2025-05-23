@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о блоках <code>synchronized</code>, блокирующих экземпляры <code>java.util.concurrent.locks.Lock</code>.
+Такая синхронизация почти наверняка является непреднамеренной и должна быть заменена на соответствующие версии <code>.lock()</code> и <code>.unlock()</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  final ReentrantLock lock = new ReentrantLock();
+  public void foo() {
+    synchronized (lock) {}
+  }
+</code></pre>
+</body>
+</html>

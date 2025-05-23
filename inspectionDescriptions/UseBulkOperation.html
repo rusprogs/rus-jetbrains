@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщает об отдельных операциях внутри цикла, которые могут быть заменены пакетным методом.
+<p>
+  Пакетные методы не только короче, но иногда и более производительны.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>  void test(Collection&lt;Integer&gt; numbers) {
+    List&lt;Integer&gt; result = new ArrayList&lt;>();
+    for (Integer i : numbers) {
+      result.add(i);
+    }
+  }
+</code></pre>
+<p>После применения исправления:</p>
+<pre><code>
+  void test(Collection&lt;Integer&gt; numbers) {
+    List&lt;Integer&gt; result = new ArrayList&lt;>();
+    result.addAll(numbers);
+  }
+</code></pre>
+<p>
+  Даже если пакетный метод требует коллекцию, опция <b>обертывания массива с помощью Arrays.asList()</b> позволяет сообщать о массивах.
+  В этом случае быстрое исправление автоматически обернет массив в вызов <code>Arrays.asList()</code>.
+</p>
+<p><small>Новое в версии 2017.1</small></p>
+</body>
+</html>

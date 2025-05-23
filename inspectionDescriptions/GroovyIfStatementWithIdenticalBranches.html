@@ -1,0 +1,22 @@
+<html>
+<body>
+Обнаружение условных операторов <code>if</code> с идентичными ветками "then" и <code>else</code>.
+Такие конструкции почти всегда указывают на ошибку программиста.
+<p><b>Пример:</b></p>
+<pre>
+<code>
+if (condition) {
+  print "foo"
+} else {
+  print "foo"
+}
+</code>
+</pre>
+<p>После применения быстрого исправления:</p>
+<pre>
+<code>
+print "foo"
+</code>
+</pre>
+</body>
+</html>

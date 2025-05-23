@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает о вызове метода <code>getClass()</code> для экземпляра <code>java.lang.Class</code>.
+<p>Обычно это является ошибкой, так как результат всегда эквивалентен <code>Class.class</code>.
+Если это ошибка, лучше удалить вызов <code>getClass()</code> и использовать квалификатор напрямую.
+  Если такое поведение намеренное, лучше явно написать <code>Class.class</code>, чтобы избежать путаницы.</p>
+<p>Пример:</p>
+<pre><code>
+  void test(Class&lt;?&gt; clazz) {
+    String name = clazz.getClass().getName();
+  }
+</code></pre>
+<p>После применения одного из возможных быстрых исправлений:</p>
+<pre><code>
+  void test(Class&lt;?&gt; clazz) {
+    String name = clazz.getName();
+  }
+</code></pre>
+<p><small>Новое в версии 2018.2</small></p>
+</body>
+</html>

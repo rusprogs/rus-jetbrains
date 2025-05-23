@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о вызовах методов проверки на null (таких как <code>Objects.requireNonNull</code> или <code>Assert.assertNotNull</code>) для значений, которые очевидно не могут быть null (например, для только что созданных объектов). Такие проверки избыточны и могут указывать на ошибку в программовании.
+<p><b>Пример:</b></p>
+<pre><code>
+  final String greeting = Objects.requireNonNull("Hi!");
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  final String greeting = "Hi!";
+</code></pre>
+<p>Изменения в версии 2017.2</p>
+</body>
+</html>

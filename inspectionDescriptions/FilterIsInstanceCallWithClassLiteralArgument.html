@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Сообщает о вызовах функции стандартной библиотеки Kotlin <code>filterIsInstance</code> с аргументами-литералами классов. Рекомендуется использовать версию этой функции с параметром reified type для избежания синтаксиса <code>::class.java</code>.</p>
+<p>Примечание: проверка не распространяется на литералы обобщенных классов, так как синтаксис <code>Class<*, *></code> в списке аргументов типа может быть нежелательным.</p>
+<p>Пример:</p>
+<pre><code>
+  fun foo(list: List&lt;*>) {
+      list.filterIsInstance(Int::class.java)
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(list: List&lt;*>) {
+      list.filterIsInstance&lt;Int>()
+  }
+</code></pre>
+</body>
+</html>

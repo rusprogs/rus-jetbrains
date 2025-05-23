@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает о возможности замены статических методов Java <code>Collections</code> на методы стандартной библиотеки Kotlin.
+<p><b>Пример:</b></p>
+<pre><code>
+  import java.util.Collections
+  fun test() {
+      val mutableList = mutableListOf(1, 2)
+      Collections.fill(mutableList, 3)
+  }
+</code></pre>
+<p>Быстрое исправление заменит вызов статического метода Java <code>Collections</code> на соответствующий вызов метода из стандартной библиотеки Kotlin:</p>
+<pre><code>
+  import java.util.Collections
+  fun test() {
+      val mutableList = mutableListOf(1, 2)
+      mutableList.fill(3)
+  }
+</code></pre>
+</body>
+</html>

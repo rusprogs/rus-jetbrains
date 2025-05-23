@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Сообщает о преобразованиях в цепочке Reactive Streams, которые могут возвращать <code>null</code>.</p>
+<p>
+  Reactive Streams не поддерживает значения null, так как они могут привести к сбою такого кода.
+  Быстрое исправление предлагает заменить <code>map()</code> на <code>mapNotNull</code>, что позволит игнорировать исключения.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">repository.findWithTailableCursorBy()
+    .map(e -> (Person)null)
+    .doOnNext(System.out::println)
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">repository.findWithTailableCursorBy()
+    .mapNotNull(e -> (Person)null)
+    .doOnNext(System.out::println)
+</code></pre>
+<p><small>Новое в версии 2019.3</small></p>
+</body>
+</html>

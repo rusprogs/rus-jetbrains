@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает о вызовах <code>Condition.await()</code>, для которых не найдены соответствующие вызовы <code>Condition.signal()</code> или <code>Condition.signalAll()</code>.
+<p>
+  Вызов <code>Condition.await()</code> в потоке без соответствующего <code>Condition.signal()</code> может привести к блокировке потока до тех пор, пока он не будет прерван или не произойдет "спонтанное пробуждение".
+</p>
+<p>Эта проверка отслеживает только вызовы для полей текущего класса.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Queue {
+    private final Condition isEmpty = ...;
+    void add(Object elem) {
+      // ...
+      // isEmpty.signal();
+      // ...
+    }
+    void remove(Object elem) throws InterruptedException {
+      // ...
+      isEmpty.await(); // Вызов 'await()' без соответствующего вызова 'signal()'/'signalAll()'
+      // ...
+    }
+  }
+</code></pre>
+</body>
+</html>

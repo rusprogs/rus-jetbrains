@@ -1,0 +1,23 @@
+<html>
+<body>
+Аргумент вызова типа <code>Boolean</code> без явного указания имени параметра.
+<p>
+    При последовательной передаче нескольких логических литералов легко забыть порядок параметров, что может привести к ошибкам.
+    Явное указание имен параметров делает код более понятным и читаемым.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun check(checkName: Boolean, checkAddress: Boolean, checkPhone: Boolean) {}
+  fun usage() {
+      check(true, false, true) //что это значит?
+  }
+</code></pre>
+<p>Быстрое исправление добавит отсутствующие имена параметров:</p>
+<pre><code>
+  fun check(checkName: Boolean, checkAddress: Boolean, checkPhone: Boolean) {}
+  fun usage() {
+      check(checkName = true, checkAddress = false, checkPhone = true)
+  }
+</code></pre>
+</body>
+</html>

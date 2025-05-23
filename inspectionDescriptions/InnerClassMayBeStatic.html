@@ -1,0 +1,29 @@
+<html>
+<body>
+Внутренний класс может быть объявлен как <code>static</code>.
+<p><code>static</code> внутренний класс не сохраняет неявную ссылку на экземпляр внешнего класса.
+  При использовании Java 17 или более ранних версий это предотвращает распространенные утечки памяти и уменьшает объем памяти, используемой каждым экземпляром класса.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  <b>public class</b> Outer {
+    <b>class</b> Inner { // не static
+      <b>public void</b> foo() {
+        bar("x");
+      }
+      <b>private void</b> bar(String string) {}
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  <b>public class</b> Outer {
+    <b>static class</b> Inner {
+      <b>public void</b> foo() {
+        bar("x");
+      }
+      <b>private void</b> bar(String string) {}
+    }
+  }
+</code></pre>
+</body>
+</html>

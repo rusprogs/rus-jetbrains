@@ -1,0 +1,21 @@
+<html>
+<body>
+Отчёт о классах, которые могут быть клонованы.
+<p>
+  Класс может быть клонован, если он поддерживает интерфейс <code>Cloneable</code> и его метод <code>clone()</code> не определен как немедленно выбрасывающий исключение. В коде, используемом для обеспечения безопасности, клонируемые классы могут представлять опасность.
+</p>
+<p><b>Пример:</b></p>
+<code>class SecureBean implements Cloneable {}</code>
+<p>После применения быстрого исправления:</p><code>class SecureBean {}</code>
+<p>
+Когда класс расширяет существующий клонируемый класс или реализует интерфейс клонования, после применения быстрого исправления код может выглядеть следующим образом:
+<pre><code>class SecureBean extends ParentBean {
+    @Override
+    protected SecureBean clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException();
+    }
+}
+</code></pre>
+<p>
+</body>
+</html>

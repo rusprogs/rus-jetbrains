@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщать о проблемах, связанных с нестандартными расширениями EL: выражения JSF EL вне спецификации, нестандартные выражения EL и т.д.
+<p><b>Пример:</b></p><br/>
+<pre><code>
+&lt;f:view&gt;
+  &lt;h:form&gt;
+    &lt;f:loadBundle var="example"/&gt;
+    &lt;h:commandButton action="${example.size()}"/&gt; // Предупреждение: вызов метода является нестандартным расширением
+  &lt;/h:form&gt;
+&lt;/f:view&gt;
+</code></pre>
+</body>
+</html>

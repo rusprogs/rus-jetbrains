@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Сообщает о вызовах корутин без использования синтаксиса <code>await</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+async def bar():
+    pass
+async def foo():
+    bar()
+</code></pre>
+<p>После применения быстрого исправления код станет:</p>
+<pre><code>
+async def bar():
+    pass
+async def foo():
+    await bar()
+</code></pre>
+</body>
+</html>

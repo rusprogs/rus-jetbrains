@@ -1,0 +1,29 @@
+<html>
+<body>
+Сообщение о свойстве Kotlin, которое не является <code>const</code> и используется как аргумент Java-аннотации.
+<p>
+Например, свойство с аннотацией <code>@JvmField</code>, имеющее инициализатор, который может быть вычислен во время компиляции, и имеющее примитивный тип или тип <code>String</code>.
+</p>
+<p>
+Такие свойства в байт-коде Kotlin 1.1-1.2 имеют атрибут <code>ConstantValue</code>.
+Этот атрибут позволяет javac выполнять встраивание использования соответствующего поля и использовать его в аннотациях.
+Это может привести к некорректному поведению при раздельной или инкрементальной компиляции смешанного Java/Kotlin кода.
+Такое поведение может измениться в Kotlin 1.3 (атрибут <code>ConstantValue</code> больше не будет добавляться).
+</p>
+<p><b>Пример:</b></p>
+<p>Код Kotlin в файле foo.kt:</p>
+<pre><code>
+  annotation class Ann(val s: String)
+  @JvmField val importantString = "important"
+</code></pre>
+<p>Код Java:</p>
+<pre><code>
+  public class JavaUser {
+      // Это опасно
+      @Ann(s = FooKt.importantString)
+      public void foo() {}
+  }
+</code></pre>
+<p>Чтобы исправить эту проблему, замените аннотацию <code>@JvmField</code> на модификатор <code>const</code> для соответствующего свойства Kotlin или выполните встраивание значения.</p>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Сообщение о конфликтующих атрибутах в HCL-блоке.</p>
+<p>Пример проблемы:</p>
+<pre><code>
+provider "kubernetes" {
+  version = "~> 1.25"
+  config_path = "~/.kube/config"
+  version = "~> 1.24"
+}
+</code></pre>
+<p>
+  В этом примере атрибут version объявлен дважды в блоке провайдера Kubernetes. Это является ошибкой.
+</p>
+<p>Пример исправления:</p>
+<pre><code>
+provider "kubernetes" {
+  version = "~> 1.25"
+  config_path = "~/.kube/config"
+}
+</code></pre>
+<em>Техническая поддержка</em>: <a href="https://plugins.jetbrains.com/plugin/7808-terraform-and-hcl">Плагин Terraform и HCL</a>
+</body>
+</html>

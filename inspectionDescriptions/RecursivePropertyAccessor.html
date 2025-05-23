@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>
+    Сообщает о рекурсивных вызовах аксессоров свойств, которые могут завершиться с ошибкой <code>StackOverflowError</code>.
+    Такие вызовы часто путают с доступом к поддерживающему полю.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  var counter: Int = 0
+      set(value) {
+          <b>counter</b> = if (value &lt; 0) 0 else value
+      }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  var counter: Int = 0
+      set(value) {
+          <b>field</b> = if (value &lt; 0) 0 else value
+      }
+</code></pre>
+</body>
+</html>

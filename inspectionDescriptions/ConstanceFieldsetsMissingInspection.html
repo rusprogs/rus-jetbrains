@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>
+  Обнаружение отсутствующих ключей в <code>CONSTANCE_CONFIG_FIELDSETS</code> (используется для настройки констант в <a href="https://django-constance.readthedocs.io/en/latest/">Django Constance</a>).
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="Python">
+CONSTANCE_CONFIG = {
+    'SITE_NAME': ('My Title', 'Website title'),
+    'SITE_DESCRIPTION': ('', 'Website description'),
+}
+CONSTANCE_CONFIG_FIELDSETS = {
+    'General Options': ('SITE_NAME'),
+}
+</code></pre>
+</body>
+</html>

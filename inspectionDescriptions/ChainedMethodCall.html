@@ -1,0 +1,36 @@
+<html>
+<body>
+Сообщается о методе, который вызывает другой метод.
+Быстрое исправление предложит ввести локальную переменную.
+<p><b>Пример:</b></p>
+<pre><code>
+  class X {
+    int foo(File f) {
+      return f.getName().length();
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class X {
+    int foo(File f) {
+      final String name = f.getName();
+      return name.length();
+    }
+  }
+</code></pre>
+<p>Используйте параметры проверки для включения/выключения предупреждений для:</p>
+<ul>
+  <li>
+    <p>
+      Цепочки вызовов методов в инициализаторах полей, например <code>private final int i = new Random().nextInt();</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      Цепочки вызовов методов, работающих с одним и тем же типом, например <code>new StringBuilder().append("x: ").append(new X()).append("y: ").append(new Y()).toString();</code>
+    </p>
+  </li>
+</ul>
+</body>
+</html>

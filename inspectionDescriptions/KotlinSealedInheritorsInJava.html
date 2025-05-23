@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщение о попытке наследования от sealed-интерфейса или класса Kotlin в Java-коде.
+<p><b>Пример:</b></p>
+<pre><code>
+// Kotlin 文件：MathExpression.kt
+sealed class MathExpression
+data class Const(val number: Double) : MathExpression()
+data class Sum(val e1: MathExpression, val e2: MathExpression) : MathExpression()
+</code></pre>
+<pre><code>
+// Java 文件：NotANumber.java
+public class NotANumber extends MathExpression {
+}
+</code></pre>
+</body>
+</html>

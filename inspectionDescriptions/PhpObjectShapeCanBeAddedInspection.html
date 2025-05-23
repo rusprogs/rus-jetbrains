@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о публичных свойствах объектов указанного типа. Рекомендуется указывать форму возвращаемого объекта с помощью атрибута <code>#[ObjectShape]</code> или через описание формы объекта в комментариях PHPDoc.
+</body>
+<p><b>Пример:</b></p>
+<pre><code>
+  $a = new stdClass();
+  $a->name = "name";
+  $a->age = 2;
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  /** @var $a object{name: string, age: int} */
+  $a = new stdClass();
+  $a->name = "name";
+  $a->age = 2;
+</code></pre>
+</html>

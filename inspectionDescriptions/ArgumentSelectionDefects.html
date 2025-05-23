@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о несоответствиях между именами фактических и формальных параметров.
+Это помогает обнаружить ошибки программования, например когда вы случайно меняете местами аргументы одного типа.
+Оригинальная исследовательская статья доступна <a href="https://static.googleusercontent.com/media/research.google.com/ru//pubs/archive/46317.pdf">здесь</a>.
+<p><b>Пример:</b></p>
+<pre><code>
+  const User* get_User(int64_t company_id, int64_t user_id) {
+    return new User{company_id, user_id, "foo"};
+  }
+  void call_User(int64_t company_id, int64_t user_id) {
+    const User* user = get_User(user_id, company_id); // здесь потенциальная проблема
+    //...
+  }
+</code></pre>
+<p>Используйте флажок ниже для проверки аргументов, имена которых короче трех символов.</p>
+<p><small><a href="https://www.jetbrains.com/help/clion/argument-selection-defects-inspection.html">Подробнее.</a></small></p>
+</body>
+</html>

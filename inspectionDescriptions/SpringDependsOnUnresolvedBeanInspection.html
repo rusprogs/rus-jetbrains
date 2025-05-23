@@ -1,0 +1,12 @@
+<html>
+<body>
+<p>Сообщает о некорректных ссылках на Bean в параметре <code>value</code> аннотации <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/DependsOn.html">@DependsOn</a>.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @Component
+  @DependsOn("unknown")  // Сообщение "Не удаётся разрешить Bean 'unknown'"
+  public class MyComponent {
+  }
+</code></pre>
+</body>
+</html>

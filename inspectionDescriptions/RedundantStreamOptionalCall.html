@@ -1,0 +1,7 @@
+<html>
+<body>
+Обнаруживает избыточные вызовы <code>Stream</code> или <code>Optional</code> (например, <code>map(x -&gt; x)</code>, <code>filter(x -&gt; true)</code>) или избыточные вызовы <code>sorted()</code> или <code>distinct()</code>.
+<p>Обратите внимание, что операции отображения в коде, такие как <code>streamOfIntegers.map(Integer::valueOf)</code>, работают аналогично проверке <code>requireNonNull()</code>: если поток содержит <code>null</code>, будет выброшено исключение <code>NullPointerException</code>, поэтому они не являются полностью избыточными.
+  Если вы не хотите получать уведомления о таких случаях, отключите опцию <b>Сообщать об избыточной упаковке в Stream.map()</b>.</p>
+</body>
+</html>

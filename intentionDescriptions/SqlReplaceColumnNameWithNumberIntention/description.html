@@ -1,0 +1,11 @@
+<html>
+<body>
+Замена позиционных ссылок на имена столбцов.
+<p>Некоторые СУБД позволяют ссылаться на столбцы в ORDER BY и GROUP BY по их порядковым номерам. Все диалекты, кроме Cassandra, ClickHouse, Hive, Spark и HSQLDB, поддерживают ORDER BY. MySQL, Maria, PostgreSQL (и его поддиалекты), Exasol, SQLite и Snowflake поддерживают GROUP BY.</p>
+<p>Пример (PostgreSQL):</p>
+<pre><code>CREATE TABLE tab(a INT, b INT);
+SELECT * FROM tab ORDER BY 1;</code></pre>
+<p>Вы можете использовать это намерение для замены <code>1</code> в SELECT-запросе на имя столбца. После применения этого намерения запрос будет выглядеть следующим образом.</p>
+<pre><code>SELECT * FROM tab ORDER BY a;</code></pre>
+</body>
+</html>

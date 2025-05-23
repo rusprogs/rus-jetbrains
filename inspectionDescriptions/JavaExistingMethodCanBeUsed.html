@@ -1,0 +1,30 @@
+<html>
+<body>
+Сообщает о фрагментах Java-кода, которые совпадают с существующими статическими методами, и предлагает повторно использовать эти статические методы. Повторное использование существующих методов делает код короче и более читаемым.
+<p>Пример:</p>
+<pre><code lang="java">
+  static List&lt;String&gt; readFileAndTrim(Path path) throws IOException {
+    List&lt;String&gt; lines = Files.readAllLines(path);
+    return lines.stream().map(String::trim).toList();
+  }
+  static List&lt;String&gt; readFileAndTrim(String path) throws IOException {
+    Path p = Path.of(path);
+    List&lt;String&gt; lines = Files.readAllLines(p);
+    return lines.stream().map(String::trim).toList();
+  }
+</code></pre>
+Здесь второй метод очень похож на первый, и первый метод может быть повторно использован в его реализации.
+После применения быстрого исправления результат будет выглядеть следующим образом:
+<pre><code lang="java">
+  static List&lt;String&gt; readFileAndTrim(Path path) throws IOException {
+    List&lt;String&gt; lines = Files.readAllLines(path);
+    return lines.stream().map(String::trim).toList();
+  }
+  static List&lt;String&gt; readFileAndTrim(String path) throws IOException {
+    Path p = Path.of(path);
+    return readFileAndTrim(p);
+  }
+</code></pre>
+<p><small>Что нового в версии 2024.1</small></p>
+</body>
+</html>

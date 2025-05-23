@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщение о компонентах Swing, не предоставляющих контекст доступности.
+<p>
+  Эта информация используется программами чтения с экрана. Без неё пользователи с нарушениями зрения не смогут получить доступ к компоненту.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  ListCellRenderer&lt;String&gt; renderer = (list, val, index, sel, cell) -> {
+    JPanel panel = new JPanel();
+    return panel;
+  };
+</code></pre>
+<p>
+  Для исправления этой проблемы следует вызвать метод <code>setAccessibleName()</code> или переопределить метод <code>getAccessibleContext()</code> для возвращаемой панели <code>JPanel</code>.
+</p>
+<p>
+  Возвращаемый текст должен отражать назначение компонента. Например, в случае с <code>ListCellRenderer</code> это будет текст пункта меню.
+</p>
+</body>
+</html>

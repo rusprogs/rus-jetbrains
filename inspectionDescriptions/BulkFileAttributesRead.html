@@ -1,0 +1,30 @@
+<html>
+<body>
+Сообщает о последовательных проверках характеристик <code>java.io.File</code>, таких как:
+<ul>
+  <li><code>isDirectory()</code></li>
+  <li><code>isFile()</code></li>
+  <li><code>lastModified()</code></li>
+  <li><code>length()</code></li>
+</ul>
+Такие вызовы могут быть заменены пакетным вызовом <code>Files.readAttributes()</code>.
+Это обычно более производительно, чем несколько отдельных проверок характеристик.
+<p>Пример:</p>
+<pre><code>
+  boolean isNewFile(File file, long lastModified) throws IOException {
+    return file.isFile() && file.lastModified() > lastModified;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  boolean isNewFile(File file, long lastModified) throws IOException {
+    var fileAttributes = Files.readAttributes(file.toPath(), BasicFileAttributes.class);
+    return fileAttributes.isRegularFile() && fileAttributes.lastModifiedTime().toMillis() > lastModified;
+  }
+</code></pre>
+<p>Если <code>IOException</code> не обрабатывается в текущем контексте, предупреждение не будет показано, но быстрое исправление всё равно доступно.</p>
+<p>Обратите внимание, что замена обычно не полностью идентична и должна использоваться с осторожностью. В частности, поведение может отличаться, если файл вообще не существует.</p>
+<p>Эта проверка выполняется только если уровень языка проекта или модуля 7 или выше.</p>
+<p><small>Новое в 2022.1</small></p>
+</body>
+</html>

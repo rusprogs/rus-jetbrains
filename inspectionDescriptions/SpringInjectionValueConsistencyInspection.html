@@ -1,0 +1,40 @@
+<html>
+<body>
+<p>Сообщает о несогласованных тегах и атрибутах в точках внедрения в контексте XML-приложения.</p>
+<ul>
+  <li><code>&lt;property&gt;</code> и <code>&lt;constructor-arg&gt;</code> должны указывать <code>ref</code>, <code>value</code> или дочерний элемент</li>
+  <li><code>&lt;property&gt;</code> и <code>&lt;constructor-arg&gt;</code> не могут содержать несколько дочерних элементов</li>
+  <li><code>&lt;ref&gt;</code> может содержать атрибут <code>bean</code>, атрибут <code>local</code> или атрибут <code>parent</code></li>
+  <li><code>&lt;ref&gt;</code> должен указывать на Bean</li>
+  <li><code>&lt;idref&gt;</code> может содержать атрибут <code>bean</code> или атрибут <code>local</code></li>
+  <li><code>&lt;idref&gt;</code> должен указывать на Bean</li>
+  <li><code>&lt;map&gt;</code> должен указывать ключ</li>
+  <li><code>&lt;idref&gt;</code> может содержать атрибут <code>key</code>, атрибут <code>key-ref</code> или дочерний элемент <code>&lt;key&gt;</code></li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code>
+  &lt;beans&gt;
+  <em>&lt;!-- 1. Свойство может содержать только атрибут "ref" или атрибут "value" или дочерние элементы --&gt;</em>
+  &lt;bean class="MyClass"&gt;
+    &lt;property name="bean" ref="myBean" value="foo"/&gt;
+    &lt;!-- Свойство может содержать только атрибут "ref" или атрибут "value" или дочерние элементы --&gt;
+  &lt;/bean&gt;
+  <em>&lt;!-- 2. Свойство не должно содержать несколько дочерних элементов --&gt;</em>
+  &lt;bean class="MyFactory"&gt;
+    &lt;property name="bean"&gt;
+    &lt;ref&gt;bean&lt;/ref&gt; &lt;!-- Свойство не должно содержать несколько дочерних элементов --&gt;
+     &lt;value&gt;foo&lt;/value&gt; &lt;!-- Свойство не должно содержать несколько дочерних элементов --&gt;
+     &lt;/property&gt;
+  &lt;/bean&gt;
+  <em>&lt;!-- 3. Элемент отображения должен указывать ключ --&gt;</em>
+  &lt;bean class="MyBean"&gt;
+     &lt;property name="map"&gt;
+        &lt;map&gt;
+           &lt;entry value="foo"/&gt;  &lt;!-- Элемент отображения должен указывать ключ --&gt;
+        &lt;/map&gt;
+     &lt;/property&gt;
+  &lt;/bean&gt;
+  &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

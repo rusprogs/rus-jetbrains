@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщение о подозрительных вызовах <code>Collection.toArray()</code>.
+<p>Следующие типы вызовов считаются подозрительными:</p>
+<ul>
+  <li>
+    Тип массива-аргумента отличается от типа массива, к которому приводится результат.
+  </li>
+  <li>
+    Тип массива-аргумента не соответствует параметру типа в объявлении коллекции.
+  </li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code>
+void m1(List list) {
+  Number[] ns = (Number[]) list.toArray(new String[0]);
+}
+void m2(List&lt;Number&gt; list) {
+  Number[] ns = list.toArray(new String[0]);
+}
+</code></pre>
+</body>
+</html>

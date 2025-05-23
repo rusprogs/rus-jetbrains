@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о попытках удаления столбцов, которые используются в индексных таблицах. Эта проверка доступна в Microsoft SQL Server и Sybase ASE.
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE test_index
+(
+col  INT NOT NULL,
+col2 INT NOT NULL,
+col3 INT NOT NULL UNIQUE,
+col4 VARCHAR(200)
+);
+CREATE UNIQUE INDEX aaaa ON test_index (col, col2);
+ALTER TABLE test_index
+DROP COLUMN col;</code></pre>
+<p>Невозможно удалить столбец <code>col</code>, так как он используется в индексной таблице. Чтобы удалить этот столбец, сначала необходимо удалить индекс <code>aaaa</code> (например, DROP INDEX aaaa).</p>
+</body>
+</html>

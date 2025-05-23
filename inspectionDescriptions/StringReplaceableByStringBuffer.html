@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщает о переменных, объявленных как <code>java.lang.String</code>, к которым происходят повторные присоединения. Такие переменные могут быть более эффективно объявлены как <code>java.lang.StringBuffer</code> или <code>java.lang.StringBuilder</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  String s = "";
+  for (int i = 0; i &lt; names.length; i++) {
+    String name = names[i] + (i == names.length - 1 ? "" : " ");
+    s = s + name;
+  }
+</code></pre>
+<p>Такой цикл можно заменить на:</p>
+<pre><code>
+  StringBuilder s = new StringBuilder();
+  for (int i = 0; i &lt; names.length; i++) {
+    String name = names[i] + (i == names.length - 1 ? "" : " ");
+    s.append(name);
+  }
+</code></pre>
+<p>Или даже на:</p>
+<pre><code>
+  String s = String.join(" ", names);
+</code></pre>
+<p>
+  Используйте эту опцию, чтобы проверка сообщала только о переменных, к которым происходит присоединение в цикле.
+</p>
+</body>
+</html>

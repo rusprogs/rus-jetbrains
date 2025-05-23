@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о полях, объявленных без модификаторов доступа (также известных как package-private).
+<p>Не сообщает о константах (то есть полях, помеченных как <code>static</code> и <code>final</code>).</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public class A {
+    Object object;             // предупреждение
+    final static int MODE = 0; // константа, без предупреждения
+  }
+</code></pre>
+</body>
+</html>

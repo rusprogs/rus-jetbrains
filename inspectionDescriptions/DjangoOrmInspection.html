@@ -1,0 +1,12 @@
+<html>
+<body>
+<p>Сообщает о методах, которые могут быть недоступны для вызова из-за определённых ограничений ORM.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="Python">
+class Choice:
+    question = ForeignKey(Question, null=False)
+choice_set = Question.objects.get(id=1).choice_set.remove()
+</code></pre>
+<p>Если внешний ключ имеет параметр <code>null=False</code>, функция <code>remove</code> не может быть вызвана.</p>
+</body>
+</html>

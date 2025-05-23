@@ -1,0 +1,18 @@
+<html>
+<body>
+Обнаружение преобразований вне цепочки Stream API, которые могут быть объединены в нее.
+<p>Пример:</p>
+<pre><code>
+  List&lt;String&gt; list = stream.collect(Collectors.toList());
+  list.sort(null);
+  return list.toArray(new String[list.size()]);
+</code></pre>
+<p>После преобразования:</p>
+<pre><code>
+  return stream.sorted().toArray(String[]::new);
+</code></pre>
+<p>
+  Обратите внимание, что иногда преобразованная цепочка Stream может заменить явный <code>ArrayList</code> на <code>Collectors.toList()</code> или явный <code>HashSet</code> на <code>Collectors.toSet()</code>. Текущая реализация библиотеки использует эти коллекции внутренне. Однако такой подход не является надежным и может изменить семантику кода в будущем.</p>
+<p>Если вас это беспокоит, используйте опцию <b>Не рекомендуется использовать коллекторы 'toList()' или 'toSet()'</b>, чтобы получать рекомендации по использованию <code>Collectors.toCollection()</code> вместо коллекторов <code>toList</code> и <code>toSet</code>.
+</body>
+</html>

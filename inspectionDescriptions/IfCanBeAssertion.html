@@ -1,0 +1,21 @@
+<html>
+<body>
+Проверка обнаруживает операторы <code>if</code>, которые только выбрасывают <code>java.lang.Throwable</code> в ветке <code>then</code> без ветки <code>else</code>. Такие операторы можно преобразовать в более компактные операторы <code>assert</code>.
+<p>
+Проверка также распознает вызовы Guava <code>Preconditions.checkNotNull()</code>.
+  Их можно заменить вызовами <code>Objects.requireNonNull()</code>, которые не требуют дополнительной библиотеки.</p>
+<p>Пример:</p>
+<pre><code>
+  <b>if</b> (x == 2) <b>throw new</b> RuntimeException("fail");
+  <b>if</b> (y == null) <b>throw new</b> AssertionError();
+  Preconditions.checkNotNull(z, "z");
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  <b>assert</b> x != 2 : "fail";
+  Objects.requireNonNull(y);
+  Objects.requireNonNull(z, "z");
+</code></pre>
+<p>По умолчанию эта проверка предлагает быстрое исправление в редакторе без подсветки кода.</p>
+</body>
+</html>

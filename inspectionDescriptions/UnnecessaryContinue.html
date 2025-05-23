@@ -1,0 +1,33 @@
+<html>
+<body>
+Сообщает о последних достижимых операторах <code>continue</code> в цикле.
+Такие операторы <code>continue</code> являются избыточными и могут быть безопасно удалены.
+<p>Пример:</p>
+<pre><code>
+  for (String element: elements) {
+    System.out.println();
+    continue;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  for (String element: elements) {
+    System.out.println();
+  }
+</code></pre>
+<p>Эта проверка не анализует JSP файлы.</p>
+<p>
+  Используйте опцию <b>Игнорировать в ветке then оператора if с веткой else</b>, чтобы игнорировать операторы <code>continue</code>, находящиеся в ветке <code>then</code> полного оператора <code>if</code>-<code>else</code>.
+</p>
+<p>Пример:</p>
+<pre><code>
+  for (String element: elements) {
+    if(element.isEmpty()) {
+      continue;
+    } else {
+      //...
+    }
+  }
+</code></pre>
+</body>
+</html>

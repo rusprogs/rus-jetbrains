@@ -1,0 +1,18 @@
+<html>
+<body>
+Отчёт об объявлениях, помеченных <code>@ApiStatus.ScheduledForRemoval</code>, 
+которые следует удалить из текущей версии библиотеки объявлений.
+<p>Он сравнивает версию, запланованную для удаления, с версией, которую можно установить ниже.</p>
+<p>
+  Версии указываются в виде строки с разделителями-точками, опционально с суффиксами
+  <code>alpha</code>, <code>beta</code>, <code>snapshot</code> или <code>eap</code>.
+</p>
+<p>Примеры корректных версий: <code>1.0</code>, <code>2.3.1</code>, <code>2018.1</code>, <code>7.5-snapshot</code>, <code>3.0-eap</code>.
+</p>
+<p>
+  Сравнение версий интуитивно понятно, например: <code>1.0 &lt; 2.0</code>, <code>1.0-eap &lt; 1.0</code>, <code>2.3-snapshot &lt; 2.3</code> и т.д.
+  Подробную логику сравнения можно найти в реализации <a
+  href="https://github.com/JetBrains/intellij-community/blob/master/platform/util-rt/src/com/intellij/util/text/VersionComparatorUtil.java">VersionComparatorUtil</a>.
+</p>
+</body>
+</html>

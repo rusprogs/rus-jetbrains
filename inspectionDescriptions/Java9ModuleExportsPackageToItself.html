@@ -1,0 +1,17 @@
+<html>
+<body>
+Экспорты направлены в тот же модуль Java 9 или в пакеты, открытые в этом модуле.
+Быстрое исправление удалит такие директивы из <code>module-info.java</code>.
+<p>Пример:</p>
+<pre><code>
+  module com.mycomp {
+    exports com.mycomp.main to com.mycomp;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  module main {
+  }
+</code></pre>
+</body>
+</html>

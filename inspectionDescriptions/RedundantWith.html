@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о избыточных вызовах функции <code>with</code>, которые не обращаются к содержимому приёмника.
+<p><b>Пример:</b></p>
+<pre><code>
+  class MyClass {
+      fun f(): String = ""
+  }
+  fun testRedundant() {
+      with(c) { // &lt;== 'with' избыточен, так как 'c' не используется
+          println("1")
+      }
+  }
+  fun testOk() {
+      val c = MyClass()
+      with(c) { // &lt;== Корректно, так как 'f()' является допустимым 'c.f()'
+          println(f())
+      }
+  }
+</code></pre>
+</body>
+</html>

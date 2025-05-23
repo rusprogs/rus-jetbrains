@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о избыточном литерале <code>true</code> в условии цикла <code>for</code>.
+<p>В Go цикл <code>for</code> имеет форму с неявным условием.
+  Это означает, что вы можете создать бесконечный цикл, написав <code>for { }</code>.
+  Поэтому в случае с условием <code>true</code> (<code>for true { }</code>), <code>true</code> считается избыточным и может быть опущено.</p>
+<p>Подробную информацию о циклах <code>for</code> в Go смотрите в разделе <a href="https://go.dev/doc/effective_go#for">For на go.dev</a>.
+</p>
+<p>Пример:</p>
+<pre><code>for true {
+  println("ping")
+}</code></pre>
+</body>
+</html>

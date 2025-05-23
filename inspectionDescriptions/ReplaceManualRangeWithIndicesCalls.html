@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщение предлагает заменить на <code>Collection.indices</code> или операторы <code>until</code> и <code>rangeTo</code> при итерации по коллекции в цикле <code>for</code>.
+<p>Использование синтаксического сахара может сделать код проще.</p>
+<p>Это быстрое исправление заменит ручное определение диапазона на соответствующую конструкцию.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun main(args: Array&lt;String&gt;) {
+      for (index in 0..args.size - 1) {
+          println(args[index])
+      }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun main(args: Array&lt;String&gt;) {
+      for (element in args) {
+          println(element)
+      }
+  }
+</code></pre>
+</body>
+</html>

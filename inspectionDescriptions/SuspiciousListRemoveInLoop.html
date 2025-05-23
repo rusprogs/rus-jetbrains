@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщение о вызове <code>list.remove(index)</code> в цикле с возрастающим счетчиком.
+<p>
+  Это подозрительно, так как после удаления список становится короче и следующий элемент пропускается. Простое решение — уменьшить индексную переменную после удаления, но более надежным подходом будет использование итератора или метода <code>removeIf()</code> (Java 8 и выше).
+  Если вы не хотите, чтобы <code>remove()</code> вызывался в цикле несколько раз, можно добавить после него <code>break</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>  public static void main(String[] args) {
+    process(new ArrayList&lt;>(
+      Arrays.asList("1", "2", "|", "3", "4")));
+  }
+  static void process(List&lt;String&gt; list) {
+    for (int i = 0; i &lt; list.size(); i++) {
+      if (list.get(i).equals("|")) {
+        list.remove(i);
+        continue;
+      }
+      System.out.println(list.get(i));
+    }
+  }
+</code></pre>
+<p>Код выглядит так, будто должен напечатать <code>1 2 3 4</code>, но на самом деле <code>3</code> будет пропущено в выводе.</p>
+<p><small>Изменения в версии 2018.2</small></p>
+</body>
+</html>

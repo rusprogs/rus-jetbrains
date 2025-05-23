@@ -1,0 +1,30 @@
+<html>
+<body>
+Сообщать о любых цепочках операторов <code>if</code>-<code>else</code>, где все условия являются выражениями <code>instanceof</code> или сравнениями с классами (например, с <code>String.class</code>).
+Такие структуры обычно указывают на неудачный объектно-ориентированный дизайн, где подобная диспетчеризация на основе типов должна выполняться через полиморфные вызовы методов, а не через явные цепочки проверок типов.
+<p>Пример:</p>
+<pre><code>
+  double getArea(Shape shape) {
+    // Предупреждение: неудачная абстракция.
+    // Лучше объявить абстрактный метод getArea()
+    // в интерфейсе shape
+    // и реализовать его в каждом наследнике.
+    if (shape instanceof Point) {
+      return 0;
+    }
+    if (shape instanceof Circle) {
+      return Math.PI *
+        Math.pow(((Circle) shape).radius(), 2);
+    }
+    if (shape instanceof Rectangle) {
+      return ((Rectangle) shape).width() *
+        ((Rectangle) shape).height();
+    }
+    throw new IllegalArgumentException();
+  }
+</code></pre>
+<p>
+  Используйте флажок ниже, чтобы игнорировать выражения <code>instanceof</code> в библиотечных классах.
+<p>
+</body>
+</html>

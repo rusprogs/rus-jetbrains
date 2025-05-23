@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о текстовых блоках, которые могут быть заменены обычными строковыми литералами.
+Эта проверка помогает при необходимости обеспечить обратную совместимость со старыми версиями Java.
+<p><b>Пример:</b></p>
+<pre><code>
+  Object obj = engine.eval("""
+                           function hello() {
+                             print('"Hello, world"');
+                           }
+                           hello();
+                           """);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  Object obj = engine.eval("function hello() {\n" +
+                           "  print('\"Hello, world\"');\n" +
+                           "}\n" +
+                           "\n" +
+                           "hello();\n");
+</code></pre>
+<p><small>Новое в версии 2019.3</small></p>
+</body>
+</html>

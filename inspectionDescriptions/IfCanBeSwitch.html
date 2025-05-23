@@ -1,0 +1,40 @@
+<html>
+<body>
+Сообщает об операторах <code>if</code>, которые могут быть заменены на оператор <code>switch</code>.
+<p>Результат замены обычно короче и понятнее.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void test(String str) {
+    if (str.equals("1")) {
+      System.out.println(1);
+    } else if (str.equals("2")) {
+      System.out.println(2);
+    } else if (str.equals("3")) {
+      System.out.println(3);
+    } else {
+      System.out.println(4);
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void test(String str) {
+    switch (str) {
+      case "1" -&gt; System.out.println(1);
+      case "2" -&gt; System.out.println(2);
+      case "3" -&gt; System.out.println(3);
+      default -&gt; System.out.println(4);
+    }
+  }
+  </code></pre>
+<p>Эта проверка выполняется только если уровень языка проекта или модуля 7 или выше.</p>
+<p>Используйте поле <b>Минимальное количество веток условия 'if'</b> для указания минимального количества условных веток <code>if</code>, при котором будет выполняться проверка оператора <code>if</code>. Обратите внимание, что завершающая ветка <code>else</code> (без <code>if</code>) не учитывается.</p>
+<p>
+Используйте опцию <b>Включить предложения switch для чисел</b>, чтобы включить предложения об использовании оператора <code>switch</code> для примитивных и упакованных числовых типов и символов.
+<p>
+Используйте опцию <b>Включить предложения switch для перечислений</b>, чтобы включить предложения об использовании оператора <code>switch</code> для констант <code>enum</code>.
+<p>
+  Используйте опцию <b>Включить предложения только для null-safe выражений</b>, чтобы предлагать только те операторы <code>switch</code>, которые не могут вызвать <code>NullPointerException</code>.
+</p>
+</body>
+</html>

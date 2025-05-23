@@ -1,0 +1,31 @@
+<html>
+<body>
+Сообщает об избыточных квалификаторах (или их частях) для имен классов, функций и свойств.
+<p>
+    Полностью квалифицированное имя — это явный идентификатор, указывающий на объект, функцию или свойство, к которому происходит обращение.
+    В контекстах, где имя может быть сокращено, проверка уведомляет о возможностях, а связанное быстрое исправление "Удалить избыточный квалификатор" может модифицировать код.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  package my.simple.name
+  import kotlin.Int.Companion.MAX_VALUE
+  class Foo
+  fun main() {
+      val a = my.simple.name.Foo()    // 'Foo' находится в объявленном пакете 'my.simple.name', квалификатор избыточен
+      val b = kotlin.Int.MAX_VALUE    // Можно заменить на 'MAX_VALUE', так как он уже импортован
+      val c = kotlin.Double.MAX_VALUE // Можно заменить на 'Double.MAX_VALUE', так как встроенные типы импортуются автоматически
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  package my.simple.name
+  import kotlin.Int.Companion.MAX_VALUE
+  class Foo
+  fun main() {
+      val a = Foo()
+      val b = MAX_VALUE
+      val c = Double.MAX_VALUE
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Сообщает о избыточных метках возврата вне лямбда-выражений.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun test() {
+      return@test
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun test() {
+      return
+  }
+</code></pre>
+</body>
+</html>

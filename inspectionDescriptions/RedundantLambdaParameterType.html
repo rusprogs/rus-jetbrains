@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о избыточных типах параметров лямбда-выражения, которые можно вывести из контекста.
+<p><b>Пример:</b></p>
+<pre><code>
+  Map&lt;String, Integer&gt; map = ...
+  map.forEach((String s, Integer i) -> log.info(s + "=" + i));
+</code></pre>
+<p>Быстрое исправление удалит эти типы параметров из лямбда-выражения.</p>
+<pre><code>
+  Map&lt;String, Integer&gt; map = ...
+  map.forEach((s, i) -> log.info(s + "=" + i));
+</code></pre>
+</body>
+</html>

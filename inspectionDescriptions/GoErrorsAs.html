@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о вызове функции <code>errors.As</code>, когда второй аргумент не является указателем на интерфейс или тип, реализующий error.
+<p>Такие вызовы приводят к панике во время выполнения.</p>
+<p>Подробную информацию о функции <code>As</code> смотрите в <a href="https://pkg.go.dev/errors#As">func As на go.dev</a>.</p>
+<p>Пример:</p>
+<pre><code>_, err := os.Open("non-existing")
+var pathError *fs.PathError
+if errors.As(err, pathError) { // требуется указатель на *fs.PathError
+}</code></pre>
+<p>После применения быстрого исправления <b>добавить '&amp;'</b>:</p>
+<pre><code>_, err := os.Open("non-existing")
+var pathError *fs.PathError
+if errors.As(err, &pathError) {
+}</code></pre>
+<p>Эта проверка выполняется только для версий языка 1.13 и выше.</p>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<html>
+<body>
+Сообщает о случаях использования зарезервированных ключевых слов SQL в качестве имен идентификаторов в запросах.
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE select (identity INT ИСРNTITY NOT NULL, order INT NOT NULL);</code></pre>
+<p>Мы используем <code>select</code>, <code>identity</code> и <code>order</code> в качестве имен таблицы и столбцов.
+  Однако они являются зарезервированными ключевыми словами в Microsoft SQL Server.
+  Поэтому для их использования в качестве имен объектов в запросе необходимо заключить эти идентификаторы в кавычки. Чтобы заключить их в кавычки, вы можете использовать быстрое исправление <b>Заключить идентификатор в кавычки</b>.</p>
+<p>После применения быстрого исправления:</p>
+<pre><code>CREATE TABLE [select] ([identity] INT ИСРNTITY NOT NULL, [order] INT NOT NULL);</code></pre>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Начиная с Kotlin 1.4, сообщается о бессмысленных целях аннотаций в суперклассах.</p>
+<p>Цели аннотаций, такие как <code>@get:</code>, не имеют смысла в суперклассах и запрещены.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  interface Foo
+  annotation class Ann
+  class E : @field:Ann @get:Ann @set:Ann @setparam:Ann Foo
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  interface Foo
+  annotation class Ann
+  class E : Foo
+</code></pre>
+<p>Эта проверка выполняется только если уровень языка Kotlin в проекте или модуле 1.4 или выше.</p>
+</body>
+</html>

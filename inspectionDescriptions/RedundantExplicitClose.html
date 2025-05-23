@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о ненужных вызовах <code>close()</code> в конце блока try-with-resources и предлагает их удалить.
+<p><b>Пример</b>:</p>
+<pre><code>
+  try(MyAutoCloseable ac = new MyAutoCloseable()) {
+    foo();
+    ac.close();
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  try(MyAutoCloseable ac = new MyAutoCloseable()) {
+    foo();
+  }
+</code></pre>
+<p><small>Новое в версии 2018.1</small></p>
+</body>
+</html>

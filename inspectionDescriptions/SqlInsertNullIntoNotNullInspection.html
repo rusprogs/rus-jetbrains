@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о попытках вставки значений NULL в столбцы, которые принимают только значения NOT NULL.
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE br2 (
+id INT NOT NULL,
+col1 NVARCHAR (20) NOT NULL,
+col2 NVARCHAR (20) NOT NULL,
+);
+--
+INSERT INTO br2 (id, col1, col2)
+VALUES (1, NULL, NULL);</code></pre>
+<p>Вы не можете вставить значения NULL в столбцы <code>col1</code> и <code>col2</code>, так как они определены как NOT NULL. При выполнении скрипта в текущем виде вы получите сообщение об ошибке. Чтобы исправить этот код, замените NULL в части VALUES на конкретные значения (например, <code>42</code> и <code>'bird'</code>).</p>
+<pre>INSERT INTO br2 (id, col1, col2)
+VALUES (1, 42, 'bird');</pre>
+</body>
+</html>

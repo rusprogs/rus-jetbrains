@@ -1,0 +1,23 @@
+<html>
+<body>
+Вызов <code>String.format</code> может быть заменен строковым шаблоном.
+<p>Использование строковых шаблонов делает код более читаемым.</p>
+<p>Это быстрое исправление заменит вызов на строковый шаблон.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun main() {
+      val id = &quot;abc&quot;
+      val date = &quot;123&quot;
+      val s = String.format(&quot;%s_%s_%s&quot;, id, date, id)
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun main() {
+      val id = &quot;abc&quot;
+      val date = &quot;123&quot;
+      val s = &quot;${id}_${date}_$id&quot;
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о конфликтах между свойствами-расширениями и синтетическими свойствами, автоматически сгенерированными из методов Java <code>get</code> или <code>set</code>.
+<p>Такие свойства следует удалить или переименовать, чтобы избежать поломки кода при будущих изменениях в компиляторе.</p>
+<p>Быстрое исправление удалит свойство-расширение.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  val File.name: String
+      get() = getName()
+</code></pre>
+<p>Быстрое исправление добавит аннотацию <code>@Deprecated</code>:</p>
+<pre><code>
+  @Deprecated("Is replaced with automatic synthetic extension", ReplaceWith("name"), level = DeprecationLevel.HIDDEN)
+  val File.name: String
+      get() = getName()
+</code></pre>
+</body>
+</html>

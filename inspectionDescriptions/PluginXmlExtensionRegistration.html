@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает о проблемах регистрации расширений в <code>plugin.xml</code>.
+<p>
+  Будут отображены следующие проблемы:
+<ul>
+  <li>Отсутствует объявление <code>language</code>.
+    Если расширение не предназначено для конкретного языка, используйте быстрое исправление для создания явного объявления "для любого языка".
+  </li>
+  <li>Проверки: отсутствующие функции</li>
+  <li>Сервисы: избыточное объявление <code>serviceInterface</code></li>
+  <li><code>com.intellij.stubElementTypeHolder</code> без <code>externalIdPrefix</code>, см. <a
+    href='https://plugins.jetbrains.com/docs/intellij/stub-indexes.html?from=?from=DevkitPluginXmlInspectionDescription'>индексы заглушек</a>
+  </li>
+  <li><code>com.intellij.statusBarWidgetFactory</code> без <code>id</code></li>
+  <li><code>com.intellij.applicationConfigurable|projectConfigurable</code> без <code>displayName</code>/<code>key</code></li>
+</ul>
+</p>
+<p><small>Изменения в версии 2022.3</small>
+</body>
+</html>

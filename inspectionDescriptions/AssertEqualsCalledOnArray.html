@@ -1,0 +1,26 @@
+<html>
+<body>
+Обнаружен вызов JUnit метода <code>assertEquals()</code> с аргументами массива.
+Такой метод сравнивает ссылки на массивы, а не их содержимое.
+Следует использовать метод <code>assertArrayEquals()</code> для проверки содержимого массивов.
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @Test
+  public void testSort() {
+    int[] actual = {248, 496, 0, 56};
+    Arrays.sort(actual);
+    Assert.assertEquals(new int[] {0, 56, 248, 496}, actual);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  @Test
+  public void testSort() {
+    int[] actual = {248, 496, 0, 56};
+    Arrays.sort(actual);
+    Assert.assertArrayEquals(new int[] {0, 56, 248, 496}, actual);
+  }
+</code></pre>
+<p>
+</body>
+</html>

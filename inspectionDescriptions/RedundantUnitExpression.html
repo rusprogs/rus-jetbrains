@@ -1,0 +1,32 @@
+<html>
+<body>
+Обнаружение избыточных выражений <code>Unit</code>.
+<p>
+    В Kotlin <code>Unit</code> может использоваться как возвращаемый тип для функций, которые не возвращают значимого результата.
+    Тип <code>Unit</code> может иметь только одно возможное значение — объект <code>Unit</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun redundantA(): Unit {
+      return Unit // Избыточно, 'Unit' возвращается по умолчанию и соответствует ожидаемому возвращаемому типу
+  }
+  fun requiredA(condition: Boolean): Any {
+      if (condition) return "hello"
+      return Unit // Явное указание 'Unit' необходимо, так как ожидаемый тип — 'Any'
+  }
+  fun redundantB(condition: Boolean): Any = if (condition) {
+      fun ancillary(): Int = 1
+      println("${ancillary()}")
+      Unit // Избыточно, так как предыдущее выражение уже имеет тип 'Unit'
+  } else {
+      println("else")
+  }
+  fun requiredB(condition: Boolean): Any = if (condition) {
+      1024
+      Unit // Необходимо, иначе '1024' (Int) будет возвращаемым значением
+  } else {
+      println("else")
+  }
+</code></pre>
+</body>
+</html>

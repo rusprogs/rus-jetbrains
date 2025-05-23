@@ -1,0 +1,12 @@
+<html><body>
+Сообщает о строковых параметрах метода и возвращаемых значениях с аннотацией <code>@Nls</code>, преобразуя параметры в заглавные буквы в соответствии с правилами написания заголовков, принятыми в большинстве руководств по UI платформ.
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  void setTitle(@NlsContexts.DialogTitle String title) {}
+  setTitle("This is sentence capitalization but should be title"); 
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  setTitle("This Is Sentence Capitalization but Should Be Title"); 
+</code></pre>
+</body></html>

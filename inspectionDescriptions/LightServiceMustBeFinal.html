@@ -1,0 +1,34 @@
+<html>
+<body>
+Сообщает о классах с аннотацией <code>@com.intellij.openapi.components.Service</code>, которые не являются final.
+<p>
+  Рекомендуется объявлять конкретные классы как final.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="kotlin">
+  // MyService.kt
+  @Service(Service.Level.APP)
+  open class MyService
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="kotlin">
+  // MyService.kt
+  @Service(Service.Level.APP)
+  class MyService
+</code></pre>
+<p>
+  Для абстрактных классов или интерфейсов рекомендуется удалить аннотацию <code>@Service</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  // MyService.java
+  @Service(Service.Level.APP)
+  abstract class MyService {}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  // MyService.java
+  abstract class MyService {}
+</code></pre>
+<p><small>Изменения в версии 2023.2</small>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о следующих нарушениях спецификации EJB:
+<ul>
+  <li>Интерфейс EJB не расширяет правильный интерфейс EJB</li>
+  <li>Интерфейс EJB не является public или не является final</li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code>
+public interface EntityRemote extends Runnable {} // Ошибка: класс должен расширять `javax.ejb.EJBObject`
+</code></pre>
+</body>
+</html>

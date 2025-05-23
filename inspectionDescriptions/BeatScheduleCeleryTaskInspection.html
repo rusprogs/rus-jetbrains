@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>
+  Сообщение о незарегистрированных задачах в <a href="https://docs.celeryproject.org/en/stable/userguide/periodic-tasks.html#beat-schedule">таблице планования Celery Beat</a>
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="Python">
+  #settings.py
+  CELERY_BEAT_SCHEDULE = {
+      'task_name': {
+          'task': 'example_app.tasks.task_name', # path to a task represented by a class or function
+          'schedule': 3.0,
+      },
+  }
+  #example_app/tasks.py
+  @app.task()
+  def taskName():
+      pass
+  class TaskName(Task):
+      pass
+</code></pre>
+<p>Задача не будет считаться зарегистрированной, если класс задачи не наследуется от Task или если функция задачи не имеет необходимого декоратора</p>
+</body>
+</html>

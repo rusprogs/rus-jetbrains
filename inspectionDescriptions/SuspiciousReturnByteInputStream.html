@@ -1,0 +1,44 @@
+<html>
+<body>
+Сообщает о выражении типа <code>byte</code>, возвращаемом из метода, реализующего метод <code>InputStream.read()</code>.
+<p>
+  Это подозрительно, так как <code>InputStream.read()</code> должен возвращать значения в диапазоне от <code>0</code> до <code>255</code>, в то время как выражение типа byte содержит значения от <code>-128</code> до <code>127</code>.
+  Быстрое исправление преобразует выражение в беззнаковый <code>byte</code> путем применения битовой маски <code>0xFF</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+class MyInputStream extends InputStream {
+  int pos = 0;
+  byte[] data;
+  MyInputStream(byte[] input) {
+    data = input;
+  }
+  @Override
+  public int read() {
+    if (pos == data.length) {
+      return -1;
+    }
+    return data[pos++]; // Проблема
+  }
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+class MyInputStream extends InputStream {
+  int pos = 0;
+  byte[] data;
+  MyInputStream(byte[] input) {
+    data = input;
+  }
+  @Override
+  public int read() {
+    if (pos == data.length) {
+      return -1;
+    }
+    return data[pos++] & 0xFF;
+  }
+}
+</code></pre>
+<p><small>Что нового в 2023.2</small></p>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает об использовании модификатора видимости <code>protected</code> внутри <code>final</code> класса.
+В этом случае <code>protected</code> члены доступны только внутри самого класса, что фактически делает их <code>private</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  class FinalClass {
+      <b>protected</b> fun foo() {}
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class FinalClass {
+      <b>private</b> fun foo() {}
+  }
+</code></pre>
+</body>
+</html>

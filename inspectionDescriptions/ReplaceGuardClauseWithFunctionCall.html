@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о критических условиях, которые могут быть заменены вызовом функции.
+<p><b>Пример:</b></p>
+<pre><code>  fun test(foo: Int?) {
+      if (foo == null) throw IllegalArgumentException("foo") // заменяемое условие
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>  fun test(foo: Int?) {
+      checkNotNull(foo)
+  }
+</code></pre>
+</body>
+</html>

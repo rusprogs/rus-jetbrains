@@ -1,0 +1,21 @@
+<html>
+<body>
+Рекомендуется заменить проверку <code>size == 0</code> для <code>Collections/Array/String</code> на использование метода <code>isEmpty()</code>.
+<p>Использование <code>isEmpty()</code> делает код более лаконичным.</p>
+<p>Это быстрое исправление заменит проверку размера на вызов <code>isEmpty()</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo() {
+      val arrayOf = arrayOf(1, 2, 3)
+      arrayOf.size == 0
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo() {
+      val arrayOf = arrayOf(1, 2, 3)
+      arrayOf.isEmpty()
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о классах <code>Serializable</code>, в которых поле <code>serialVersionUID</code> не объявлено как <code>private static final long</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  class SampleClass implements Serializable {
+    private long serialVersionUID = 1; // Поле класса Serializable не объявлено как 'private static final long'
+    public SampleClass() {
+        System.out.println(serialVersionUID);
+    }
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает об использовании тега <code>&lt;code&gt;</code> в комментариях Javadoc.
+Начиная с Java 5, эти теги могут быть заменены конструкцией <code>{@code ...}</code>.
+Это позволяет использовать угловые скобки <code>&lt;</code> и <code>&gt;</code> в комментариях вместо HTML-сущностей.
+<p><b>Пример:</b></p>
+<pre><code>
+  /**
+   * @return empty &lt;code&gt;ArrayList&amp;lt;Integer&amp;gt;&lt;/code&gt;
+   */
+  List&lt;Integer&gt; getList(){ ... }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  /**
+   * @return empty {@code ArrayList&lt;Integer&gt;}
+   */
+  List&lt;Integer&gt; getList(){ ... }
+</code></pre>
+</body>
+</html>

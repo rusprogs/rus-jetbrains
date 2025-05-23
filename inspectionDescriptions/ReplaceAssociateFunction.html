@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщает о вызовах <code>associate()</code> и <code>associateTo()</code>, которые могут быть заменены на <code>associateBy()</code> или <code>associateWith()</code>.
+<p>
+    Обе функции принимают функцию-преобразователь, которая применяется к элементам заданной последовательности или коллекции (выступающей в качестве приемника).
+    Затем эта функция пар используется для построения результирующего <code>Map</code>.
+</p>
+<p>
+    Учитывая, что преобразователь ссылается на <code>it</code>, вызовы <code>associate[To]()</code> могут быть заменены на более производительные <code>associateBy()</code> или <code>associateWith()</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>  fun getKey(i: Int) = 1L
+  fun getValue(i: Int) = 1L
+  fun test() {
+      arrayOf(1).associate { getKey(it) to it }  // Заменяемый 'associate()'
+      listOf(1).associate { it to getValue(it) } // Заменяемый 'associate()'
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>  fun getKey(i: Int) = 1L
+  fun getValue(i: Int) = 1L
+  fun test() {
+      arrayOf(1).associateBy { getKey(it) }
+      listOf(1).associateWith { getValue(it) }
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Сообщает о неправильном типе внедрения пользовательских бинов схемы, определённых в контексте XML-приложения.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  public class SimpleBean{}
+</code></pre>
+<pre><code lang="xml">
+  &lt;beans ...>
+    &lt;bean class="SimpleBean" id="simpleBean"/&gt;
+       &lt;mvc:annotation-driven
+         conversion-service="simpleBean"      &lt;!-- reports "Bean must be of 'org.springframework.core.convert.ConversionService' type" --&gt;
+         message-codes-resolver="simpleBean"  &lt;!-- Сообщает "Бин должен быть типа 'org.springframework.validation.MessageCodesResolver'" --&gt;
+         validator="simpleBean"               &lt;!-- Сообщает "Бин должен быть типа 'org.springframework.validation.Validator'" --&gt;
+    /&gt;
+  &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о избыточном использовании <code>\d</code> или <code>[:digit:]</code> в том же классе, где используется <code>\w</code> или <code>[:word:]</code> (с <code>\W</code> для <code>\D</code>), которое может быть удалено.
+<p><b>Пример:</b></p>
+<pre><code>
+  [\w\d]
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  [\w]
+</code></pre>
+<p><small>Новое в версии 2022.2</small>
+</body>
+</html>

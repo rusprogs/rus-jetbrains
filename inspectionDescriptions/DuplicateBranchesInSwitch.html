@@ -1,0 +1,30 @@
+<html>
+<body>
+Сообщает об операторах или выражениях <code>switch</code>, содержащих одинаковый код в разных ветках, и предлагает объединить повторяющиеся ветки.
+<p>Пример:</p>
+<pre><code>
+  <b>switch</b> (n) {
+    <b>case</b> 1:
+      System.out.println(n);
+      <b>break</b>;
+    <b>case</b> 2:
+      System.out.println(n);
+      <b>break</b>;
+    <b>default</b>:
+      System.out.println("default");
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  <b>switch</b> (n) {
+    <b>case</b> 1:
+    <b>case</b> 2:
+      System.out.println(n);
+      <b>break</b>;
+    <b>default</b>:
+      System.out.println("default");
+  }
+</code></pre>
+<p><small>Новое в версии 2019.1</small></p>
+</body>
+</html>

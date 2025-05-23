@@ -1,0 +1,38 @@
+<html>
+<body>
+Сообщает о цепочках вызовов API потоков, которые можно упростить.
+Упрощение обычно позволяет избежать создания временных объектов при обходе коллекций.
+<p>
+  Проверка заменит следующие цепочки вызовов:
+</p>
+<ul>
+  <li><code>collection.stream().forEach()</code> &rarr; <code>collection.forEach()</code></li>
+  <li><code>collection.stream().collect(toList/toSet/toCollection())</code> &rarr; <code>new CollectionType&lt;&gt;(collection)</code></li>
+  <li><code>collection.stream().toArray()</code> &rarr; <code>collection.toArray()</code></li>
+  <li><code>Arrays.asList().stream()</code> &rarr; <code>Arrays.stream()</code> or <code>Stream.of()</code></li>
+  <li><code>IntStream.range(0, array.length).mapToObj(idx -> array[idx])</code> &rarr; <code>Arrays.stream(array)</code></li>
+  <li><code>IntStream.range(0, list.size()).mapToObj(idx -> list.get(idx))</code> &rarr; <code>list.stream()</code></li>
+  <li><code>Collections.singleton().stream()</code> &rarr; <code>Stream.of()</code></li>
+  <li><code>Collections.emptyList().stream()</code> &rarr; <code>Stream.empty()</code></li>
+  <li><code>stream.filter().findFirst().isPresent()</code> &rarr; <code>stream.anyMatch()</code></li>
+  <li><code>stream.collect(counting())</code> &rarr; <code>stream.count()</code></li>
+  <li><code>stream.collect(maxBy())</code> &rarr; <code>stream.max()</code></li>
+  <li><code>stream.collect(mapping())</code> &rarr; <code>stream.map().collect()</code></li>
+  <li><code>stream.collect(reducing())</code> &rarr; <code>stream.reduce()</code></li>
+  <li><code>stream.collect(summingInt())</code> &rarr; <code>stream.mapToInt().sum()</code></li>
+  <li><code>stream.mapToObj(x -> x)</code> &rarr; <code>stream.boxed()</code></li>
+  <li><code>stream.map(x -> {...; return x;})</code> &rarr; <code>stream.peek(x -> ...)</code></li>
+  <li><code>!stream.anyMatch()</code> &rarr; <code>stream.noneMatch()</code></li>
+  <li><code>!stream.anyMatch(x -> !(...))</code> &rarr; <code>stream.allMatch()</code></li>
+  <li><code>stream.map().anyMatch(Boolean::booleanValue)</code> &rarr; <code>stream.anyMatch()</code></li>
+  <li><code>IntStream.range(expr1, expr2).mapToObj(x -> array[x])</code> &rarr; <code>Arrays.stream(array, expr1, expr2)</code></li>
+  <li><code>Collection.nCopies(count, ...)</code> &rarr; <code>Stream.generate().limit(count)</code></li>
+  <li><code>stream.sorted(comparator).findFirst()</code> &rarr; <code>Stream.min(comparator)</code></li>
+  <li><code>optional.orElseGet(() -> { throw new ...; })</code> &rarr; <code>optional.orElseThrow()</code></li>
+</ul>
+<p>
+  Обратите внимание, что в некоторых случаях семантика замен может немного отличаться. Например, <code>Collections.synchronizedList(...).stream().forEach()</code> не синхронизован, в то время как <code>Collections.synchronizedList(...).forEach()</code> синхронизован.
+  Кроме того, если полученный элемент равен <code>null</code>, то <code>collect(Collectors.maxBy())</code> вернет пустой <code>Optional</code>, тогда как <code>Stream.max()</code> в этом случае выбросит <code>NullPointerException</code>.
+</p>
+</body>
+</html>

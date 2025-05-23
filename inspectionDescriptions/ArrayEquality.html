@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает об использовании операторов <code>==</code> и <code>!=</code> для сравнения массивов.
+В большинстве случаев, когда требуется сравнить содержимое массивов, следует использовать метод <code>java.util.Arrays.equals()</code>.
+<p>
+  Рекомендуется использовать быстрое исправление для замены <code>==</code> на <code>java.util.Arrays.equals()</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void foo(Object[] x, Object[] y) {
+    boolean comparison = x == y;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void foo(Object[] x, Object[] y) {
+    boolean comparison = Arrays.equals(x, y);
+  }
+</code></pre>
+</body>
+</html>

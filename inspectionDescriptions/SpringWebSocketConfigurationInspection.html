@@ -1,0 +1,37 @@
+<html>
+<body>
+<p>Сообщение о проблемах с XML-контекстом приложения Spring Websocket:</p>
+<ul>
+  <li>Неразрешённые ссылки на Bean</li>
+  <li>Отсутствующие обязательные теги или атрибуты</li>
+  <li>Неверные типы свойств</li>
+  <li><code>enum</code> несоответствие свойств</li>
+  <li>Неверные типы для ссылок на Bean</li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code>
+  &lt;beans ... &gt;
+    &lt;bean id="dummyBean" class="java.lang.String"/&gt;
+    &lt;<strong>websocket:message-broker </strong>application-destination-prefix="/app"&gt; &lt;!-- Требуется только &lt;simple-broker&gt; или &lt;stomp-broker-relay&gt; --&gt;
+        &lt;websocket:stomp-endpoint path="/hello" &gt;
+            &lt;websocket:sockjs&gt;
+                &lt;websocket:transport-handlers&gt;
+                    &lt;ref bean="<strong>dummyBean</strong>"/&gt; &lt;!-- Bean должен быть типа 'org.springframework.web.socket.sockjs.transport.TransportHandler' --&gt;
+                    &lt;bean class=<strong>"java.lang.String"</strong>/&gt; &lt;!-- java.lang.String' не соответствует 'org.springframework.web.socket.sockjs.transport.TransportHandler --&gt;
+                &lt;/websocket:transport-handlers&gt;
+            &lt;/websocket:sockjs&gt;
+        &lt;/websocket:stomp-endpoint&gt;
+        &lt;websocket:stomp-broker-relay/&gt;
+        &lt;websocket:simple-broker prefix="/topic"/&gt;
+        &lt;websocket:broker-channel&gt;
+            &lt;websocket:executor keep-alive-seconds="10"/&gt;
+            &lt;websocket:interceptors&gt;
+              &lt;ref bean="<strong>dummyBean</strong>"/&gt;  &lt;!-- Bean должен быть типа 'org.springframework.messaging.support.ChannelInterceptor' --&gt;
+              &lt;bean class="<strong>java.lang.String</strong>"/&gt; &lt;!-- java.lang.String' не соответствует 'org.springframework.messaging.support.ChannelInterceptor' --&gt;
+            &lt;/websocket:interceptors&gt;
+        &lt;/websocket:broker-channel&gt;
+  &lt;/websocket:message-broker&gt;
+&lt;/beans&gt;
+</code></pre>
+</body>
+</html>

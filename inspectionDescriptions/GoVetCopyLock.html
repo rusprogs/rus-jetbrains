@@ -1,0 +1,26 @@
+<html>
+<body>
+Обнаружена ошибка передачи блокировки по значению.
+<p>Случайное копирование значения, содержащего блокировку, может привести к некорректной работе обеих копий. Обычно такие значения должны передаваться по ссылке через указатель. Здесь под блокировкой подразумеваются типы, реализующие интерфейс <code>sync.Locker</code>, например <code>sync.Mutex</code> или <code>sync.WaitGroup</code>.</p>
+<p>Пример:</p>
+<pre><code>type SafeInt struct {
+  m sync.Mutex
+  i int
+}
+func (s SafeInt) Inc() { // мьютекс копируется
+  s.m.Lock()
+  s.i++
+  s.m.Unlock()
+}</code></pre>
+<p>После применения быстрого исправления <b>Добавить указатель</b>:</p>
+<pre><code>type SafeInt struct {
+  m sync.Mutex
+  i int
+}
+func (s *SafeInt) Inc() {
+  s.m.Lock()
+  s.i++
+  s.m.Unlock()
+}</code></pre>
+</body>
+</html>

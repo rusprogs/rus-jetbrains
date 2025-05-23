@@ -1,0 +1,11 @@
+<html>
+<body>
+Сообщает о вызовах <code>divide()</code> или <code>setScale()</code> без указания режима округления.
+<p>Такие вызовы могут привести к исключению <code>ArithmeticException</code>, когда точное значение не может быть представлено в результате (например, из-за бесконечного десятичного разложения).</p>
+<p>Указание режима округления предотвращает возникновение <code>ArithmeticException</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  BigDecimal.valueOf(1).divide(BigDecimal.valueOf(3));
+</code></pre>
+</body>
+</html>

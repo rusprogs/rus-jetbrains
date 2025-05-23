@@ -1,0 +1,22 @@
+<html>
+<body>
+Интерфейс в списке <code>implements</code> класса или в списке <code>extends</code> интерфейса, который уже реализован суперклассом или расширен суперинтерфейсом.
+Такое объявление является избыточным и может быть безопасно удалено.
+<p><b>Пример:</b></p>
+<pre><code>
+  class X implements One, Two {
+  }
+  interface One {}
+  interface Two extends One {}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class X implements Two {
+  }
+  interface One {}
+  interface Two extends One {}
+</code></pre>
+<p>
+Используйте эту опцию, чтобы исключить <code>Serializable</code> или <code>Externalizable</code> из проверки в списках <code>extends</code> или <code>implements</code>.
+</body>
+</html>

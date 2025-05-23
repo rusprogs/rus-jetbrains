@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о декларациях, в которых модификаторы не соответствуют рекомендованному порядку (как указано в спецификации языка Java).
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo {
+    native public final void foo();
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Foo {
+    public final native void foo();
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<body>
+Сообщает о классах, реализующих <code>Serializable</code>, но не объявляющих поле <code>serialVersionUID</code>.
+<p>
+  Без поля <code>serialVersionUID</code> любые изменения в классе приведут к нечитаемости ранее сериализованных версий.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  class Main implements Serializable {
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  class Main implements Serializable {
+      private static final long serialVersionUID = -1446398935944895849L;
+  }
+</code></pre>
+При использовании уровня языка JDK 14 или выше быстрое исправление также добавит аннотацию <code>java.io.Serial</code>.
+<p>Настройте проверку с помощью следующих параметров:</p>
+<ul>
+  <li>
+    Укажите классы, наследники которых не должны проверяться.
+    Это применимо к классам, которые наследуют <code>Serializable</code> от суперкласса, но не используются для сериализации.
+  </li>
+  <li>
+    Следует ли игнорировать анонимные классы, реализующие <code>Serializable</code>.
+  </li>
+</ul>
+</body>
+</html>

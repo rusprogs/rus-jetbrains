@@ -1,0 +1,9 @@
+<html>
+<body>
+Сообщает о суффиксах единиц измерения в именах констант и переменных типа <code>time.Duration</code>.
+<p>Эта проверка происходит из <code>go lint</code>. Список суффиксов, обозначающих единицы времени, можно найти в <a href="https://github.com/golang/lint/blob/c5fb716d6688a859aae56d26d3e6070808df29f7/lint.go#L1365-L1373">репозитории golang на github.com</a>.</p>
+<p><code>time.Duration</code> представляет значение в наносекундах, поэтому добавление суффиксов единиц времени может сделать значение переменной неоднозначным или указывать на неправильное использование API <code>time.Duration</code>.</p>
+<p>Пример:</p>
+<pre><code>var timeoutSeconds = 5 * time.Second</code></pre>
+</body>
+</html>

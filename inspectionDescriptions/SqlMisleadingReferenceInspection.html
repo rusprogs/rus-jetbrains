@@ -1,0 +1,38 @@
+<html>
+<body>
+Обнаружение неоднозначных ссылок в SQL-коде.
+<p>Например, когда имя одновременно ссылается на столбец таблицы и параметр процедуры. Выполнение такого кода может привести к ошибкам или неожиданным результатам из-за нарушения интуитивной логики разбора. Как правило, имена с более локальной областью видимости имеют более высокий приоритет.</p>
+    <p>Пример (PostgreSQL):</p>
+    <pre><code>CREATE TABLE foo
+(
+    id   INT,
+    name VARCHAR(5)
+);
+CREATE FUNCTION func(name VARCHAR(5)) RETURNS INT AS
+$$
+DECLARE
+    b INT;
+BEGIN
+      -- `name` неоднозначен, так как используется как имя столбца и параметр
+    SELECT COUNT(*) INTO b FROM foo t WHERE t.name = name;
+    RETURN b;
+END;
+$$ LANGUAGE plpgsql;</code></pre>
+  <p>В PostgreSQL вы можете использовать директиву <code>#variable_conflict</code> для явного указания правильной ссылки. Например, используйте <code>#variable_conflict use_column</code> для ссылки на столбец или <code>#variable_conflict use_variable</code> для ссылки на параметр.</p>
+<pre><code>CREATE TABLE foo
+(
+    id   INT,
+    name VARCHAR(5)
+);
+CREATE FUNCTION func(name VARCHAR(5)) RETURNS INT AS
+$$
+    #variable_conflict use_column
+DECLARE
+    b INT;
+BEGIN
+    SELECT COUNT(*) INTO b FROM foo t WHERE t.name = name;
+    RETURN b;
+END;
+$$ LANGUAGE plpgsql;</code></pre>
+</body>
+</html>

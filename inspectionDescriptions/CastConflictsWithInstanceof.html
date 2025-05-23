@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщение о приведении типов, которому предшествует проверка <code>instanceof</code> для другого типа.
+<p>
+  Хотя это может быть преднамеренным, такая структура, вероятно, является ошибкой и приведет к исключению <code>java.lang.ClassCastException</code> во время выполнения.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Main {
+    int whenCharSequenceCastToNumber(Object o){
+      if (o instanceof CharSequence) {
+        return ((Number) o).intValue();
+      }
+      return 0;
+    }
+    int earlyReturnWhenNotCharSequence(Object o){
+      if (!(o instanceof CharSequence)) return 0;
+      return ((Number)o).intValue();
+    }
+  }
+</code></pre>
+</body>
+</html>

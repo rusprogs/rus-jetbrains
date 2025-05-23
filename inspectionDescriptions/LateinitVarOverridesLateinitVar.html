@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о свойстве <code>lateinit var</code>, которое переопределяет другое свойство <code>lateinit var</code>.
+<p>Один экземпляр подкласса будет иметь два поля, при этом поле из суперкласса останется неиспользованным.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+    open class BaseClass {
+      open lateinit var name: String
+    }
+    class RealClass : BaseClass() {
+      override lateinit var name: String
+    }
+</code></pre>
+</body>
+</html>

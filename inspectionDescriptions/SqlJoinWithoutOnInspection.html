@@ -1,0 +1,10 @@
+<html>
+<body>
+Сообщает об отсутствующих проверках условий в запросах, которые могут изменить всю базу данных.
+<p>Например, использование оператора JOIN в запросе DELETE без условий ON или WHERE. Без проверки условий в JOIN, оператор DELETE удалит содержимое всей таблицы.</p>
+<p>Пример (MySQL):</p>
+<pre><code>CREATE TABLE foo (a INT,b INT,c INT);
+CREATE TABLE bar (a INT,b INT,c INT);
+DELETE table1 FROM foo table1  INNER JOIN bar table2;</code></pre>
+</body>
+</html>

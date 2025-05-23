@@ -1,0 +1,12 @@
+<html>
+<body>
+Сообщает о нераспознанных аргументах в вызовах методов, помеченных аннотациями <code>@NamedVariant</code>/<code>@NamedParam</code>/<code>@NamedDelegate</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  @groovy.transform.NamedVariant
+  def foo(a, b) {}
+  // Нераспознанный параметр 'c'
+  foo(a: 1, b: 2, c: 3)
+</code></pre>
+</body>
+</html>

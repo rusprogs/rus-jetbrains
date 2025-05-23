@@ -1,0 +1,55 @@
+<html>
+<body>
+Сообщает об использовании устаревших классов, полей и методов.
+Когда необходимая информация может быть извлечена из Javadoc устаревшего элемента, быстрое исправление может автоматически преобразовать устаревшее использование.
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  class Interesting {
+    /**
+     * @deprecated Используйте {@link #newHotness()}
+     */
+    @Deprecated
+    public void oldAndBusted() {}
+    public void newHotness() {}
+  }
+  class ElseWhere {
+    void x(Interesting i) {
+      i.oldAndBusted(); // Здесь будет предупреждение об устаревшем методе
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  class Interesting {
+    /**
+     * @deprecated Используйте {@link #newHotness()}
+     */
+    @Deprecated
+    public void oldAndBusted() {}
+    public void newHotness() {}
+  }
+  class ElseWhere {
+    void x(Interesting i) {
+      i.newHotness();
+    }
+  }
+</code></pre>
+<p>По умолчанию проверка не выдает предупреждения, если использования устаревшего кода невозможно или сложно избежать. Например, следующий код не будет отмечен:</p>
+<pre><code lang="java">
+  abstract class A { //код библиотеки
+     @Deprecated
+     abstract void m();
+  }
+  class B extends A { //код проекта
+     @Override
+     void m() {
+        //doSmth;
+     }
+  }
+</code></pre>
+<p>Настройка проверки:</p>
+<p>
+  С помощью опций можно отключить эту проверку для устаревших элементов, переопределений абстрактных устаревших методов, операторов non-static import, методов устаревших классов или в том же классе верхнего уровня.
+</p>
+</body>
+</html>

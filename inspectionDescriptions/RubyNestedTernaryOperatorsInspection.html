@@ -1,0 +1,18 @@
+<html>
+<body>
+Обнаружены вложенные тернарные операторы. Вложенные тернарные операторы могут быть трудны для чтения, поэтому обычно лучше использовать как минимум один оператор
+<code>if</code>.
+<p>Пример:</p>
+<p><code>min = x &lt; y ? (x &lt; z ? x : z) : (y &lt; z ? y : z)</code></p>
+После применения быстрого исправления результат будет выглядеть так:
+<pre>
+<code>min = if x &lt; y
+  x &lt; z ? x : z
+else
+  y &lt; z ? y : z
+end</code>
+</pre>
+<p><span style="font-size: smaller;">Основано на <a href="https://github.com/rubocop-hq/ruby-style-guide#no-nested-ternary">'Ruby Style Guide'</a></span>
+</p>
+</body>
+</html>

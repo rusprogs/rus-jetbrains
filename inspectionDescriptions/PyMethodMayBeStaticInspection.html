@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>Сообщает о методах, которые не требуют создания экземпляра класса и могут быть объявлены как static.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+class MyClass(object):
+    def my_method(self, x):
+        print(x)
+</code></pre>
+<p>При применении быстрого исправления <b>Преобразовать метод в функцию</b> код будет преобразован в:</p>
+<pre><code>
+def my_method(x):
+    print(x)
+class MyClass(object):
+    pass
+</code></pre>
+<p>При выборе быстрого исправления <b>Сделать метод статическим</b> будет добавлен декоратор <code>@staticmethod</code>:</p>
+<pre><code>
+class MyClass(object):
+    @staticmethod
+    def my_method(x):
+        print(x)
+</code></pre>
+</body>
+</html>

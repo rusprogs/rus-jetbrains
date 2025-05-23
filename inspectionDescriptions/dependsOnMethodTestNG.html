@@ -1,0 +1,13 @@
+<html><body>
+Передан недопустимый метод в атрибут <code>dependsOnMethods</code> аннотации <code>@Test</code>.
+<p>Имя метода считается недопустимым, если оно не может быть разрешено как действительный и доступный метод с аннотацией <code>@Test</code> в текущем классе или любом из его родительских классов.</p>
+<p>Пример:</p>
+<pre><code>
+  public class SampleTest {
+    @Test(dependsOnMethods = "testSpellignError")
+    public void testSample() {}
+    @Test
+    public void testSpellingError(){}
+  }
+</code></pre>
+</body></html>

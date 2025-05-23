@@ -1,0 +1,17 @@
+<html>
+<body>
+Выражение if-then можно свернуть в elvis-выражение (<code>?:</code>).
+<p><b>Пример:</b></p>
+<pre><code>
+  fun maybeFoo(): String? = "foo"
+  var foo = maybeFoo()
+  val bar = if (foo == null) "hello" else foo
+</code></pre>
+<p>Это быстрое исправление преобразует выражение <code>if-then</code> в elvis-выражение (<code>?:</code>):</p>
+<pre><code>
+  fun maybeFoo(): String? = "foo"
+  var foo = maybeFoo()
+  val bar = foo ?: "hello"
+</code></pre>
+</body>
+</html>

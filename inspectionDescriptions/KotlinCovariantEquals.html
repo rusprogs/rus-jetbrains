@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о методе <code>equals()</code> с параметром типа, отличным от <code>Any?</code>, когда в классе отсутствует другой метод <code>equals()</code> с параметром типа <code>Any?</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo {
+      fun equals(other: Foo?): Boolean {
+          return true
+      }
+  }
+</code></pre>
+<p>Для исправления этой проблемы создайте метод <code>equals()</code> с параметром типа <code>Any?</code>.</p>
+</body>
+</html>

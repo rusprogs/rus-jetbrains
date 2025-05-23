@@ -1,0 +1,18 @@
+<html>
+<body>
+Обнаружение следующих нарушений спецификации EJB уровня ошибки:
+<ul>
+  <li>Методы Finder и Selector определены некорректно</li>
+  <li>Методы доступа к полям CMP и CMR определены некорректно</li>
+</ul>
+</body>
+<p><b>Пример:</b></p>
+<pre><code>
+public class SessionEJB implements javax.ejb.SessionBean {
+  // Ошибка: метод 'ejbCreateXXX' должен быть public
+  protected void ejbCreateExample() { ... }
+  // Ошибка: метод 'ejbCreateAnotherExample' должен возвращать 'void'
+  public int ejbCreateAnotherExample() { ... }
+}
+</code></pre>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Сообщает о некорректных элементах в файле валидации Bean <code>&lt;validation-config&gt;</code>:</p>
+<ul>
+  <li>Ссылки на неинстанцируемые классы</li>
+  <li>Ссылки на классы, не расширяющие требуемые классы</li>
+  <li>Ссылки на классы с неправильной областью видимости</li>
+  <li>Пустые теги и значения атрибутов</li>
+  <li>Теги и значения атрибутов, не соответствующие требуемому шаблону (например, идентификаторы Java)</li>
+  <li>Теги без обязательных дочерних тегов или атрибутов</li>
+  <li>Теги, определяющие объекты с повторяющимися именами</li>
+</ul>
+<p><strong>Пример:</strong></p>
+<pre><code>
+&lt;validation-config&gt;
+  &lt;default-provider&gt;<strong>foo.UnknownProvider</strong>&lt;/default-provider&gt;  &lt;!-- Не удаётся разрешить класс или пакет 'UnknownProvider' --&gt;
+  &lt;message-interpolator&gt;my.Interpolator&lt;/message-interpolator&gt;
+  &lt;constraint-mapping&gt;META-INF/ConstraintMappings.xml&lt;/constraint-mapping&gt;
+  &lt;constraint-mapping&gt;META-INF/<strong>unknown.xml</strong>&lt;/constraint-mapping&gt;
+&lt;/validation-config&gt;
+</code></pre>
+</body>
+</html>

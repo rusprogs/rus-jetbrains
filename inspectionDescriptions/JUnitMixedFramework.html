@@ -1,0 +1,44 @@
+<html>
+<body>
+Сообщает о методах с аннотациями JUnit, которые используются в тестовых классах разных версий JUnit. Для определения версии фреймворка тестового класса проверка анализует версию фреймворка суперкласса, если он доступен. Когда суперкласс недоступен, используется наиболее распространенный фреймворк в тестовом классе.
+<p>Пример (аннотации JUnit 4 в тестовом классе JUnit 3):</p>
+<pre><code lang="java">
+  public class MyTest extends TestCase {
+      @Test
+      public void foo() { }
+      @Test
+      @Ignore
+      public void testBar() { }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  public class MyTest extends TestCase {
+      public void testFoo() {}
+      public void _testBar() {}
+  }
+</code></pre>
+<p>Пример (аннотации JUnit 5 в тестовом классе JUnit 4):</p>
+<pre><code lang="java">
+  public class MyTest {
+      @BeforeAll // Метод жизненного цикла JUnit 5
+      public void initialize() { }
+      @org.junit.Test  // Тестовая аннотация JUnit 4
+      public void test() {}
+      @org.junit.Test  // Тестовая аннотация JUnit 4
+      public void testWouldBeExecuted() {}
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  public class MyTest {
+      @BeforeClass // Метод жизненного цикла JUnit 4
+      public void initialize() { }
+      @org.junit.Test  // Тестовая аннотация JUnit 4
+      public void test() {}
+      @org.junit.Test  // Тестовая аннотация JUnit 4
+      public void testWouldBeExecuted() {}
+  }
+</code></pre>
+</body>
+</html>

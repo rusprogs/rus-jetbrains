@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщение предлагает заменить объявление локальной переменной на переменную шаблона, которая обычно более компактна.
+<p><b>Пример:</b></p>
+<pre><code>
+  if (obj instanceof String) {
+    String str = (String) obj;
+    System.out.println(str);
+  }
+</code></pre>
+<p>Можно заменить на:</p>
+<pre><code>
+  if (obj instanceof String str) {
+    System.out.println(str);
+  }
+</code></pre>
+<p><small>Новое в версии 2020.1</small></p>
+</body>
+</html>

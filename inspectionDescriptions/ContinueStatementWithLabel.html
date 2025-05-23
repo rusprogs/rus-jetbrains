@@ -1,0 +1,18 @@
+<html>
+<body>
+Обнаружен оператор <code>continue</code> с меткой.
+<p>Использование оператора <code>continue</code> с меткой усложняет рефакторинг и может вызвать путаницу.</p>
+<p>Пример:</p>
+<pre><code>
+  void handle(List&lt;String&gt; strs) {
+    outer:
+    for (String s: strs) {
+      for (char ch : s.toCharArray()) {
+        if ('s' == ch) continue outer;
+        handleChar(ch);
+      }
+    }
+  }
+</code></pre>
+</body>
+</html>

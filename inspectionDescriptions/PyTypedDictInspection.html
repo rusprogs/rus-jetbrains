@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Сообщение о некорректных определениях и использовании <a href="https://www.python.org/dev/peps/pep-0589/">TypedDict</a>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+from typing import TypedDict
+class Movie(TypedDict):
+    name: str
+    year: int
+    rate: int = 10  # Значение справа не поддерживается
+    def method(self): # Выражения в TypedDict недопустимы
+        pass
+m = Movie(name="name", year=1000, rate=9)
+print(m["director"])  # Ключ 'director' отсутствует в 'Movie'
+del m["name"]  # Невозможно удалить ключ 'name'
+m["year"] = "1001"  # Ожидается 'int', получен 'str'
+</code></pre>
+</body>
+</html>

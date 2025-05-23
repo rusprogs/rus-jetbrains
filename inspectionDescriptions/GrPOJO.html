@@ -1,0 +1,11 @@
+<html>
+<body>
+Использование аннотации <code>@groovy.transform.stc.POJO</code> без <code>@groovy.transform.CompileStatic</code>.
+<p>Аннотация <code>@POJO</code> изменяет процесс компиляции класса Groovy в байт-код. Она не работает без явно включенной статической компиляции (которая активируется с помощью аннотации <code>@CompileStatic</code>).</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  @POJO // предупреждение @POJO
+  class A {}
+</code></pre>
+</body>
+</html>

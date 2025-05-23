@@ -1,0 +1,56 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">
+      Заполняет тело свойства при генерации реализованных свойств (например, при использовании операции <b>Код | Генерировать | Реализовать методы</b>).<br>
+      Шаблоны доступны для редактирования. Помимо выражений Swift и комментариев, вы можете использовать предопределённые переменные, которые впоследствии будут заменены соответствующими значениями.
+    </font></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Предопределённые переменные принимают следующие значения:</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${RETURN_TYPE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Тип создаваемого свойства</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${DEFAULT_RETURN_VALUE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Предлагаемое значение по умолчанию для возвращаемого значения (может быть пустым)</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${SIGNATURE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Сигнатура свойства</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${HAS_SET}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Имеет значение <b>"true"</b>, когда у свойства есть сеттер</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${GETTER_EFFECTS}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Эффекты геттера свойства (<code>async</code>, <code>throws</code>)</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${GET_ATTRIBUTES}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Атрибуты геттера свойства</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${SET_ATTRIBUTES}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Атрибуты сеттера свойства</font></td>
+  </tr>
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Все предопределённые переменные из шаблона <b>Заголовка файла Swift</b> (вкладка <b>Include</b>) также доступны (например, <font face="verdana" size="-2"><b>${USER}</b></font>, <font face="verdana" size="-2"><b>${DATE}</b></font> и т.д.).
+    </font></td>
+  </tr>
+</table>
+</body>
+</html>

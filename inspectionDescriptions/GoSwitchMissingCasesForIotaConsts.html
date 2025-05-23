@@ -1,0 +1,43 @@
+<html>
+<body>
+Сообщать о необработанных значениях в операторе <code>switch</code>, когда идентификатор <code>iota</code> появляется в объявлении <code>const</code>. Для обработки этих значений рекомендуется использовать блоки <code>case</code> или <code>default</code>.
+<p>
+  Ключевое слово <code>iota</code> в Go создает последовательность целых чисел в блоке <code>const</code>. Хотя компилятор Go не требует обработки всех значений <code>iota</code>, отсутствие некоторых из них может указывать на наличие ошибки.
+</p>
+<p>Подробную информацию о <code>iota</code> смотрите в разделе <a href="https://go.dev/ref/spec#Iota">Iota на go.dev</a>.</p>
+<p>Пример:</p>
+<pre><code>const (
+  a = iota
+  b
+  c = -5
+)
+func main() {
+  v := 5
+  switch v {
+  case a:
+    break;
+  case b:
+    break;
+  }
+}
+</code></pre>
+<p>
+  ИСР выполнит проверку, поскольку <code>c</code> не обрабатывается оператором <code>switch</code>. Обратите внимание, что <code>c</code> находится в том же блоке <code>const</code>, даже если он не использует <code>iota</code>.
+</p>
+<p>Варианты быстрого исправления: <b>создать блок 'case' для значения</b> и <b>создать блок 'default'</b>. После применения быстрого исправления <b>создать блок 'default'</b>:</p>
+<pre><code>const (
+  a = iota
+  b
+  c
+)
+func main() {
+  v := 5
+  switch v {
+  case a:
+    break;
+  default:
+  }
+}
+</code></pre>
+</body>
+</html>

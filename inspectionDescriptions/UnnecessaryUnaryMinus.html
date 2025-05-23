@@ -1,0 +1,31 @@
+<html>
+<body>
+Сообщает о ненужных унарных минусах. Такие выражения могут быть трудны для понимания и могут содержать ошибки.
+<p><b>Пример:</b></p>
+<pre><code>void unaryMinus(int i) {
+    int x = - -i;
+  }</code></pre>
+<p>Предлагаются следующие варианты быстрого исправления:</p>
+<ul>
+  <li><p>Удалить оператор <code>-</code> перед переменной <code>i</code>:</p>
+    <pre><code>void unaryMinus(int i) {
+    int x = i;
+  }</code></pre>
+  </li>
+  <li>
+ <p>Заменить оператор <code>-</code> на префиксный оператор декремента:</p>
+    <pre><code>void unaryMinus(int i) {
+    int x = --i;
+  }</code></pre>
+  </li>
+</ul>
+<p><b>Другой пример:</b></p>
+<pre><code>void unaryMinus(int i) {
+    i += - 8;
+  }</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>void unaryMinus(int i) {
+    i -= 8;
+  }</code></pre>
+</body>
+</html>

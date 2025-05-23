@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о полях, которые не гарантированно инициализуются после десериализации объекта в методе <code>readObject()</code>.
+<p>Проверка не распространяется на transient-поля.</p>
+<p>
+  Примечание: эта проверка использует очень консервативный алгоритм анализа потока управления и может ошибочно сообщать о неинициализованных полях.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+class DataObject implements Serializable {
+  String s; // s не инициализуется в readObject
+  int i;
+  private void readObject(ObjectInputStream stream) throws IOException {
+    i = stream.readInt();
+  }
+}
+</code></pre>
+</body>
+</html>

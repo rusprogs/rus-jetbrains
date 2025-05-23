@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Сообщает о некорректных определениях и использовании классов, созданных с помощью модулей <code>dataclasses</code> или <code>attr</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+import dataclasses
+@dataclasses.dataclass
+class FullName:
+    first: str
+    middle: str = ""
+    last: str
+</code></pre>
+</body>
+</html>

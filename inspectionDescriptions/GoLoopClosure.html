@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о ссылках на переменные цикла внутри литералов <code>func</code> в операторах <code>defer</code> и <code>go</code>.
+  Такие переменные могут иметь неожиданные значения, поскольку они не копируются в литерал <code>func</code>, а литералы <code>func</code> в <code>defer</code> и <code>go</code> не выполняются немедленно.
+<p>Подробную информацию о замыканиях и горутинах см. в разделе <a href="https://go.dev/doc/faq#closures_and_goroutines">What happens with closures running as goroutines? на go.dev</a>.</p>
+<p>Пример:</p>
+<pre><code>for _, v := range []string{"a", "b", "c"} {
+  go func() {
+    fmt.Println(v) // вывод может быть `c c c` вместо `a b c`
+  }()
+}</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>for _, v := range []string{"a", "b", "c"} {
+  v := v // `v` теперь скопирована
+  go func() {
+    fmt.Println(v)
+  }()
+}</code></pre>
+<p>Обратите внимание, что анализатор проверяет операторы <code>defer</code> и <code>go</code> только в том случае, если они являются последними операторами в теле цикла.
+  В противном случае анализ может привести к ложным срабатываниям.</p>
+</body>
+</html>

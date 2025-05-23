@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает об использовании указателей, которые ссылаются на память, освобожденную оператором <code>delete</code> или функцией <code>free(void* ptr)</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  void process() {
+    for(node *pt = head; pt != nullptr; pt = pt->next) {
+        delete pt;
+    }
+  }
+</code></pre>
+</body>
+</html>

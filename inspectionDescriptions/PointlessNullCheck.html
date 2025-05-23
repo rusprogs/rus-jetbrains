@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о проверках на <code>null</code> перед вызовом методов, которые гарантированно возвращают <code>false</code> при передаче <code>null</code> (например, <code>Class.isInstance</code>).
+<p>В таких случаях метод всегда возвращает <code>false</code>, поэтому подобные проверки представляются избыточными.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  if (x != null && myClass.isInstance(x)) { ... }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  if (myClass.isInstance(x)) { ... }
+</code></pre>
+<p>
+</body>
+</html>

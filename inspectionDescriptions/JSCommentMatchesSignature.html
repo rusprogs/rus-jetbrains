@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает о несоответствиях между именами и количеством параметров в JSDoc-комментариях и фактическими параметрами функции.
+Рекомендуется обновить параметры в JSDoc-комментариях.
+<p><b>Пример:</b></p>
+<pre><code>
+/**
+ * @param height Height in pixels
+ */
+function sq(height, width) {} // ширина не документирована
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+/**
+ * @param height Height in pixels
+ * @param width
+ */
+function sq(height, width) {}
+</code></pre>
+</body>
+</html>

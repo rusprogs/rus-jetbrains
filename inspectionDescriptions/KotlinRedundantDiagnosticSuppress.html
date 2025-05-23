@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает об аннотациях <code>@Suppress</code>, которые можно безопасно удалить, поскольку подавляемые ими предупреждения компилятора больше не актуальны в данном контексте.
+<p><b>Пример:</b></p>
+<pre><code>
+  fun doSmth(@Suppress("UNUSED_PARAMETER") used: Int) {
+    println(used)
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun doSmth(used: Int) {
+    println(used)
+  }
+</code></pre>
+</body>
+</html>

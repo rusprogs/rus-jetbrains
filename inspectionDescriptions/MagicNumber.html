@@ -1,0 +1,29 @@
+<html>
+<body>
+Сообщает о "магических числах": числовых литералах, которые не объявлены как константы.
+<p>Использование магических чисел делает код менее понятным и может привести к ошибкам, если число изменяется в одном месте, но остается прежним в другом. Проверка не распространяется на числа 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 0L, 1L, 2L, 0.0, 1.0, 0.0F и 1.0F.</p>
+<p>Пример:</p>
+<pre><code>
+  void checkFileSize(long bytes) {
+    if (bytes > 1_048_576) {
+      throw new IllegalArgumentException("too big");
+    }
+  }
+</code></pre>
+<p>Быстрое исправление вводит новую константу:</p>
+<pre><code>
+  static final int MAX_SUPPORTED_FILE_SIZE = 1_048_576;
+  void checkFileSize(long bytes) {
+    if (bytes > MAX_SUPPORTED_FILE_SIZE) {
+      throw new IllegalArgumentException("too big");
+    }
+  }
+</code></pre>
+<p>Настройка проверки:</p>
+<ul>
+  <li>Используйте опцию <b>Игнорировать константы в методе 'hashCode()'</b>, чтобы отключить эту проверку в методе <code>hashCode()</code>.</li>
+  <li>Используйте опцию <b>Игнорировать в аннотациях</b>, чтобы пропускать магические числа в аннотациях.</li>
+  <li>Используйте опцию <b>Игнорировать начальную ёмкость для StringBuilders и Collections</b>, чтобы пропускать магические числа, используемые в качестве начальной ёмкости при создании объектов <code>Collection</code>, <code>Map</code>, <code>StringBuilder</code> или <code>StringBuffer</code>.</li>
+</ul>
+</body>
+</html>

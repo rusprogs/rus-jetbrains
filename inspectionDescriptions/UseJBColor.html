@@ -1,0 +1,21 @@
+<html>
+<body>
+Отчёт об использовании <code>java.awt.Color</code>.
+<p>
+  Это может не учитывать "темные" темы (например, встроенную "Darcula"), что может привести к нежелательным эффектам в интерфейсе.
+</p>
+<p>
+  Быстрое исправление заменит использование на <code>JBColor</code>, который позволяет определять варианты цветов для темной темы.
+</p>
+<p>Пример:</p>
+<pre><code lang="java">
+// Неверно:
+Color darkGreen = new Color(12, 58, 27);
+Color blue = Color.BLUE;
+// Верно:
+Color darkGreen = new JBColor(12, 58, 27);
+Color blue = JBColor.BLUE;
+Color green = new JBColor(new Color(12, 58, 27), new Color(27, 112, 39));
+</code></pre>
+</body>
+</html>

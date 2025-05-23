@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщать о неиспользуемых аргументах, переменных или параметрах.
+<p>Пример (PostgreSQL):</p>
+<pre><code>CREATE FUNCTION foo(PARAMUSED INT, PARAMUNUSED INT) RETURNS INT AS
+$$
+BEGIN
+    RETURN PARAMUSED;
+END
+$$ LANGUAGE plpgsql;</code></pre>
+<p>Параметр <code>PARAMUNUSED</code> не используется в функции и может быть удален.</p>
+</body>
+</html>

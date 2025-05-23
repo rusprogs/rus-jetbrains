@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает об использовании устаревших элементов.
+<p>Пример:</p>
+<pre><code>// Устарело: используйте io.SeekStart, io.SeekCurrent и io.SeekEnd.
+const (
+ SEEK_SET int = 0 // поиск относительно начала файла
+ SEEK_CUR int = 1 // поиск относительно текущей позиции
+ SEEK_END int = 2 // поиск относительно конца файла
+)</code></pre>
+<p>Согласно <a href="https://pkg.go.dev/os#pkg-constants">Constants на go.dev</a>, константы <code>SEEK_SET</code>, <code>SEEK_CUR</code> и <code>SEEK_END</code> являются устаревшими.</p>
+</body>
+</html>

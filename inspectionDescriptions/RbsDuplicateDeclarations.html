@@ -1,0 +1,18 @@
+<html>
+<body>
+Обнаружение повторных объявлений классов, модулей, интерфейсов, констант, глобальных переменных, псевдонимов типов и методов.
+<ul>
+  <li>Повторные объявления вызывают ошибку <code>DuplicatedDeclarationError</code>.</li>
+  <li>Повторные определения методов вызывают ошибку <code>DuplicatedMethodDefinitionError</code>.</li>
+  <li>Повторные определения методов интерфейса вызывают ошибку <code>DuplicatedInterfaceMethodDefinitionError</code>.</li>
+</ul>
+<p>Перейти к повторным объявлениям можно с помощью быстрого исправления.</p>
+<p>Пример:</p>
+<pre><code># Повторное объявление интерфейса
+interface _Example
+end
+# Повторное объявление интерфейса
+interface _Example
+end</code></pre>
+</body>
+</html>

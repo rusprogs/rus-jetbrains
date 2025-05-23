@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о свойствах верхнего уровня <code>val</code> в объектах, которые могут быть объявлены как <code>const</code> для улучшения производительности и взаимодействия с Java.
+<p><b>Пример:</b></p>
+<pre><code>
+  object A {
+      val foo = 1
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  object A {
+      const val foo = 1
+  }
+</code></pre>
+</body>
+</html>

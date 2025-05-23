@@ -1,0 +1,12 @@
+<html>
+<body>
+Обнаружена попытка доступа к колонке 0 в <code>java.sql.ResultSet</code> или <code>java.sql.PreparedStatement</code>.
+Исторически сложилось, что нумерация колонок в <code>java.sql.ResultSet</code> и <code>java.sql.PreparedStatement</code> начинается не с <b>0</b>, а с <b>1</b>, и попытка доступа к колонке 0 является распространенной ошибкой при программовании с JDBC.
+<p><b>Пример:</b></p>
+<pre><code>
+  String getName(ResultSet rs) {
+    <b>return</b> rs.getString(0);
+  }
+</code></pre>
+</body>
+</html>

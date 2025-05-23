@@ -1,0 +1,19 @@
+<html>
+<body>
+Обнаружен вызов <code>String.equals()</code> или <code>String.equalsIgnoreCase()</code> со строковым литералом в качестве аргумента.
+<p>Некоторые стандарты кодования требуют, чтобы строковый литерал был квалификатором метода <code>equals()</code>, а не аргументом, чтобы минимизовать риск возникновения <code>NullPointerException</code>.</p>
+<p>Литерал и выражение можно поменять местами с помощью быстрого исправления.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  boolean isFoo(String value) {
+    return value.equals("foo");
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  boolean isFoo(String value) {
+    return "foo".equals(value);
+  }
+</code></pre>
+</body>
+</html>

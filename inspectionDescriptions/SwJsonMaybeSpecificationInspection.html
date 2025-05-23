@@ -1,0 +1,35 @@
+<html>
+<body>
+Обнаружение JSON-файлов, которые можно интерпретировать как часть спецификации OpenAPI/Swagger.
+<p>
+  Эти файлы не содержат явных признаков спецификации, но они ссылаются на основной файл спецификации, находящийся поблизости.
+</p>
+<p>
+  В примере ниже показаны два файла, находящиеся в одном каталоге. Первый — это обычный основной файл спецификации.
+  Второй ссылается на первый, поэтому рекомендуется рассматривать его как спецификацию.
+</p>
+<p><b>Основной файл спецификации <code>openapi.yaml</code>:</b></p>
+<pre><code lang="yaml">
+openapi: 3.1.0
+components:
+  schemas:
+    CustomSchema:
+      description: Custom schema object
+      properties:
+        foo:
+          $ref: 'common.components.json#/components/schemas/CommonSchema'
+</code></pre>
+<p><b>Предполагаемый файл спецификации <code>common.components.json</code>:</b></p>
+<pre><code lang="json">
+{
+  "components": { // 'Mark file as OpenAPI specification' highlighting
+    "schemas": {
+      "CommonSchema": {
+        "description": "Common schema object reused in several specifications"
+      }
+    }
+  }
+}
+</code></pre>
+</body>
+</html>

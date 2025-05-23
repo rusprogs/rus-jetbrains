@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщает о нетривиальных условиях и значениях, которые статически известны как всегда true, false, null или ноль.
+Хотя иногда это может быть преднамеренным, обычно это признак логической ошибки в программе. Кроме того, сообщает о недостижимых ветках <code>when</code> и некоторых выражениях, которые статически известны как всегда неуспешные.
+<p>Пример:</p>
+<pre><code>
+fun process(x: Int?) {
+  val isNull = x == null
+  if (!isNull) {
+    if (<span style="background: yellow">x != null</span>) {} // Условие всегда true
+    require(<span style="background: yellow">x!! &lt; 0 && x &gt; 10</span>) // Условие всегда false
+  } else {
+    println(x<span style="background: yellow">!!</span>) // Оператор !! всегда будет неуспешным
+  }
+}
+fun process(v: Any) {
+  when(v) {
+    is CharSequence -&gt; println(v <span style="background: yellow">as</span> Int) // Приведение типа всегда будет неуспешным
+    <span style="background: yellow">is String</span> -&gt; println(v) // Ветка недостижима
+  }
+}
+</code></pre>
+<p>
+    Снимите флажок "Предупреждать, когда константы хранятся в переменных", чтобы избежать сообщений о переменных с константными значениями, не используемых в условиях.
+</p>
+<p><small>Изменения в версии 2021.3</small></p>
+</body>
+</html>

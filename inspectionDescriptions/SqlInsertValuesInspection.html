@@ -1,0 +1,9 @@
+<html>
+<body>
+Сообщает о несоответствии количества параметров в VALUES и количества столбцов в целевой таблице.
+<p>Пример (MySQL):</p>
+<pre><code>CREATE TABLE foo(a INT, b INT, c INT);
+INSERT INTO foo VALUES (1,2,3,4)</code></pre>
+<p>Таблица <code>foo</code> имеет три столбца, но в операторе INSERT INTO мы передаем четыре значения.</p>
+</body>
+</html>

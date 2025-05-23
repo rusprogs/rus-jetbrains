@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о циклах <code>while</code>, которые выполняют итерацию по коллекции и могут быть заменены улучшенным циклом <code>for</code> (синтаксис foreach).
+<p><b>Пример:</b></p>
+<pre><code>
+  Iterator it = c.iterator();
+  while(it.hasNext()) {
+    Object obj = it.next();
+    System.out.println(obj);
+  }
+</code></pre>
+<p>Может быть заменено на:</p>
+<pre><code>
+  for (Object obj : c) {
+    System.out.println(obj);
+  }
+</code></pre>
+</body>
+</html>

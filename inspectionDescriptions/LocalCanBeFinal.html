@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о параметрах или локальных переменных, к которым можно добавить модификатор <code>final</code> в их объявлении.
+<p>Пример:</p>
+<pre><code>
+  ArrayList&lt;Integer&gt; list = new ArrayList();
+  fill(list);
+  return list;
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  final ArrayList&lt;Integer&gt; list = new ArrayList();
+  fill(list);
+  return list;
+</code></pre>
+<p>
+  Параметры проверки позволяют указать, следует ли сообщать о параметрах или локальных переменных.
+</p>
+</body>
+</html>

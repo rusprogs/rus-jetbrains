@@ -1,0 +1,17 @@
+<html>
+<body>
+Отчёт показывает использование примитивов Guava, которые можно перенести на стандартные вызовы Java API.
+<p>Например, проверка сообщает об использовании классов и интерфейсов (таких как <code>FluentIterable</code>, <code>Optional</code>, <code>Function</code>, <code>Predicate</code> или <code>Supplier</code>).</p>
+<p>Пример:</p>
+<pre><code>
+  ImmutableList&lt;String&gt; results = FluentIterable.from(List.of(1, 2, 3)).transform(Object::toString).toList();
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  List&lt;String&gt; results = List.of(1, 2, 3).stream().map(Object::toString).collect(Collectors.toList());
+</code></pre>
+<p>
+Быстрое исправление может изменить семантику. Некоторые ленивые итерируемые объекты Guava могут быть преобразованы в итерируемые объекты с ранней оценкой.
+</p>
+</body>
+</html>

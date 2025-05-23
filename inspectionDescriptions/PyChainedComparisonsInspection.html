@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Сообщает об упрощаемых цепочках сравнения.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  def do_comparison(x):
+      xmin = 10
+      xmax = 100
+      if x >= xmin and x &lt;= xmax:
+          pass
+</code></pre>
+<p>ИСР предлагает упростить <code>if x >= xmin and x &lt;= xmax</code>.
+  После применения быстрого исправления код становится:</p>
+<pre><code>
+  def do_comparison(x):
+      xmin = 10
+      xmax = 100
+      if xmin &lt;= x &lt;= xmax:
+          pass
+</code></pre>
+</body>
+</html>

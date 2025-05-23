@@ -1,0 +1,31 @@
+<html>
+<body>
+Сообщает о классах, которые реализуют интерфейс <code>Cloneable</code>, но не переопределяют метод <code>clone()</code>.
+<p>Такие классы используют реализацию <code>clone()</code> по умолчанию, которая является не <code>public</code>, а <code>protected</code>, и не копирует изменяемое состояние класса.</p>
+<p>С помощью быстрого исправления можно сгенерировать базовый метод <code>clone()</code>, который может служить основой для правильно работающего метода <code>clone()</code>, ожидаемого от класса <code>Cloneable</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  <b>public class</b> Data <b>implements</b> Cloneable {
+    <b>private</b> String[] names;
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  <b>public class</b> Data <b>implements</b> Cloneable {
+    <b>private</b> String[] names;
+    @Override
+    <b>public</b> Data clone() {
+      <b>try</b> {
+        Data clone = (Data) <b>super</b>.clone();
+        // TODO: скопируйте здесь изменяемое состояние, чтобы клон не мог изменить внутренние элементы оригинала
+         <b>return</b> clone;
+      } <b>catch</b> (CloneNotSupportedException e) {
+        <b>throw new</b> AssertionError();
+      }
+    }
+  }
+</code></pre>
+<p>Используйте опцию <b>Игнорировать классы, клонируемые из-за наследования</b>, чтобы игнорировать классы, которые являются <code>Cloneable</code> из-за наследования от классов, реализующих <code>Cloneable</code>.</p>
+<p>Используйте опцию <b>Игнорировать случаи, когда Cloneable необходим для вызова clone() суперкласса</b>, чтобы игнорировать классы, которым требуется реализация <code>Cloneable</code> из-за вызова метода <code>clone()</code> суперкласса.</p>
+</body>
+</html>

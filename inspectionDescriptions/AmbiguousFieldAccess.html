@@ -1,0 +1,39 @@
+<html>
+<body>
+Сообщает о доступе к полям суперкласса из анонимных классов, внутренних классов или локальных классов, когда в окружающем коде существуют локальные переменные, параметры или поля с тем же именем.
+В таких случаях может показаться, что происходит доступ к элементу из окружающего кода, тогда как на самом деле осуществляется доступ к полю суперкласса.
+<p>
+  Для большей ясности кода рекомендуется добавить явный квалификатор <code>super</code> при обращении к полям.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+    class First {
+      protected String ambiguous;
+    }
+    class Second {
+      void foo(String ambiguous) {
+        new First() {
+          {
+            System.out.println(ambiguous); // обращение к полю, а не к параметру
+          }
+        };
+      }
+    }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+    class First {
+      protected String ambiguous;
+    }
+    class Second {
+      void foo(String ambiguous) {
+        new First() {
+          {
+            System.out.println(super.ambiguous);
+          }
+        };
+      }
+    }
+</code></pre>
+</body>
+</html>

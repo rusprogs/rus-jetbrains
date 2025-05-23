@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Сообщает о точках внедрения в классах Bean с отсутствующими или неоднозначными зависимостями.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  interface Engine {}
+  @Singleton
+  class GasEngine implements Engine {}
+  @Singleton
+  class ElectricEngine implements Engine {}
+  @Singleton
+  class Car {
+    @Inject
+    Engine <b>engine</b>; // Неоднозначная зависимость: несколько Bean соответствуют точке внедрения
+  }
+</code></pre>
+</body>
+</html>

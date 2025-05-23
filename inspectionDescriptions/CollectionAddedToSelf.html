@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о вызовах методов <code>java.util.Collection</code>
+или <code>java.util.Map</code>, где аргументом является сама коллекция или отображение.
+Такая ситуация может возникнуть в коде с сырыми типами из-за копирования и вставки.
+<p><b>Пример:</b></p>
+<pre><code>
+  ArrayList list = new ArrayList&lt;&gt;();
+  list.add(list); // здесь будет предупреждение
+  return list.hashCode(); // выбрасывает StackOverflowError
+</code></pre>
+</body>
+</html>

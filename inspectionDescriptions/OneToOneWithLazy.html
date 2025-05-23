@@ -1,0 +1,9 @@
+<html>
+<body>
+Проверьте следующую ассоциацию <pre><code>@OneToOne</code></pre> на стороне, не являющейся владельцем (с атрибутом <pre><code>FetchType.Lazy</code></pre>).
+Указание <pre><code>FetchType.LAZY</code></pre> (для стороны, не являющейся владельцем в ассоциации <pre><code>@OneToOne</code></pre>) не влияет на загрузку.
+Связанная сущность всё равно будет загружена, как если бы был указан <pre><code>FetchType.EAGER</code></pre>.
+Дополнительную информацию смотрите в <a
+  href="https://docs.jboss.org/hibernate/orm/6.1/userguide/html_single/Hibernate_User_Guide.html#associations-one-to-one-bidirectional-lazy">документации</a>.
+</body>
+</html>

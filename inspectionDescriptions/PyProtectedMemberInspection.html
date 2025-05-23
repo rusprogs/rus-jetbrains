@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Сообщает о случаях доступа к защищённым (protected) членам класса за пределами класса, его наследников или модуля.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+class Foo:
+    def _protected_method(self):
+        pass
+class Bar(Foo):
+    def public_method(self):
+        self._protected_method()
+foo = Foo()
+foo._protected_method() # доступ к защищённому методу
+</code></pre>
+</body>
+</html>

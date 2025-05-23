@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщать о методах с модификатором <code>final</code> в классах с модификатором <code>final</code>.
+<p>Поскольку <code>final</code> класс нельзя наследовать, пометка метода как <code>final</code> является избыточной и может вводить в заблуждение.</p>
+<p><b>Пример:</b></p>
+<pre><code>record Bar(int a, int b) {
+  public final int sum() { 
+     return a + b;
+  }
+}
+</code>
+</pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>record Bar(int a, int b) {
+  public int sum() { 
+     return a + b;
+  }
+}
+</code></pre>
+<p>Как показано в этом примере, класс может быть помечен как <code>final</code> явно или неявно.</p>
+<p>
+</body>
+</html>

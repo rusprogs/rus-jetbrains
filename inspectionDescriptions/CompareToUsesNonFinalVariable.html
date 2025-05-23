@@ -1,0 +1,37 @@
+<html>
+<body>
+Сообщение о доступе к нефинальным полям в реализации метода <code>compareTo()</code>.
+<p>
+  Такой доступ может привести к тому, что метод <code>compareTo()</code> будет возвращать разные результаты в разные моменты жизненного цикла объекта, что может вызвать проблемы при использовании стандартных коллекций, таких как <code>java.util.TreeSet</code>.
+</p>
+<p>
+  Быстрое исправление для установки поля как <code>final</code> доступно только в том случае, если отсутствует доступ на запись к этому полю. В противном случае исправление не рекомендуется.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo implements Comparable&lt;Foo&gt;{
+    private int index;
+    Foo(int idx) {
+      index = idx;
+    }
+    @Override
+    public int compareTo(Foo foo) {
+     return Integer.compare(this.index, foo.index);
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Foo implements Comparable&lt;Foo&gt;{
+    private final int index;
+    Foo(int idx) {
+      index = idx;
+    }
+    @Override
+    public int compareTo(Foo foo) {
+      return Integer.compare(this.index, foo.index);
+    }
+  }
+</code></pre>
+</body>
+</html>

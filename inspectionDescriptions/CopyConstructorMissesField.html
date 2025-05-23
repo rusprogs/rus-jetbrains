@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о конструкторе копирования, который не копирует все поля класса.
+<p>
+  Поля с модификатором <code>final</code> с инициализаторами и поля <code>transient</code> считаются необязательными для копирования.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Point {
+    private int x;
+    private int y;
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
+    Point(Point other) {
+      // Поля x и y не инициализованы
+    }
+  }
+</code></pre>
+<p><small>Изменения в версии 2018.1</small>
+</body>
+</html>

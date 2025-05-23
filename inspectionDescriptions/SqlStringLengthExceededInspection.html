@@ -1,0 +1,24 @@
+<html>
+<body>
+Обнаружены переменные, значения которых превышают заданную длину.
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>CREATE PROCEDURE test() AS
+BEGIN
+DECLARE myVarOk VARCHAR(5) = 'abcde';
+DECLARE myVarExceeded VARCHAR(5) = 'abcde12345';
+SET myVarOk = 'xyz';
+SET myVarExceeded = '123456789';
+END;</code></pre>
+<p>Переменная <code>myVarExceeded</code> определена как <code>VARCHAR(5)</code>, но оба присвоенных значения (<code>'abcde12345'</code> и <code>'123456789'</code>) превышают это ограничение. Вы можете либо обрезать указанные значения, либо увеличить определённую длину.
+  Чтобы увеличить длину, используйте быстрое исправление <b>Увеличить длину типа</b>.
+</p>
+<p>После применения быстрого исправления:</p>
+<pre><code>CREATE PROCEDURE test() AS
+BEGIN
+DECLARE myVarOk VARCHAR(5) = 'abcde';
+DECLARE myVarExceeded VARCHAR(10) = 'abcde12345';
+SET myVarOk = 'xyz';
+SET myVarExceeded = '123456789';
+END;</code></pre>
+</body>
+</html>

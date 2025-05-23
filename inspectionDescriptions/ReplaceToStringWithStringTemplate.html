@@ -1,0 +1,21 @@
+<html>
+<body>
+Отчёт может быть заменен вызовом функции <code>toString</code> с помощью строкового шаблона.
+<p>Использование строковых шаблонов делает код более лаконичным.</p>
+<p>Это быстрое исправление заменит <code>toString</code> на строковой шаблон.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun test(): String {
+      val x = 1
+      return x.toString()
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun test(): String {
+      val x = 1
+      return &quot;$x&quot;
+  }
+</code></pre>
+</body>
+</html>

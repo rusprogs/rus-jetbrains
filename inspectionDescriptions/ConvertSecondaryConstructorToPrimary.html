@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщается, что вспомогательный конструктор может быть заменен более лаконичным основным конструктором.
+<p><b>Пример:</b></p>
+<pre><code>
+  class User {
+      val name: String
+      constructor(name: String) {
+          this.name = name
+      }
+  }
+</code></pre>
+<p>Быстрое исправление автоматически преобразует код:</p>
+<pre><code>
+  class User(val name: String) {
+  }
+</code></pre>
+</body>
+</html>

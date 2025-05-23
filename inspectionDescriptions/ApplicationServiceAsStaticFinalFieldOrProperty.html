@@ -1,0 +1,65 @@
+<html>
+<body>
+Сообщает о случаях присваивания сервисов приложения в static final поля/неизменяемые свойства.
+<h4>static final поля (Java) или static неизменяемые свойства с поддерживающим полем (Kotlin)</h4>
+<p>
+  <b>Примечание</b>: Далее в Kotlin под static подразумеваются члены не-анонимных объектов или объявления верхнего уровня.
+</p>
+<p>
+  Такие присваивания сервисов приводят к глобальному состоянию, что делает невозможным удаление одного приложения и настройку другого во время тестования, из-за чего повторные тесты в одном процессе могут завершиться неудачей.
+  Единственным исключением являются явные вызовы конструктора для хранения фиктивных/дефолтных экземпляров.
+</p>
+<p>
+  Рекомендуемый способ избежать хранения сервисов - получать их локально.
+  Альтернативно, их можно обернуть в <code>java.util.function.Supplier</code> (Java, Kotlin) или преобразовать свойство в функцию (Kotlin).
+</p>
+<p>Пример (Java):</p>
+<pre><code lang="java">
+// Неправильно:
+private static final ManagingFS ourInstance = ApplicationManager.getApplication().getService(ManagingFS.class);
+</code></pre>
+<pre><code lang="java">
+// Правильно:
+private static final Supplier&lt;ManagingFS&gt; ourInstance = CachedSingletonsRegistry.lazy(() -> {
+  return ApplicationManager.getApplication().getService(ManagingFS.class);
+});
+</code></pre>
+<pre><code lang="java">
+// Исключение:
+private static final UniqueVFilePathBuilder DUMMY_BUILDER = new UniqueVFilePathBuilder()
+</code></pre>
+<h4>Получение экземпляров сервиса через static неизменяемые свойства (Kotlin)</h4>
+<p>
+  Хотя присваивание сервисов свойствам без поддерживающего поля не вызывает вышеописанных проблем, получение сервиса через явный метод <code>getInstance()</code> предпочтительнее использования свойств:
+</p>
+<ul>
+  <li>Это делает более очевидным в точке вызова, что может происходить загрузка сервиса, что может быть не такой уж легкой операцией.</li>
+  <li>Загрузка сервиса может вызвать исключение, и исключения от вызова метода менее неожиданны, чем от доступа к свойству.</li>
+  <li>Использование (чрезмерное) свойств может быть подвержено ошибкам, так как они могут случайно быть изменены на свойства с инициализатором вместо правильного (но более подробного) свойства с геттером, и такое изменение легко пропустить.</li>
+  <li>Использование метода вместо свойства обеспечивает согласованность вызовов <code>MyApplicationService.getInstance()</code> при использовании в Kotlin и Java.</li>
+  <li>Использование метода обеспечивает согласованность между <code>MyApplicationService.getInstance()</code> и <code>MyProjectService.getInstance(project)</code> как в объявлении, так и в точке вызова.</li>
+</ul>
+<p>Для лучшей производительности инструментария рекомендуется всегда сохранять явный тип возвращаемого значения метода.</p>
+<p>Пример:</p>
+<pre><code lang="kotlin">
+@Service
+class MyApplicationService {
+  companion object {
+    @JvmStatic
+    val instance: MyApplicationService // Неправильно
+       get() = service()
+  }
+}
+</code></pre>
+<pre><code lang="kotlin">
+@Service
+class MyApplicationService {
+  companion object {
+    @JvmStatic
+    fun getInstance(): MyApplicationService = service() // Правильно
+  }
+}
+</code></pre>
+<p><small>Изменения в 2023.3</small>
+</body>
+</html>

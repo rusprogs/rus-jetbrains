@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщение относится к анонимным классам, которые можно преобразовать в вызов конструктора или фабричного метода с аргументом в виде лямбда-выражения.
+<p>Проверка обнаруживает следующие категории:
+<ul>
+  <li>Анонимные классы, расширяющие <code>ThreadLocal</code> с методом <code>initialValue()</code> (можно заменить на <code>ThreadLocal.withInitial</code>)</li>
+  <li>Анонимные классы, расширяющие <code>Thread</code> с методом <code>run()</code> (можно заменить на <code>new Thread(Runnable)</code>)</li>
+</ul>
+<p>Пример:</p>
+<pre><code>
+  <b>new</b> Thread() {
+    @Override
+    <b>public void</b> run() {
+      System.out.println("Hello from thread!");
+    }
+  }.start();
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  <b>new</b> Thread(() -> {
+    System.out.println("Hello from thread!");
+  }).start();
+</code></pre>
+</body>
+</html>

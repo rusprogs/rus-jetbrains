@@ -1,0 +1,11 @@
+<html>
+<body>
+Обнаружены устаревшие вызовы <code>assertContains()</code> и <code>assertNotContains()</code> с аргументами строки <code>$needle</code> и <code>$ignoreCase</code>.
+<p>
+  Строковый параметр <code>$needle</code> и опциональный логический параметр <code>$ignoreCase</code> для функций <code>assertContains()</code> и <code>assertNotContains()</code> являются устаревшими и были удалены в PHPUnit 9. Для утверждений, работающих со строками, следует использовать специальные методы <code>assertStringContainsString()</code>, <code>assertStringContainsStringIgnoringCase()</code>, <code>assertStringNotContainsString()</code> и <code>assertStringNotContainsStringIgnoringCase()</code>.
+</p>
+<p>
+  Для получения дополнительной информации см. <a href="https://phpunit.readthedocs.io/en/stable/assertions.html">Usage of the assertEquals function (phpunit.readthedocs.io)</a>.
+</p>
+</body>
+</html>

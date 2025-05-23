@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о методах и полях в классах <code>Serializable</code> и <code>Externalizable</code>, которые некорректно аннотированы с помощью аннотации <code>java.io.Serial</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+class Test implements Serializable {
+  @Serial // поле с аннотацией не является частью механизма сериализации, так как оно не final
+  private static long serialVersionUID = 7874493593505141603L;
+  @Serial // метод с аннотацией не является частью механизма сериализации, так как он не private
+  void writeObject(ObjectOutputStream out) throws IOException {
+  }
+}
+</code></pre>
+<pre><code>
+class Test implements Externalizable {
+  @Serial // метод с аннотацией не является частью механизма сериализации, так как находится внутри класса Externalizable
+  private void writeObject(ObjectOutputStream out) throws IOException {
+  }
+}
+</code></pre>
+<p>Информацию обо всех допустимых случаях см. в Javadoc для класса <code>java.io.Serial</code>.</p>
+<p><small>Новое в версии 2020.3</small></p>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о <b>упакованных</b> свойствах <code>Range.start</code> и <code>Range.endInclusive</code>.
+<p>Эти свойства можно заменить на <b>неупакованные</b> свойства <code>first</code> и <code>last</code> во избежание избыточных вызовов.</p>
+<p>Быстрое исправление заменит свойства <code>start</code> и <code>endInclusive</code> на соответствующие <code>first</code> и <code>last</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(range: CharRange) {
+      val lastElement = range.endInclusive
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(range: CharRange) {
+      val lastElement = range.last
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<html>
+<body>
+<p>Сообщение о неправильном типе возвращаемого значения для метода с аннотацией <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/annotation/Async.html">@Async</a>.</p>
+<p>Для сигнатуры целевого метода допустимы параметры любого типа.
+  Однако возвращаемый тип должен быть <code>void</code> или <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html">Future</a>.
+  Также можно возвращать более специфичные типы <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/concurrent/ListenableFuture.html">ListenableFuture</a> или <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html">CompletableFuture</a>, которые обеспечивают более широкие возможности взаимодействия с асинхронными задачами и позволяют сразу комбинировать их с последующими шагами обработки.</p>
+</body>
+</html>

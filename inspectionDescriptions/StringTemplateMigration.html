@@ -1,0 +1,16 @@
+<html>
+<body>
+Конкатенацию строк <code>String</code> можно упростить, заменив её строковым шаблоном.
+<p><b>Пример:</b></p>
+<pre><code>
+  String name = "Bob";
+  String greeting = "Hello, " + name + ". You are " + 29 + " years old.";
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  String name = "Bob";
+  String greeting = STR."Hello, \{name}. You are 29 years old.";
+</code></pre>
+<p><small>Новое в версии 2023.3</small></p>
+</body>
+</html>

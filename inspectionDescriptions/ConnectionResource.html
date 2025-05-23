@@ -1,0 +1,11 @@
+<html>
+<body>
+Сообщает о ресурсах Java ME <code>javax.microedition.io.Connection</code>, которые не открываются в блоке <code>try</code> и не закрываются в соответствующем блоке <code>finally</code>. Такие ресурсы могут случайно утекать, если исключение возникает до закрытия ресурса.
+<p><b>Пример:</b></p>
+<pre><code>
+  void example() throws IOException {
+    Connection c = Connector.open("foo");
+  }
+</code></pre>
+</body>
+</html>

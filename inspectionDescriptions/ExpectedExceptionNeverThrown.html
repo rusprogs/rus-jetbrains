@@ -1,0 +1,11 @@
+<html>
+<body>
+Сообщает о проверяемых исключениях, которые ожидаются в тестовом методе JUnit 4, но никогда не выбрасываются в теле метода.
+Такие тестовые методы никогда не будут успешными.
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @Test(expected = CloneNotSupportedException.class)
+  public void testIt() { }
+</code></pre>
+</body>
+</html>

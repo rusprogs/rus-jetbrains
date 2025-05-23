@@ -1,0 +1,29 @@
+<html>
+<body>
+Сообщает о тестах JUnit 4, которые могут быть автоматически перенесены в JUnit 5.
+Хотя стандартные раннеры могут быть преобразованы автоматически, пользовательские раннеры, правила для методов и полей не могут быть преобразованы автоматически и требуют ручных изменений.
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  import org.junit.Assert;
+  import org.junit.Test;
+  public class RelevantTest {
+    @Test
+    public void testIt() {
+      Assert.assertEquals("expected", "actual");
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  import org.junit.jupiter.api.Assertions;
+  import org.junit.jupiter.api.Test;
+  public class RelevantTest {
+    @Test
+    public void testIt() {
+      Assertions.assertEquals("expected", "actual");
+    }
+  }
+</code></pre>
+<p>Для этой проверки требуется наличие библиотеки JUnit 5 в classpath и настроенная версия JDK 1.8 или выше для проекта.</p>
+</body>
+</html>

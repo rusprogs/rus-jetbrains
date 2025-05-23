@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о классах, реализующих <code>java.io.Serializable</code>, в которых методы <code>readResolve()</code> или <code>writeReplace()</code> не объявлены как <code>protected</code>.
+<p>
+  Объявление методов <code>readResolve()</code> и <code>writeReplace()</code> как <code>private</code> может привести к их неявному игнорированию подклассами, а объявление их как <code>public</code> позволяет вызывать их из недоверенного кода.
+</p>
+<p>
+  Если содержащий класс объявлен как <code>final</code>, эти методы могут быть объявлены как <code>private</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class ClassWithSerialization implements Serializable {
+    public Object writeReplace() { // Предупреждение: 'writeReplace()' не объявлен как protected
+        ...
+    }
+  }
+  </code>
+</pre>
+</body>
+</html>

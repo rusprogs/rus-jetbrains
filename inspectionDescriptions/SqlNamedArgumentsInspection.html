@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает об использовании аргументов без имен при вызове процедур. По умолчанию эта проверка отключена.
+<p>Подробную информацию о различиях между именованными и неименованными параметрами см. в разделе <a
+    href="https://docs.microsoft.com/en-us/sql/odbc/reference/develop-app/binding-parameters-by-name-named-parameters">Binding Parameters by Name (Named Parameters) на docs.microsoft.com</a>.</p>
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>CREATE FUNCTION foo(n INT, m INT) RETURNS INT AS
+BEGIN
+    RETURN n + m;
+END;
+CREATE PROCEDURE test AS
+BEGIN
+    foo n = 1, m = 2;
+--- Следующий вызов без имен параметров будет подсвечен
+    foo 1, 2;
+END;</code></pre>
+<p>Параметры <code>1, 2</code> в вызове <code>foo 1, 2;</code> подсвечиваются, так как у них отсутствуют имена.</p>
+</body>
+</html>

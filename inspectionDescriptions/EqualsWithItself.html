@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о вызовах методов <code>equals()</code>, <code>compareTo()</code> или подобных методов, сравнивающих объект с самим собой.
+Контракты этих методов указывают, что такие вызовы всегда будут возвращать <code>true</code> для <code>equals()</code> или <code>0</code> для <code>compareTo()</code>.
+Проверка также распространяется на вызовы методов <code>Objects.equals()</code>, <code>Objects.deepEquals()</code>, <code>Arrays.equals()</code>, <code>Comparator.compare()</code>, методы <code>assertEquals()</code> тестовых фреймворков (JUnit, TestNG, AssertJ), <code>Integer.compare()</code>, <code>Integer.compareUnsigned()</code> и подобные методы.
+<p>
+  Обратите внимание, что в редких случаях проверка может сообщать о вызовах <code>equals()</code>, возвращающих false, поскольку, хотя выражения идентичны с обеих сторон, они создают отдельные объекты, и сравнение выполняется по ссылкам, а не по содержимому.
+  Простейший пример: <code>new Object().equals(new Object())</code>. В любом случае, такие вызовы подозрительны и могут иметь другое назначение.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo {
+    boolean foo(Object o) {
+        return o.equals(o); // Предупреждение
+    }
+    boolean bar(String[] ss) {
+        return Arrays.equals(ss, ss); // Предупреждение
+    }
+}
+</code></pre>
+</body>
+</html>

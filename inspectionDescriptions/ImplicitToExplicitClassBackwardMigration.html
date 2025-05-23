@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о неявно объявленных классах и предлагает заменить их обычными классами.
+<p><b>Пример (в файле Sample.java):</b></p>
+<pre><code>
+  public static void main() {
+      System.out.println("Hello, world!");
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+public class Sample {
+    public static void main() {
+        System.out.println("Hello, world!");
+    }
+}
+</code></pre>
+<p>
+  Эта проверка помогает обеспечить обратную совместимость со старыми версиями Java.
+</p>
+<p><small>Изменения в версии 2024.1</small></p>
+</body>
+</html>

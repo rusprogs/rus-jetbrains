@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает об объектах классов, не реализующих <code>java.io.Serializable</code>, которые используются в качестве аргументов в методах <code>javax.servlet.http.HttpSession.setAttribute()</code> или <code>javax.servlet.http.HttpSession.putValue()</code>.
+<p>
+  Если происходит пассивация или миграция <code>HttpSession</code>, такие объекты не будут сериализованы, что может привести к трудно диагностируемым ошибкам.
+</p>
+<p>
+  Эта проверка предполагает, что объекты типов <code>java.util.Collection</code> и
+<code>java.util.Map</code> являются <code>Serializable</code>, если только их параметры типа не являются не-<code>Serializable</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void foo(HttpSession session) {
+      session.setAttribute("foo", new NonSerializable());
+  }
+  static class NonSerializable {}
+</code></pre>
+</body>
+</html>

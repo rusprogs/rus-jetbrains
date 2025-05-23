@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает о функциях, которые имеют такую же сигнатуру, как и невиртуальные функции, объявленные в базовом классе, и скрывают их.
+<p>Пример:</p>
+<pre>
+class Base {
+  public:
+    void operate() {}
+};
+class Derived : public Base {
+  public:
+    void operate() {}
+}
+</pre>
+</body>
+</html>

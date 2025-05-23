@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о следующих ошибках в запросах Persistence QL:
+<ul>
+  <li>Несоответствие типов выражений</li>
+  <li>Некорректные параметры</li>
+  <li>Пустые или константные условия</li>
+  <li>Неразрешённые символы</li>
+</ul>
+<p><b>Примеры запросов:</b></p>
+<pre><code lang="sql">
+SELECT OBJECT(e) FROM JavaEntity e WHERE TRUE // Предупреждение: константное условие
+SELECT OBJECT(e) FROM JavaEntity e WHERE e.id BETWEEN 0 AND '2' // Ошибка: ожидалось числовое значение, получена строка
+SELECT e from JavaEntity e where e.id=?1 and e.name=?3 // Ошибка: только 2 фактических параметра запроса
+</code></pre>
+</body>
+</html>

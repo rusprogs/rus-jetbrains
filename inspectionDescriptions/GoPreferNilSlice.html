@@ -1,0 +1,12 @@
+<html>
+<body>
+Сообщает об объявлениях срезов, использующих пустой литерал вместо <code>nil</code>.
+<p>Пустые срезы могут быть представлены как <code>nil</code> или как пустой литерал среза. Они функционально эквивалентны — их <code>len</code> и <code>cap</code> равны нулю — но nil-срез является предпочтительным стилем.
+  Подробнее о пустых срезах см. <a href="https://github.com/golang/go/wiki/CodeReviewComments#declaring-empty-slices">Declaring Empty Slices на github.com/golang</a>.</p>
+<p>Пример:</p>
+<pre><code>s := []string{}</code></pre>
+<p>Чтобы изменить объявление, используйте быстрое исправление <b>Заменить на объявление nil-среза (изменяет семантику)</b>.
+  После применения быстрого исправления:</p>
+<pre><code>var s []string</code></pre>
+</body>
+</html>

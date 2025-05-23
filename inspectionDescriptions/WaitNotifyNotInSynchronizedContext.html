@@ -1,0 +1,20 @@
+<html>
+<body>
+Обнаружены вызовы <code>wait()</code>, <code>notify()</code> и <code>notifyAll()</code>, которые не находятся внутри соответствующего блока synchronized или синхронизованного метода.
+<p>
+  Вызов этих методов без удержания блокировки объекта приведет к исключению <code>IllegalMonitorStateException</code>.
+  Такая конструкция не обязательно является ошибкой, поскольку необходимая блокировка могла быть получена перед вызовом включающего метода, но всё же следует проверить это внимательно.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Sync {
+    private final Object lock = new Object();
+    void test() throws InterruptedException {
+      synchronized (this) {
+        lock.wait(); // 'lock.wait()' не синхронизован по объекту 'lock'
+      }
+    }
+  }
+</code></pre>
+</body>
+</html>

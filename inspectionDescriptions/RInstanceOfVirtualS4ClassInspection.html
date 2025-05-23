@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Сообщение о проблеме при создании объекта класса <code>VIRTUAL</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+setClass('MyClass', slots = c('aa', 'bb'), contains = "VIRTUAL")
+new('MyClass')
+</code></pre>
+<p>
+  Наиболее распространенное использование класса <code>VIRTUAL</code> — это объединение классов, то есть виртуальный класс, определяемый при вызове <code>setClassUnion()</code> вместо <code>setClass()</code>.
+</p>
+</body>
+</html>

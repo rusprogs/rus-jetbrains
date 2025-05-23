@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Сообщает об управляемых бинах, имеющих публичные поля экземпляра, которые находятся вне стандартной области видимости <code>@Dependent</code>.
+  Согласно спецификации CDI, контекстные области видимости (<code>@RequestScoped</code>, <code>@ApplicationScoped</code>, <code>@SessionScoped</code> и <code>ConversationScoped</code>) не допускаются для управляемых бинов с публичными полями экземпляра.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @ApplicationScoped // Предупреждение: бин с нестандартной областью видимости не должен иметь публичных полей
+  class Car {
+    public String engine;
+  }
+</code></pre>
+</body>
+</html>

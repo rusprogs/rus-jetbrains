@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о массивах, используемых в конкатенации <code>String</code> или передаваемых в качестве параметров в методы <code>java.io.PrintStream</code>, такие как <code>System.out.println()</code>.
+<p>
+  Обычно следует использовать содержимое массива вместо самого объекта массива.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void print(Object[] objects) {
+    System.out.println(objects);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void print(Object[] objects) {
+    System.out.println(Arrays.toString(objects));
+  }
+</code></pre>
+</body>
+</html>

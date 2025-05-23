@@ -1,0 +1,37 @@
+<html>
+<body>
+Сообщает об <code>abstract</code> классах, которые могут быть преобразованы в интерфейсы.
+<p>Предпочтительнее использовать интерфейсы вместо классов, поскольку Java не поддерживает множественное наследование классов, но класс может реализовывать несколько интерфейсов.</p>
+<p>Класс может быть преобразован в интерфейс, если у него нет суперкласса (кроме Object), есть только поля <code>public static final</code>, методы <code>public abstract</code> и внутренние классы <code>public</code>.
+<p>Пример:</p>
+<pre><code>
+abstract class Example {
+    public static final int MY_CONST = 42;
+    public abstract void foo();
+}
+class Inheritor extends Example {
+    @Override
+    public void foo() {
+        System.out.println(MY_CONST);
+    }
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+interface Example {
+    int MY_CONST = 42;
+    void foo();
+}
+class Inheritor implements Example {
+    @Override
+    public void foo() {
+        System.out.println(MY_CONST);
+    }
+}
+</code></pre>
+<p>Настройка проверки:</p>
+<p>
+  Опция <b>Сообщать о классах с неабстрактными методами при использовании Java 8</b> позволяет обнаруживать только те классы, чьи <code>static</code> и неабстрактные методы могут быть преобразованы в <code>default</code> методы (применимо только для уровня языка 8 и выше).
+<p>
+</body>
+</html>

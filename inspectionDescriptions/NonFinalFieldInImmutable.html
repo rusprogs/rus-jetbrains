@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о любых нефинальных полях в классах с аннотацией <code>@Immutable</code>.
+Это нарушает соглашение об использовании аннотации <code>@Immutable</code>.
+<p>Пример:</p>
+<pre><code>
+  import javax.annotation.concurrent.Immutable;
+  @Immutable
+  class Foo {
+    String bar = "foo";
+  }
+</code></pre>
+<p>Поддерживаемые аннотации <code>@GuardedBy</code>:</p>
+<ul>
+  <li><code>net.jcip.annotations.GuardedBy</code></li>
+  <li><code>javax.annotation.concurrent.GuardedBy</code></li>
+  <li><code>org.apache.http.annotation.GuardedBy</code></li>
+  <li><code>com.android.annotations.concurrency.GuardedBy</code></li>
+  <li><code>androidx.annotation.GuardedBy</code></li>
+  <li><code>com.google.errorprone.annotations.concurrent.GuardedBy</code></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<body>
+Сообщает об использовании операторов <code>break</code> или <code>continue</code> внутри лямбда-выражений в функциях, похожих на циклы.
+<p>
+    Ключевые слова <code>break</code> и <code>continue</code> всегда относятся к фактическим циклам (<code>for</code>, <code>while</code>, <code>do-while</code>). Операторы <code>break</code> и <code>continue</code> никогда не применяются к функциям; например <code>break</code> и <code>continue</code> не работают с <code>forEach</code>, <code>filter</code>, <code>map</code>.
+</p>
+<p>
+    Использование <code>break</code> или <code>continue</code> внутри функций, похожих на циклы (например, <code>forEach</code>), может вызвать путаницу.
+    Эта проверка предлагает добавить метки, чтобы уточнить, к какому оператору относятся <code>Break</code> или <code>Continue</code>.
+</p>
+<p>
+    Поскольку в Kotlin нет понятия функций, похожих на циклы, эта проверка использует эвристический подход. Предполагается, что функции без контракта <code>callsInPlace(EXACTLY_ONCE)</code> или <code>callsInPlace(AT_LEAST_ONCE)</code> являются функциями, похожими на циклы.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+    for (file in files) {
+        file.readLines().forEach { line ->
+            if (line == commentMarkerLine) continue
+            println(line)
+        }
+    }
+</code></pre>
+<p>Быстрое исправление добавит поясняющую метку:</p>
+<pre><code>
+    loop@ for (file in files) {
+        file.readLines().forEach { line ->
+            if (line == commentMarkerLine) continue@loop
+            println(line)
+        }
+    }
+</code></pre>
+</body>
+</html>

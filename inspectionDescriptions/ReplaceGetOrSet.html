@@ -1,0 +1,29 @@
+<html>
+<body>
+Сообщает о явных вызовах функций <code>get</code> или <code>set</code>, которые могут быть заменены оператором индексации <code>[]</code>.
+<p>
+    Kotlin позволяет создавать пользовательские реализации предопределённого набора операторов для типов.
+    Чтобы перегрузить оператор, необходимо отметить соответствующую функцию модификатором <code>operator</code>:
+    <pre><code>
+  operator fun get(index: Int) {}
+  operator fun set(index: Int, value: Int) {}
+    </code></pre>
+Эти функции соответствуют оператору индексации.
+<p><b>Пример:</b></p>
+<pre><code>  class Test {
+      operator fun get(i: Int): Int = 0
+  }
+  fun test() {
+      Test().get(0) // Заменяемый 'get()'
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>  class Test {
+      operator fun get(i: Int): Int = 0
+  }
+  fun test() {
+      Test()[0]
+  }
+</code></pre>
+</body>
+</html>

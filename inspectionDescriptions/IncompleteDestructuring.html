@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о неполном деструктурирующем объявлении.
+<p><b>Пример:</b></p>
+<pre><code>
+  data class Person(val name: String, val age: Int)
+  val person = Person("", 0)
+  val (name) = person
+</code></pre>
+<p>Быстрое исправление дополнит деструктурирующее объявление новыми переменными:</p>
+<pre><code>
+  data class Person(val name: String, val age: Int)
+  val person = Person("", 0)
+  val (name, age) = person
+</code></pre>
+</body>
+</html>

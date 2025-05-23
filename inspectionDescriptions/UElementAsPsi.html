@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает об использовании UAST <code>UElement</code> в качестве <code>PsiElement</code>.
+<p>
+  Получение <code>PsiElement</code> таким способом неоднозначно.
+</p>
+<p>
+  Для получения "физического" <code>PsiElement</code> используйте <code>UElementKt.getSourcePsiElement()</code>, а для <code>PsiElement</code>, 
+  эмулирующего поведение Java-элементов (<code>PsiClass</code>, <code>PsiMethod</code> и т.д.), 
+  используйте <code>UElementKt.getAsJavaPsiElement()</code>.
+</p>
+<p>
+  См. <a href="https://plugins.jetbrains.com/docs/intellij/uast.html">UAST - Унифицированное абстрактное синтаксическое дерево</a> в документации SDK.
+</p>
+</body>
+</html>

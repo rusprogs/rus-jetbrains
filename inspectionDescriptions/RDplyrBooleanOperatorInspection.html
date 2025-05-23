@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Сообщение об использовании операторов `&&` и `||` в выражениях dplyr.</p>
+<p><b>Пример:</b></p>
+<p>
+  <code>
+    filter(diamonds, carat > 0.7 && depth > 62.0)
+  </code>
+</p>
+<p>При применении быстрого исправления код будет преобразован в:</p>
+<p>
+  <code>
+    filter(diamonds, carat > 0.7 & depth > 62.0)
+  </code>
+</p>
+</body>
+</html>

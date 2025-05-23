@@ -1,0 +1,8 @@
+<html>
+<body>
+Подсвечивает все аргументы, кроме первого выражения в функции COALESCE, которое не равно NULL.
+<p>Пример (MySQL):</p>
+<pre><code>SELECT COALESCE(NULL, NULL, NULL, 42, NULL, 'string') as a;</code></pre>
+<p>Первый аргумент NOT NULL - это <code>42</code>, все остальные аргументы будут отображаться серым цветом.</p>
+</body>
+</html>

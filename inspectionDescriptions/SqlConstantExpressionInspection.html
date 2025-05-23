@@ -1,0 +1,11 @@
+<html>
+<body>
+Сообщает об условиях и выражениях, которые всегда возвращают true, false или null.
+<p>Пример (MySQL):</p>
+<pre><code>CREATE TABLE t1 (a TEXT, b INT, c BOOLEAN);
+SELECT a FROM t1 WHERE 'Cat' = 'Cat';
+SELECT a FROM t1 WHERE 'Cat' = null;</code></pre>
+<p><code>'Cat' = 'Cat'</code> всегда возвращает true, будет отмечено.</p>
+<p><code>'Cat' = null</code> всегда возвращает null, будет отмечено.</p>
+</body>
+</html>

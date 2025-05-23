@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает о возможности замены вызовов Java-методов на эквивалентные функции Kotlin, например <code>System.out.println()</code>.
+<p>Такая замена позволяет избавиться от зависимостей Java и сделать код более идиоматичным для Kotlin.</p>
+<p>Это быстрое исправление заменяет вызовы методов Java на эквивалентные вызовы Kotlin.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  import java.util.Arrays
+  fun main() {
+      val a = Arrays.asList(1, 3, null)
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun main() {
+      val a = listOf(1, 3, null)
+  }
+</code></pre>
+</body>
+</html>

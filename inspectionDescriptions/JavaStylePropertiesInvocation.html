@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Сообщает о свойствах, доступ к которым осуществляется через вызов метода.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo {
+      int foo
+  }
+  def bar = new Foo()
+  print(<b>bar.getFoo()</b>)
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Foo {
+      int foo
+  }
+  def bar = new Foo()
+  print(<b>bar.foo</b>)
+</code></pre>
+</body>
+</html>

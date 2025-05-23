@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает о вызовах <code>Arrays.asList()</code>, содержащих не более одного аргумента.
+<p>
+  В JDK 9 и более поздних версиях такие вызовы можно заменить на <code>Collections.singletonList()</code>, <code>Collections.emptyList()</code> или <code>List.of()</code>, что позволит сэкономить память.</p>
+<p>В частности, <code>Collections.emptyList()</code> и <code>List.of()</code> без аргументов всегда возвращают общий экземпляр, тогда как <code>Arrays.asList()</code> без аргументов создает новый объект при каждом вызове.</p>
+<p>Примечание: списки, возвращаемые <code>Collections.singletonList()</code> и <code>List.of()</code>, являются неизменяемыми, в то время как список, возвращаемый <code>Arrays.asList()</code>, позволяет использовать метод <code>set()</code>.
+В редких случаях это может нарушить работу кода.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  List&lt;String&gt; empty = Arrays.asList();
+  List&lt;String&gt; one = Arrays.asList("one");
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  List&lt;String&gt; empty = Collections.emptyList();
+  List&lt;String&gt; one = Collections.singletonList("one");
+</code></pre>
+<p>
+</body>
+</html>

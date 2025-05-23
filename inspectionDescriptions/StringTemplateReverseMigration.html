@@ -1,0 +1,16 @@
+<html>
+<body>
+Использование обработчика <code>STR</code> для отчётов о строковых шаблонных выражениях с возможностью быстрого исправления для возврата к обычной конкатенации строк.
+<p><b>Пример:</b></p>
+<pre><code>
+  String name = "Bob";
+  String greeting = STR."Hello, \{name}. You are 29 years old.";
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  String name = "Bob";
+  String greeting = "Hello, " + name + ". You are 29 years old.";
+</code></pre>
+<p><small>Изменения в версии 2024.2</small></p>
+</body>
+</html>

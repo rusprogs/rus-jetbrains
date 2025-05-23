@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Оператор <code>if</code> может быть упрощен до единственного выражения.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun test(): Boolean {
+      if (foo()) {
+         return true
+      } else {
+         return false
+      }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun test(): Boolean {
+      return foo()
+  }
+</code></pre>
+</body>
+</html>

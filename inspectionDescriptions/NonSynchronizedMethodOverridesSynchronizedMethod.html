@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о методах без модификатора <code>synchronized</code>, которые переопределяют методы с <code>synchronized</code>.
+<p>
+  Если метод суперкласса объявлен как <code>synchronized</code>, переопределяющий метод не будет автоматически синхронизованным. Это может привести к непредвиденным состояниям гонки при использовании подкласса.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Super {
+    synchronized void process() {}
+  }
+  class Sub extends Super {
+    // Метод 'process()' без synchronized переопределяет synchronized метод
+    void process() {}
+  }  
+</code></pre>
+</body>
+</html>

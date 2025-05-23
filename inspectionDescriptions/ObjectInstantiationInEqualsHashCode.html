@@ -1,0 +1,28 @@
+<html>
+<body>
+Сообщает о создании (временных) новых объектов внутри методов <code>equals()</code>, <code>hashCode()</code>, <code>compareTo()</code> и <code>Comparator.compare()</code>.
+<p>
+  Помимо вызовов конструкторов, новые объекты могут создаваться через автоупаковку или создание итераторов в операторе <code>foreach</code>.
+  Это может привести к проблемам с производительностью, например при добавлении объектов в <code>Set</code> или <code>Map</code>, где эти методы вызываются часто.
+</p>
+<p>
+  Проверка не будет выполняться при создании объектов внутри операторов <code>throw</code> или <code>assert</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Person {
+    private String name;
+    private int age;
+    public boolean equals(Object o) {
+      return Arrays.equals(new Object[] {name, age}, new Object[] {((Foo)o).name, ((Foo)o).age});
+    }
+    public int hashCode() {
+      return (name + age).hashCode();
+    }
+  }
+</code></pre>
+<p>
+  В этом примере внутри метода <code>equals()</code> создаются два дополнительных массива, использование поля <code>age</code> требует упаковки, а выражение <code>name + age</code> неявно создает новую строку.
+</p>
+</body>
+</html>

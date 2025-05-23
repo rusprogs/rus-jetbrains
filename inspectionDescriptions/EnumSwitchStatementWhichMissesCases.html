@@ -1,0 +1,31 @@
+<html>
+<body>
+Сообщает о неполных операторах <code>switch</code> для перечислений.
+<p><b>Пример:</b></p>
+<pre><code>
+  <b>enum</b> AlphaBetaGamma {
+    A, B, C;
+    <b>void</b> x(AlphaBetaGamma e) {
+      <b>switch</b> (e) {
+      }
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  <b>enum</b> AlphaBetaGamma {
+    A, B, C;
+    <b>void</b> x(AlphaBetaGamma e) {
+      <b>switch</b> (e) {
+        <b>case</b> A -> {}
+        <b>case</b> B -> {}
+        <b>case</b> C -> {}
+      }
+    }
+  }
+</code></pre>
+<p>
+Используйте опцию <b>Игнорировать switch с ветвью по умолчанию</b>, чтобы пропускать операторы <code>switch</code> с ветвью <code>default</code>.
+<p>
+</body>
+</html>

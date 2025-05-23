@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о реализации <code>InvocationHandler</code>, которая не обрабатывает стандартные методы <code>Object</code>, такие как <code>hashCode()</code>, <code>equals()</code> и <code>toString()</code>.
+<p>Отсутствие обработки этих методов может привести к неожиданным проблемам при их вызове на экземпляре прокси.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  InvocationHandler myHandler = (proxy, method, params) -&gt; {
+    System.out.println("Hello World!");
+    <b>return</b> null;
+  };
+  Runnable myProxy = (Runnable) Proxy.newProxyInstance(
+    Thread.currentThread().getContextClassLoader(),
+    <b>new</b> Class[] {Runnable.class}, myHandler
+  );
+</code></pre>
+<p>
+  Этот фрагмент кода предназначен только для проксирования метода <code>Runnable.run()</code>.
+  Однако он также будет проксировать вызовы любых методов <code>Object</code>, таких как <code>hashCode()</code>.
+  Это может привести к проблемам, например к <code>NullPointerException</code> при добавлении <code>myProxy</code> в <code>HashSet</code>.
+</p>
+<p><small>Изменения в версии 2020.2</small>
+</body>
+</html>

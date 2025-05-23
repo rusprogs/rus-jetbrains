@@ -1,0 +1,20 @@
+<html>
+<body>
+Выражение может быть заменено вызовом метода <code>java.util.Objects#equals</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  void f(Object a, Object b) {
+    boolean result = a != null && a.equals(b);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void f(Object a, Object b) {
+    boolean result = Objects.equals(a, b);
+  }
+</code></pre>
+<p>
+  Замена выражений типа <code>a != null && a.equals(b)</code> на <code>Objects.equals(a, b)</code> немного изменяет семантику. Это поведение можно включить или отключить с помощью опции <b>Подсвечивать выражения похожие на 'a != null && a.equals(b)'</b>.
+</p>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<html>
+<body>
+<p>Сообщает об использовании переменных Cython до их объявления.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+cdef int c_x
+print(c_x, c_y)  # переменная 'c_y' используется до её объявления
+cdef int c_y = 0
+</code></pre>
+</body>
+</html>

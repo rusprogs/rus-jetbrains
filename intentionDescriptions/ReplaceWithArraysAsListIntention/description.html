@@ -1,0 +1,13 @@
+<html>
+<body>
+Заменить вызовы <code>Collections.emptyList()</code> или <code>Collections.singletonList()</code> на вызов <code>Arrays.asList()</code>.
+<p>Когда проект или модуль использует язык уровня 9:</p>
+<ul>
+  <li>Это намерение заменяет <code>Collections.emptyList()</code> или <code>Collections.singletonList()</code> на вызов <code>java.util.List.of()</code>.</li>
+  <li>Заменяет вызовы <code>Collections.emptySet()</code> или <code>Collections.singleton()</code> на <code>java.util.Set.of()</code>.</li>
+  <li>Заменяет вызовы <code>Collections.emptyMap()</code> или <code>Collections.singletonMap()</code> на <code>java.util.Map.of()</code>.</li>
+</ul>
+<p>Когда проект или модуль использует библиотеку Guava и уровень языка 9 или ниже, это намерение заменяет вызовы <code>Collections.emptyList()</code> или <code>Collections.singletonList()</code> на <code>com.google.common.collect.ImmutableList</code>, <code>com.google.common.collect.ImmutableSet</code> или
+<code>com.google.common.collect.ImmutableMap</code>.</p>
+</body>
+</html>

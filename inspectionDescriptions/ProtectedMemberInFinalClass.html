@@ -1,0 +1,23 @@
+<html>
+<body>
+Обнаружены члены с модификатором <code>final</code> и <code>protected</code> в классе.
+<p>Поскольку <code>final</code> класс не может быть унаследован, использование модификатора <code>protected</code> для методов может вводить в заблуждение. Рекомендуется объявлять такие члены как <code>private</code> или с пакетной видимостью.</p>
+<p><b>Пример:</b></p>
+<pre><code>record Bar(int a, int b) {
+  protected int sum() { 
+     return a + b;
+  }
+}
+</code>
+</pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>record Bar(int a, int b) {
+  int sum() { 
+     return a + b;
+  }
+}
+</code></pre>
+<p>Как показано в примере, класс может быть помечен как <code>final</code> явно или неявно.</p>
+<p>
+</body>
+</html>

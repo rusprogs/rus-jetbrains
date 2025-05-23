@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о вызове метода <code>get()</code> у объекта <code>Optional</code> без предварительной проверки наличия значения.
+<p>Вызов <code>Optional.get()</code> на пустом экземпляре <code>Optional</code> приведет к выбросу исключения.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  <b>void</b> x(List&lt;Integer> list) {
+    <b>final</b> Optional&lt;Integer> optional =
+      list.stream().filter(x -> x > 10).findFirst();
+    <b>final</b> Integer result = optional.get(); // проблема здесь
+  }
+</code></pre>
+</body>
+</html>

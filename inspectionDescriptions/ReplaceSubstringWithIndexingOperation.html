@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает, что вызов <code>"abc".substring(0, 1)</code> может быть заменен на <code>"abc"[0]</code>.
+<p>Получение элемента по индексу делает код более лаконичным.</p>
+<p>Это быстрое исправление заменит вызов <code>substring</code> на оператор индексации.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo() {
+      &quot;abc&quot;.substring(0, 1)
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo() {
+      &quot;abc&quot;[0]
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<html>
+<body>
+Сообщает о коде, который вызывает непроверенные предупреждения компилятора javac.
+Каждое непроверенное предупреждение может вызвать <code>ClassCastException</code> во время выполнения.
+<p>Пример:</p>
+<pre><code>
+  List items = Arrays.asList("string", "string");
+  List&lt;Integer&gt; numbers = Collections.unmodifiableList(items); // непроверенное присваивание
+</code></pre>
+</body>
+</html>

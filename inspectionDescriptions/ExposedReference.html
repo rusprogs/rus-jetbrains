@@ -1,0 +1,11 @@
+<html>
+<body>
+Неразрешённые символы в таблице или столбце отчёта
+<p><b>Пример:</b></p><br/>
+<pre><code lang="kotlin">
+  class User : Table("User") {
+    val name = varchar("missing_name", 50) // Неразрешённый символ
+  }
+</code></pre>
+</body>
+</html>

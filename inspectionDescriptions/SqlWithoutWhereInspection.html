@@ -1,0 +1,10 @@
+<html>
+<body>
+Сообщает об использовании операторов DELETE или UPDATE без условия WHERE.
+  <p>Без условия WHERE оператор DELETE удалит все данные из таблицы, а UPDATE изменит значения во всех строках таблицы.</p>
+<p>Пример (MySQL):</p>
+<pre><code>CREATE TABLE t1 (a TEXT, b INT, c BOOLEAN);
+update t1 set  a = 'Smith';
+delete from t1;</code></pre>
+</body>
+</html>

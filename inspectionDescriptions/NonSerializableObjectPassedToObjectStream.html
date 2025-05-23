@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщение о нессериализуемом объекте (не реализующем <code>Serializable</code>), используемом в качестве аргумента для <code>java.io.ObjectOutputStream.write()</code>. Такие вызовы приведут к исключению во время выполнения.
+<p>
+  Эта проверка предполагает, что объекты типов <code>java.util.Collection</code> и <code>java.util.Map</code> являются сериализуемыми (<code>Serializable</code>), если только их типы явно не объявлены как несериализуемые.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public class IWantToSerializeThis {
+    public static void main(String[] args) throws IOException {
+      try(var stream = new ObjectOutputStream(Files.newOutputStream(Paths.get("output")))) {
+        // Предупреждение -- завершится неудачей с исключением NotSerializableException
+        stream.writeObject(new IWantToSerializeThis());
+      }
+    }
+  }
+</code></pre>
+</body>
+</html>

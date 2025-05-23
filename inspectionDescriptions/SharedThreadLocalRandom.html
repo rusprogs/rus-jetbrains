@@ -1,0 +1,30 @@
+<html>
+<body>
+Сообщает об экземплярах <code>java.util.concurrent.ThreadLocalRandom</code>, которые могут совместно использоваться между потоками.
+<p>
+  <code>ThreadLocalRandom</code> не должен использоваться совместно между потоками, так как не является потокобезопасным.
+  Эта проверка может выявлять экземпляры, присвоенные полям, которые используются как аргументы методов, или присвоенные локальным переменным и используемые в анонимных или вложенных классах, поскольку они могут совместно использоваться между потоками.
+</p>
+<p>
+  Использование <code>ThreadLocalRandom</code> обычно должно выглядеть как <code>ThreadLocalRandom.current().nextInt(...)</code> (или <code>nextDouble(...)</code> и т.д.).
+  Когда все использования следуют этой форме, экземпляры <code>ThreadLocalRandom</code> не будут неправильно использоваться несколькими потоками.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+    class Main {
+      void printRandomNumbersAsync() {
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+        CompletableFuture.supplyAsync(() -&gt; generateNumbers(random))
+          .thenAccept(numbers -&gt; System.out.println(Arrays.toString(numbers)));
+      }
+      private int[] generateNumbers(Random random) {
+        return random.ints(1000, 0, 100).toArray();
+      }
+    }
+  </code></pre>
+<p>
+  Используйте эти опции для указания методов, которым могут передаваться экземпляры <code>ThreadLocalRandom</code> в качестве аргументов.
+  Для имен методов можно использовать регулярные выражения.
+</p>
+</body>
+</html>

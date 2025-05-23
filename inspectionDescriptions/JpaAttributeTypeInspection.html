@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о несоответствии типов свойств в JPA-аннотациях.
+<p><b>Пример:</b></p><br/>
+<pre><code lang="java">
+  @Entity
+  public class JavaEntity {
+    @OneToOne
+    Map&lt;Integer, AnotherEntity&gt; incorrectRelationship; // Ошибка: тип связи 'One To One' должен быть Entity, а не Map
+    @ManyToMany
+    Map&lt;Integer, AnotherEntity&gt; correctRelationship;
+  }
+</code></pre>
+</body>
+</html>

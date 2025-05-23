@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Сообщает о избыточном использовании <code>list</code> в выражении <code>list(Series.values)</code> для библиотек pandas и polars.
+  Такое извлечение значений <code>Series</code> может быть заменено вызовом функции <code>to_list()</code>.</p>
+<p><b>Пример:</b></p>
+<pre style="font-family: monospace">
+list(df['column'].values)
+</pre>
+<p>После применения быстрого исправления код становится:</p>
+<pre style="font-family: monospace">
+df['column'].to_list()
+</pre>
+</body>
+</html>

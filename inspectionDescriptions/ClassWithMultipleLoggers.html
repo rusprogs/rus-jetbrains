@@ -1,0 +1,17 @@
+<html>
+<body>
+Класс объявляет несколько регистраторов.
+Важным шагом в обеспечении единообразного ведения журнала для приложения является наличие выделенного регистратора для каждого класса.
+<p>Например:</p>
+<pre><code>
+  <b>public class</b> Critical {
+    <b>protected static final</b> Logger LOG = Logger.getLogger(Critical.class);
+    <b>protected static final</b> Logger myLogger = Logger.getLogger(getClass());
+  }
+</code></pre>
+<p>
+Используйте таблицу ниже, чтобы указать имена классов регистраторов.
+Эта проверка сообщит о классах, которые объявляют несколько полей одного из указанных типов.
+<p>
+</body>
+</html>

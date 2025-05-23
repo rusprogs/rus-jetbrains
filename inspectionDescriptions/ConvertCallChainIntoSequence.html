@@ -1,0 +1,30 @@
+<html>
+<body>
+Рекомендуется преобразовать цепочку вызовов в операции над <code>Collection</code> с использованием <b>Sequence</b>.
+<p>Каждая функция преобразования <code>Collection</code> (например, <code>map()</code> или <code>filter()</code>) создает в фоновом режиме новую
+     <code>Collection</code> (обычно <code>List</code> или <code>Set</code>).
+    При множественных последовательных вызовах и большом количестве элементов в <code>Collection</code> может возникнуть значительный расход памяти.
+    В таких случаях лучше использовать <code>Sequence</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Entity(val key: String, val value: String)
+  fun getValues(lines: List&lt;String&gt;) = lines
+      .filter { it.isNotEmpty() }
+      .map { it.split(',', limit = 2) }
+      .filter { it.size == 2 }
+      .map { Entity(it[0], it[1]) }
+</code></pre>
+<p>Быстрое исправление обернет цепочку вызовов в <code>asSequence()</code> и <code>toList()</code>:</p>
+<pre><code>
+  class Entity(val key: String, val value: String)
+  fun getValues(lines: List&lt;String&gt;) = lines
+      .asSequence()
+      .filter { it.isNotEmpty() }
+      .map { it.split(',', limit = 2) }
+      .filter { it.size == 2 }
+      .map { Entity(it[0], it[1]) }
+      .toList()
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает об инстанцировании служебных классов с использованием ключевого слова <code>new</code>.
+<p>
+  В служебных классах все поля и методы являются <code>static</code>.
+  Создание экземпляров таких классов, вероятно, не требуется и указывает на ошибку.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class MyUtils {
+    public static double cube(double x) {
+      return x * x * x;
+    }
+  }
+  class Main {
+    public static void main(String[] args) {
+      // Инстанцирование служебного класса
+      MyUtils utils = new MyUtils();
+    }
+  }
+</code></pre>
+<p>
+  Чтобы предотвратить инстанцирование служебных классов, рекомендуется использовать <code>private</code> конструктор.
+</p>
+</body>
+</html>

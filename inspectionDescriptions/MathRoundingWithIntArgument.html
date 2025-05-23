@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о вызовах методов <code>round()</code>, <code>ceil()</code>, <code>floor()</code>, <code>rint()</code> классов <code>Math</code> и <code>StrictMath</code> с аргументом типа <code>int</code>.
+<p>Эти методы могут быть вызваны в контекстах, где ожидаются аргументы типа <code>long</code> или <code>double</code>, что может привести к неожиданным результатам.</p>
+<p>Проверка предлагает исправление, которое упрощает такие выражения (кроме <code>round</code>) до преобразования в <code>double</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  int i = 2;
+  double d1 = Math.floor(i);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  int i = 2;
+  double d1 = i;
+</code></pre>
+<p><small>Изменения в версии 2023.1</small></p>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о вызовах <code>java.sql.Connection.prepareStatement()</code>, <code>java.sql.Connection.prepareCall()</code> или любых их вариантах, которые используют динамически сконструированные строки в качестве подготавливаемых выражений.
+<p>
+  Сконструированные SQL-запросы являются распространенным источником уязвимостей безопасности. По умолчанию эта проверка игнорирует константы времени компиляции.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  String bar() { return "bar"; }
+  Connection connection = DriverManager.getConnection("", "", "");
+  connection.("SELECT * FROM user WHERE name='" + bar() + "'");
+</code></pre>
+Используя настройки проверки, можно рассматривать любые поля <code>static</code> <code>final</code> как константы. Будьте осторожны, так как при включении этой опции такие строки будут игнорироваться:
+<pre><code>
+  static final String SQL = "SELECT * FROM user WHERE name='" + getUserInput() + "'";
+</code></pre>
+</body>
+</html>

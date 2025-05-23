@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщать об операторах <code>throw</code> внутри блока <code>finally</code>. 
+Хотя иногда это делается намеренно, такие операторы <code>throw</code> могут скрывать исключения, выброшенные из блоков <code>try</code> и <code>catch</code>, и усложнять процесс отладки.
+<p><b>Пример:</b></p>
+<pre><code>
+  class Fascinating {
+    void doTask(Task t) {
+      try {
+        t.activity();
+      } finally {
+        if (!t.finish()) {
+          throw new IllegalStateException();
+        }
+      }
+    }
+  }
+</code></pre>
+<p>Используйте опцию <b>Предупреждать о каждом возможном месте, где может быть выброшено объявленное исключение</b>, чтобы также получать предупреждения при вызове методов, объявляющих исключения.</p>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщать о неразрешённых символах в следующих JPA аннотациях и методах API:
+<ul>
+  <li><code>AttributeOverride</code></li>
+  <li><code>AssociationOverride</code></li>
+  <li><code>MapsId</code></li>
+  <li><code>MapKey</code></li>
+  <li><code>Методы Criteria API</code></li>
+</ul>
+<p><b>Пример:</b></p><br/>
+<pre><code lang="java">
+  @Entity
+  @AssociationOverrides({
+    @AssociationOverride(name = "missingAttribute", joinColumns = { ... }), // Ошибка: неразрешённый атрибут
+    @AssociationOverride(name = "existingAttribute", joinColumns = { ... })
+  })
+  public class JavaEntity {
+    @OneToOne
+    AnotherEntity existingAttribute;
+  }
+</code></pre>
+</body>
+</html>

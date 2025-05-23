@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает о незакрытых ресурсах <code>Channel</code>, включая все экземпляры, созданные вызовом <code>getChannel()</code> для файловых или сокетных ресурсов.
+<p>
+  По умолчанию проверка предполагает, что ресурс может быть закрыт любым методом, содержащим в названии 'close' или 'cleanup'.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void send(Socket socket) throws IOException {
+    SocketChannel channel = socket.getChannel(); //предупреждение
+    channel.write(ByteBuffer.wrap("message".getBytes()));
+  }
+</code></pre>
+<p>
+  Проверка настраивается следующими параметрами:
+</p>
+<ul>
+  <li>
+    Разрешено ли открывать ресурсы <code>Channel</code> внутри блока <code>try</code>. Этот стиль менее предпочтителен, так как он сложнее, чем открытие <code>Channel</code> перед блоком <code>try</code>.
+  </li>
+  <li>
+    Может ли ресурс быть закрыт любым вызовом метода, которому этот ресурс передается в качестве аргумента.
+  </li>
+</ul>
+</body>
+</html>

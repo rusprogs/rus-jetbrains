@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает об использовании псевдофункционального кода Guava, когда доступен <code>Java Stream API</code>.
+<p>Хотя <code>Guava Iterable API</code> предоставляет функциональность, похожую на <code>Java Streams API</code>, он немного отличается и может не иметь некоторых возможностей.
+  В частности, примитивные специализации потоков, такие как <code>IntStream</code>, работают эффективнее, чем их обобщенные варианты.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+List&lt;String&gt; transformedIterable = Iterables.transform(someList, someTransformFunction);//предупреждение: псевдофункциональный стиль кода
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>List&lt;String&gt; transformedIterable = someList.stream().map(someTransformFunction).collect(Collectors.toList());</code></pre>
+<p>
+  <b>Примечание</b>: семантика кода может измениться; например <code>Iterable.transform</code> в Guava создает итерируемый объект с отложенным вычислением, а замена производит немедленное вычисление.
+</p>
+</body>
+</html>

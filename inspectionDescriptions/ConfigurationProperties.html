@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Сообщает о недопустимых префиксах, определённых в аннотации <code>@ConfigurationProperties</code>:</p>
+<ul>
+  <li>Отсутствующий префикс</li>
+  <li>Пустой префикс</li>
+  <li>Повторяющийся префикс</li>
+  <li>Префикс в нотации, отличной от написания через дефис</li>
+</ul>
+<p>
+  Проверка выполняется для классов с аннотацией <code>@ConfigurationProperties</code>, которые не зарегистрированы через <code>@EnableConfigurationProperties</code>, не отмечены как компонент Spring или не сканируются через <code>@ConfigurationPropertiesScan</code>.</p>
+<p>
+  Когда версия Spring Boot проекта или модуля установлена на 2.2.0 или выше, эта проверка срабатывает только для классов с аннотацией <code>@ConfigurationProperties</code>, которые не сканируются через <code>@ConfigurationPropertiesScan</code>.
+</p>
+<p><small>Последние изменения в 2018.3</small></p>
+</body>
+</html>

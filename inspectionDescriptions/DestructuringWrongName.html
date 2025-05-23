@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о несоответствии имен переменных в деструктурирующем объявлении с именами свойств класса данных.
+<p><b>Пример:</b></p>
+<pre><code>
+  data class Foo(val a: String, val b: Int, val c: String)
+  fun bar(f: Foo) {
+      val (a, c) = f
+  }
+</code></pre>
+<p>Быстрое исправление изменит имена переменных, чтобы они соответствовали именам полей класса:</p>
+<pre><code>
+  data class Foo(val a: String, val b: Int, val c: String)
+  fun bar(f: Foo) {
+      val (a, b) = f
+  }
+</code></pre>
+</body>
+</html>

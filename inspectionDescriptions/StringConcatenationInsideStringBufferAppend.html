@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о конкатенации строк <code>String</code>, используемых в качестве аргументов для <code>StringBuffer.append()</code>, <code>StringBuilder.append()</code> или <code>Appendable.append()</code>.
+<p>
+  Такие вызовы могут быть эффективно преобразованы в цепочку вызовов append для существующего <code>StringBuffer/Builder/Appendable</code>, что позволяет избежать дополнительных затрат на выделение памяти для <code>StringBuffer/Builder</code>.
+  Эта проверка игнорирует конкатенацию строк <code>String</code>, вычисляемую во время компиляции, в этом случае преобразование только ухудшит производительность.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void bar(StringBuilder builder, String name) {
+    builder.append("Hello," + name);    //предупреждение
+    builder.append("Hello," + "world"); //без предупреждения
+  }
+</code></pre>
+<p>
+</body>
+</html>

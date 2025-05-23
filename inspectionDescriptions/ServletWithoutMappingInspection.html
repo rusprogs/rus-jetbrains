@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о сервлетах без соответствующих привязок.
+<p><b>Пример:</b></p>
+<pre><code>
+  &lt;web-app&gt;
+    &lt;servlet&gt;
+      &lt;servlet-name&gt;foo&lt;/servlet-name&gt; // Ошибка: сервлет должен иметь привязку
+      &lt;servlet-class&gt;javax.servlet.Servlet&lt;/servlet-class&gt;
+    &lt;/servlet&gt;
+    &lt;filter&gt;
+      &lt;filter-name&gt;bar&lt;/filter-name&gt; // Ошибка: фильтр должен иметь привязку
+      &lt;filter-class&gt;java.lang.String&lt;/filter-class&gt;
+    &lt;/filter&gt;
+  &lt;/web-app&gt;
+</code></pre>
+</body>
+</html>

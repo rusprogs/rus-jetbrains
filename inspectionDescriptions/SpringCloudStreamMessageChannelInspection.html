@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Сообщает о неразрешённых каналах в аннотациях <code>@StreamListener</code>, <code>@SendTo</code>, <code>@Output</code> и <code>@Input</code>.</p>
+<p>Использование недопустимого имени привязки приведет к ошибке 'Bean not found' во время выполнения.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @EnableBinding(Sink.class)
+  public class LogSource {
+    @StreamListener(Sink.class)
+	  public void log1() {
+    }
+    @StreamListener("invalid")  // Сообщение 'канал не найден'
+	  public void log2() {
+    }
+  }
+</code></pre>
+</body>
+</html>

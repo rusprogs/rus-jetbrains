@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщает об итерации по <code>keySet()</code> экземпляра <code>java.util.Map</code>, где итерируемые ключи используются для получения значений из отображения.
+<p>
+  Такая итерация может быть более эффективной при замене на итерацию по <code>entrySet()</code> или <code>values()</code> (если ключи фактически не используются).
+</p>
+<p>
+  Аналогично, если значения извлекаются в лямбда-выражении, <code>keySet().forEach(key -&gt; ...)</code> можно заменить на <code>forEach((key, value) -&gt; ...)</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  for (Object key : map.keySet()) {
+   Object val = map.get(key);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  for (Object val : map.values()) {}
+</code></pre>
+</body>
+</html>

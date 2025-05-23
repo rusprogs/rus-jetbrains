@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Сообщает о вызовах функции <code>set</code>, которые могут быть заменены литералом <code>set</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+def do_mult(a, b):
+    c = a * b
+    return set([c, a, b])
+</code></pre>
+<p>После применения быстрого исправления код станет:</p>
+<pre><code>
+def do_mult(a, b):
+    c = a * b
+    return {c, a, b}
+</code></pre>
+</body>
+</html>

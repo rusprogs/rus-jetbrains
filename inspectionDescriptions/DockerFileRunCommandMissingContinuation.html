@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Сообщает об отсутствующих символах продолжения строки в команде <code>RUN</code>.</p>
+<p>
+  В командах <code>RUN</code>, использующих форму <i>shell</i>, следует использовать '\'(обратный слеш) для переноса одной инструкции <code>RUN</code> на следующую строку.
+  В противном случае сборка Docker завершится с ошибкой.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  # the command below will fail
+  RUN /bin/bash -c 'source $HOME/.bashrc;
+      echo $HOME'
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  RUN /bin/bash -c 'source $HOME/.bashrc; \
+      echo $HOME'
+</code></pre>
+</body>
+</html>

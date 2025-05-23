@@ -1,0 +1,32 @@
+<html>
+<body>
+<p>Сообщение о некорректных элементах в файле Bean-валидации <code>&lt;constraint-mappings&gt;</code>:</p>
+<ul>
+  <li>Ссылки на неинстанцируемые классы</li>
+  <li>Ссылки на классы, не расширяющие требуемые классы</li>
+  <li>Ссылки на классы с неправильной областью видимости</li>
+  <li>Пустые теги и значения атрибутов</li>
+  <li>Теги и значения атрибутов, не соответствующие требуемому шаблону (например, Java-идентификаторы)</li>
+  <li>Теги без обязательных дочерних тегов или атрибутов</li>
+  <li>Теги, определяющие объекты с повторяющимися именами</li>
+</ul>
+<p><strong>Пример:</strong></p>
+<pre><code>
+&lt;constraint-mappings version="1.1"&gt;
+    &lt;bean class="my.UserClass" ignore-annotations="false"&gt;
+        &lt;field name="name"&gt;
+            &lt;constraint annotation="<strong>java.lang.String</strong>"/&gt;  &lt;!--'java.lang.String' не является Java-аннотацией --&gt;
+        &lt;/field&gt;
+        &lt;field name="name"&gt;
+            &lt;constraint annotation="javax.validation.constraints.Size"&gt;
+                &lt;element name="min"&gt;<strong>non-number</strong>&lt;/element&gt;    &lt;!--должно быть число от '-2,147,483,648' до '2,147,483,647' --&gt;
+            &lt;/constraint&gt;
+        &lt;/field&gt;
+        &lt;getter name="<strong>zzz</strong>"&gt; Не удаётся разрешить символ 'zzz'
+            &lt;valid/&gt;
+        &lt;/getter&gt;
+    &lt;/bean&gt;
+&lt;/constraint-mappings&gt;
+</code></pre>
+</body>
+</html>

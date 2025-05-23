@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщение о возможности замены Java Map на вызов метода <b>forEach</b> в Kotlin.<code>forEach</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  fun test(map: HashMap&lt;Int, String>) {
+      map.forEach { key, value ->
+          foo(key, value)
+      }
+  }
+  fun foo(i: Int, s: String) {}
+</code></pre>
+<p>Быстрое исправление добавит круглые скобки:</p>
+<pre><code>
+  fun test(map: HashMap&lt;Int, String>) {
+      map.forEach { (key, value) ->
+          foo(key, value)
+      }
+  }
+  fun foo(i: Int, s: String) {}
+</code></pre>
+</body>
+</html>

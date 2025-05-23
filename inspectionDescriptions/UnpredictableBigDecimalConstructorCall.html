@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает о вызовах конструктора <code>BigDecimal</code>, принимающего значения типа <code>double</code>.
+Эти конструкторы создают объект <code>BigDecimal</code>, который точно равен предоставленному значению <code>double</code>.
+Однако, поскольку double кодируется в формате IEEE 754 с двойной точностью (64-битное двоичное представление с плавающей точкой), точное значение может быть неожиданным.
+<p>Например, <code>new BigDecimal(0.1)</code> создаст объект <code>BigDecimal</code>. Его значение будет <small><code>0.1000000000000000055511151231257827021181583404541015625</code></small>, что является ближайшим к 0.1 числом, которое может быть представлено как double.
+  Чтобы получить объект <code>BigDecimal</code> со значением, идентичным тому, что написано в исходном коде, используйте <code>new BigDecimal("0.1")</code> или <code>BigDecimal.valueOf(0.1)</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Constructor {
+    void foo() {
+      new BigDecimal(0.1);
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Constructor {
+    void foo() {
+      new BigDecimal("0.1");
+    }
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает о потенциально опасных преобразованиях из <code>uintptr</code> в <code>unsafe.Pointer</code>.
+<p>Преобразование из <code>uintptr</code> в <code>unsafe.Pointer</code> недопустимо, если значение указателя хранится в переменной типа <code>uintptr</code> в памяти, поскольку такое значение не видно для копирования стека и сборщика мусора.
+</p>
+<p>Пример неправильного использования:</p>
+<pre><code>nums := []int8{42, 24}
+ptr := unsafe.Pointer(&nums[0])
+addr := uintptr(ptr) // адрес сохраняется в локальной переменной
+ptr = unsafe.Pointer(addr + uintptr(1))</code></pre>
+<p>Пример правильного использования:</p>
+<pre><code>nums := []int8{42, 24}
+ptr := unsafe.Pointer(&nums[0])
+ptr = unsafe.Pointer(uintptr(ptr) + uintptr(1))</code></pre>
+</body>
+</html>

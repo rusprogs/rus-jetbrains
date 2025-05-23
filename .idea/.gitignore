@@ -1,0 +1,8 @@
+# Игнорируемые файлы по умолчанию
+/shelf/
+/workspace.xml
+# HTTP-клиент на основе редактора
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml

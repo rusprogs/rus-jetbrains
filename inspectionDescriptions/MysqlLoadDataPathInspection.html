@@ -1,0 +1,11 @@
+<html>
+<body>
+Сообщать о путях, начинающихся с тильды (~) в операторах LOAD.
+<p>Пример (MySQL):</p>
+<pre><code lang="mysql">CREATE TABLE table_name (id int);
+LOAD DATA LOCAL INFILE '~/Documents/some_file.txt'
+INTO TABLE table_name FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n'
+IGNORE 1 LINES;</code></pre>
+<p>Используйте полный путь к файлу вместо тильды.</p>
+</body>
+</html>

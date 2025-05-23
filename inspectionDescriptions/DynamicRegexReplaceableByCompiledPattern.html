@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о вызовах методов регулярных выражений (таких как <code>matches()</code> или <code>split()</code>) для <code>java.lang.String</code> с использованием строковых литералов.
+<p>
+  Такие вызовы можно эффективно заменить полем типа <code>private static final Pattern</code>, что позволит избежать повторной компиляции регулярного выражения при каждом использовании.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  text.replaceAll("abc", replacement);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  private static final Pattern ABC = Pattern.compile("abc", Pattern.LITERAL);
+  ABC.matcher(text).replaceAll(Matcher.quoteReplacement(replacement));
+</code></pre>
+</body>
+</html>

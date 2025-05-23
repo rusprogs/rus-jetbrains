@@ -1,0 +1,42 @@
+<html>
+<body>
+Сообщает о классах, которые могут быть сериализованы или десериализованы.
+<p>
+  Класс может быть сериализован, если он реализует интерфейс <code>Serializable</code> и его методы <code>readObject()</code> и <code>writeObject()</code> не определены так, чтобы всегда выбрасывать исключения. В коде, где важна безопасность, сериализуемые классы могут представлять опасность.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class DeserializableClass implements Serializable { // Этот класс не содержит метод 'writeObject()', выбрасывающий исключение
+    private int sensitive = 736326;
+    private void readObject(ObjectInputStream in) {
+        throw new Error();
+    }
+}
+</code></pre>
+<p>После быстрого исправления:</p>
+<pre><code>
+  class DeserializableClass implements Serializable {
+    private int sensitive = 736326;
+    private void readObject(ObjectInputStream in) {
+        throw new Error();
+    }
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+        throw new java.io.NotSerializableException("DeserializableClass");
+    }
+  }
+</code></pre>
+<p>
+  Настройте проверку, используя следующие параметры:
+</p>
+<ul>
+  <li>
+    Укажите классы, наследники которых не должны отмечаться этой проверкой.
+    Это применимо к классам, которые наследуют <code>Serializable</code> от суперкласса, но не используются для сериализации.
+    Обратите внимание, что вместо игнорирования таких классов может быть безопаснее добавить методы <code>readObject()</code> и <code>writeObject()</code>, которые всегда выбрасывают исключения.
+  </li>
+  <li>
+    Следует ли игнорировать сериализуемые анонимные классы.
+  </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщение о содержимом тега <code>script</code> с некорректным XML.<br>
+<p><b>Пример:</b></p>
+<pre><code>
+  &lt;script type="text/javascript">
+    console.log('&lt;');
+  &lt;/script>
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  &lt;script type="text/javascript">
+    console.log('&amp;lt;');
+  &lt;/script>
+</code></pre>
+</body>
+</html>

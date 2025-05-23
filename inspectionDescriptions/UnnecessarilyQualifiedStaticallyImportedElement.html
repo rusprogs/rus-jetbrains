@@ -1,0 +1,24 @@
+<html>
+<body>
+Обнаружено использование статически импортованного члена с избыточным указанием имени класса.
+<p>Такая квалификация класса является излишней и может быть удалена, поскольку статически импортованный член доступен напрямую по его имени.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  import static foo.Test.WIDTH;
+  class Bar {
+    void bar() {
+      System.out.println(Test.WIDTH);
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  import static foo.Test.WIDTH;
+  class Bar {
+    void bar() {
+      System.out.println(WIDTH);
+    }
+  }
+</code></pre>
+</body>
+</html>

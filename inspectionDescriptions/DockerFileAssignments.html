@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>Сообщает о неправильных пробелах в парах ключ-значение в командах <code>ARG</code>, <code>ENV</code> и <code>LABEL</code>.</p>
+<p>
+  Хотя это явно не указано в <a href="https://docs.docker.com/engine/reference/builder/#arg">спецификации Dockerfile</a>, некоторые комбинации пробелов в парах ключ-значение не допускаются.
+  Сборка Docker завершится ошибкой при достижении проблемной инструкции.
+</p>
+<p><b>Примеры:</b></p>
+<ul>
+  <li>Команда <code>ARG</code> не допускает пробелов вокруг '='</li>
+  <li>Команды <code>ENV</code> и <code>LABEL</code> не допускают пробелов после '='</li>
+</ul>
+<pre><code>
+  # Все следующие команды завершатся ошибкой
+  ARG answer = 42
+  ARG version= "1.0.0"
+  LABEL "maintained.by"= someone@gmail.com
+  ENV JAVA_HOME= "/docker-java-home"
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  ARG answer=2
+  ARG version="1.0.0"
+  LABEL "maintained.by"=someone@gmail.com
+  ENV JAVA_HOME="/docker-java-home"
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<body>
+Сообщает об использовании выражений <code>instanceof</code> или <code>getClass() == SomeClass.class</code> с проверкой <code>this</code>.
+<p>Такие выражения указывают на неудачный объектно-ориентированный дизайн и должны быть заменены полиморфной конструкцией.</p>
+<p>Пример:</p>
+<pre><code>
+class Super {
+  void process() {
+    if (this instanceof Sub) { // предупреждение
+      doSomething();
+    } else {
+      doSomethingElse();
+    }
+  }
+}
+class Sub extends Super {}
+</code></pre>
+<p>Для исправления проблемы используйте переопределение метода:</p>
+<pre><code>
+class Super {
+  void process() {
+    doSomethingElse();
+  }
+}
+class Sub extends Super {
+  @Override
+  void process() {
+    doSomething();
+  }
+}  
+</code></pre>
+</body>
+</html>

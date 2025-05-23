@@ -1,0 +1,27 @@
+<html>
+<body>
+В случае возникновения <code>org.testng.TestNGException</code>, сообщается о наличии поставщиков данных <code>TestNG</code> с одинаковыми именами.
+<p>Пример:</p>
+<pre><code>
+  public class DuplicatedDataProviders {
+    @DataProvider
+    public Object[][] intTestData() { // Дубликат 1
+      return new Integer[][]{
+        new Integer[]{1, 1},
+      };
+    }
+    @DataProvider(name = "intTestData")
+    public Object[][] someTestData() { // Дубликат 2
+      return new Integer[][]{
+        new Integer[]{1, 1},
+      };
+    }
+    @Test(dataProvider = "intTestData")
+    public void testIsOK(Integer key, Integer value) {
+      assertEquals(key, value);
+    }
+  }
+</code></pre>
+<p>
+</body>
+</html>

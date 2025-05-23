@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о вызовах методов <code>Enumeration</code> при работе с коллекциями, которые могут быть заменены эквивалентной структурой <code>Iterator</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  Enumeration&lt;String&gt; keys = map.keys();
+  while (keys.hasMoreElements()) {
+    String name = keys.nextElement();
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  Iterator&lt;String&gt; iterator = map.keySet().iterator();
+  while (iterator.hasNext()) {
+    String name = iterator.next();
+  }
+</code></pre>
+</body>
+</html>

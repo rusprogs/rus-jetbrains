@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает о случаях отрицания методов <code>isEmpty()</code> и <code>isNotEmpty()</code> для коллекций и <code>String</code>, а также методов <code>isBlank()</code> и <code>isNotBlank()</code> для <code>String</code>.
+<p>Использование соответствующих функций делает код более лаконичным.</p>
+<p>Быстрое исправление заменит отрицание вызова на соответствующий вызов из стандартной библиотеки.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun main() {
+      val list = listOf(1,2,3)
+      if (!list.isEmpty()) {
+          // выполнить что-то
+      }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun main() {
+      val list = listOf(1,2,3)
+      if (list.isNotEmpty()) {
+          // выполнить что-то
+      }
+  }
+</code></pre>
+</body>
+</html>

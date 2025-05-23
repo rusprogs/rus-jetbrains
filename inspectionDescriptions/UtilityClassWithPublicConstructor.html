@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о служебных классах, содержащих <code>public</code> конструктор.
+<p>Служебные классы объявляют все поля и методы как <code>static</code>. Создание <code>public</code> конструктора в таком классе вводит в заблуждение и может привести к непреднамеренному созданию экземпляров класса.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public final class UtilityClass {
+    public UtilityClass(){
+    }
+    public static void foo() {}
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  public final class UtilityClass {
+    private UtilityClass(){
+    }
+    public static void foo() {}
+  }
+</code></pre>
+</body>
+</html>

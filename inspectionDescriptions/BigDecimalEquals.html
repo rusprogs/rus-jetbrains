@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>equals()</code> при сравнении двух чисел типа <code>java.math.BigDecimal</code>.
+Это обычно является ошибкой, так как два числа <code>java.math.BigDecimal</code> считаются равными только при совпадении как значения, так и масштаба.
+<p><b>Пример:</b></p>
+<pre><code>
+  if (new BigDecimal("2.0").equals(
+    new BigDecimal("2.00"))) {} // false
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  if (new BigDecimal("2.0").compareTo(
+    new BigDecimal("2.00")) == 0) {} // true
+</code></pre>
+</body>
+</html>

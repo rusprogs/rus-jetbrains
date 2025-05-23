@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>equals()</code> для перечислений (enum).
+<p>Такие вызовы можно заменить на сравнение по идентичности (<code>==</code>), поскольку константы перечисления равны только тогда, когда они идентичны.</p>
+<p>Вызов можно изменить на сравнение с помощью быстрого исправления.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  boolean foo(MyEnum value) {
+    return value.equals(MyEnum.FOO);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  boolean foo(MyEnum value) {
+    return value == MyEnum.FOO;
+  }
+</code></pre>
+</body>
+</html>

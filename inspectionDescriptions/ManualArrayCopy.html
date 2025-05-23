@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщается о возможности замены ручного копирования массива вызовом <code>System.arraycopy()</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  for (int i = 0; i &lt; array.length; i++) {
+    newArray[i] = array[i];
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  System.arraycopy(array, 0, newArray, 0, array.length);
+</code></pre>
+</body>
+</html>

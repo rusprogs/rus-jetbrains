@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о методе <code>clone()</code>, который не объявляет <code>throws CloneNotSupportedException</code>.
+<p>Если не объявлен <code>throws CloneNotSupportedException</code>, подклассы этого метода не смогут запретить клонование стандартным способом. Эта проверка не выдает предупреждения для методов <code>clone()</code>, объявленных как <code>final</code>, и методов <code>clone()</code> внутри <code>final</code> классов.</p>
+<p>Настройка проверки:</p>
+<p>Используйте опцию <b>Предупреждать только для 'protected' методов клонования</b>, чтобы проверка выдавала предупреждения только для методов <code>protected clone()</code>.
+В книге <i>Effective Java</i> (2-е и 3-е издания) рекомендуется опускать объявление <code>CloneNotSupportedException</code> для <code>public</code> методов, так как методы, не выбрасывающие проверяемые исключения, проще в использовании.
+<p>Пример:</p>
+<pre><code>
+  <b>public class</b> Example <b>implements</b> Cloneable {
+    // Метод не объявляет 'throws CloneNotSupportedException'
+    <b>protected</b> Object clone() {
+        <b>try</b> {
+            <b>return</b> <b>super</b>.clone();
+        } <b>catch</b> (CloneNotSupportedException e) {
+            <b>return</b> null;
+        }
+    }
+  }
+</code></pre>
+</body>
+</html>

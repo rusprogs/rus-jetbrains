@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщать об избыточном использовании <code>await</code>, например <code>await await</code> или ожидании результатов, не являющихся promise.
+<p>
+  При выборе опции "Сообщать о promise" предлагается удалять <code>await</code> перед promise там, где это применимо (в операторах <code>return</code> и при использовании <code>Promise.resolve/reject</code>).
+</p>
+<p>Удаление <code>await</code> в таких контекстах может привести к двум проблемам.</p>
+<ul>
+  <li>
+    Обертывание кода в блок <code>try-catch</code> без добавления <code>await</code> изменит семантику кода, что может остаться незамеченным.
+  </li>
+  <li>
+    Явное использование <code>await</code> может помешать среде выполнения V8 предоставлять <a href="http://bit.ly/v8-zero-cost-async-stack-traces">асинхронные трассировки стека</a>.
+  </li>
+</ul>
+</body>
+</html>

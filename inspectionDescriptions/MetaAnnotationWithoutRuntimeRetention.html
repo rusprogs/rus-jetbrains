@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает об аннотациях, которые должны использоваться с JUnit 5 и имеют политику удержания <code>SOURCE</code> или <code>CLASS</code>.
+Такие аннотации недоступны во время выполнения и, вероятно, требуют исправления политики удержания для доступа через рефлексию.
+<p>Обратите внимание, что если политика удержания не указана, используется политика по умолчанию <code>CLASS</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  @Testable
+  public @interface UnitTest {}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  @Retention(RetentionPolicy.RUNTIME)
+  @Testable
+  public @interface UnitTest {}
+</code></pre>
+</body>
+</html>

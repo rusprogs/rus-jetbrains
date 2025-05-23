@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщается о возможности замены конструктора SAM (Single Abstract Method) на лямбда-выражение.
+<p><b>Пример:</b></p>
+<pre><code>
+  fun main() {
+      foo(<b>Runnable</b> { println("Hi!") })
+  }
+  fun foo(other: Runnable) {}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun main() {
+      foo( { println("Hi!") })
+  }
+  fun foo(other: Runnable) {}
+</code></pre>
+</body>
+</html>

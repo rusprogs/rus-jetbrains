@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает об экземплярах <code>Logger</code>, инициализованных с использованием литерала класса, отличного от класса, в котором находится <code>Logger</code>.
+<p>
+    Это может произойти при копировании и вставке кода из другого класса.
+    Это может привести к регистрации событий в неправильной категории и некорректной фильтрации.
+</p>
+<p>
+    С помощью параметров проверки можно указать фабричные классы и методы логгера, которые должна идентифицировать эта проверка.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+class AnotherService
+class MyService {
+    private val logger = LoggerFactory.getLogger(AnotherService::class.java)
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+class MyService {
+    private val logger = LoggerFactory.getLogger(MyService::class.java)
+}
+</code></pre>
+</body>
+</html>

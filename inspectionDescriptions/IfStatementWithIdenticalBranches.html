@@ -1,0 +1,29 @@
+<html>
+<body>
+Сообщает об общих частях кода в ветвях оператора <code>if</code>, которые можно вынести.
+<p>Эти общие части не зависят от условий и усложняют понимание оператора <code>if</code>.</p>
+<p>Пример:</p>
+<pre><code>
+  if (x &gt; 12) {
+    doSomethingBefore();
+    doSomethingDifferent1();
+    doSomethingAfter();
+  } else {
+    doSomethingBefore();
+    doSomethingDifferent2();
+    doSomethingAfter();
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  doSomethingBefore();
+  if (x &gt; 12) {
+    doSomethingDifferent1();
+  } else {
+    doSomethingDifferent2();
+  }
+  doSomethingAfter();
+</code></pre>
+<p><small>Функция добавлена в версии 2018.1</small></p>
+</body>
+</html>

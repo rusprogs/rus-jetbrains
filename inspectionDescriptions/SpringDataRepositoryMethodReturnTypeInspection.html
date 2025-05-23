@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Сообщает о методах репозитория Spring Data CRUD с некорректным типом возвращаемого значения.</p>
+<p>Поддерживаются следующие типы возвращаемых значений:</p>
+<list>
+  <li><code>void</code></li>
+  <li>Примитивные типы</li>
+  <li>Типы-обёртки</li>
+  <li><code>T</code> (когда метод запроса должен возвращать не более одного результата). Возвращает <code>null</code> при отсутствии результата или выбрасывает <code>IncorrectResultSizeDataAccessException</code> при наличии нескольких результатов.
+  </li>
+  <li><code>java.util.List</code> или любой распространённый тип <code>Iterable</code></li>
+  <li><code>java.util.stream.Stream</code></li>
+  <li><code>java.util.Optional</code> или <code>scala.Option</code> (когда метод запроса должен возвращать не более одного результата). Возвращает <code>Optional.empty()</code> или <code>Optional.absent()</code> при отсутствии результата или выбрасывает <code>IncorrectResultSizeDataAccessException</code> при наличии нескольких результатов.
+  </li>
+  <li><code>io.micronaut.data.model.Page</code></li>
+  <li><code>io.micronaut.data.model.Slice</code></li>
+  <li><code>java.util.concurrent.Future</code>, <code>java.util.concurrent.CompletableFuture</code> или <code>ListenableFuture</code> (если метод аннотирован <code>@Async</code> и включено асинхронное выполнение методов Spring)
+  </li>
+  <li><code>GeoResults&lt;T&gt;</code>, <code>GeoResult&lt;T&gt;</code> или <code>GeoPage&lt;T&gt;</code></li>
+</list>
+</body>
+</html>

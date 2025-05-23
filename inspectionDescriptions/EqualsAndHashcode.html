@@ -1,0 +1,32 @@
+<html>
+<body>
+Сообщает о классах, которые переопределяют метод <code>equals()</code>, но не переопределяют метод <code>hashCode()</code>, или наоборот. Это может привести к проблемам при добавлении объектов класса в <code>Collection</code> или <code>HashMap</code>.
+<p>Быстрое исправление создаст стандартную реализацию отсутствующего метода.</p>
+<p>Пример:</p>
+<pre><code>
+class StringHolder {
+  String s;
+  @Override public int hashCode() {
+    return s != null ? s.hashCode() : 0;
+  }
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+class StringHolder {
+  String s;
+  @Override public int hashCode() {
+    return s != null ? s.hashCode() : 0;
+  }
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof StringHolder)) return false;
+    StringHolder holder = (StringHolder)o;
+    if (s != null ? !s.equals(holder.s) : holder.s != null) return false;
+    return true;
+  }
+}
+</code></pre>
+</body>
+</html>

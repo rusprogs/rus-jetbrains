@@ -1,0 +1,29 @@
+<html>
+<body>
+Сообщать о нефинальных полях в перечислениях (enum).
+Нефинальные поля вводят глобальное изменяемое состояние, что обычно считается нежелательным.
+<p><b>Пример:</b></p>
+<pre><code>
+  enum Enum {
+    FIRST("first"),
+    SECOND("second");
+    public String str;
+    Enum(String str) {
+        this.str = str;
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  enum Enum {
+    FIRST("first"),
+    SECOND("second");
+    public final String str;
+    Enum(String str) {
+        this.str = str;
+    }
+  }
+</code></pre>
+Используйте опцию "Игнорировать поля, которые не могут быть 'final'" для отображения предупреждений только для полей, которые можно сделать финальными с помощью быстрого исправления.
+</body>
+</html>

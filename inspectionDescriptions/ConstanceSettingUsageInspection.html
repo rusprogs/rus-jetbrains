@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>
+  Сообщает о необработанных ключах в конфигурации <a href="https://django-constance.readthedocs.io/en/latest/">Django Constance</a>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="Python">
+  # settings.py
+  CONSTANCE_CONFIG = {
+    'SITE_NAME': ('My Title', 'Website title'),
+  }
+  # где-то в проекте
+  from constance import config
+  print(config.SITE_DESCRIPTION)
+</code></pre>
+</body>
+</html>

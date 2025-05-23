@@ -1,0 +1,37 @@
+<html>
+<body>
+    Сообщает о лишних точках с запятой (<code>;</code>), которые можно безопасно удалить.
+<p>
+    Kotlin не требует точку с запятой в конце каждого выражения или оператора.
+    Рекомендуется использовать это быстрое исправление для удаления лишних точек с запятой.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  val myMap = mapOf("one" to 1, "two" to 2);
+  myMap.forEach { (key, value) ->  print("$key -> $value")};
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  val myMap = mapOf("one" to 1, "two" to 2)
+  myMap.forEach { (key, value) ->  print("$key -> $value")}
+</code></pre>
+<p>Точка с запятой необходима в двух случаях:</p>
+<ol>
+    <li>
+        Для разделения нескольких выражений в одной строке:
+<pre><code>
+  map.forEach { val (key, value) = it; println("$key -> $value") }
+</code></pre>
+    </li>
+    <li>
+        В классах <code>enum</code>, где определяются свойства или функции, требуется точка с запятой после списка констант:
+        <pre><code>
+  enum class Mode {
+      SILENT, VERBOSE;
+      fun isSilent(): Boolean = this == SILENT
+  }
+        </code></pre>
+    </li>
+</ol>
+</body>
+</html>

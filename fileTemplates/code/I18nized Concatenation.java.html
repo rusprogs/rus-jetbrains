@@ -1,0 +1,43 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="2"><font face="verdana" size="-1">
+    Заменить конкатенацию строк (например, </font><code>String s = "Hello " + name;</code>)
+    <font face="verdana" size="-1">на интернационализованное Java-выражение (например, </font>
+    <code>String s = MessageFormat.format(&#8203;myResourceBundle.getString(&#8203;"hello.0"), name);</code><font face="verdana" size="-1">).<br>
+        Этот встроенный шаблон можно редактировать. Помимо Java-выражений и комментариев, вы можете использовать предопределённые переменные, которые впоследствии будут заменены соответствующими значениями.</font>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Предопределённые переменные принимают следующие значения:</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${RESOURCE_BUNDLE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Выражение типа <b>java.util.ResourceBundle</b>, экземпляр которого доступен в данном контексте.</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PARAMETERS}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Переменные, используемые в конкатенации строк, обычно передаются как аргументы в интернационализованное выражение.</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROPERTY_KEY}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Имя ключа свойства, определённого в соответствующем файле свойств.
+      Обычно это значение используется как параметр метода <b>ResourceBundle.getString()</b>.
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROPERTY_VALUE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Значение свойства, определённое в соответствующем файле свойств.
+      Это исходное значение строкового литерала Java.
+    </font></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о вызовах <code>Object.wait()</code>, для которых не найдены соответствующие вызовы <code>Object.notify()</code> или <code>Object.notifyAll()</code>.
+<p>Эта проверка сообщает только о вызовах, содержащих квалификаторы, которые ссылаются на поля текущего класса.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public class Foo {
+    public Object foo = new Object();
+    void bar() throws InterruptedException {
+      this.foo.wait();
+    }
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщать о наличии оператора <code>return</code> в блоке <code>finally</code>.
+<p>Хотя иногда это делается намеренно, такие операторы <code>return</code> могут скрывать выброшенные исключения и усложнять отладку.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  try {
+    foo();
+  } finally {
+    if (bar()) return;
+  }
+</code></pre>
+</body>
+</html>

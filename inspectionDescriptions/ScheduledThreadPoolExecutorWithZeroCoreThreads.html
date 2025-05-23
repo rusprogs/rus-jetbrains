@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает о любых экземплярах <code>java.util.concurrent.ScheduledThreadPoolExecutor</code>, у которых <code>corePoolSize</code> установлен в ноль через метод <code>setCorePoolSize</code> или конструктор объекта.
+<p>
+  <code>ScheduledThreadPoolExecutor</code> без основных потоков не выполняет никаких задач.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void foo(int corePoolSize) {
+      if (corePoolSize != 0) return;
+      ThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(corePoolSize); // Предупреждение
+      executor.setCorePoolSize(corePoolSize); // Предупреждение
+  }
+</code></pre>
+</body>
+</html>

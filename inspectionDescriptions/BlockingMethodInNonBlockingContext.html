@@ -1,0 +1,29 @@
+<html>
+<body>
+Сообщает о вызовах блокирующих методов в участках кода, которые не должны блокировать поток выполнения.
+<p><b>Пример (проект Reactor):</b></p>
+<pre><code lang="java">
+Flux.just("1").flatMap(f -&gt; {
+    Flux&lt;String&gt; just = loadUsersFromDatabase();
+    just.toIterable(); // Ошибка: вызов блокирующего оператора в неблокирующем контексте
+    return just;
+  }
+);
+</code></pre>
+<p>Рассмотрите возможность использования <a href="https://projectreactor.io/docs/core/release/reference/#faq.wrap-blocking">соответствующего планировщика</a> (например, <code>Schedulers.boundedElastic()</code>) для выполнения блокирующего кода или поищите альтернативный неблокирующий API.</p>
+<br/>
+<p><b>Пример (Kotlin корутины):</b></p>
+<pre><code lang="kotlin">
+suspend fun exampleFun() {
+    Thread.sleep(100); // Ошибка: вызов блокирующего метода в suspend-функции
+}
+</code></pre>
+<p>Рассмотрите возможность <a href="https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html">использования специального диспетчера</a> (например, <code>Dispatchers.IO</code>) для выполнения блокирующего кода или поищите альтернативный неблокирующий API.</p>
+<p>Настройка проверки:</p>
+<ul>
+  <li>В списке <b>блокирующих аннотаций</b> укажите аннотации, помечающие блокирующие методы.</li>
+  <li>В списке <b>неблокирующих аннотаций</b> укажите аннотации, помечающие неблокирующие методы.</li>
+</ul>
+<p>Указанные аннотации могут использоваться как <a href="https://www.jetbrains.com/help/idea/external-annotations.html">внешние аннотации</a></p>
+</body>
+</html>

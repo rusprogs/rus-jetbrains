@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о именах свойств <code>const</code>, которые не соответствуют рекомендуемым соглашениям об именовании.
+<p>
+    Последовательное именование делает код более читаемым и понятным.
+    Согласно <a href="https://kotlinlang.org/docs/coding-conventions.html#property-names">официальному руководству по стилю Kotlin</a>, свойства <code>const</code> должны использовать имена в верхнем регистре с подчеркиваниями.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  const val Planck: Double = 6.62607015E-34
+</code></pre>
+<p>Быстрое исправление переименует свойство:</p>
+<pre><code>
+  const val PLANCK: Double = 6.62607015E-34
+</code></pre>
+</body>
+</html>

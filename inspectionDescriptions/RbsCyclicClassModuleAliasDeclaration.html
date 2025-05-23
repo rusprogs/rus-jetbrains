@@ -1,0 +1,16 @@
+<html>
+<body>
+Обнаружено циклическое объявление псевдонимов классов или модулей.
+<p>
+  Циклическое объявление вызывает ошибку <code>CyclicClassAliasDefinitionError</code>.
+</p>
+<p>
+  Пример:
+</p>
+<pre><code>
+# Циклическое объявление псевдонимов классов
+class User = Customer
+class Customer = User
+</code></pre>
+</body>
+</html>

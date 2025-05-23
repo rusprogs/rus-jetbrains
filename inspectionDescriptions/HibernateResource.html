@@ -1,0 +1,26 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>openSession()</code>, если возвращаемый ресурс <code>org.hibernate.Session</code> не был безопасно закрыт.
+<p>
+  По умолчанию проверка предполагает, что ресурс может быть закрыт любым методом, содержащим в названии 'close' или 'cleanup'.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void doHibernateQuery(SessionFactory factory) {
+    Session session = factory.openSession(); //предупреждение
+    session.createQuery("...");
+  }
+</code></pre>
+<p>
+  Проверка настраивается следующими параметрами:
+</p>
+<ul>
+  <li>
+    Разрешать ли открытие ресурса <code>org.hibernate.Session</code> внутри блока <code>try</code>. Этот стиль менее предпочтителен, так как он более многословен, чем открытие ресурса перед блоком <code>try</code>.
+  </li>
+  <li>
+    Может ли ресурс быть закрыт любым вызовом метода, который принимает ресурс в качестве аргумента.
+  </li>
+</ul>
+</body>
+</html>

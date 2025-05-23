@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о тестовых случаях, содержащих логику инициализации в конструкторе.
+Если конструктор завершается с ошибкой, методы с аннотацией <code>@After</code> или метод <code>tearDown()</code> не будут вызваны.
+Это может привести к частичной инициализации тестового окружения и негативно повлиять на другие тесты.
+Вместо этого инициализация тестового случая должна выполняться в методе <code>setUp()</code> или в методе с аннотацией <code>@Before</code>.
+<p>Пример с ошибкой:</p>
+<pre><code lang="java">
+  public class ImportantTest {
+    private File file;
+    public ImportantTest() throws IOException {
+      file = File.createTempFile("xyz", ".tmp");
+    }
+    // ... tests go here
+  }
+</code></pre>
+</body>
+</html>

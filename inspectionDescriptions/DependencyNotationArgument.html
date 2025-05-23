@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Обнаружение некорректных обозначений зависимостей.</p>
+  Gradle поддерживает следующие типы/форматы:
+  <ul>
+  <li>Экземпляры <code>Dependency</code>;</li>
+  <li>Значения <code>String</code> или <code>CharSequence</code>, например <code>'org.gradle:gradle-core:1.0'</code>;</li>
+  <li>Отображения (maps), например <code>[group: 'org.gradle', name: 'gradle-core', version: '1.0']</code>;</li>
+  <li>FileCollection, например <code>files('some.jar', 'someOther.jar')</code>;</li>
+  <li>Проекты, например <code>project(':some:project:path')</code>;</li>
+  <li><code>ClassPathNotation</code>, например <code>gradleApi()</code>;</li>
+  <li>Списки обозначений зависимостей, например <code>['org.gradle:gradle-core:1.0']</code>;</li>
+  <li>(Gradle 7.0+) <a href="https://docs.gradle.org/current/userguide/platforms.html">Средства доступа к каталогу версий</a>, например <code>libs.groovy.core</code>.</li>
+</ul>
+  <a href="https://docs.gradle.org/current/userguide/declaring_dependencies.html#sec:dependency-types">См. документацию Gradle</a>
+<p><b>Пример:</b></p>
+<pre><code>
+dependencies {
+  implementation(1) // reports '1'
+}
+</code></pre>
+</body>
+</html>

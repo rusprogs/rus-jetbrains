@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Отчёт о классах, использующих определённые аннотации JSF без реализации необходимых интерфейсов:</p>
+<ul>
+  <li><code>@FacesComponent</code> должен расширять <code>&lt;javax/jakarta&gt;.faces.component.FacesComponent</code></li>
+  <li><code>@FacesRenderer</code> должен расширять <code>&lt;javax/jakarta&gt;.faces.render.Renderer</code></li>
+  <li><code>@FacesConverter</code> должен расширять <code>&lt;javax/jakarta&gt;.faces.convert.Converter</code></li>
+  <li><code>@FacesValidator</code> должен расширять <code>&lt;javax/jakarta&gt;.faces.validator.Validator</code></li>
+</ul>
+<p><strong>Пример:</strong></p>
+<pre><code>
+<strong>@FacesConverter</strong>(value="...")  // класс должен расширять 'javax.faces.convert.Converter'
+public class FooConverter {
+}
+<strong>@FacesRenderer</strong>(rendererType="..", componentFamily="..")  // класс должен расширять 'javax.faces.render.Renderer'
+public class FooConverter {
+}
+<strong>@FacesRenderer</strong>(rendererType="..", componentFamily="..")  // класс должен расширять 'javax.faces.validator.Validator'
+public class FooValidator {
+}
+</code></pre>
+</body>
+</html>

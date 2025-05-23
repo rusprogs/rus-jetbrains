@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о цепочке вызовов <code>Optional</code>, которую можно заменить последовательностью операторов <code>if</code>.
+<p>Пример:</p>
+<pre><code>
+  return Optional.ofNullable(name)
+    .map(this::extractInitials)
+    .map(initials -> initials.toUpperCase(Locale.ENGLISH))
+    .orElseGet(this::getDefault);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  if (name != null) {
+    String initials = extractInitials(name);
+    if (initials != null) return initials.toUpperCase(Locale.ENGLISH);
+  }
+  return getDefault();
+</code></pre>
+<p>
+  Эта проверка помогает при понижении версии для обеспечения обратной совместимости со старыми версиями Java.
+</p>
+<p><small>Новое в версии 2020.2</small></p>
+</body>
+</html>

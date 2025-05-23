@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщается о ресурсе <code>java.util.concurrent.locks.Lock</code>, который не был получен в блоке <code>try</code> или не был разблокирован в соответствующем блоке <code>finally</code>. Такие ресурсы могут быть случайно утечены, если исключение возникнет до освобождения ресурса.
+<p><b>Пример:</b></p>
+<pre><code>
+  lock.lock(); // Будет отмечено из-за отсутствия блока 'finally'
+  try {
+    doSmthWithLock();
+  } catch (IOException e) {
+    throw new UncheckedIOException(e);
+  }
+  lock.unlock();
+</code></pre>
+</body>
+</html>

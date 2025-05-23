@@ -1,0 +1,26 @@
+<html>
+<body>
+Обнаружено поле логгера, не объявленное как <code>static</code> и/или <code>final</code>.
+Обеспечение того, чтобы каждый логгер класса был действительной константой и привязан к этому классу, упрощает задачу предоставления единой реализации логования для приложения.
+<p>Доступно быстрое исправление для изменения модификаторов логгера на <code>static final</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  <b>public class</b> Significant {
+    <b>private</b> Logger LOG = Logger.getLogger(Critical.class);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  <b>public class</b> Significant {
+    <b>private static final</b> Logger LOG = Logger.getLogger(Critical.class);
+  }
+</code></pre>
+<p>
+  Настройка проверки:
+</p>
+<ul>
+  <li>В таблице <b>имён классов логгеров</b> можно указать имена классов логгеров. Проверка будет сообщать о полях, которые не являются <code>static</code> и <code>final</code>, и тип которых соответствует одному из указанных имён классов.
+  </li>
+</ul>
+</body>
+</html>

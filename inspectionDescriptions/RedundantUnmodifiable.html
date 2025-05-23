@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о избыточных вызовах неизменяемых оберток коллекций из класса <code>Collections</code>.
+<p>Такая обертка становится избыточной, если аргумент, переданный в неизменяемую обертку коллекции, уже является неизменяемым.</p>
+<p>Пример:</p>
+<pre><code>
+  List&lt;String&gt; x = Collections.unmodifiableList(Collections.singletonList("abc"));
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  List&lt;String&gt; x = Collections.singletonList("abc");
+</code></pre>
+<p>Для обнаружения методов, возвращающих неизменяемые коллекции, проверка использует аннотации <code>org.jetbrains.annotations.Unmodifiable</code>
+и <code>org.jetbrains.annotations.UnmodifiableView</code>.
+Используйте их для расширения проверки на ваши собственные обертки неизменяемых коллекций.</p>
+<p><small>Новое в версии 2020.3</small></p>
+</body>
+</html>

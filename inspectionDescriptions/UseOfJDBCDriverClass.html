@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает об использовании конкретных классов драйверов JDBC. Использование таких классов привязывает ваш проект к определённой базе данных и драйверу, что противоречит назначению JDBC и приводит к потере переносимости.
+<p><b>Пример:</b></p>
+<pre><code>
+  import java.sql.Driver;
+  abstract class Sample implements Driver {
+    public void foo() {
+        Sample sample;
+    }
+  }
+</code></pre>
+</body>
+</html>

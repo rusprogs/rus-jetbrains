@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщается о возможности замены на упрощенный вызов библиотечной функции.
+<p>Использование соответствующей функции может сделать код проще.</p>
+<p>Это быстрое исправление заменяет один вызов функции на другой.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun test(list: List&lt;Any&gt;) {
+      list.filter { it is String }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun test(list: List&lt;Any&gt;) {
+      list.filterIsInstance&lt;String&gt;()
+  }
+</code></pre>
+</body>
+</html>

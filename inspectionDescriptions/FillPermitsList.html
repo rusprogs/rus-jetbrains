@@ -1,0 +1,18 @@
+<html>
+<body>
+Сообщает о классах <code>sealed</code> без явного списка <code>permits</code>.
+Для sealed-классов, имеющих подклассы только в том же файле, явный список <code>permits</code> не требуется.
+По умолчанию эта проверка не подсвечивается в редакторе, а только предлагает исправление.
+<p>Пример:</p>
+<pre><code>
+  sealed class A {}
+  final class B extends A {}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  sealed class A permits B {}
+  final class B extends A {}
+</code></pre>
+<p><small>Новое в версии 2020.3</small></p>
+</body>
+</html>

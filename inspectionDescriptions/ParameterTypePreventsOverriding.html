@@ -1,0 +1,27 @@
+<html>
+<body>
+Сообщает о параметрах метода подкласса, которые имеют то же имя, что и параметры super-метода, но принадлежат к разным пакетам.
+В таких случаях метод подкласса не может переопределить super-метод.
+<p><b>Пример:</b></p>
+<pre><code>
+<b>public class</b> A {
+ <b>public void</b> method(Object o) {}
+}
+<b>public class</b> B <b>extends</b> A {
+ <b>public void</b> method(Object o) {} // предупреждение о типе параметра
+ <b>class</b> Object {}
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+<b>public class</b> A {
+ <b>public void</b> method(Object o) {}
+}
+<b>public class</b> B <b>extends</b> A {
+ <b>public void</b> method(java.lang.Object o) {} // новый тип параметра
+ <b>class</b> Object {}
+}
+</code></pre>
+<p>
+</body>
+</html>

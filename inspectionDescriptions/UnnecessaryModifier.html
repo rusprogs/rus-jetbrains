@@ -1,0 +1,36 @@
+<html>
+<body>
+Сообщает о избыточных модификаторах и предлагает их удалить.
+Итоговый код станет короче, но его поведение и смысл останутся неизменными.
+<p><b>Пример 1:</b></p>
+<pre><code>
+  // В Java 17 и выше весь код неявно strictfp
+  strictfp class X {
+    // Внутренние перечисления неявно static
+    static enum Inner {
+        A, B, C
+    }
+    // Внутренние записи неявно static
+    static record R() {
+    }
+  }
+</code></pre>
+<p><b>Пример 2:</b></p>
+<pre><code>
+  final record R() {
+    // Все записи неявно final
+  }
+</code></pre>
+<p><b>Пример 3:</b></p>
+<pre><code>
+  // Все интерфейсы неявно abstract
+  abstract interface Printer {
+    // Все члены интерфейса неявно public
+    public int size();
+    // Все внутренние классы интерфейса неявно static
+    static class Inner {}
+  }
+</code></pre>
+<p>
+</body>
+</html>

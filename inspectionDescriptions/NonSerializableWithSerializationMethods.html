@@ -1,0 +1,12 @@
+<html>
+<body>
+Сообщает о классах, не реализующих <code>Serializable</code>, но определяющих методы <code>readObject()</code> или <code>writeObject()</code>. Наличие таких методов в данном контексте обычно указывает на ошибку.
+<p><b>Пример:</b></p>
+<pre><code>
+  public class SampleClass {
+    private void readObject(ObjectInputStream str) {}
+    private void writeObject(ObjectOutputStream str) {}
+  }
+</code></pre>
+</body>
+</html>

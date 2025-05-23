@@ -1,0 +1,11 @@
+<html>
+<body>
+<p>Сообщает о неразрешённых файлах или каталогах в аннотациях <a href=https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/PropertySource.html>@PropertySource</a> и <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/context/TestPropertySource.html">@TestPropertySource</a>.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @Configuration
+  @PropertySource("classpath:/com/mycompany/unknown.properties") // Сообщает "Не удаётся разрешить файл 'unknown.properties'"
+  public class AppConfig {...}
+</code></pre>
+</body>
+</html>

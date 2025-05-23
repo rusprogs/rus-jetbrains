@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщать о функциях и переменных с допустимым null-значением, которые никогда не возвращают и не становятся <code>null</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  fun greeting(user: String): String? = "Hello, $user!"
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun greeting(user: String): String = "Hello, $user!"
+</code></pre>
+</body>
+</html>

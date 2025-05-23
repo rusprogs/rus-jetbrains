@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о классах <code>Externalizable</code>, которые определяют методы <code>readObject()</code> или <code>writeObject()</code>. Эти методы не вызываются для сериализации объектов <code>Externalizable</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  abstract class Crucial implements Externalizable {
+    int value;
+    private void readObject(ObjectInputStream in) {
+      value = in.readInt();
+    }
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td><font face="verdana" size="-1"><b>Go Scratch</b> - это встроенный шаблон, используемый при создании новых временных файлов Go.
+      Временные файлы - это полнофункциональные, работоспособные и отлаживаемые файлы, которые можно использовать для набросков ваших идей программования. Чтобы создать временный файл, нажмите <b>Файл | Создать | Временный файл</b>. В диалоговом окне <b>Создать временный файл</b> найдите и выберите <b>Go</b>.<br> <br>
+      Этот шаблон можно редактировать. В шаблоне можно использовать предопределённые переменные, перечисленные ниже. Эти переменные позже будут развернуты в соответствующие значения в редакторе.<br> <br>
+      Вы также можете указать пользовательские переменные. Пользовательские переменные используют следующий формат: <code>${VARIABLE_NAME}</code>, где <code>VARIABLE_NAME</code> - это имя переменной (например, <code>${MY_CUSTOM_FUNCTION_NAME}</code>).
+      Перед созданием нового файла с пользовательскими переменными ИСР покажет диалоговое окно, где вы сможете определить значения пользовательских переменных из шаблона.<br><br>
+      Используя директиву <code>#parse</code>, вы можете включать шаблоны из вкладки <b>Include</b>. Чтобы включить шаблон, укажите его полное имя в кавычках в качестве параметра (например, <code>#parse("File Header")</code>).
+    </font></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Список предопределённых переменных</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${GO_PACKAGE_NAME_WITH_TEST_SUFFIX}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Имя пакета, в котором создаётся новый тестовый файл. Файл должен иметь суффикс <code>_test</code>. Формат имени следующий: <code>package_test</code>.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${GO_PACKAGE_NAME}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Имя пакета, в котором создаётся новый файл.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${DATE}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Текущая системная дата.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${DAY}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">День месяца.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${DAY_NAME_SHORT}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Первые 3 буквы названия текущего дня недели (например, <code>Mon</code>, <code>Tue</code> и т.д.).</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${DAY_NAME_FULL}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Полное название текущего дня недели (например, <code>Monday</code>, <code>Tuesday</code> и т.д.).</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${DIR_PATH}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Путь к директории нового файла. Этот путь относительно корня проекта.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${DS}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Знак доллара ($). Эта переменная используется для экранирования символа доллара, чтобы он не рассматривался как префикс переменной шаблона.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${FILE_NAME}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Имя нового файла.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${HOUR}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Текущий час.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${MINUTE}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Текущая минута.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${SECOND}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Текущая секунда.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${MONTH}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Текущий месяц.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${MONTH_NAME_SHORT}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Первые 3 буквы названия текущего месяца (например, <code>Jan</code>, <code>Feb</code> и т.д.).</font>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${MONTH_NAME_FULL}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Полное название текущего месяца (например, <code>January</code>, <code>February</code> и т.д.).</font>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${NAME}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Имя нового элемента: файла, типа, интерфейса и т.д.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${PRODUCT_NAME}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Название ИСР.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${PROJECT_NAME}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Название текущего проекта.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${TIME}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Текущее системное время.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${USER}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Системное имя входа текущего пользователя.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${YEAR}</strong></font></nobr>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Текущий год.</font></td>
+  </tr>
+</table>
+</body>
+</html>

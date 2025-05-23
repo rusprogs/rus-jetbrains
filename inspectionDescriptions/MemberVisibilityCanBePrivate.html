@@ -1,0 +1,17 @@
+<html>
+<body>
+Отчёт может быть объявлен как <code>private</code> в соответствии с принципом инкапсуляции.
+<p><b>Пример:</b></p>
+<pre><code>
+class Service(val url: String) {
+    fun connect(): URLConnection = URL(url).openConnection()
+}
+</code></pre>
+<p>После применения быстрого исправления (учитывая, что <code>url</code> не используется за пределами класса <code>Service</code>):</p>
+<pre><code>
+class Service(private val url: String) {
+    fun connect(): URLConnection = URL(url).openConnection()
+}
+</code></pre>
+</body>
+</html>

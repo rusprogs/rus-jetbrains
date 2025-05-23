@@ -1,0 +1,27 @@
+<html>
+<body>
+Сообщать о полях следующих типов:
+<ul>
+  <li><code>java.util.concurrent.atomic.AtomicLongFieldUpdater</code></li>
+  <li><code>java.util.concurrent.atomic.AtomicIntegerFieldUpdater</code></li>
+  <li><code>java.util.concurrent.atomic.AtomicReferenceFieldUpdater</code></li>
+</ul>
+Тип должен быть <code>static final</code>.
+Поскольку для обновления поля <code>volatile</code> во всех экземплярах класса требуется только один атомарный обновитель полей, он практически всегда должен быть <code>static</code>.
+<p>Сделав обновитель <code>final</code>, JVM сможет оптимизовать доступ для повышения производительности.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Main {
+    private volatile int id;
+    private AtomicIntegerFieldUpdater&lt;Main&gt; idFieldUpdater = AtomicIntegerFieldUpdater.newUpdater(Main.class, "id");
+  }
+</code></pre>
+<p>После быстрого исправления:</p>
+<pre><code>
+  class Main {
+    private volatile int id;
+    private static final AtomicIntegerFieldUpdater&lt;Main&gt; idFieldUpdater = AtomicIntegerFieldUpdater.newUpdater(Main.class, "id");
+  }
+</code></pre>
+</body>
+</html>

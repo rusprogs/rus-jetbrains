@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о вызовах <code>java.util.concurrent.locks.Condition.await()</code>, которые не находятся внутри цикла.
+<p>
+  Метод <code>await()</code> и связанные с ним методы обычно используются для приостановки потока до тех пор, пока определённое условие не станет истинным.
+  Поток может быть разбужен по разным причинам, поэтому условие следует проверять после возврата из вызова <code>await()</code>.
+  Это легко сделать с помощью цикла.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void acquire(Condition released) throws InterruptedException {
+    released.await();
+  }
+</code></pre>
+<p>Правильный код должен выглядеть так:</p>
+<pre><code>
+  void acquire(Condition released) throws InterruptedException {
+    while (acquired) {
+      released.await();
+    }
+  }
+</code></pre>
+</body>
+</html>

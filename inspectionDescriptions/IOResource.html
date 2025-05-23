@@ -1,0 +1,31 @@
+<html>
+<body>
+Сообщает о незакрытых I/O ресурсах. Проверка охватывает следующие I/O ресурсы: <code>java.io.InputStream</code>, <code>java.io.OutputStream</code>, <code>java.io.Reader</code>, <code>java.io.Writer</code>, <code>java.util.zip.ZipFile</code>, <code>java.io.Closeable</code> и <code>java.io.RandomAccessFile</code>.
+<p>
+  Не сообщается о I/O ресурсах, обёрнутых другими I/O ресурсами, так как обёртывающий ресурс закроет обёрнутый ресурс.
+</p>
+<p>
+  По умолчанию проверка предполагает, что ресурс может быть закрыт любым методом, содержащим в названии 'close' или 'cleanup'.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void save() throws IOException {
+    FileWriter writer = new FileWriter("filename.txt"); //предупреждение
+    writer.write("sample");
+  }
+</code></pre>
+<p>
+  Проверка настраивается следующими параметрами:
+</p>
+<ul>
+  <li>Список классов I/O ресурсов, которые не требуют закрытия и должны игнорироваться при проверке.</li>
+  <li>
+    Разрешать ли открытие I/O ресурсов внутри блока <code>try</code>.
+    Этот стиль менее предпочтителен, так как он более многословен, чем открытие ресурса перед блоком <code>try</code>.
+  </li>
+  <li>
+    Может ли ресурс быть закрыт любым вызовом метода, которому этот ресурс передаётся в качестве аргумента.
+  </li>
+</ul>
+</body>
+</html>

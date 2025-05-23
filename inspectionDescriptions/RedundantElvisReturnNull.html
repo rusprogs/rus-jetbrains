@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Сообщать о избыточном <code>?: return null</code></p>
+<p><b>Пример:</b></p>
+<pre><code>
+  fun foo(): Int? {
+      ...
+  }
+  fun test() : Int? {
+      return foo() <b>?: return null</b>
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  fun foo(): Int? {
+      ...
+  }
+  fun test() : Int? {
+      return foo()
+  }
+</code></pre>
+</body>
+</html>

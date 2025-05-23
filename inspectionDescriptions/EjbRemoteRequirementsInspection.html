@@ -1,0 +1,16 @@
+<html>
+<body>
+Обнаружены следующие нарушения спецификации EJB:
+<ul>
+  <li>Метод не объявляет, что выбрасывает <code>java.rmi.RemoteException</code></li>
+  <li>Тип возвращаемого значения или аргументы метода несовместимы с RMI/IIOP</li>
+  <li>Интерфейс конечной точки EJB содержит объявления констант</li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code>
+public interface EntityRemote extends javax.ejb.EJBObject{
+  public int businessExample(String value) throws java.lang.RuntimeException; // Ошибка: следует объявить 'RemoteException'
+}
+</code></pre>
+</body>
+</html>

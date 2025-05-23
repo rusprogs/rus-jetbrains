@@ -1,0 +1,46 @@
+<html>
+<body>
+<p>Сообщает о проблемах автоматического связывания (autowiring) в точках внедрения Spring Bean с аннотациями <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Component.html">@Component</a>, <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Service.html">@Service</a> и другими.</p>
+<ul>
+  <li>Более одного конкретного ('concrete') типа Bean</li>
+  <li>Отсутствие конкретного ('concrete') типа Bean</li>
+  <li>Отсутствие Bean с квалификатором</li>
+  <li>Некорректное использование <code>@Autowired</code> в конструкторах Spring Bean</li>
+  <li>Внедрение или автоматическое связывание полей/методов в классах, не являющихся валидными Spring Bean</li>
+</ul>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+public interface FooInterface {...}
+  @Component public class FooBean implements FooInterface {...}
+  @Component public class OtherBean implements FooInterface {...}
+@Component
+public class MyComponent {
+	@Autowired
+	FooInterface foo;  // Невозможно выполнить автоматическое связывание. Существует более одного Bean типа 'FooInterface'.
+                     // Beans: fooBean(FooBean.java), otherBean(OtherBean.java)"
+}
+</code></pre>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+@Component
+public class MyComponent {
+	@Autowired
+	public MyComponent(BarBean bean) {...} // Сообщение "Разрешен только один конструктор с @Autowired"
+	@Autowired
+	public MyComponent(FooBean bean) {...} // Сообщение "Разрешен только один конструктор с @Autowired"
+}
+@Component
+public class MyFactory {  // Сообщение "Не найден подходящий конструктор с @Autowired"
+	public MyFactory(String str) {...}
+	public MyFactory(int count) {...}
+}
+</code></pre>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+public class FooBeanClass {
+  @Autowired   // Сообщение 'Автоматическое связывание должно быть определено в валидном Spring Bean: @Component, @Service и т.д.'
+  ServiceBean bean;
+  }
+</code></pre>
+</body>
+</html>

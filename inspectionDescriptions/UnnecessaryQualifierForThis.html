@@ -1,0 +1,29 @@
+<html>
+<body>
+Обнаружение необязательных квалификаторов <code>this</code> или <code>super</code>.
+<p>
+  Использование квалификаторов <code>this</code> или <code>super</code> для устранения неоднозначности в ссылках кода может стать излишним после автоматического рефакторинга и должно быть удалено для улучшения читаемости.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Foo {
+    void foo() {}
+  }
+  class Bar extends Foo {
+    void bar() {
+      Bar.super.foo();
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Foo {
+    void foo() {}
+  }
+  class Bar extends Foo {
+    void bar() {
+      super.foo();
+    }
+  }
+</code></pre>
+</body>
+</html>

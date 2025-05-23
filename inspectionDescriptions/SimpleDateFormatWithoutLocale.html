@@ -1,0 +1,12 @@
+<html>
+<body>
+Сообщает об инстанциировании <code>java.util.SimpleDateFormat</code> или <code>java.time.format.DateTimeFormatter</code> без указания <code>java.util.Locale</code>.
+Такие вызовы будут использовать локаль платформы по умолчанию, которая зависит от настроек операционной системы.
+Это может привести к непредсказуемому поведению при запуске кода на разных платформах или при изменении системных настроек.
+<p><code>Пример:</code></p>
+<pre><code>
+  new SimpleDateFormat("yyyy");
+  DateTimeFormatter.ofPattern("d/M/y");
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<body>
+Сообщает о реализации <code>hashCode()</code>, которая обращается к не-<code>final</code> переменным.
+<p>
+  Такой доступ может привести к тому, что <code>hashCode()</code> будет возвращать разные значения в разные моменты жизненного цикла объекта, что может вызвать проблемы при использовании стандартных коллекций.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  class Drink {
+    String name;
+    Drink(String name) { this.name = name; }
+    @Override public int hashCode() {
+      return Objects.hash(name); //предупреждение
+    }
+  }
+  ...
+    Drink coffee = new Drink("Coffee");
+    priceMap.put(coffee, 10.0);
+    coffee.name = "Tea";
+    double coffeePrice = priceMap.get(coffee); //не найдено
+</code></pre>
+<p>Рекомендуется использовать быстрое исправление, чтобы сделать поле final:</p>
+<pre><code>
+  class Drink {
+    final String name;
+    ...
+  }
+</code></pre>
+</body>
+</html>

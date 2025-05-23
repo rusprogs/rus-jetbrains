@@ -1,0 +1,12 @@
+<html>
+<body>
+Сообщает об экспортуемых именах, которые начинаются с имени пакета. Эта проверка не выполняется для имен в пакете <code>main</code>.
+<p>Пример:</p>
+<pre><code>package myPackage
+func MyPackageGetIP() {
+}</code></pre>
+<p>Имя <code>MyPackageGetIP</code> будет подсвечено, так как оно начинается с имени пакета.</p>
+<p>Согласно <a href="https://github.com/golang/go/wiki/CodeReviewComments#package-names">Package Names на github.com/golang</a>, все ссылки на имена в пакете будут дополнены именем пакета, поэтому его можно опустить в идентификаторе.
+  Например, если вы находитесь в пакете <code>foo</code>, вам не нужен тип <code>FooFile</code>, так как клиенты будут писать его как <code>foo.FooFile</code>. Вместо этого следует назвать тип просто <code>File</code>, и клиенты будут использовать его как <code>foo.File</code>.</p>
+</body>
+</html>

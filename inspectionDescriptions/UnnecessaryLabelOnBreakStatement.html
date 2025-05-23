@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщение о наличии оператора <code>break</code> с необязательной меткой. Такие метки не влияют на поток управления, но усложняют чтение кода.
+<p><b>Пример:</b></p>
+<pre><code>
+  label:
+  for(int i = 0; i &lt; 10; i++) {
+    if (shouldBreak()) break label;
+    //doSmth
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  label:
+  for(int i = 0; i &lt; 10; i++) {
+    if (shouldBreak()) break;
+    //doSmth
+  }
+</code></pre>
+</body>
+</html>

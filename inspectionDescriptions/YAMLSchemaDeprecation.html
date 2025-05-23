@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщать об устаревших ключах в YAML-файлах.
+<p>Проверка на устаревшие элементы выполняется только при наличии JSON-схемы, связанной с соответствующим YAML-файлом.</p>
+<p>Обратите внимание, что механизм пометки устаревших элементов еще не определен в спецификации JSON Schema, и эта проверка использует нестандартное расширение <code>deprecationMessage</code>.</p>
+<p><b>Пример объявления устаревшего элемента в схеме:</b></p>
+<pre><code>
+  {
+    "properties": {
+      "SomeDeprecatedProperty": {
+        "deprecationMessage": "Baz",
+        "description": "Foo bar"
+      }
+    }
+  }
+</code></pre>
+<p><b>Пример с соответствующим предупреждением:</b></p>
+<pre><code>
+  SomeDeprecatedProperty: some value
+</code></pre>
+</body>
+</html>

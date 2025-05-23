@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>java.util.Set.removeAll()</code> с аргументом типа <code>java.util.List</code>.
+<p>
+  Такие вызовы могут быть медленными, когда размер аргумента больше или равен размеру множества, и множество является подклассом <code>java.util.AbstractSet</code>.
+  В этом случае для каждого элемента множества вызывается <code>List.contains()</code>, что приводит к линейному поиску.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  public void check(String... ss) {
+    // Возможная сложность O(n^2)
+    mySet.removeAll(List.of(ss));
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  public void check(String... ss) {
+    // Сложность O(n)
+    List.of(ss).forEach(mySet::remove);
+  }
+</code></pre>
+<p><small>Новое в версии 2020.3</small></p>
+</body>
+</html>

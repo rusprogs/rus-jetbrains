@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщение об инстанцировании класса <code>java.lang.ClassLoader</code>.
+<p>Хотя обычно это безопасно, любое создание экземпляра <code>ClassLoader</code> должно быть тщательно проверено при проведении аудита безопасности.</p>
+<p><b>Пример:</b></p>
+<pre><code>    Class&lt;?&gt; loadExtraClass(String name) throws Exception {
+      try(URLClassLoader loader =
+          new URLClassLoader(new URL[]{new URL("extraClasses/")})) {
+        return loader.loadClass(name);
+      }
+    }
+  </code>
+</pre>
+</body>
+</html>

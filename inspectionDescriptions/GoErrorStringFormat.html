@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о проблемах форматования в строках ошибок.
+<p>Пример:</p>
+<pre><code>err := fmt.Errorf("Cannot read the file!")
+log.Printf("Reading %s: %v", file, err)</code></pre>
+<p>Согласно <a href="https://github.com/golang/go/wiki/CodeReviewComments#error-strings">Error Strings на github.com/golang</a>, строки ошибок не должны начинаться с заглавной буквы или заканчиваться знаками препинания, поскольку они могут появляться в других контекстах.
+</p>
+<p>Чтобы исправить форматование, примените быстрое исправление <b>Исправить формат строки ошибки</b>. После применения быстрого исправления строка ошибки будет выглядеть так:</p>
+<pre><code>err := fmt.Errorf("cannot read the file")
+log.Printf("Reading %s: %v", file, err)</code></pre>
+</body>
+</html>

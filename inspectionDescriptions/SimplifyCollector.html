@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о возможности упрощения коллекторов.
+<p>В частности, некоторые каскадные коллекторы <code>groupingBy()</code> можно заменить более простыми коллекторами <code>toMap()</code>, что также может улучшить производительность.</p>
+<p>Пример:</p>
+<pre><code>
+  Collectors.groupingByConcurrent(String::length, Collectors.collectingAndThen(Collectors.maxBy(String::compareTo), Optional::get));
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  Collectors.toConcurrentMap(String::length, Function.identity(), BinaryOperator.maxBy(String::compareTo));
+</code></pre>
+<p><small>Новое в версии 2017.1</small></p>
+</body>
+</html>

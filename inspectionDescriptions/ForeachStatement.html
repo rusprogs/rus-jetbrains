@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает об использовании расширенного оператора <code>for</code>.
+<p>Пример:</p>
+<pre><code>
+  for (int x: Arrays.asList(1, 2, 3)) {
+    System.out.println(x);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  for (Iterator&lt;Integer&gt; iterator = Arrays.asList(1, 2, 3).iterator(); iterator.hasNext(); ) {
+    final int x = iterator.next();
+    System.out.println(x);
+  }
+</code></pre>
+<p>
+  <i>Расширенный</i> оператор <code>for</code> <i></i>появился в Java 5.
+  Эта проверка помогает обеспечить обратную совместимость с более ранними версиями Java.
+</p>
+</body>
+</html>

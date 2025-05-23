@@ -1,0 +1,42 @@
+<html>
+<body>
+Сообщает об операторах <code>assert</code> и утверждениях тестового фреймворка, которые блокируются окружающими блоками catch.
+Такие утверждения никогда не завершатся неудачей, поскольку выброшенная ошибка <code>AssertionError</code> будет перехвачена и проигнорирована без уведомления.
+<p><b>Пример 1:</b></p>
+<pre><code>
+  void javaAssertion() {
+    try {
+      ...
+      assert 1 == 2;
+    } catch (AssertionError e) {
+      // Это утверждение игнорируется без уведомления
+    }
+  }
+</code></pre>
+<p><b>Пример 2:</b></p>
+<pre><code>
+  @Test
+  void testWithAssertJ() {
+    try {
+      ...
+      assertThat(1).as("test").isEqualTo(2);
+    } catch (AssertionError e) {
+      // Это утверждение игнорируется без уведомления
+    }
+  }
+</code></pre>
+<p><b>Пример 3:</b></p>
+<pre><code>
+  @Test
+  void testWithJunit() {
+    try {
+      ...
+      assertEquals(1, 2);
+    } catch (AssertionError e) {
+      // Это утверждение игнорируется без уведомления
+    }
+  }
+</code></pre>
+<p><small>Что нового в версии 2020.3</small></p>
+</body>
+</html>

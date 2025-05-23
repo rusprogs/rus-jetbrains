@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Сообщение об отсутствующем терминальном вызове <code>StepVerifier</code>.</p>
+<p>
+  Для запуска подписки <code>Publisher</code> и проверки утверждений необходимо вызвать метод терминальной верификации, например <code>verify()</code>, <code>verifyComplete()</code> и т.д.
+</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+StepVerifier.create(Flux.just(1,2,3)).expectNext(1);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+StepVerifier.create(Flux.just(1,2,3)).expectNext(1).verifyComplete();
+</code></pre>
+</body>
+</html>

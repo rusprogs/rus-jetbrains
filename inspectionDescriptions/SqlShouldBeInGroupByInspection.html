@@ -1,0 +1,11 @@
+<html>
+<body>
+Обнаружены столбцы, которые отсутствуют в предложении GROUP BY или в вызове агрегатной функции.
+<p>Пример (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE t1 (a INT, b INT);
+SELECT a, b FROM t1 GROUP BY a;</code></pre>
+<p>При выполнении запроса SELECT возникнет ошибка, так как Microsoft SQL Server требует, чтобы столбец <code>b</code> был включен в GROUP BY или использовался внутри агрегатной функции. Следующие два примера исправляют эту ошибку.</p>
+<pre><code>SELECT a, b FROM t1 GROUP BY a, b;
+SELECT a, max(b) max_b FROM t1 GROUP BY a;</code></pre>
+</body>
+</html>

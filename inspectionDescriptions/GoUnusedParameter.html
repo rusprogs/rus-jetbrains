@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщать о неиспользуемых параметрах функций.
+<pre><code>func main() {
+ printAll(
+  42,
+  "bird",
+ )
+}
+func printAll(
+ i int,
+ s string,
+) {
+ fmt.Println(i)
+}</code></pre>
+<p>Мы вызываем функцию <b>printAll</b>, передавая <code>42</code> и <code>bird</code> в качестве аргументов. Функция <b>printAll</b> принимает два параметра типов <code>int</code> и <code>string</code>, но использует только первый параметр. Поэтому <code>s string</code> будет отображаться серым цветом.
+</p>
+</body>
+</html>

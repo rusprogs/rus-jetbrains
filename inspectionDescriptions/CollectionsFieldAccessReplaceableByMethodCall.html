@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает об использовании полей <code>java.util.Collections</code>: <code>EMPTY_LIST</code>, <code>EMPTY_MAP</code>
+или <code>EMPTY_SET</code>. Использование этих полей может быть заменено следующими вызовами методов: <code>emptyList()</code>, <code>emptyMap()</code> или <code>emptySet()</code>.
+Такие вызовы методов предотвращают появление непроверенных предупреждений компилятора, поскольку типовые параметры могут быть выведены.
+<p><b>Пример:</b></p>
+<pre><code>
+  List&lt;Integer&gt; emptyList = Collections.EMPTY_LIST;
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  List&lt;Integer&gt; emptyList = Collections.emptyList();
+</code></pre>
+<p>Эта проверка выполняется только если уровень языка проекта или модуля равен 5 или выше.</p>
+<p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает об использовании оператора GOTO после метки и для выхода из цикла.
+<p>Частое использование оператора GOTO обычно не рекомендуется. Подробнее см. <a href="https://www.ibm.com/docs/no/db2/11.5?topic=procedures-goto-statement-in-sql">GOTO statement in SQL procedures на ibm.com</a>.</p>
+<p>Рекомендуется использовать циклы вместо GOTO для возврата к предыдущему оператору.</p>
+<p>Рекомендуется использовать другие операторы управления потоком выполнения, такие как RETURN или BREAK, вместо GOTO для выхода из цикла WHILE.</p>
+<p>Пример (Oracle):</p>
+<pre><code>CREATE PROCEDURE test(n INT) AS
+DECLARE
+    x INT;
+BEGIN
+    x := 0;
+    GOTO a;
+    &lt;&lt;a&gt;&gt; x := 1;
+    IF (n = 0) THEN
+        GOTO a;
+    END IF;
+    WHILE TRUE
+        LOOP
+            GOTO b;
+        END LOOP;
+    &lt;&lt;b&gt;&gt; x := 3;
+END;</code></pre>
+</body>
+</html>

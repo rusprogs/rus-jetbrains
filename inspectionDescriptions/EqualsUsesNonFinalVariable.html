@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о реализации метода <code>equals()</code>, в которой происходит обращение к нефинальным (<code>final</code>) переменным. Такой доступ может привести к тому, что метод <code>equals()</code> будет возвращать разные результаты в разные моменты жизненного цикла объекта, что может вызвать проблемы при использовании стандартных коллекций.
+<p><b>Пример:</b></p>
+<pre><code>
+  public class Person {
+    private String lastName;
+    @Override
+    public boolean equals(Object obj) {
+      ...
+      Person other = (Person) obj;
+      if (lastName == null) {
+        if (!lastName.equals(other.lastName)) {
+        return false;
+      ...
+      }
+    }
+  }
+  </code>
+</pre>
+</body>
+</html>

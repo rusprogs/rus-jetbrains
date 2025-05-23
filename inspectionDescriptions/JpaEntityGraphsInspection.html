@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщать о следующих неразрешённых атрибутах в аннотациях EntityGraph:<br/>
+<ul>
+  <li> Значения в <code>@NamedAttributeNode</code></li>
+  <li> Именованные подграфы в <code>@NamedAttributeNode</code></li>
+  <li> Имена в <code>@NamedEntityGraph</code></li>
+</ul><br/>
+<p><b>Пример:</b></p><br/>
+<pre><code lang="java">
+  @Entity
+  @NamedEntityGraph(name = "entity-graph", ...)
+  public class JavaEntity {
+    public void foo() {
+      Persistence.createEntityManagerFactory("")
+        .createEntityManager()
+        .getEntityGraph("unknown-entity-graph"); // Неразрешённая ссылка
+    }
+  }
+</code></pre>
+</body>
+</html>

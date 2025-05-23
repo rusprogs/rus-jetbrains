@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Сообщает о docstring, которые не соответствуют формату строки документации с тройными кавычками.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+def calc(self, balance=0):
+    'param: balance'
+    self.balance = balance
+</code></pre>
+<p>После применения быстрого исправления код станет:</p>
+<pre><code>
+def calc(self, balance=0):
+    """param: balance"""
+    self.balance = balance
+</code></pre>
+</body>
+</html>

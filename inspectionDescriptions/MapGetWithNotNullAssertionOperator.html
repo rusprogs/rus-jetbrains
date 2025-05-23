@@ -1,0 +1,13 @@
+<html>
+<body>
+Сообщает о возможности замены <code>map.get()!!</code> на <code>map.getValue()</code>, <code>map.getOrElse()</code> и подобные методы.
+<p><b>Пример:</b></p>
+<pre><code>
+fun test(map: Map&lt;Int, String&gt;): String = map.get(0)!!
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+fun test(map: Map&lt;Int, String&gt;): String = map.getValue(0)
+</code></pre>
+</body>
+</html>

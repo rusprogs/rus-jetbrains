@@ -1,0 +1,26 @@
+<html>
+<body>
+Обнаружение вызовов логования, окруженных защитными условиями.
+Эта проверка может использоваться для настройки пользовательского стиля кода.
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  public class TestObject {
+    void test(Object object) {
+      if(LOG.isDebugEnabled()){
+        LOG.debug("some logging " + expensiveCalculation(1));
+      }
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  public class TestObject {
+    void test(Object object) {
+      LOG.debug("some logging " + expensiveCalculation(1));
+    }
+  }
+</code></pre>
+<p>Эта проверка поддерживает фреймворки логования <em>Log4j2</em> и <em>SLF4J</em> (за исключением построителей).
+<p><small>Изменения в версии 2024.2</small></p>
+</body>
+</html>

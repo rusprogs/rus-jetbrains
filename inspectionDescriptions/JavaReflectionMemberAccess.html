@@ -1,0 +1,25 @@
+<html>
+<body>
+Сообщает о рефлексивном доступе к несуществующим или невидимым полям и методам.
+<p>Пример:</p>
+<pre><code>
+  Field stringHashField() throws NoSuchFieldException {
+    return String.class.getField("hash");
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  Field stringHashField() throws NoSuchFieldException {
+    return String.class.getDeclaredField("hash");
+  }
+</code></pre>
+<p>
+  Для классов с модификатором <code>final</code> всегда точно известно, существует ли поле или метод с указанным именем.
+</p>
+<p>
+  Для классов без модификатора <code>final</code> поля или методы с таким именем могут существовать в подклассах, что может привести к ложным срабатываниям.
+  Используя настройки этой проверки, можно исключить такие ложные срабатывания для любых локаций или конкретных классов.
+</p>
+<p><small>Новое в версии 2017.2</small></p>
+</body>
+</html>

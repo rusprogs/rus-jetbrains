@@ -1,0 +1,24 @@
+<html>
+<body>
+Проверка ошибок в литералах даты и времени. Эта проверка доступна в MySQL, Oracle, Db2 и H2.
+<p>Пример (MySQL):</p>
+<pre><code lang="sql">SELECT TIME '10 -12:13:14' FROM dual;
+SELECT TIME ' 12 : 13 : 14 ' FROM dual;
+SELECT TIME '12 13 14' FROM dual;
+SELECT TIME '12-13-14' FROM dual;
+SELECT TIME '12.13.14' FROM dual;
+SELECT TIME '12:13:' FROM dual;
+SELECT TIME '12:13' FROM dual;
+SELECT TIME '12:' FROM dual;</code></pre>
+<p>В этом примере даты не соответствуют стандартам литералов даты и времени MySQL. Поэтому они будут подсвечены.
+  Для получения подробной информации о литералах даты и времени в MySQL см. <a
+    href="https://dev.mysql.com/doc/refman/8.0/en/date-and-time-literals.html">Date and Time Literals на dev.mysql.com</a>.</p>
+<p>Следующие литералы даты и времени являются допустимыми для MySQL.</p>
+<pre><code lang="sql">SELECT TIME '12:13:14' FROM dual;
+SELECT TIME '12:13:14.555' FROM dual;
+SELECT TIME '12:13:14.' FROM dual;
+SELECT TIME '-12:13:14' FROM dual;
+SELECT TIME '10 12:13:14' FROM dual;
+SELECT TIME '-10 12:13:14' FROM dual;</code></pre>
+</body>
+</html>

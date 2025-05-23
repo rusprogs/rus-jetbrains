@@ -1,0 +1,20 @@
+<html>
+<body>
+Правило проверки, которое сообщает о операторах <code>switch</code> или выражениях <code>switch</code> с избыточными блоками кода.
+<p>Пример:</p>
+<pre><code>
+  String s = switch (n) {
+    case 1 -> { yield Integer.toString(n); }
+    default -> "default";
+  };
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  String s = switch (n) {
+    case 1 -> Integer.toString(n);
+    default -> "default";
+  };
+</code></pre>
+<p><small>Новое в версии 2019.1</small></p>
+</body>
+</html>

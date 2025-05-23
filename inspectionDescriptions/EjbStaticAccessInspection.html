@@ -1,0 +1,17 @@
+<html>
+<body>
+Обнаружена EJB-класс с записью в статическое поле.
+<p><b>Пример:</b></p>
+<pre><code>
+@Stateless
+public class ExampleBean {
+  private static int counter = 0;
+  private AnotherBean anotherBean;
+  public void setAnotherBean(AnotherBean anotherBean) {
+    this.anotherBean = anotherBean;
+    counter++; // Ошибка: запись в статическое поле здесь недопустима
+  }
+}
+</code></pre>
+</body>
+</html>

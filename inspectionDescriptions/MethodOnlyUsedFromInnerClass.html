@@ -1,0 +1,30 @@
+<html>
+<body>
+Сообщает о <code>private</code> методах, которые вызываются только из внутренних классов того класса, где они объявлены. Такие методы можно безопасно переместить во внутренний класс.
+<p>Пример:</p>
+<pre><code>
+public class Outer {
+  public static void main(String[] args) {
+    new Inner().run(args[0]);
+  }
+  static class Inner {
+    void run(String arg) {
+      // Метод isEmpty() используется только из внутреннего класса
+      // Рекомендуется переместить его во внутренний класс
+      if (!isEmpty(arg)) {
+        System.out.println("Argument is supplied");
+      }
+    }
+  }
+  private static boolean isEmpty(String s) {
+    return s != null && s.trim().isEmpty();
+  }
+}
+</code></pre>
+<p>
+Используйте первый флажок, чтобы игнорировать <code>private</code> методы, вызываемые из анонимных или локальных классов.
+<p>
+Используйте третий флажок, чтобы получать уведомления только о <code>static</code> методах.
+<p>
+</body>
+</html>

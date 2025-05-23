@@ -1,0 +1,19 @@
+<html>
+<body>
+Обнаружение избыточного объявления типа локальной переменной.
+<p>Эти типы можно вывести из контекста, поэтому их можно заменить на <code>var</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void test(InputStream s) {
+    try (InputStream in = s) {}
+  }
+</code></pre>
+<p>После применения исправления:</p>
+<pre><code>
+  void test(InputStream s) {
+    try (var in = s) {}
+  }
+</code></pre>
+<p>
+</body>
+</html>

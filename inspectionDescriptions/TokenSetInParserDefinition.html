@@ -1,0 +1,66 @@
+<html>
+<body>
+Сообщение о объявлении поля <code>TokenSet</code>, ссылающегося на неплатформенные типы элементов в классе <code>ParserDefinition</code>.
+<p>
+  Все языковые <code>ParserDefinition</code> создаются при запуске приложения.
+  Объявление <code>TokenSet</code>, ссылающегося на непла тформенные типы языковых элементов, может привести к созданию и регистрации всех типов языковых элементов в классе-контейнере ссылочных типов, даже если проект не содержит файлов этого языка.
+</p>
+<p>Пример:</p>
+<pre><code lang="java">
+// Контейнер типов элементов:
+public interface MyLangTokenTypes {
+  IElementType COMMENT = new MyLangTokenType("COMMENT");
+  IElementType TYPE1 = new MyLangTokenType("TYPE1");
+  IElementType TYPE2 = new MyLangTokenType("TYPE2");
+  // Дополнительные типы...
+}
+// Неправильно:
+public class MyLangParserDefinition implements ParserDefinition {
+  // Это поле вызовет инициализацию и регистрацию всех типов из MyLangTokenTypes:
+  private static final TokenSet COMMENTS = TokenSet.create(MyLangTokenTypes.COMMENT);
+  @NotNull
+  @Override
+  public TokenSet getCommentTokens() {
+    return COMMENTS;
+  }
+  ...
+}
+// Правильно:
+public final class MyLangTokenSets {
+  public static final TokenSet COMMENTS = TokenSet.create(MyLangTokenTypes.COMMENT);
+}
+public class MyLangParserDefinition implements ParserDefinition {
+  @NotNull
+  @Override
+  public TokenSet getCommentTokens() {
+    // Типы будут ссылаться и регистрироваться только при вызове этого метода:
+    return MyLangTokenSets.COMMENTS;
+  }
+  ...
+}
+// Правильно (Kotlin):
+// Объявление верхнего уровня не загружается до вызова метода getCommentTokens():
+private val COMMENTS = TokenSet.create(MyLangTokenTypes.COMMENT);
+class MyLangParserDefinition : ParserDefinition {
+  override getCommentTokens(): TokenSet {
+    return COMMENTS;
+  }
+  ...
+}
+// Правильно:
+public class MyLangParserDefinition implements ParserDefinition {
+  // Разрешённый платформенный TokenSet:
+  private static final TokenSet COMMENTS1 = TokenSet.EMPTY;
+  // Разрешённый платформенный TokenType:
+  private static final TokenSet COMMENTS2 = TokenSet.create(TokenType.WHITE_SPACE);
+  @NotNull
+  @Override
+  public TokenSet getCommentTokens() {
+    ...
+  }
+  ...
+}
+</code></pre>
+<p><small>Изменения в версии 2023.2</small>
+</body>
+</html>

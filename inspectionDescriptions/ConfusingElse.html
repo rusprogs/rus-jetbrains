@@ -1,0 +1,24 @@
+<html>
+<body>
+Сообщать о избыточном ключевом слове <code>else</code> в конструкциях <code>if</code>&mdash;<code>else</code> и цепочках операторов.
+<p>
+Ключевое слово <code>else</code> является избыточным, когда все предыдущие ветви заканчиваются операторами <code>return</code>, <code>throw</code>, <code>break</code> или <code>continue</code>. В таких случаях операторы из ветви <code>else</code> можно разместить после оператора <code>if</code>, а ключевое слово <code>else</code> можно удалить.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  if (name == null) {
+      throw new IllegalArgumentException();
+  } else {
+      System.out.println(name);
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  if (name == null) {
+      throw new IllegalArgumentException();
+  }
+  System.out.println(name);
+</code></pre>
+<p>Отключите опцию <b>Сообщать, когда после оператора 'if' нет других операторов</b>, чтобы игнорировать случаи, когда конструкция <code>if</code>&mdash;<code>else</code> является последним оператором в блоке кода.</p>
+</body>
+</html>

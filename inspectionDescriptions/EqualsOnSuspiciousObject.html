@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>equals()</code> для экземпляров <code>StringBuilder</code>, <code>StringBuffer</code> и классов из пакета <code>java.util.concurrent.atomic</code>.
+<p>Метод <code>equals()</code> не переопределен в этих классах, поэтому может вернуть <code>false</code>, даже если содержимое двух объектов идентично.
+  Если вы намереваетесь проверить равенство ссылок, рекомендуется использовать <code>==</code> во избежание путаницы.</p>
+Доступно быстрое исправление для <code>StringBuilder</code>, <code>StringBuffer</code>, <code>AtomicBoolean</code>, <code>AtomicInteger</code>, <code>AtomicBoolean</code> и <code>AtomicLong</code> для преобразования в сравнение содержимого.
+Быстрое исправление может изменить семантику, когда один из экземпляров равен null.
+<p>Пример:</p>
+<pre><code>
+  public void test(StringBuilder sb1, StringBuilder sb2) {
+    boolean result = sb1.equals(sb2); // подозрительно
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  public void test(StringBuilder sb1, StringBuilder sb2) {
+      boolean result = sb1.toString().equals(sb2.toString());
+  }
+</code></pre>
+<p><small>Изменения в версии 2017.2</small></p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>super.tearDown()</code> в JUnit 3, которые не выполняются внутри блока <code>finally</code>.
+Если исключение возникает до вызова <code>super.tearDown()</code>, это может привести к несогласованности и утечкам.
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  public class AnotherTest extends CompanyTestCase {
+    private Path path;
+    @Override
+    protected void setUp() throws Exception {
+      super.setUp();
+      path = Files.createTempFile("File", ".tmp");
+    }
+    @Override
+    protected void tearDown() throws Exception {
+      Files.delete(path);
+      super.tearDown();
+    }
+  }
+</code></pre>
+<p>Улучшенный код:</p>
+<pre><code lang="java">
+  public class AnotherTest extends CompanyTestCase {
+    private Path path;
+    @Override
+    protected void setUp() throws Exception {
+      super.setUp();
+      path = Files.createTempFile("File", ".tmp");
+    }
+    @Override
+    protected void tearDown() throws Exception {
+      try {
+        Files.delete(path);
+      } finally {
+        super.tearDown();
+      }
+    }
+  }
+</code></pre>
+</body>
+</html>

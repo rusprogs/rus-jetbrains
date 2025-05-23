@@ -1,0 +1,21 @@
+<html>
+<body>
+Обнаруживает ненужные экранированные символы в строковых литералах <code>String</code> и символьных литералах <code>char</code> (опционально).
+<p>Не сообщает об экранированных символах табуляции <code>\t</code>, поскольку символы табуляции невидимы.</p>
+<p>Пример:</p>
+<pre><code>
+  String s = "\'Scare\' quotes";
+  String t = """
+    All you need is\n\tLove\n""";
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  String s = "'Scare' quotes";
+  String t = """
+    All you need is
+    \tLove
+  """;
+</code></pre>
+<p><small>Новое в версии 2019.3</small>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Сообщается, что функцию <code>hashMapOf</code> или конструктор <code>HashMap</code> можно заменить конструктором <code>EnumMap</code>.
+<p>Использование конструктора <code>EnumMap</code> делает код более лаконичным.</p>
+<p>Это быстрое исправление заменит вызов функции на вызов конструктора <code>EnumMap</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  enum class E {
+      A, B
+  }
+  fun getMap(): Map&lt;E, String&gt; = hashMapOf()
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  enum class E {
+      A, B
+  }
+  fun getMap(): Map&lt;E, String&gt; = EnumMap(E::class.java)
+</code></pre>
+</body>
+</html>

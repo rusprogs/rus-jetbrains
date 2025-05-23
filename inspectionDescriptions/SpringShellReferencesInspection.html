@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>
+  Сообщает о недопустимых ссылках в аннотации Spring Shell <code>org.springframework.shell.standard.ShellMethodAvailability</code>.
+</p>
+<p>Пример:</p>
+<pre><code lang="java">
+@ShellComponent
+public class MyCommands {
+    @ShellMethod("sum")
+    @ShellMethodAvailability("sumAvailability") // значение аннотации будет подсвечено как нераспознанный символ
+    public int sum(int a, int b) {
+        return a + b;
+    }
+    @ShellMethodAvailability("sumMethod") // значение аннотации будет подсвечено как нераспознанный символ
+    public Availability isSumAvailable() {
+        return Availability.available();
+    }
+}
+</code></pre>
+</body>
+</html>

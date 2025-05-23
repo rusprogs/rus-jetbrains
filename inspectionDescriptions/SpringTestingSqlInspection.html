@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Сообщает о нерезрешенных ссылках на файлы в атрибуте <code>scripts</code> аннотации <a href=https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/context/jdbc/Sql.html>@Sql</a> и соответствующих псевдонимах мета-аннотации <code>@Sql</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  @SqlGroup({
+     @Sql("not-found"), // Сообщение "Не удалось разрешить файл 'not-found'"
+     @Sql("found.sql")
+  })
+  public class MyTestWithSqlData {...}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<body>
+Сообщение о <code>public</code> конструкторе.
+<p>Некоторые стандарты кодования не рекомендуют использовать <code>public</code> конструкторы, а вместо этого предлагают использовать <code>static</code> фабричные методы.
+Это позволяет заменять реализацию без влияния на точки вызова.
+<p><b>Пример:</b></p>
+<pre><code>
+  class Test {
+    private String name;
+    public Test(String name) {
+        this.name = name;
+    }
+    public void test() {
+        System.out.println(name);
+    }
+    public static void main(String[] args) {
+        new Test("str").test();
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class Test {
+    private String name;
+    private Test(String name) {
+        this.name = name;
+    }
+    public static Test getInstance(String name) {
+        return new Test(name);
+    }
+    public void test() {
+        System.out.println(name);
+    }
+    public static void main(String[] args) {
+        getInstance("str").test();
+    }
+  }
+</code></pre>
+</body>
+</html>

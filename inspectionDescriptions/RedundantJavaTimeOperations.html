@@ -1,0 +1,44 @@
+<html>
+<body>
+Отчёт об избыточных операциях с объектами 'java.time':
+<ul>
+  <li>Создание объектов даты/времени из пакета JDK <code>java.time</code>, когда можно использовать более простой вызов метода или избежать создания.</li>
+  <li>Вызовы методов <code>java.time</code> с аргументами <code>java.time.temporal.ChronoField</code> и <code>java.time.temporal.ChronoUnit</code>, которые можно заменить более специфичными методами.</li>
+  <li>Сравнения с <code>java.time</code> использующие <code>compareTo()</code>, которые можно заменить вызовами <code>isAfter()</code>, <code>isBefore()</code> или <code>isEqual()</code>.</li>
+</ul>
+<p>Примеры:</p>
+- До:
+<pre><code>
+LocalDateTime now = LocalDateTime.now();
+return LocalDateTime.from(now);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+LocalDateTime now = LocalDateTime.now();
+return now;
+</code></pre>
+- До:
+<pre><code>
+LocalTime localTime = LocalTime.now();
+int minute = localTime.get(ChronoField.MINUTE_OF_HOUR);
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+LocalTime localTime = LocalTime.now();
+int minute = localTime.getMinute();
+</code></pre>
+- До:
+<pre><code>
+  LocalDate date1 = LocalDate.now();
+  LocalDate date2 = LocalDate.now();
+  boolean t = date1.compareTo(date2) > 0;
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  LocalDate date1 = LocalDate.now();
+  LocalDate date2 = LocalDate.now();
+  boolean t = date1.isAfter(date2);
+</code></pre>
+<p><small>Новое в версии 2024.3</small></p>
+</body>
+</html>

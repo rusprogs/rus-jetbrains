@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>Сообщать о конструкторах классов с аннотацией <code>@Singleton</code>, если они не объявлены как non-strict.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  @Singleton
+  class Foo{
+      Foo(){
+      }
+  }
+</code></pre>
+<p>Доступны два варианта быстрого исправления: удалить конструктор или объявить <code>@Singleton</code> как non-strict.</p>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  @Singleton
+  class Foo{
+  }
+</code></pre>
+<p>или:</p>
+<pre><code>
+  @Singleton(<b>strict = false</b>)
+  class Foo{
+      Foo(){
+      }
+  }
+</code></pre>
+</body>
+</html>

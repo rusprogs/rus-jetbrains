@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Сообщение о наличии <code>@JvmOverloads</code> в конструкторе аннотации, так как это не имеет смысла.</p>
+<p>
+    <code>@JvmOverloads</code> не занимает места в сгенерированном байт-коде и метаданных Kotlin, поэтому не влияет на сгенерированный байт-код и поведение программы.
+</p>
+<p>Начиная с Kotlin 1.4, использование <code>@JvmOverloads</code> в конструкторе класса аннотации вызывает ошибку компиляции.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  annotation class A <b>@JvmOverloads</b> constructor(val x: Int = 1)
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  annotation class A constructor(val x: Int = 1)
+</code></pre>
+</body>
+</html>

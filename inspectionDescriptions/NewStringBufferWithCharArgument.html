@@ -1,0 +1,14 @@
+<html>
+<body>
+Сообщает о вызовах конструкторов <code>StringBuffer</code> и <code>StringBuilder</code> с аргументом типа <code>char</code>.
+В этом случае <code>char</code> неявно преобразуется в целое число и интерпретируется как начальная емкость буфера.
+<p><b>Пример:</b></p>
+<pre><code>
+  new StringBuilder('(').append("1").append(')');
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  new StringBuilder("(").append("1").append(')');
+</code></pre>
+</body>
+</html>

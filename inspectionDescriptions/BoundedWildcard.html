@@ -1,0 +1,61 @@
+<html>
+<body>
+Сообщения могут использовать обобщенные параметры методов с <a href="https://en.wikipedia.org/wiki/Wildcard_(Java)">ограниченными символами подстановки</a>.
+<p><b>Пример:</b></p>
+<pre><code>
+  void process(Consumer&lt;Number&gt; consumer);
+</code></pre>
+<p>Следует заменить на:</p>
+<pre><code>
+  void process(Consumer&lt;? super Number&gt; consumer);
+</code></pre>
+<p>
+  Эта сигнатура метода более гибкая, так как она принимает больше типов: не только <code>Consumer&lt;Number&gt;</code>, но и <code>Consumer&lt;Object&gt;</code>.
+</p>
+<p>Аналогично для параметров ввода в ковариантной позиции:</p>
+<pre><code>
+  T produce(Producer&lt;T&gt; p);
+</code></pre>
+<p>Следует заменить на:</p>
+<pre><code>
+  T produce(Producer&lt;? extends T&gt; p);
+</code></pre>
+<p>
+  Цитируя <a href="https://en.wikipedia.org/wiki/Joshua_Bloch#Effective_Java">Joshua Bloch</a> из третьего издания <em>Effective Java</em>:
+</p>
+<blockquote>
+  <h4>Пункт 31: Используйте ограниченные символы подстановки для повышения гибкости API</h4>
+  Использование типов с символами подстановки в API может быть сложным, но делает API более гибким.
+  Если вы пишете библиотеку для широкого использования, следует обеспечить правильное использование типов с символами подстановки.
+  Запомните основное правило: producer-extends, consumer-super (PECS).
+  Также помните, что все Comparable и Comparator являются потребителями.
+</blockquote>
+<p>
+  С помощью опций проверки можно включать отчёты для следующих элементов:
+</p>
+<ul>
+  <li>
+    <p>
+      Инвариантные классы. Пример инвариантного класса - <code>java.util.List&lt;T&gt;</code>, так как он и принимает значения (через метод <code>List.add(T)</code>) и производит их (через метод <code>T List.get()</code>).
+    </p>
+    <p>
+      С другой стороны, <code>contravariant</code> классы только принимают значения, например <code>java.util.function.Consumer&lt;T&gt;</code> с единственным методом <code>accept(T)</code>. Аналогично, <code>covariant</code> классы только производят значения, например <code>java.util.function.Supplier&lt;T&gt;</code> с единственным методом <code>T get()</code>.
+    </p>
+    <p>
+      Часто используют ограниченные символы подстановки в ковариантных/контравариантных классах, но избегают их использования в инвариантных классах, например <code>void process(List&lt;? extends T&gt; l)</code>.
+      Отключение этой опции позволяет игнорировать такие инвариантные классы и сохранять для них строгую типизацию, например <code>void process(List&lt;T&gt; l)</code>.
+    </p>
+  </li>
+  <li>
+    <p>
+      Методы <code>private</code>, которые не считаются частью публичного API
+    </p>
+  </li>
+  <li>
+    <p>
+      Методы экземпляра
+    </p>
+  </li>
+</ul>
+</body>
+</html>

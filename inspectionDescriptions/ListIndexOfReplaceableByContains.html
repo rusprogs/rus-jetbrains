@@ -1,0 +1,19 @@
+<html>
+<body>
+Сообщает о выражениях с <code>List.indexOf()</code>, которые могут быть заменены методом <code>List.contains()</code>.
+<p>Пример:</p>
+<pre><code>
+  boolean hasEmptyString(List&lt;String&gt; list) {
+    // Предупреждение: можно упростить
+    return list.indexOf("") &gt;= 0;
+  }
+</code></pre>
+<p>Предлагаемое быстрое исправление заменяет вызов <code>indexOf</code> на вызов <code>contains</code>:</p>
+<pre><code>
+  boolean hasEmptyString(List&lt;String&gt; list) {
+    // Быстрое исправление применено
+    return list.contains("");
+  }
+</code></pre>
+</body>
+</html>

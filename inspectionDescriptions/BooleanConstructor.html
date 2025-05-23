@@ -1,0 +1,17 @@
+<html>
+<body>
+Сообщает о создании объектов <code>Boolean</code>.
+<p>
+  Создание новых объектов <code>Boolean</code> обычно не требуется и может привести к проблемам с производительностью при частом использовании. Кроме того, конструктор <code>Boolean</code> считается устаревшим начиная с Java 9 и может быть удален или стать недоступным в будущих версиях Java.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  Boolean b1 = new Boolean(true);
+  Boolean b2 = new Boolean(str);
+</code></pre>
+<p>После быстрого исправления:</p>
+<pre><code>
+  Boolean b1 = Boolean.TRUE;
+  Boolean b2 = Boolean.valueOf(str);
+</code></pre>
+</body>
+</html>

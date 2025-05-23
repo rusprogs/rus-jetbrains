@@ -1,0 +1,24 @@
+<html>
+<body>
+Обнаружение избыточных операторов <code>import</code>.
+<p>Обычные операторы <code>import</code> не требуются, если классы и пакеты, импортованные в исходный файл, не используются.
+Это также относится к <code>static</code> полям и методам, которые были импортованы, но не используются в исходном файле.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  import java.util.ArrayList;
+  public class Example {
+    public static void main(String[] args) {
+      System.out.println("Hello World!");
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:
+<pre><code>
+  public class Example {
+    public static void main(String[] args) {
+      System.out.println("Hello World!");
+    }
+  }
+</code></pre>
+</body>
+</html>

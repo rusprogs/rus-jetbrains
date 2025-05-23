@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Сообщает о нераспознанных ссылках на методы в параметрах <code>initMethod</code> и <code>destroyMethod</code> аннотации <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html">@Bean</a>.</p>
+<p><b>Пример:</b></p>
+Если класс MyBean не содержит метод 'public void doInit(){...}', будет выведено сообщение "Невозможно разрешить метод" для выражения 'doInit'
+<pre><code lang="java">
+  public class MyBean {...}
+  @Component
+  public class MyComponent {
+     @Bean(initMethod="doInit" )
+     public MyBean myBean() {...}
+  }
+</code></pre>
+<p>В этом примере, если <code>MyBean</code> не определяет метод <code>doInit()</code>, проверка сообщит о нераспознанной ссылке на метод.</p>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Сообщает о некорректном использовании аннотации <a href="https://docs.python.org/3/library/typing.html#typing.ClassVar">ClassVar</a>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+from typing import ClassVar
+class Cat:
+    color: ClassVar[str] = "white"
+    weight: int
+    def __init__(self, weight: int):
+        self.weight = weight
+Cat.color = "black"  # OK
+my_cat = Cat(5)
+my_cat.color = "gray"  # Ошибка: установка значения классовой переменной для экземпляра
+</code></pre>
+</body>
+</html>

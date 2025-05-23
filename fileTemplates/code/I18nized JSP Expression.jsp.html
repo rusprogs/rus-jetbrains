@@ -1,0 +1,42 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">
+    Замена текста в JSP,
+    например:</font>
+    <br>
+      <code>&nbsp;&nbsp;&lt;<b>html</b>&gt;&lt;<b>body</b>&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Hello!<br>
+        &nbsp;&nbsp;&lt;/<b>body</b>&gt;&lt;/<b>html</b>&gt;</code>
+      <br>
+      <font face="verdana" size="-1">с интернационализованным пользовательским тегом JSP, например:</font>
+      <br>
+      <code>&nbsp;&nbsp;&lt;<b>html</b>&gt;&lt;<b>body</b>&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;<b>bean:message</b>&nbsp;key="HelloKey"/&gt;<br>
+        &nbsp;&nbsp;&lt;/<b>body</b>&gt;&lt;/<b>html</b>&gt;</code>
+    <br>
+      <font face="verdana" size="-1">Этот встроенный шаблон можно редактировать. Помимо выражений, допустимых в контексте JSP, вы можете использовать предопределённые переменные, которые впоследствии будут развернуты в соответствующие значения.</font>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Предопределённые переменные принимают следующие значения:</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROPERTY_KEY}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Имя ключа свойства, указанного в соответствующем файле свойств.
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROPERTY_VALUE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Значение свойства, указанное в соответствующем файле свойств.
+      Это исходное значение выбранного текста JSP.
+    </font></td>
+  </tr>
+</table>
+</body>
+</html>

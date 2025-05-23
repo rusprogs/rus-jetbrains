@@ -1,0 +1,23 @@
+<html>
+<body>
+Сообщает о вызовах метода <code>copy()</code> для классов данных без именованных аргументов.
+<p>
+    Поскольку все аргументы функции <code>copy()</code> являются необязательными, может быть сложно понять, какие свойства изменяются.
+    Явное указание имен параметров делает код более понятным и устраняет необходимость переходить к объявлению <code>data class</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  data class User(val name: String, val age: Int)
+  fun copyUser(user: User): User {
+      return user.copy("John")
+  }
+</code></pre>
+<p>Быстрое исправление добавит имена параметров для всех аргументов <code>copy()</code>:</p>
+<pre><code>
+  data class User(val name: String, val age: Int)
+  fun copyUser(user: User): User {
+      return user.copy(name = "John")
+  }
+</code></pre>
+</body>
+</html>

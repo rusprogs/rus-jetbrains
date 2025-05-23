@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает об объявлениях модулей, классах, полях или методах, которые имеют тег Javadoc <code>@deprecated</code>, но не имеют аннотации <code>@java.lang.Deprecated</code>.
+<p><b>Пример:</b></p>
+<pre><code>
+  /**
+   * @deprecated use {@code example()} instead
+   */
+  void sample(){ }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  /**
+   * @deprecated use {@code example()} instead
+   */
+  @Deprecated
+  void sample(){ }
+</code></pre>
+<p>
+Используйте флажок ниже, чтобы находить элементы с аннотацией <code>@Deprecated</code>, но без пояснения в теге Javadoc <code>@deprecated</code>.
+</body>
+</html>

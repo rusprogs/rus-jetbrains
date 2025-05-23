@@ -1,0 +1,9 @@
+<html>
+<body>
+Проверка наличия связи <pre><code>@ManyToMany</code></pre> (с атрибутом <pre><code>CascadeType.REMOVE</code></pre>).
+Указание <pre><code>CascadeType.REMOVE</code></pre> для <pre><code>@ManyToMany</code></pre> не имеет смысла для каскадирования, так как оно распространяется за пределы связующей таблицы.
+Автоматическое удаление может привести к <pre><code>ConstraintViolationException</code></pre>, поскольку на другую сторону могут ссылаться другие сущности родительской стороны.
+Например, если определено <pre><code>@ManyToMany(cascade = CascadeType.ALL)</code></pre>, и первый пользователь будет удален, Hibernate выбросит исключение, поскольку другой пользователь все еще связан с удаляемым адресом.
+Дополнительную информацию смотрите в <a href="https://vladmihalcea.com/hypersistence-optimizer/docs/user-guide/#ManyToManyCascadeRemoveEvent">этой статье</a>.
+</body>
+</html>

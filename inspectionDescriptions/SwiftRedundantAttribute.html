@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>
+  Сообщает об использовании атрибута <code>@objc</code> в объявлениях, где этот атрибут уже неявно предполагается.
+</p>
+<p>
+  Рекомендуется удалить избыточные атрибуты <code>@objc</code> и <code>@nonobjc</code>.
+</p>
+<p>
+  <b>Пример:</b>
+</p>
+<pre><code>
+  @objc
+  class C : NSObject {
+  }
+</code></pre>
+<p>
+  После применения быстрого исправления:
+</p>
+<pre><code>
+  class C : NSObject {
+  }
+</code></pre>
+</body>
+</html>

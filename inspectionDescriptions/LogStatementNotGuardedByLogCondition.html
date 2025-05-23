@@ -1,0 +1,27 @@
+<html>
+<body>
+Обнаружены вызовы логования, не защищенные условными операторами.
+Вычисление аргументов для таких вызовов может быть ресурсоемким.
+Оборачивание вызовов логования в условные блоки позволяет избежать этих затрат, когда логование для данного уровня отключено. Это особенно полезно для наименее критичных уровней логования (trace, debug, finest), поскольку они чаще всего отключены в производственной среде.
+<p><b>Пример:</b></p>
+<pre><code lang="java">
+  public class TestObject {
+    void test(Object object) {
+      LOG.debug("some logging " + expensiveCalculation(1));
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code lang="java">
+  public class TestObject {
+    void test(Object object) {
+      if(LOG.isDebugEnabled()){
+        LOG.debug("some logging " + expensiveCalculation(1));
+      }
+    }
+  }
+</code></pre>
+<p>Эта проверка поддерживает фреймворки логования <em>Log4j2</em> и <em>SLF4J</em> (за исключением построителей).
+<p><small>Изменения в версии 2024.2</small></p>
+</body>
+</html>

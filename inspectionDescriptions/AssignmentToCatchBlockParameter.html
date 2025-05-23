@@ -1,0 +1,36 @@
+<html>
+<body>
+Сообщает о присваивании параметру блока <code>catch</code>.
+<p>Изменение параметра блока <code>catch</code> может привести к путанице и не рекомендуется.</p>
+<p>Быстрое исправление добавит объявление новой переменной.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  void processFile(String fileName) throws Exception {
+    try {
+      doProcessFile(fileName);
+    } catch(Exception ex) {
+      if (ex instanceof UncheckedIOException) {
+        // Warning: catch block parameter reassigned
+        ex = ((UncheckedIOException) ex).getCause();
+      }
+      throw ex;
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  void processFile(String fileName) throws Exception {
+    try {
+      doProcessFile(fileName);
+    } catch(Exception ex) {
+      Exception unwrapped = ex;
+      if (unwrapped instanceof UncheckedIOException) {
+        unwrapped = ((UncheckedIOException)
+          unwrapped).getCause();
+      }
+      throw unwrapped;
+    }
+  }
+</code></pre>
+</body>
+</html>

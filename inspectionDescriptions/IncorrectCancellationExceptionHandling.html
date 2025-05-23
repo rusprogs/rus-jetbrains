@@ -1,0 +1,68 @@
+<html>
+<body>
+Сообщает о случаях некорректной обработки <code>ProcessCanceledException</code> и <code>CancellationException</code>.
+<p>
+  <code>ProcessCanceledException</code> и его наследники не должны быть перехвачены, подавлены, залогованы или обработаны каким-либо образом.
+  Вместо этого они должны быть переброшены, чтобы инфраструктура платформы IntelliJ могла их правильно обработать.
+</p>
+<p>
+  В контексте корутин <code>CancellationException</code> не должен быть перехвачен, подавлен, залогован или обработан каким-либо образом.
+  Вместо этого он должен быть переброшен, чтобы инфраструктура корутин могла его правильно обработать.
+</p>
+<p>
+  Проверка выявляет явный перехват <code>ProcessCanceledException</code> (включая наследников) и <code>CancellationException</code>, а также перехват <code>RuntimeException</code>, <code>Exception</code> и <code>Throwable</code>, которые могут скрывать исключения отмены.
+</p>
+<h3>Примеры:</h3>
+<h4><code>ProcessCanceledException</code>:</h4>
+<pre><code lang="java">
+// плохо:
+try {
+  // ...
+} catch (ProcessCanceledException e) { // исключение не должно быть подавлено
+}
+// неправильно:
+try {
+  // ...
+} catch (ProcessCanceledException e) {
+  LOG.error("Error occurred", e); // исключение не должно быть залоговано
+  throw e;
+}
+// правильно:
+try {
+  // ...
+} catch (ProcessCanceledException e) {
+  // дополнительные действия
+  throw e;
+}
+</code></pre>
+<h4><code>CancellationException</code>:</h4>
+<pre><code lang="kotlin">
+// плохо:
+cs.launch {
+  try {
+    // ...
+  } catch (e: CancellationException) { // исключение не должно быть подавлено
+  }
+}
+// неправильно:
+suspend fun suspendingFunction() {
+  try {
+    // ...
+  } catch (ProcessCanceledException e) {
+    LOG.error("Error occurred", e); // исключение не должно быть залоговано
+    throw e;
+  }
+}
+// правильно:
+cs.launch {
+  try {
+    // ...
+  } catch (ProcessCanceledException e) {
+    // дополнительные действия
+    throw e;
+  }
+}
+</code></pre>
+<p><small>Изменения в версии 2023.2</small></p>
+</body>
+</html>

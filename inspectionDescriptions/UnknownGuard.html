@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает о неизвестных защищенных полях, указанных в аннотации <code>@GuardedBy</code>.
+<p>Пример:</p>
+<pre><code>
+    private Object state;
+    @GuardedBy("lock") //неизвестная защищенная ссылка
+    public void bar() {
+        state = new Object();
+    }
+</code></pre>
+<p>Поддерживаемые аннотации <code>@GuardedBy</code>:</p>
+<ul>
+  <li><code>net.jcip.annotations.GuardedBy</code></li>
+  <li><code>javax.annotation.concurrent.GuardedBy</code></li>
+  <li><code>org.apache.http.annotation.GuardedBy</code></li>
+  <li><code>com.android.annotations.concurrency.GuardedBy</code></li>
+  <li><code>androidx.annotation.GuardedBy</code></li>
+  <li><code>com.google.errorprone.annotations.concurrent.GuardedBy</code></li>
+</ul>
+</body>
+</html>

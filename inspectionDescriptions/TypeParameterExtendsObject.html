@@ -1,0 +1,16 @@
+<html>
+<body>
+Сообщает о параметрах типа и аргументах типа подстановочного знака, которые явно объявлены как расширяющие <code>java.lang.Object</code>.
+<p>Такое объявление 'extends' является избыточным, поскольку <code>java.lang.Object</code> является родительским типом для всех классов.</p>
+<p><b>Пример:</b></p>
+<pre><code>  class ClassA&lt;T extends Object&gt; {}
+</code></pre>
+<p>
+  Если вам нужно сохранить объявление 'extends Object' из-за аннотаций, отключите опцию <b>Игнорировать при аннотировании java.lang.Object</b>.
+  Это может быть полезно, например, когда вы используете анализатор null-безопасности, и объявление 'extends Object' содержит аннотации <code>@Nullable</code>/<code>@NotNull</code>.
+</p>
+<p><b>Пример:</b></p>
+<pre><code>  class MyClass&lt;T extends @NotNull Object&gt; {}
+</code></pre>
+</body>
+</html>

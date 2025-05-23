@@ -1,0 +1,35 @@
+<html>
+<body>
+<p>
+  Сообщает об отсутствующих и устаревших свойствах, нераспознанных ссылках и недопустимых значениях в файле конфигурации <code>additional-spring-configuration-metadata.json</code>.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+  {
+    "properties": [
+      {
+        "name": "old.key",
+        "type": "com.Unknown", // Сообщение 'Невозможно разрешить класс 'Unknown''
+        "description": "Description for old.key", // Сообщение 'Текст должен заканчиваться точкой'
+        "deprecation": {
+          "replacement": "new.key", // Сообщение 'Невозможно разрешить ссылку на ключ конфигурации 'new.key''
+          "reason": "Reason", // Сообщение 'Текст должен заканчиваться точкой'
+          "level": "warning"
+         }
+      },
+      {
+        "name": "duplicate", // Сообщение 'Дублирующаяся запись для 'duplicate''
+        "type": "java.lang.String"
+      },
+      {
+        "name": "duplicate", // Сообщение 'Дублирующаяся запись для 'duplicate''
+        "type": "java.lang.String"
+      },
+      {
+        // Сообщение 'Отсутствует обязательный параметр 'name''
+        "type": "java.lang.String"
+      }
+    ]
+  }
+</code></pre>
+</body>
+</html>

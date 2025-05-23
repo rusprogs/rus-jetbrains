@@ -1,0 +1,29 @@
+<html>
+<body>
+Сообщает о методах, содержащих несколько циклов.
+<p><b>Пример:</b></p>
+<p>Следующий метод будет отмечен, так как содержит два цикла:</p>
+<pre><code>
+  void methodWithTwoLoops(int n1, int n2) {
+    for (int i = 0; i &lt; n1; i++) {
+      System.out.println(i);
+    }
+    int j = 0;
+    while (j &lt; n2) {
+      System.out.println(j);
+      j++;
+    }
+  }
+</code></pre>
+<p>Следующий метод также будет отмечен, так как содержит вложенные циклы:</p>
+<pre><code>
+  void methodWithNestedLoop(int n1, int n2) {
+    for (int i = 0; i &lt; n1; i++) {
+      for (int j = 0; j &lt; n2; j++) {
+        System.out.println(i + j);
+      }
+    }
+  }
+</code></pre>
+</body>
+</html>

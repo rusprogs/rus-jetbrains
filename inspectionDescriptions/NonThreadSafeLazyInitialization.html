@@ -1,0 +1,31 @@
+<html>
+<body>
+Сообщает об отложенной инициализации <code>static</code> переменной небезопасным для потоков способом.
+<p>Отложенная инициализация <code>static</code> переменных должна выполняться с использованием соответствующих синхронизационных конструкций для предотвращения конфликтующих инициализаций разными потоками.</p>
+<p>Где это применимо, рекомендуется использовать быстрое исправление, которое вводит <a href="https://en.wikipedia.org/wiki/Initialization_on_demand_holder_idiom">идиому класса-держателя отложенной инициализации</a>.
+  Эта идиома использует тот факт, что JVM гарантирует, что класс не будет инициализован до его использования.
+<p><b>Пример:</b></p>
+<pre><code>
+  class X {
+    private static List&lt;String&gt; list;
+    public List&lt;String&gt; getList() {
+      if (list == null) {
+        list = List.of("one", "two", "tree");
+      }
+      return list;
+    }
+  }
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+  class X {
+    private static final class ListHolder {
+      static final List&lt;String&gt; list = List.of("one", "two", "tree");
+    }
+    public List&lt;String&gt; getList() {
+      return ListHolder.list;
+    }
+  }
+</code></pre>
+</body>
+</html>

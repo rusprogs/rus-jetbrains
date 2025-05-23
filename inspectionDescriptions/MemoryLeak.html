@@ -1,0 +1,15 @@
+<html>
+<body>
+Сообщает о выделениях памяти (<code>new</code> оператор или функция <code>malloc()</code>), которые не были освобождены до того, как стали недоступными.
+<p><b>Пример:</b></p>
+<pre><code>
+  class MyClass {
+      int* leakedField = new int;
+  };
+  void foo() {
+      MyClass* c = new MyClass;
+      delete c;
+  }
+</code></pre>
+</body>
+</html>

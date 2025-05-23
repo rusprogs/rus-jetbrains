@@ -1,0 +1,10 @@
+<html>
+<body>
+Обнаружено некорректное использование UNION в запросе.
+<p>Эта проверка применяется для версий MySQL ниже 8.0.</p>
+<p>Пример (MySQL):</p>
+<pre><code lang="mysql">
+SELECT * FROM (SELECT 1 UNION (SELECT 1 UNION SELECT 2)) a;
+</code></pre>
+</body>
+</html>

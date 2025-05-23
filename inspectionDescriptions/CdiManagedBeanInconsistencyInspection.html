@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Сообщает о неправильных правилах определения Bean.</p>
+<p>Класс Java верхнего уровня может быть простым Bean, если:</p>
+<ul>
+  <li>Он не является параметризованным типом.</li>
+  <li>Он не является non-static внутренним классом.</li>
+  <li>Это конкретный класс или класс, аннотированный с помощью <code>@Decorator</code>.</li>
+  <li>Имеет подходящий конструктор: класс имеет конструктор без параметров или конструктор, объявленный с аннотацией <code>@Initializer</code>.
+  </li>
+  <li>Он не реализует ни один из следующих интерфейсов:
+    <code>javax.servlet.Servlet</code>,
+    <code>javax.servlet.Filter</code>,
+    <code>javax.servlet.ServletContextListener</code>,
+    <code>javax.servlet.http.HttpSessionListener</code>,
+    <code>javax.servlet.ServletRequestListener</code>,
+    <code>javax.ejb.EnterpriseBean</code>.
+  </li>
+  <li>Он не расширяет <code>javax.faces.component.UIComponent</code>.</li>
+</ul>
+</body>
+</html>

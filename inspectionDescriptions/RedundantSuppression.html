@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает об элементах, которые можно безопасно удалить, поскольку проверки, на которые они влияют, больше не применимы в данном контексте:
+<ul>
+  <li>аннотации <code>@SuppressWarning</code>, или</li>
+  <li>однострочные комментарии <code>// noinspection</code>, или</li>
+  <li>комментарии JavaDoc <code>/** noinspection */</code></li>
+</ul>
+<p>Пример:</p>
+<pre><code lang="java">
+public class C {
+ // Символ уже является private,
+ // но аннотация всё ещё присутствует
+  @SuppressWarnings({"WeakerAccess"})
+ private boolean CONST = true;
+ void f() {
+    CONST = false;
+  }
+}
+</code></pre>
+</body>
+</html>

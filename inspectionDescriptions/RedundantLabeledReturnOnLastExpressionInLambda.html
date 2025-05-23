@@ -1,0 +1,22 @@
+<html>
+<body>
+Сообщает об использовании помеченного return в последнем выражении лямбда-функции.
+<p>Такой return избыточен и может быть безопасно удален.</p>
+<p><b>Пример:</b></p>
+<pre><code>
+fun foo() {
+  listOf(1,2,3).find {
+    return@find true
+  }
+}
+</code></pre>
+<p>После применения быстрого исправления:</p>
+<pre><code>
+fun foo() {
+  listOf(1,2,3).find {
+    true
+  }
+}
+</code></pre>
+</body>
+</html>

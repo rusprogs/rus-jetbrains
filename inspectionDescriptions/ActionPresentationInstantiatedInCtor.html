@@ -1,0 +1,60 @@
+<html>
+<body>
+<p>
+  Сообщает о любых действиях, зарегистрированных в файле <code>plugin.xml</code>, и создает экземпляр объекта <code>com.intellij.openapi.actionSystem.Presentation</code> в своем конструкторе.
+</p>
+<p>
+  Любой конструктор <code>AnAction</code> с параметрами создает экземпляр объекта <code>Presentation</code>. Однако создание экземпляра объекта <code>Presentation</code> в конструкторе приводит к выделению ресурсов, что может быть необязательным. Вместо создания экземпляра <code>Presentation</code> для хранения текста, описания или значков, более эффективно использовать конструктор без параметров <code>AnAction</code> и других базовых классов, следуя соглашению об установке текста, описания и значков в <code>plugin.xml</code>. ИСР загружает текст, описание и значки только тогда, когда действие фактически отображается в пользовательском интерфейсе.
+</p>
+<p>
+  Соглашения по установке текста, описания и значков следующие:
+</p>
+<ul>
+  <li>
+    Установите атрибут <code>id</code> для действия в файле <code>plugin.xml</code>.
+  </li>
+  <li>
+    Если нужен значок, также установите атрибут <code>icon</code>.
+  </li>
+  <li>
+    Установите текст и описание в соответствующем пакете сообщений (может быть переопределено в <code>&lt;actions&gt;</code>):
+    <ul>
+      <li><code>action.&lt;action-id&gt;.text=Переведенный текст действия</code></li>
+      <li><code>action.&lt;action-id&gt;.description=Переведенное описание действия</code></li>
+    </ul>
+  </li>
+</ul>
+<p><b>Неправильный пример:</b></p>
+<pre><code lang="kotlin">
+  // NewKotlinFileAction.kt
+  internal class NewKotlinFileAction : AnAction(
+    KotlinBundle.message("action.new.file.text"),
+    KotlinBundle.message("action.new.file.description"),
+    KotlinIcons.FILE
+  )
+</code></pre>
+<pre><code lang="xml">
+  &lt;action
+    class="org.jetbrains.kotlin.idea.actions.NewKotlinFileAction"
+  &lt;/action&gt;
+</code></pre>
+<p><b>Правильный пример:</b></p>
+<pre><code lang="kotlin">
+  // NewKotlinFileAction.kt
+  internal class NewKotlinFileAction : AnAction()
+</code></pre>
+<pre><code lang="xml">
+  &lt;action
+    id="Kotlin.NewFile"
+    class="org.jetbrains.kotlin.idea.actions.NewKotlinFileAction"
+    icon="org.jetbrains.kotlin.idea.KotlinIcons.FILE">
+  &lt;/action&gt;
+</code></pre>
+<pre><code lang="properties">
+  # KotlinBundle.properties
+  action.Kotlin.NewFile.text=Класс/файл Kotlin
+  action.Kotlin.NewFile.description=Создать новый класс или файл Kotlin
+</code></pre>
+<p><small>Изменения в версии 2023.2</small></p>
+</body>
+</html>

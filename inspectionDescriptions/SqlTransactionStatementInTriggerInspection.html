@@ -1,0 +1,37 @@
+<html>
+<body>
+Сообщает об использовании операторов управления транзакциями (таких как COMMIT или ROLLBACK) в теле триггера.
+<p>Триггер не будет скомпилирован при использовании операторов COMMIT или ROLLBACK в его теле.
+  Ошибка возникает потому, что триггер срабатывает в середине транзакции. Когда триггер запускается, текущая транзакция еще не завершена. Поскольку COMMIT завершает транзакцию, оба оператора (COMMIT и ROLLBACK) приведут к исключению.
+  Изменения, выполненные в триггере, должны быть зафиксированы (или отменены) транзакцией, которая вызвала срабатывание триггера.</p>
+<p>Пример (Oracle):</p>
+<pre><code>CREATE TABLE employee_audit
+(
+    id          INT  NOT NULL,
+    update_date DATE NOT NULL,
+    old_name    VARCHAR2(100),
+    new_name    VARCHAR2(100)
+);
+CREATE TABLE employees
+(
+    id   INT           NOT NULL,
+    name VARCHAR2(100) NOT NULL
+);
+CREATE OR REPLACE TRIGGER trig_commit
+    AFTER UPDATE OF name
+    ON employees
+    FOR EACH ROW
+BEGIN
+    INSERT INTO employee_audit VALUES (:old.id, SYSDATE, :old.name, :new.name);
+    COMMIT;
+END;
+CREATE OR REPLACE TRIGGER trig_rollback
+    AFTER UPDATE OF name
+    ON employees
+    FOR EACH ROW
+BEGIN
+    INSERT INTO employee_audit VALUES (:old.id, SYSDATE, :old.name, :new.name);
+    ROLLBACK;
+END;</code></pre>
+</body>
+</html>

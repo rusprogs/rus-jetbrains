@@ -1,0 +1,20 @@
+<html>
+<body>
+Сообщает об объявлениях процедур и функций, для которых отсутствует реализация в коде.
+<p>В Oracle вы можете объявить процедуру или функцию без тела и написать реализацию позже. Эта проверка сообщит о названиях таких процедур или функций, которые не были реализованы.</p>
+<p>Пример (Oracle):</p>
+<pre><code>DECLARE PROCEDURE foo(a int, b varchar2);
+BEGIN
+    NULL;
+END;</code></pre>
+<p>Процедура <code>foo</code> была объявлена, но реализация отсутствует. Мы можем добавить реализацию, чтобы устранить ошибку.</p>
+<pre><code>DECLARE PROCEDURE foo(a int, b varchar2);
+  PROCEDURE foo(a int, b varchar2) IS
+BEGIN
+    NULL;
+END;
+BEGIN
+    NULL;
+END;</code></pre>
+</body>
+</html>
